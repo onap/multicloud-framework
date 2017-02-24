@@ -14,12 +14,13 @@ import logging
 
 from multivimbroker.pub.exceptions import VimBrokerException
 from multivimbroker.pub.utils.restcall import req_by_msb
+from multivimbroker.pub.config.config import ESR_GET_VIM_URI
 
 logger = logging.getLogger(__name__)
 
 
 def get_vims():
-    ret = req_by_msb("/openoapi/extsys/v1/vims", "GET")
+    ret = req_by_msb(ESR_GET_VIM_URI, "GET")
     if ret[0] != 0:
         logger.error("Status code is %s, detail is %s.", ret[2], ret[1])
         raise VimBrokerException("Failed to query VIMs from extsys.")
@@ -27,8 +28,9 @@ def get_vims():
 
 
 def get_vim_by_id(vim_id):
-    ret = req_by_msb("/openoapi/extsys/v1/vims/%s" % vim_id, "GET")
+    ret = req_by_msb("%s/%s" % (ESR_GET_VIM_URI, vim_id), "GET")
     if ret[0] != 0:
         logger.error("Status code is %s, detail is %s.", ret[2], ret[1])
-        raise VimBrokerException("Failed to query VIM with id (%s) from extsys." % vim_id)
+        raise VimBrokerException(
+            "Failed to query VIM with id (%s) from extsys." % vim_id)
     return json.JSONDecoder().decode(ret[1])

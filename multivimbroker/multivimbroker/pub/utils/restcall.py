@@ -42,6 +42,7 @@ def call_req(base_url, user, passwd, auth_type, resource, method, content=''):
             http = httplib2.Http(ca_certs=ca_certs, disable_ssl_certificate_validation=(auth_type == rest_no_auth))
             http.follow_all_redirects = True
             try:
+                logger.debug("request=%s)" % full_url)
                 resp, resp_content = http.request(full_url, method=method.upper(), body=content, headers=headers)
                 resp_status, resp_body = resp['status'], resp_content.decode('UTF-8')
                 logger.debug("[%s][%d]status=%s,resp_body=%s)" % (callid, retry_times, resp_status, resp_body))

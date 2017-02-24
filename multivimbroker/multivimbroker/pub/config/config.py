@@ -15,8 +15,12 @@ import os
 MSB_SERVICE_IP = '127.0.0.1'
 MSB_SERVICE_PORT = '10080'
 
+# [ESR]
+ESR_GET_VIM_URI = "/openoapi/extsys/v1/vims"
+
 # [IMAGE LOCAL PATH]
-ROOT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ROOT_PATH = os.path.dirname(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # [REDIS]
 REDIS_HOST = '127.0.0.1'
