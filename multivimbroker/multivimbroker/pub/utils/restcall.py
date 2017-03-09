@@ -28,8 +28,8 @@ logger = logging.getLogger(__name__)
 
 def call_req(base_url, user, passwd, auth_type, resource, method, content=''):
     callid = str(uuid.uuid1())
-    logger.debug("[%s]call_req('%s','%s','%s',%s,'%s','%s','%s')" % (
-        callid, base_url, user, passwd, auth_type, resource, method, content))
+#    logger.debug("[%s]call_req('%s','%s','%s',%s,'%s','%s','%s')" % (
+#        callid, base_url, user, passwd, auth_type, resource, method, content))
     ret = None
     resp_status = ''
     try:
@@ -42,10 +42,10 @@ def call_req(base_url, user, passwd, auth_type, resource, method, content=''):
             http = httplib2.Http(ca_certs=ca_certs, disable_ssl_certificate_validation=(auth_type == rest_no_auth))
             http.follow_all_redirects = True
             try:
-                logger.debug("request=%s)" % full_url)
+#                logger.debug("request=%s)" % full_url)
                 resp, resp_content = http.request(full_url, method=method.upper(), body=content, headers=headers)
                 resp_status, resp_body = resp['status'], resp_content.decode('UTF-8')
-                logger.debug("[%s][%d]status=%s,resp_body=%s)" % (callid, retry_times, resp_status, resp_body))
+#                logger.debug("[%s][%d]status=%s,resp_body=%s)" % (callid, retry_times, resp_status, resp_body))
                 if resp_status in status_ok_list:
                     ret = [0, resp_body, resp_status]
                 else:
@@ -53,7 +53,7 @@ def call_req(base_url, user, passwd, auth_type, resource, method, content=''):
                 break
             except Exception as ex:
                 if 'httplib.ResponseNotReady' in str(sys.exc_info()):
-                    logger.debug("retry_times=%d", retry_times)
+#                    logger.debug("retry_times=%d", retry_times)
                     logger.error(traceback.format_exc())
                     ret = [1, "Unable to connect to %s" % full_url, resp_status]
                     continue
@@ -71,7 +71,7 @@ def call_req(base_url, user, passwd, auth_type, resource, method, content=''):
         logger.error(traceback.format_exc())
         ret = [4, str(sys.exc_info()), resp_status]
 
-    logger.debug("[%s]ret=%s" % (callid, str(ret)))
+#    logger.debug("[%s]ret=%s" % (callid, str(ret)))
     return ret
 
 

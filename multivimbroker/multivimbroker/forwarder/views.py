@@ -34,12 +34,31 @@ def route(request, vimid=''):
     status_code = status.HTTP_200_OK
     try:
         vim = get_vim_by_id(vimid)
+        if vim["type"] and vim["version"]:
+            pass
 
-        # if vim type is openstack, use latest "newton" version as default
-        if vim["type"] == "openstack":
-            vim["type"] = "multivim-newton"
+    except Exception as e:
+        logger.error("get_vim_by_id, exception: %s" % e)
+        return HttpResponse("Not a valid VIM instance", status=status.HTTP_404_NOT_FOUND)
 
-        route_uri = re.sub('multivim', vim["type"], request.get_full_path())
+    try:
+        if vim and vim["type"] == "openstack":
+            if vim["version"] == "kilo":
+                multivimdriver = "multivim-kilo"
+            elif vim["version"] == "newton":
+                multivimdriver = "multivim-newton"
+            else:
+                # if vim type is openstack, use latest "newton" version as default
+                multivimdriver = "multivim-newton"
+        elif vim and vim["type"] == "vmware":
+            multivimdriver = "multivim-vio"
+        else:
+            logger.error("wrong vim id: %s, return from extsys:%s" %
+                         vimid, vim)
+            return HttpResponse("Not support VIM type", status=status.HTTP_404_NOT_FOUND)
+
+        route_uri = re.sub('multivim', multivimdriver, request.get_full_path())
+
         retcode, content, status_code = \
             req_by_msb(route_uri, request.method, request.body)
         if retcode != 0:
@@ -49,4 +68,5 @@ def route(request, vimid=''):
     except Exception as e:
         content = e
         status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-    return HttpResponse(content, status_code)
+        logger.error("exception: %s" % e)
+    return HttpResponse(content, status=status_code)
