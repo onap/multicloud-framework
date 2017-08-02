@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a1a2d67_7c79adfb",
+        "filename": "multivimbroker/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 393
+      },
+      "writtenOn": "2017-08-02T05:35:52Z",
+      "side": 1,
+      "message": "Thanks for checking the whole file. By this patch, I would only change the POM parent. There will be other pathces for changes  in the rest of the code.",
+      "parentUuid": "1a1a2d67_d95a1350",
+      "range": {
+        "startLine": 22,
+        "startChar": 17,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "235c61bd366e9cae452c8eae12d7b38ae5a0759f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a1a2d67_7931bf0a",
         "filename": "multivimbroker/pom.xml",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2017-08-01T18:13:56Z",
       "side": 1,
       "message": "do we need to change the version to 1.0.0 too?",
+      "range": {
+        "startLine": 24,
+        "startChar": 13,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "235c61bd366e9cae452c8eae12d7b38ae5a0759f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a1a2d67_5c7ef1e5",
+        "filename": "multivimbroker/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 393
+      },
+      "writtenOn": "2017-08-02T05:35:52Z",
+      "side": 1,
+      "message": "Same above",
+      "parentUuid": "1a1a2d67_7931bf0a",
       "range": {
         "startLine": 24,
         "startChar": 13,
