@@ -18,7 +18,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-    url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)', views.route)
+    url(r'^onapapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)', views.route)
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

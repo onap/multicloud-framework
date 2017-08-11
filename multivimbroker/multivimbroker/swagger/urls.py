@@ -16,7 +16,7 @@ from multivimbroker.swagger import views
 from multivimbroker.swagger.views import SwaggerJsonView
 
 urlpatterns = [
-    url(r'^openoapi/multivim/v1/swagger.json$', SwaggerJsonView.as_view()),
+    url(r'^onapapi/multivim/v1/swagger.json$', SwaggerJsonView.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
