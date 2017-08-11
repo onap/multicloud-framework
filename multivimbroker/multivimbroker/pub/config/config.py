@@ -16,7 +16,7 @@ MSB_SERVICE_IP = '127.0.0.1'
 MSB_SERVICE_PORT = '10080'
 
 # [ESR]
-ESR_GET_VIM_URI = "/openoapi/extsys/v1/vims"
+ESR_GET_VIM_URI = "/api/extsys/v1/vims"
 
 # [IMAGE LOCAL PATH]
 ROOT_PATH = os.path.dirname(
@@ -36,11 +36,11 @@ DB_PASSWD = "password"
 
 # [register]
 REG_TO_MSB_WHEN_START = True
-REG_TO_MSB_REG_URL = "/openoapi/microservices/v1/services"
+REG_TO_MSB_REG_URL = "/api/microservices/v1/services"
 REG_TO_MSB_REG_PARAM = {
     "serviceName": "multivim",
     "version": "v1",
-    "url": "/openoapi/multivim/v1",
+    "url": "/api/multicloud/v0",
     "protocol": "REST",
     "visualRange": "1",
     "nodes": [{
