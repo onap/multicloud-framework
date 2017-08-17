@@ -25,6 +25,53 @@
     },
     {
       "key": {
+        "uuid": "9a437d4f_9837d4b0",
+        "filename": "multivimbroker/multivimbroker/forwarder/urls.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 551
+      },
+      "writtenOn": "2017-08-17T08:13:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a437d4f_5e94b936",
+      "range": {
+        "startLine": 21,
+        "startChar": 11,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "aa496c5ccf012b743eaee5a768873f88195943c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_783c3094",
+        "filename": "multivimbroker/multivimbroker/pub/config/config.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 551
+      },
+      "writtenOn": "2017-08-17T08:13:51Z",
+      "side": 1,
+      "message": "This has not been defined yet, but we can keep it as is until the API is well defined.",
+      "range": {
+        "startLine": 19,
+        "startChar": 19,
+        "endLine": 19,
+        "endChar": 42
+      },
+      "revId": "aa496c5ccf012b743eaee5a768873f88195943c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a437d4f_9e722148",
         "filename": "multivimbroker/pom.xml",
         "patchSetId": 1
@@ -36,6 +83,30 @@
       "writtenOn": "2017-08-16T07:17:59Z",
       "side": 1,
       "message": "I guess it should be change to org.onap.multicloud.framework",
+      "range": {
+        "startLine": 22,
+        "startChar": 13,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "aa496c5ccf012b743eaee5a768873f88195943c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_f8c0207e",
+        "filename": "multivimbroker/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 551
+      },
+      "writtenOn": "2017-08-17T08:13:51Z",
+      "side": 1,
+      "message": "maybe we can update this to `org.onap.multivimbroker.framework` temporarily to reflect the current code structure.\nwhat do you think?",
+      "parentUuid": "9a437d4f_9e722148",
       "range": {
         "startLine": 22,
         "startChar": 13,
