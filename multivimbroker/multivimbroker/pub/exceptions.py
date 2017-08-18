@@ -10,5 +10,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 
-class VimBrokerException(Exception):
-    pass
+
+class BaseException(Exception):
+
+    message = "Exception"
+
+    def __init__(self, message=None, status_code="", content=""):
+        super(BaseException, self).__init__(message)
+        self.message = message or self.message
+        self.status_code = status_code
+        self.content = content
+
+class VimBrokerException(BaseException):
+
+        message = "vim error"
+
+
+class NotFound(BaseException):
+
+        message = "not found error"
+
+

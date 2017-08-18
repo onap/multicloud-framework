@@ -15,10 +15,15 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from . import views
+from multivimbroker.forwarder.views import Forward
+from multivimbroker.forwarder.views import Identity
+
 
 urlpatterns = [
-    url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)', views.route)
+
+    url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3$',Identity.as_view()),
+    url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)', Forward.as_view()),
+
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
