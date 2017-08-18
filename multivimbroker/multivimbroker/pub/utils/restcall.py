@@ -16,6 +16,7 @@ import urllib2
 import uuid
 import httplib2
 
+
 from multivimbroker.pub.config.config import MSB_SERVICE_IP, MSB_SERVICE_PORT
 
 rest_no_auth, rest_oneway_auth, rest_bothway_auth = 0, 1, 2
@@ -26,15 +27,20 @@ HTTP_404_NOTFOUND, HTTP_403_FORBIDDEN, HTTP_401_UNAUTHORIZED, HTTP_400_BADREQUES
 logger = logging.getLogger(__name__)
 
 
-def call_req(base_url, user, passwd, auth_type, resource, method, content=''):
+def call_req(base_url, user, passwd, auth_type, resource, method, content='',headers=None):
     callid = str(uuid.uuid1())
 #    logger.debug("[%s]call_req('%s','%s','%s',%s,'%s','%s','%s')" % (
 #        callid, base_url, user, passwd, auth_type, resource, method, content))
     ret = None
     resp_status = ''
+    respheaders = {}
+
     try:
         full_url = combine_url(base_url, resource)
-        headers = {'content-type': 'application/json', 'accept': 'application/json'}
+        if headers == None:
+            headers = {}
+            headers['content-type']='application/json'
+
         if user:
             headers['Authorization'] = 'Basic ' + ('%s:%s' % (user, passwd)).encode("base64")
         ca_certs = None
@@ -43,41 +49,46 @@ def call_req(base_url, user, passwd, auth_type, resource, method, content=''):
             http.follow_all_redirects = True
             try:
 #                logger.debug("request=%s)" % full_url)
+                print (full_url,method.upper(),content,headers)
+
                 resp, resp_content = http.request(full_url, method=method.upper(), body=content, headers=headers)
-                resp_status, resp_body = resp['status'], resp_content.decode('UTF-8')
+                resp_status, resp_body ,respheaders= resp['status'], resp_content.decode('UTF-8'),resp
+
 #                logger.debug("[%s][%d]status=%s,resp_body=%s)" % (callid, retry_times, resp_status, resp_body))
                 if resp_status in status_ok_list:
-                    ret = [0, resp_body, resp_status]
+                    ret = [0, resp_body, resp_status,respheaders]
                 else:
-                    ret = [1, resp_body, resp_status]
+                    ret = [1, resp_body, resp_status,respheaders]
                 break
             except Exception as ex:
                 if 'httplib.ResponseNotReady' in str(sys.exc_info()):
 #                    logger.debug("retry_times=%d", retry_times)
                     logger.error(traceback.format_exc())
-                    ret = [1, "Unable to connect to %s" % full_url, resp_status]
+                    ret = [1, "Unable to connect to %s" % full_url, resp_status,respheaders]
                     continue
                 raise ex
     except urllib2.URLError as err:
-        ret = [2, str(err), resp_status]
+        ret = [2, str(err), resp_status,respheaders]
     except Exception as ex:
         logger.error(traceback.format_exc())
         logger.error("[%s]ret=%s" % (callid, str(sys.exc_info())))
         res_info = str(sys.exc_info())
         if 'httplib.ResponseNotReady' in res_info:
             res_info = "The URL[%s] request failed or is not responding." % full_url
-        ret = [3, res_info, resp_status]
+        ret = [3, res_info, resp_status,respheaders]
     except:
         logger.error(traceback.format_exc())
-        ret = [4, str(sys.exc_info()), resp_status]
+        ret = [4, str(sys.exc_info()), resp_status,respheaders]
 
 #    logger.debug("[%s]ret=%s" % (callid, str(ret)))
     return ret
 
 
-def req_by_msb(resource, method, content=''):
+def req_by_msb(resource, method, content='',headers=None):
     base_url = "http://%s:%s/" % (MSB_SERVICE_IP, MSB_SERVICE_PORT)
-    return call_req(base_url, "", "", rest_no_auth, resource, method, content)
+    return call_req(base_url, "", "", rest_no_auth, resource, method, content,headers)
+
+
 
 
 def combine_url(base_url, resource):
