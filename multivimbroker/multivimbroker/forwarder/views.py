@@ -11,62 +11,69 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import logging
-import re
 
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework.views import  APIView
+from multivimbroker.forwarder.base import BaseHandler
 
-from rest_framework import status
-
-from multivimbroker.pub.utils.restcall import req_by_msb
-from multivimbroker.pub.msapi.extsys import get_vim_by_id
-
-logger = logging.getLogger(__name__)
+#
+class BaseServer(BaseHandler,APIView):
 
 
-@csrf_exempt
-def route(request, vimid=''):
-    """ get vim info from vimid from local cache first
-        and then to ESR if cache miss
-    """
-    content = ""
-    status_code = status.HTTP_200_OK
-    try:
-        vim = get_vim_by_id(vimid)
-        if vim["type"] and vim["version"]:
-            pass
+    def get(self,request,vimid):
+        raise NotImplementedError()
 
-    except Exception as e:
-        logger.error("get_vim_by_id, exception: %s" % e)
-        return HttpResponse("Not a valid VIM instance", status=status.HTTP_404_NOT_FOUND)
+    def post(self,request,vimid):
+        raise NotImplementedError()
 
-    try:
-        if vim and vim["type"] == "openstack":
-            if vim["version"] == "kilo":
-                multivimdriver = "multivim-kilo"
-            elif vim["version"] == "newton":
-                multivimdriver = "multivim-newton"
-            else:
-                # if vim type is openstack, use latest "newton" version as default
-                multivimdriver = "multivim-newton"
-        elif vim and vim["type"] == "vmware":
-            multivimdriver = "multivim-vio"
-        else:
-            logger.error("wrong vim id: %s, return from extsys:%s" %
-                         vimid, vim)
-            return HttpResponse("Not support VIM type", status=status.HTTP_404_NOT_FOUND)
+    def put(self,request,vimid):
+        raise NotImplementedError()
 
-        route_uri = re.sub('multivim', multivimdriver, request.get_full_path())
+    def delete(self,request,vimid):
+        raise NotImplementedError()
 
-        retcode, content, status_code = \
-            req_by_msb(route_uri, request.method, request.body)
-        if retcode != 0:
-            # Execptions are handled within req_by_msb
-            logger.error("Status code is %s, detail is %s.",
-                         status_code, content)
-    except Exception as e:
-        content = e
-        status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-        logger.error("exception: %s" % e)
-    return HttpResponse(content, status=status_code)
+    def head(self,request,vimid):
+        raise NotImplementedError()
+
+    def patch(self,request,vimid):
+        raise NotImplementedError()
+
+
+#  vio proxy handler
+class Identity(BaseServer):
+
+    def get(self,request,vimid):
+
+        return self.send(vimid,request.get_full_path(),request.body,"GET")
+
+    def post(self,request,vimid):
+
+        return self.send(vimid,request.get_full_path(),request.body,"POST")
+
+
+# forward  handler
+class Forward(BaseServer):
+
+    def get(self,request,vimid):
+
+        return self.send(vimid,request.get_full_path(),request.body,"GET")
+
+    def post(self,request,vimid):
+
+        return self.send(vimid,request.get_full_path(),request.body,"POST",headers=None)
+
+    def patch(self,request,vimid):
+
+        return self.send(vimid,request.get_full_path(),request.body,"PATCH",headers=None)
+
+    def delete(self,request,vimid):
+
+        return self.send(vimid,request.get_full_path(),request.body,"DELETE",headers=None)
+
+    def head(self,request,vimid):
+
+        return self.send(vimid,request.get_full_path(),request.body,"HEAD")
+
+    def put(self,request,vimid):
+
+        return self.send(vimid,request.get_full_path(),request.body,"PUT",headers=None)
+
