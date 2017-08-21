@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_a22b83ea",
+        "filename": "multivimbroker/multivimbroker/forwarder/base.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-08-21T09:05:28Z",
+      "side": 1,
+      "message": "it is better to inherit from object. or else python MRO might report error in future usage.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 20
+      },
+      "revId": "eba7e44ce439f2dc49b6743c854402d684484e09",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_02f5af82",
+        "filename": "multivimbroker/multivimbroker/forwarder/base.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-08-21T09:05:28Z",
+      "side": 1,
+      "message": "duplicated empty lines",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 0
+      },
+      "revId": "eba7e44ce439f2dc49b6743c854402d684484e09",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_e2f18b96",
+        "filename": "multivimbroker/multivimbroker/forwarder/base.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-08-21T09:05:28Z",
+      "side": 1,
+      "message": "unkown",
+      "range": {
+        "startLine": 62,
+        "startChar": 35,
+        "endLine": 62,
+        "endChar": 41
+      },
+      "revId": "eba7e44ce439f2dc49b6743c854402d684484e09",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_c2ee87b4",
+        "filename": "multivimbroker/multivimbroker/forwarder/base.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-08-21T09:05:28Z",
+      "side": 1,
+      "message": "duplicated empty lines",
+      "revId": "eba7e44ce439f2dc49b6743c854402d684484e09",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_62359b45",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-08-21T09:05:28Z",
+      "side": 1,
+      "message": "duplicated empty lines",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 0
+      },
+      "revId": "eba7e44ce439f2dc49b6743c854402d684484e09",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_a2602336",
+        "filename": "multivimbroker/multivimbroker/pub/utils/syscomm.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-08-21T09:05:28Z",
+      "side": 1,
+      "message": "not necessary",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 15
+      },
+      "revId": "eba7e44ce439f2dc49b6743c854402d684484e09",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
