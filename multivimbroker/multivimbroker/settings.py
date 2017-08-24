@@ -73,7 +73,8 @@ DATABASES = {
     }
 }
 
-# CACHE_BACKEND = 'redis_cache.cache://%s@%s:%s' % (REDIS_PASSWD, REDIS_HOST, REDIS_PORT)
+# CACHE_BACKEND = 'redis_cache.cache://%s@%s:%s' %
+# (REDIS_PASSWD, REDIS_HOST, REDIS_PORT)
 
 TIME_ZONE = 'UTC'
 
@@ -87,7 +88,8 @@ LOGGING = {
     'disable_existing_loggers': True,
     'formatters': {
         'standard': {
-            'format': '%(asctime)s:[%(name)s]:[%(filename)s]-[%(lineno)d] [%(levelname)s]:%(message)s',
+            'format': '%(asctime)s:[%(name)s]:[%(filename)s]-[%(lineno)d] \
+            [%(levelname)s]:%(message)s',
         },
     },
     'filters': {
@@ -96,7 +98,8 @@ LOGGING = {
         'multivimbroker_handler': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'logs/runtime_multivimbroker.log'),
+            'filename': os.path.join(BASE_DIR,
+                                     'logs/runtime_multivimbroker.log'),
             'formatter': 'standard',
             'maxBytes': 1024 * 1024 * 50,
             'backupCount': 5,
