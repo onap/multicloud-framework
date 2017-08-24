@@ -10,7 +10,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 import unittest
-import json
+# import json
 from django.test import Client
 from rest_framework import status
 
@@ -24,6 +24,7 @@ class SampleViewTest(unittest.TestCase):
 
     def test_sample(self):
         response = self.client.get("/api/multicloud/v0/swagger.json")
-        self.assertEqual(status.HTTP_200_OK, response.status_code, response.content)
+        self.assertEqual(status.HTTP_200_OK,
+                         response.status_code, response.content)
 #        resp_data = json.loads(response.content)
 #        self.assertEqual({"status": "active"}, resp_data)

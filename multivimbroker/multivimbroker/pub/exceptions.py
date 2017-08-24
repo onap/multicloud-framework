@@ -10,7 +10,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 
-
 class BaseException(Exception):
 
     message = "Exception"
@@ -21,13 +20,12 @@ class BaseException(Exception):
         self.status_code = status_code
         self.content = content
 
+
 class VimBrokerException(BaseException):
 
-        message = "vim error"
+    message = "vim error"
 
 
 class NotFound(BaseException):
 
-        message = "not found error"
-
-
+    message = "not found error"

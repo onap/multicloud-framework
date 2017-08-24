@@ -23,9 +23,10 @@ from multivimbroker.pub.utils.restcall import req_by_msb
 
 logger = logging.getLogger(__name__)
 
+
 class BaseHandler(object):
 
-    def _request(self,route_uri,method,body="",headers=None):
+    def _request(self, route_uri, method, body="", headers=None):
 
         try:
             retcode, content, status_code, resp = \
@@ -48,18 +49,17 @@ class BaseHandler(object):
             response[k] = resp[k]
         return response
 
+    def send(self, vimid, full_path, body, method, headers=None):
 
-    def send(self,vimid,full_path,body,method,headers=None):
+        try:
+            url = getMultivimDriver(vimid, full_path=full_path)
 
-            try:
-                url = getMultivimDriver(vimid,full_path=full_path)
+        except exceptions.VimBrokerException as e:
+            logging.exception("vimbroker exception: %s" % e)
+            return HttpResponse(e.content, status=e.status_code)
+        except Exception as e:
+            logging.exception("unkown exception: %s" % e)
+            return HttpResponse(str(e),
+                                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-            except exceptions.VimBrokerException as e:
-                logging.exception("vimbroker exception: %s"%e)
-                return HttpResponse(e.content,status=e.status_code)
-            except Exception as e:
-                logging.exception("unkown exception: %s" %e)
-                return HttpResponse(str(e),status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-            return  self._request(url,method,body=body,headers=headers)
-
+        return self._request(url, method, body=body, headers=headers)
