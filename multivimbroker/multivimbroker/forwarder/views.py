@@ -12,68 +12,68 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from rest_framework.views import  APIView
+from rest_framework.views import APIView
 from multivimbroker.forwarder.base import BaseHandler
 
 #
-class BaseServer(BaseHandler,APIView):
 
 
-    def get(self,request,vimid):
+class BaseServer(BaseHandler, APIView):
+
+    def get(self, request, vimid):
         raise NotImplementedError()
 
-    def post(self,request,vimid):
+    def post(self, request, vimid):
         raise NotImplementedError()
 
-    def put(self,request,vimid):
+    def put(self, request, vimid):
         raise NotImplementedError()
 
-    def delete(self,request,vimid):
+    def delete(self, request, vimid):
         raise NotImplementedError()
 
-    def head(self,request,vimid):
+    def head(self, request, vimid):
         raise NotImplementedError()
 
-    def patch(self,request,vimid):
+    def patch(self, request, vimid):
         raise NotImplementedError()
 
 
 #  vio proxy handler
 class Identity(BaseServer):
 
-    def get(self,request,vimid):
+    def get(self, request, vimid):
 
-        return self.send(vimid,request.get_full_path(),request.body,"GET")
+        return self.send(vimid, request.get_full_path(), request.body, "GET")
 
-    def post(self,request,vimid):
+    def post(self, request, vimid):
 
-        return self.send(vimid,request.get_full_path(),request.body,"POST")
+        return self.send(vimid, request.get_full_path(), request.body, "POST")
 
 
 # forward  handler
 class Forward(BaseServer):
 
-    def get(self,request,vimid):
+    def get(self, request, vimid):
 
-        return self.send(vimid,request.get_full_path(),request.body,"GET")
+        return self.send(vimid, request.get_full_path(), request.body, "GET")
 
-    def post(self,request,vimid):
+    def post(self, request, vimid):
 
-        return self.send(vimid,request.get_full_path(),request.body,"POST",headers=None)
+        return self.send(vimid, request.get_full_path(), request.body, "POST", headers=None)
 
-    def patch(self,request,vimid):
+    def patch(self, request, vimid):
 
-        return self.send(vimid,request.get_full_path(),request.body,"PATCH",headers=None)
+        return self.send(vimid, request.get_full_path(), request.body, "PATCH", headers=None)
 
-    def delete(self,request,vimid):
+    def delete(self, request, vimid):
 
-        return self.send(vimid,request.get_full_path(),request.body,"DELETE",headers=None)
+        return self.send(vimid, request.get_full_path(), request.body, "DELETE", headers=None)
 
-    def head(self,request,vimid):
+    def head(self, request, vimid):
 
-        return self.send(vimid,request.get_full_path(),request.body,"HEAD")
+        return self.send(vimid, request.get_full_path(), request.body, "HEAD")
 
-    def put(self,request,vimid):
+    def put(self, request, vimid):
 
-        return self.send(vimid,request.get_full_path(),request.body,"PUT",headers=None)
-
+        return self.send(vimid, request.get_full_path(), request.body, "PUT", headers=None)
