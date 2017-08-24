@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_eaddd815",
+        "filename": "multivimbroker/tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-08-24T10:02:04Z",
+      "side": 1,
+      "message": "Why do you disable this check? It checks if a line is too long, and I think it\u0027s an essential check we need.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 13
+      },
+      "revId": "f1369b50426dd851c2f9178da281f85d04559422",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
