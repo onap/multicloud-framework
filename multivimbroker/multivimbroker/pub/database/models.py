@@ -11,10 +11,12 @@
 
 from django.db import models
 
+
 class VimInstModel(models.Model):
     class Meta:
         db_table = 'vim_inst_type_mapping'
 
-    vimid = models.CharField(db_column='VIMID', primary_key=True, max_length=200)
+    vimid = models.CharField(
+        db_column='VIMID', primary_key=True, max_length=200)
     vimtype = models.CharField(db_column="VIMTYPE", max_length=200)
     viminst_url = models.CharField(db_column="VIMINSTURL", max_length=200)

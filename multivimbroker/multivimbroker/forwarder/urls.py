@@ -21,8 +21,10 @@ from multivimbroker.forwarder.views import Identity
 
 urlpatterns = [
 
-    url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3$',Identity.as_view()),
-    url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3/auth/tokens$',Identity.as_view()),
+    url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3$',
+        Identity.as_view()),
+    url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3/auth/tokens$',
+        Identity.as_view()),
     url(r'^openoapi/multivim/v1/(?P<vimid>[0-9a-zA-Z_-]+)', Forward.as_view()),
 
 ]

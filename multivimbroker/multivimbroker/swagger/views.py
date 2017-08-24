@@ -12,13 +12,13 @@
 import json
 import logging
 import os
-import traceback
+# import traceback
 
-from rest_framework import status
+# from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from multivimbroker.pub.exceptions import VimBrokerException
+# from multivimbroker.pub.exceptions import VimBrokerException
 
 logger = logging.getLogger(__name__)
 
@@ -91,4 +91,3 @@ class SwaggerJsonView(APIView):
         json_data["paths"].update(json_data_temp["paths"])
         json_data["definitions"].update(json_data_temp["definitions"])
         return Response(json_data)
-

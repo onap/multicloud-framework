@@ -1,0 +1,11 @@
+actionid: pep8
+msg: envreport
+cmdargs: ['/Users/bins/Documents/project/framework/multivimbroker/.tox/pep8/bin/pip', 'freeze']
+env: {'TERM_PROGRAM_VERSION': '388.1.1', 'LOGNAME': 'bins', 'USER': 'bins', 'HOME': '/Users/bins', 'PATH': '/Users/bins/Documents/project/framework/multivimbroker/.tox/pep8/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin', 'TERM_PROGRAM': 'Apple_Terminal', 'LANG': 'zh_CN.UTF-8', 'TERM': 'xterm-256color', 'Apple_PubSub_Socket_Render': '/private/tmp/com.apple.launchd.p6yVAkRe8q/Render', 'SHLVL': '1', 'XPC_FLAGS': '0x0', 'PYTHONHASHSEED': '188912118', '_': '/Library/Frameworks/Python.framework/Versions/2.7/bin/tox', 'TERM_SESSION_ID': 'ED474341-B578-4ED6-A2EA-2F87B8A22954', 'XPC_SERVICE_NAME': '0', 'SSH_AUTH_SOCK': '/private/tmp/com.apple.launchd.qcBSODYQor/Listeners', 'VIRTUAL_ENV': '/Users/bins/Documents/project/framework/multivimbroker/.tox/pep8', 'SHELL': '/bin/bash', 'TMPDIR': '/var/folders/m7/y_pkflds4kj69v2ylwm9wtpw00b97l/T/', 'OLDPWD': '/Users/bins/Documents/project/framework', '__CF_USER_TEXT_ENCODING': '0x5A4F3:0x19:0x34', 'PWD': '/Users/bins/Documents/project/framework/multivimbroker'}
+
+configparser==3.5.0
+enum34==1.1.6
+flake8==3.4.1
+mccabe==0.6.1
+pycodestyle==2.3.1
+pyflakes==1.5.0

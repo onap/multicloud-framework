@@ -23,7 +23,8 @@ def get_vims():
     ret = req_by_msb(ESR_GET_VIM_URI, "GET")
     if ret[0] != 0:
         logger.error("Status code is %s, detail is %s.", ret[2], ret[1])
-        raise VimBrokerException(status_code=404 ,content="Failed to query VIMs from extsys.")
+        raise VimBrokerException(
+            status_code=404, content="Failed to query VIMs from extsys.")
     return json.JSONDecoder().decode(ret[1])
 
 
@@ -31,6 +32,6 @@ def get_vim_by_id(vim_id):
     ret = req_by_msb("%s/%s" % (ESR_GET_VIM_URI, vim_id), "GET")
     if ret[0] != 0:
         logger.error("Status code is %s, detail is %s.", ret[2], ret[1])
-        raise VimBrokerException(status_code=404,content=
-            "Failed to query VIM with id (%s) from extsys." % vim_id)
+        raise VimBrokerException(
+            status_code=404, content="Failed to query VIM with id (%s) from extsys." % vim_id)
     return json.JSONDecoder().decode(ret[1])
