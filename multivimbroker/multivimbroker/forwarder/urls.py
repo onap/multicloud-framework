@@ -15,6 +15,7 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 
+from multivimbroker.forwarder.views import Extension
 from multivimbroker.forwarder.views import Forward
 from multivimbroker.forwarder.views import Identity
 from multivimbroker.forwarder.views import Registry
@@ -26,6 +27,7 @@ urlpatterns = [
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3$',Identity.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3/auth/tokens$',Identity.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/registry$', Registry.as_view()),
+    url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/extensions$', Extension.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)$', Registry.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)', Forward.as_view()),
 
