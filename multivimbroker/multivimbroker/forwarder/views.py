@@ -63,6 +63,13 @@ class Registry(BaseServer):
                          "DELETE")
 
 
+class Extension(BaseServer):
+
+    def get(self, request, vimid):
+
+        return self.send(vimid, request.get_full_path(), request.body, "GET")
+
+
 # forward  handler
 class Forward(BaseServer):
 
