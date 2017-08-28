@@ -16,7 +16,10 @@ import urllib2
 import uuid
 import httplib2
 
-
+from multivimbroker.pub.config.config import AAI_SCHEMA_VERSION
+from multivimbroker.pub.config.config import AAI_SERVICE_URL
+from multivimbroker.pub.config.config import AAI_USERNAME
+from multivimbroker.pub.config.config import AAI_PASSWORD
 from multivimbroker.pub.config.config import MSB_SERVICE_IP, MSB_SERVICE_PORT
 
 rest_no_auth, rest_oneway_auth, rest_bothway_auth = 0, 1, 2
@@ -85,6 +88,18 @@ def call_req(base_url, user, passwd, auth_type, resource, method, content='',hea
 def req_by_msb(resource, method, content='',headers=None):
     base_url = "http://%s:%s/" % (MSB_SERVICE_IP, MSB_SERVICE_PORT)
     return call_req(base_url, "", "", rest_no_auth, resource, method, content,headers)
+
+
+def get_res_from_aai(resource, content=''):
+    headers = {
+        'X-FromAppId': 'MultiCloud',
+        'X-TransactionId': '9001',
+        'content-type': 'application/json',
+        'accept': 'application/json'
+    }
+    base_url = "%s/%s" % (AAI_SERVICE_URL, AAI_SCHEMA_VERSION)
+    return call_req(base_url, AAI_USERNAME, AAI_PASSWORD, rest_no_auth,
+                    resource, "GET", content, headers)
 
 
 def combine_url(base_url, resource):
