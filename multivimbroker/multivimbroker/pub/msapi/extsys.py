@@ -13,26 +13,29 @@ import json
 import logging
 
 from multivimbroker.pub.exceptions import VimBrokerException
-from multivimbroker.pub.utils.restcall import req_by_msb
-from multivimbroker.pub.config.config import ESR_GET_VIM_URI
+from multivimbroker.pub.utils.restcall import get_res_from_aai
 
 logger = logging.getLogger(__name__)
 
 
-def get_vims():
-    ret = req_by_msb(ESR_GET_VIM_URI, "GET")
-    if ret[0] != 0:
-        logger.error("Status code is %s, detail is %s.", ret[2], ret[1])
-        raise VimBrokerException(
-            status_code=404, content="Failed to query VIMs from extsys.")
-    return json.JSONDecoder().decode(ret[1])
+def split_vim_to_owner_region(vim_id):
+    split_vim = vim_id.split('_')
+    cloud_owner = split_vim[0]
+    cloud_region = "".join(split_vim[1:])
+    return cloud_owner, cloud_region
 
 
 def get_vim_by_id(vim_id):
-    ret = req_by_msb("%s/%s" % (ESR_GET_VIM_URI, vim_id), "GET")
+    cloud_owner, cloud_region = split_vim_to_owner_region(vim_id)
+    ret = get_res_from_aai("/cloud-infrastructure/cloud-regions/cloud-region"
+                           "/%s/%s" % (cloud_owner, cloud_region))
     if ret[0] != 0:
-        logger.error("Status code is %s, detail is %s.", ret[2], ret[1])
+        logger.error("Status code is %s, detail is %s." % (ret[2], ret[1]))
         raise VimBrokerException(
             status_code=404,
             content="Failed to query VIM with id (%s) from extsys." % vim_id)
-    return json.JSONDecoder().decode(ret[1])
+    ret = json.JSONDecoder().decode(ret[1])
+    ret['type'] = ret['cloud-type']
+    ret['version'] = ret['cloud-region-version']
+    ret['vimId'] = vim_id
+    return ret
