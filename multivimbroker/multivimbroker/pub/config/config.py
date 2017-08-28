@@ -15,8 +15,13 @@ import os
 MSB_SERVICE_IP = '127.0.0.1'
 MSB_SERVICE_PORT = '10080'
 
-# [ESR]
-ESR_GET_VIM_URI = "/openoapi/extsys/v1/vims"
+# [A&AI]
+AAI_ADDR = "aai.api.simpledemo.openecomp.org"
+AAI_PORT = "8443"
+AAI_SERVICE_URL = 'https://%s:%s/aai' % (AAI_ADDR, AAI_PORT)
+AAI_SCHEMA_VERSION = "v11"
+AAI_USERNAME = 'AAI'
+AAI_PASSWORD = 'AAI'
 
 # [IMAGE LOCAL PATH]
 ROOT_PATH = os.path.dirname(
@@ -26,13 +31,6 @@ ROOT_PATH = os.path.dirname(
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = '6379'
 REDIS_PASSWD = ''
-
-# [mysql]
-DB_IP = "127.0.0.1"
-DB_PORT = 3306
-DB_NAME = "multivimbroker"
-DB_USER = "root"
-DB_PASSWD = "password"
 
 # [register]
 REG_TO_MSB_WHEN_START = True
