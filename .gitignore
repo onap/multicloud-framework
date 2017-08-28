@@ -5,3 +5,9 @@
 target/
 logs/*.log
 *.pyc
+
+# Test related files
+multivimbroker/.coverage
+multivimbroker/.tox/
+multivimbroker/logs/*.log
+multivimbroker/test-reports/
