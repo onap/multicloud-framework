@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_c03ae835",
+        "filename": "multivimbroker/tox.ini",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-08-30T14:05:03Z",
+      "side": 1,
+      "message": "This could be removed.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "bfa7ba7e9a264143ad4137d1a97994111478f6d5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
