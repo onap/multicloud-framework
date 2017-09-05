@@ -53,7 +53,6 @@ class BaseHandler(object):
 
         try:
             url = getMultivimDriver(vimid, full_path=full_path)
-
         except exceptions.VimBrokerException as e:
             logging.exception("vimbroker exception: %s" % e)
             return HttpResponse(e.content, status=e.status_code)
