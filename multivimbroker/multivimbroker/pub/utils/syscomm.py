@@ -44,18 +44,14 @@ def findMultivimDriver(vim=None):
             # if vim type is openstack, use latest "newton" version as default
             multivimdriver = "multivim-newton"
     elif vim and vim["type"] == "vmware":
-        multivimdriver = "multivim-vio"
+            multivimdriver = "multicloud-vio"
     else:
         raise exceptions.NotFound("Not support VIM type")
     return multivimdriver
 
 
 def getMultivimDriver(vimid, full_path=""):
-
-    multivim = "multivim"
+    multcloud = "multicloud"
     vim = get_vim_by_id(vimid)
-    if vim["type"] and vim["version"]:
-        pass
-
-    multivimdriver = findMultivimDriver(vim=vim)
-    return re.sub(multivim, multivimdriver, full_path)
+    multclouddriver = findMultivimDriver(vim=vim)
+    return re.sub(multcloud, multclouddriver, full_path)
