@@ -38,8 +38,8 @@ DB_PASSWD = "password"
 REG_TO_MSB_WHEN_START = True
 REG_TO_MSB_REG_URL = "/api/microservices/v1/services"
 REG_TO_MSB_REG_PARAM = {
-    "serviceName": "multivim",
-    "version": "v1",
+    "serviceName": "multicloud",
+    "version": "v0",
     "url": "/api/multicloud/v0",
     "protocol": "REST",
     "visualRange": "1",
