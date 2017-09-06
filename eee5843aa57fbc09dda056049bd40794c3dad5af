@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_b5726d7a",
+        "filename": "multivimbroker/setup.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-09-06T08:41:07Z",
+      "side": 1,
+      "message": "These lines should be removed",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 1
+      },
+      "revId": "eee5843aa57fbc09dda056049bd40794c3dad5af",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
