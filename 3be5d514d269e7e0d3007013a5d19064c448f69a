@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_3589dd26",
+        "filename": "multivimbroker/setup.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2017-09-06T09:17:37Z",
+      "side": 1,
+      "message": "try to use:\n\nimport setuptools\n\nsetuptools.setup()\n\n\nthis is python way coding.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "3be5d514d269e7e0d3007013a5d19064c448f69a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
