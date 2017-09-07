@@ -39,7 +39,7 @@ class BaseServer(BaseHandler, APIView):
         raise NotImplementedError()
 
 
-#  vio proxy handler
+# proxy handler
 class Identity(BaseServer):
 
     def get(self, request, vimid):
@@ -49,6 +49,18 @@ class Identity(BaseServer):
     def post(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body, "POST")
+
+
+class Registry(BaseServer):
+
+    def post(self, request, vimid):
+
+        return self.send(vimid, request.get_full_path(), request.body, "POST")
+
+    def delete(self, request, vimid):
+
+        return self.send(vimid, request.get_full_path(), request.body,
+                         "DELETE")
 
 
 # forward  handler
