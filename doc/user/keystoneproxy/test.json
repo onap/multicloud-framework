@@ -1,0 +1,10 @@
+{
+	"auth":
+	{
+		"scope": {"project": {"id": "622b0f38ec9e4ce1ab5c3aad7765d045"}},
+		"identity":
+		{
+			"password": {"user": {"domain": {"name": "Default"}, "password": "vmware", "name": "admin"}}, "methods": ["password"]
+		}
+	}
+}
