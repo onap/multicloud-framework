@@ -1,0 +1,184 @@
+prepare environment:
+system: centos7-64bit, 8GB RAM, 4 CPU
+
+docker images:
+docker pull onapmulticloud/common-services-msb
+docker pull onapmulticloud/common-services-extsys
+docker pull onapmulticloud/common-services-drivermanager
+docker pull onapmulticloud/gso-service-gateway
+docker pull onapmulticloud/gso-service-manager
+docker pull onapmulticloud/gso-gui-portal
+
+# login onap and pull those two images
+docker login -u docker -p docker nexus3.onap.org:10001
+docker pull nexus3.onap.org:10001/onapmulticloud/multivim-broker:r1
+docker pull nexus3.onap.org:10001/onapmulticloud/multivim-vio-driver:r1
+
+
+run msb docker server
+
+docker run -t --name i-msb -p 80:80 onapmulticloud/common-services-msb
+
+Run other docker server:
+   Assign the host ip to MSB_ADDR. If server cannot connect to msb server, please check iptables rule on host may block this connection.
+
+docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/gso-service-gateway
+docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/common-services-extsys
+docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/common-services-drivermanager
+docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/gso-gui-portal
+docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/gso-service-manage
+docker run -t --name multivim-driver-vio-test -e MSB_ADDR=$HOST_IP:80   nexus3.onap.org:10001/onapmulticloud/multivim-vio-driver:r1
+docker run -t --name multivim-broker-test -e MSB_ADDR= $HOST_IP:80    nexus3.onap.org:10001/onapmulticloud/multivim-broker:r1
+
+
+Login Dashboard
+
+Access: http://$HOST_IP/openoui/microservices/index.html
+
+Register your openstack enviroment in extsys server
+Choose  'extsys' —>  'vim Managent' —> 'post vim'
+
+
+Request body Example:
+{
+  "id": "",
+  "name": "vmware-vio",
+  "vendor": "vmware",
+  "version": "4.0",
+  "description": "test",
+  "type": "vmware",       # It must be ‘vmware’ so will use multvim-proxy service to execute requests
+  "createTime": "",
+  "category": "",
+  "url": "https://10.154.2.225:5000/v3",     # keystone auth_url
+  "userName": "admin",
+  "password": "vmware",
+  "domain": "default",
+  "tenant": "admin"
+}
+
+response example:
+
+Response:
+{
+    "name": "vmware-vio",
+    "vendor": "vmware",
+    "version": "4.0",
+    "description": "test",
+    "type": "vmware",
+    "createTime": "2017-08-14 21:28:05",
+    "vimId": "a5b17aaa-a142-4a50-b425-f1e6eab7136d",   # vimid
+    "userName": "admin",
+    "password": "vmware",
+    "domain": "default",
+    "tenant": "admin"
+}
+
+
+
+2 Testing Examples
+
+2.1  Get auth token
+
+you need to input <vimid> in url path.
+
+curl -X  POST   -d @test.json  -H 'Content-Type:application/json'   http://$HOST_IP/api/multivim/v1/<vimid>/identity/auth/tokens
+
+test.json content example:
+
+{
+	"auth":
+	{
+		"scope": {"project": {"id": “<project-id>”}},
+		"identity":
+		{
+			"password": {"user": {"domain": {"name": “<doman-name>”}, "password": “<user-password>”, "name": “<user-name>”}}, "methods": ["password"]
+		}
+	}
+}
+
+
+Response:
+There are a large amounts of data including service endpoint, user information, etc.  For our testing  We  take nova and identity service endpoint address and auth token which is in response header named “X-Subject-Token”.
+
+Identity endpoint:
+	http://$HOST_IP/api/multivim-vio/v1/<vimid>/identity
+
+Nova endpoint:
+	http://$HOST_IP/api/multivim-vio/v1/<vimid>/compute/<user-tenantid>
+
+
+2.2 List projects
+
+Use identity’s endpoint:  http://$HOST_IP/api/multivim-vio/v1/<vimid>/identity/
+
+curl -X GET   -H 'X-Auth-Token:<token>'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/identity/projects
+
+
+2.3 Get os Hypervisor
+
+Use nova’s endpoint:  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<user-tenantid>
+
+
+curl -X GET   -H 'X-Auth-Token:<token>'   http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/os-hypervisors/detail
+
+
+2.4  List instance of  user’s project
+
+curl -X GET   -H 'X-Auth-Token:<token>'    http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers
+
+
+2.5  Show instance detail
+
+you need to input <server-id> in url path.
+
+curl -X GET   -H 'X-Auth-Token:<token>'    http://$HOST_IP/api/multivim-vio/v1/vimid/nova/tenantid/servers/<server-id>
+
+
+2.6 Shutdown instance
+
+you need to input <server-id> in url path
+
+curl -X POST -d '{"os-stop":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+
+
+2.7  Start instance
+
+you need to input <server-id> in url path
+
+curl -X POST -d '{"os-start":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+
+
+2.8  Suspend instance
+
+you need to input <server-id> in url path
+
+curl -X POST -d '{"suspend":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+
+
+2.9 Resume  instance
+
+you need to input <server-id> in url path
+
+curl -X POST -d '{"resume":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+
+
+2.10  Pause instance
+
+you need to input <server-id> in url path
+
+curl -X POST -d '{"pause":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+
+
+
+2.11 Unpasue instance
+
+you need to input <server-id> in url path
+
+curl -X POST -d '{"unpause":null}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+
+
+2.12 Reboot instance
+
+you need to input <server-id> in url path
+
+curl -X POST -d '{"reboot":{"type":"HARD"}}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
