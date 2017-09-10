@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_75b4f3d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-09-10T05:06:19Z",
+      "side": 1,
+      "message": "Please change commit message. for example:\n\nCorrect forwarding path\n\nChange MultiVIM to MultiCloud",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 51
+      },
+      "revId": "57a7935a6bb1aee8bdfb3f7022d76495acba26be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_35c66b4a",
+        "filename": "multivimbroker/multivimbroker/pub/config/config.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-09-10T05:06:19Z",
+      "side": 1,
+      "message": "Please rebase your patch to latest code, it\u0027s \u0027False\u0027 now.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 28
+      },
+      "revId": "57a7935a6bb1aee8bdfb3f7022d76495acba26be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_15c5a73b",
+        "filename": "multivimbroker/multivimbroker/pub/utils/syscomm.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-09-10T05:06:19Z",
+      "side": 1,
+      "message": "Change here.",
+      "range": {
+        "startLine": 40,
+        "startChar": 30,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "57a7935a6bb1aee8bdfb3f7022d76495acba26be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_f5bfc3a8",
+        "filename": "multivimbroker/multivimbroker/pub/utils/syscomm.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-09-10T05:06:19Z",
+      "side": 1,
+      "message": "here.",
+      "range": {
+        "startLine": 42,
+        "startChar": 30,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "57a7935a6bb1aee8bdfb3f7022d76495acba26be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a437d4f_d5deff10",
+        "filename": "multivimbroker/multivimbroker/pub/utils/syscomm.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-09-10T05:06:19Z",
+      "side": 1,
+      "message": "here.",
+      "range": {
+        "startLine": 45,
+        "startChar": 30,
+        "endLine": 45,
+        "endChar": 38
+      },
+      "revId": "57a7935a6bb1aee8bdfb3f7022d76495acba26be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}

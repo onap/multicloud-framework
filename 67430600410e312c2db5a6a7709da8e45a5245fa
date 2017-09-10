@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a437d4f_55cb2f53",
+        "filename": "multivimbroker/multivimbroker/forwarder/base.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-09-10T05:06:19Z",
+      "side": 0,
+      "message": "Irrelavent change.",
+      "revId": "67430600410e312c2db5a6a7709da8e45a5245fa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
