@@ -13,6 +13,8 @@
 # limitations under the License.
 
 from rest_framework.views import APIView
+from rest_framework.views import Response
+from rest_framework.views import status
 from multivimbroker.forwarder.base import BaseHandler
 
 #
@@ -68,6 +70,40 @@ class Extension(BaseServer):
     def get(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body, "GET")
+
+
+class VIMTypes(BaseServer):
+
+    def get(self, request):
+        # Fix here unless we have plugin registry
+        data = {
+            "vim_types": [
+                {
+                    "vim_type": "openstack",
+                    "versions": [
+                        {
+                            "version": "mitaka",
+                            "extra_info_hint": ""
+                        },
+                        {
+                            "version": "ocata",
+                            "extra_info_hint": ""
+                        }
+                    ]
+                },
+                {
+                    "vim_type": "vmware",
+                    "versions": [
+                        {
+                            "version": "4.0",
+                            "extra_info_hint": ""
+                        }
+                    ]
+                }
+            ]
+        }
+
+        return Response(data=data, status=status.HTTP_200_OK)
 
 
 # forward  handler
