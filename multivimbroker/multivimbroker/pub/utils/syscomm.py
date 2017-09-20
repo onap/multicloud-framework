@@ -36,13 +36,13 @@ def getHeadersKeys(response):
 def findMultivimDriver(vim=None):
 
     if vim and vim["type"] == "openstack":
-        if vim["version"] == "kilo":
-            multivimdriver = "multicloud-kilo"
-        elif vim["version"] == "newton":
-            multivimdriver = "multicloud-newton"
+        if vim["version"] == "ocata":
+            multivimdriver = "multicloud-ocata"
+        elif vim["version"] == "titanium_cloud":
+            multivimdriver = "multicloud-titanium_cloud"
         else:
-            # if vim type is openstack, use latest "newton" version as default
-            multivimdriver = "multicloud-newton"
+            # if vim type is openstack, use "ocata" version as default
+            multivimdriver = "multicloud-ocata"
     elif vim and vim["type"] == "vmware":
             multivimdriver = "multicloud-vio"
     else:

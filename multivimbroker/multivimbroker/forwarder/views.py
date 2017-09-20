@@ -59,6 +59,9 @@ class Registry(BaseServer):
 
         return self.send(vimid, request.get_full_path(), request.body, "POST")
 
+
+class UnRegistry(BaseServer):
+
     def delete(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body,
@@ -82,7 +85,7 @@ class VIMTypes(BaseServer):
                     "vim_type": "openstack",
                     "versions": [
                         {
-                            "version": "mitaka",
+                            "version": "titanium_cloud",
                             "extra_info_hint": ""
                         },
                         {
