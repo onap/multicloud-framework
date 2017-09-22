@@ -1,87 +1,145 @@
-prepare environment:
-system: centos7-64bit, 8GB RAM, 4 CPU
+1 prepare docker environment
 
-docker images:
-docker pull onapmulticloud/common-services-msb
-docker pull onapmulticloud/common-services-extsys
-docker pull onapmulticloud/common-services-drivermanager
-docker pull onapmulticloud/gso-service-gateway
-docker pull onapmulticloud/gso-service-manager
-docker pull onapmulticloud/gso-gui-portal
-
-# login onap and pull those two images
-docker login -u docker -p docker nexus3.onap.org:10001
-docker pull nexus3.onap.org:10001/onapmulticloud/multivim-broker:r1
-docker pull nexus3.onap.org:10001/onapmulticloud/multivim-vio-driver:r1
+Please refer to onap deployment in kubernetes website(https://wiki.onap.org/display/DW/ONAP+on+Kubernetes)
+to setup kubernets cluster.
 
 
-run msb docker server
+After installing kubectl and helm, execute "kubectl cluster-info" command to verify your kubernets cluster.
 
-docker run -t --name i-msb -p 80:80 onapmulticloud/common-services-msb
+Clone oom project:  git clone http://gerrit.onap.org/r/oom
+Source the setenv.bash script in /oom/kubernetes/oneclick/, it will set your helm list of components to start/delete
+Run the one time config pod - which mounts the volume /dockerdata/ contained in the pod config-init.
 
-Run other docker server:
-   Assign the host ip to MSB_ADDR. If server cannot connect to msb server, please check iptables rule on host may block this connection.
+# cd  oom/kubernetes/config
+# cp onap-parameters-sample.yaml onap-parameters.yaml
+# ./createConfig.sh -n onap
 
-docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/gso-service-gateway
-docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/common-services-extsys
-docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/common-services-drivermanager
-docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/gso-gui-portal
-docker run -t -e MSB_ADDR=$HOST_IP:80 onapmulticloud/gso-service-manage
-docker run -t --name multivim-driver-vio-test -e MSB_ADDR=$HOST_IP:80   nexus3.onap.org:10001/onapmulticloud/multivim-vio-driver:r1
-docker run -t --name multivim-broker-test -e MSB_ADDR= $HOST_IP:80    nexus3.onap.org:10001/onapmulticloud/multivim-broker:r1
+wait for "onap" namespace created, pod "config-init" created
+# kubectl get  namespaces
+NAME              STATUS    AGE
+default           Active    10d
+kube-public       Active    10d
+kube-system       Active    10d
+onap              Active    9d
 
+2 startup containers
 
-Login Dashboard
+first run kube2msb container.
 
-Access: http://$HOST_IP/openoui/microservices/index.html
+# cd oom/kubernetes/oneclick
+# ./createAll.bash -n onap -a kube2msb
 
-Register your openstack enviroment in extsys server
-Choose  'extsys' —>  'vim Managent' —> 'post vim'
+run msb container
+# ./createAll.bash -n onap -a msb
 
-
-Request body Example:
-{
-  "id": "",
-  "name": "vmware-vio",
-  "vendor": "vmware",
-  "version": "4.0",
-  "description": "test",
-  "type": "vmware",       # It must be ‘vmware’ so will use multvim-proxy service to execute requests
-  "createTime": "",
-  "category": "",
-  "url": "https://10.154.2.225:5000/v3",     # keystone auth_url
-  "userName": "admin",
-  "password": "vmware",
-  "domain": "default",
-  "tenant": "admin"
-}
-
-response example:
-
-Response:
-{
-    "name": "vmware-vio",
-    "vendor": "vmware",
-    "version": "4.0",
-    "description": "test",
-    "type": "vmware",
-    "createTime": "2017-08-14 21:28:05",
-    "vimId": "a5b17aaa-a142-4a50-b425-f1e6eab7136d",   # vimid
-    "userName": "admin",
-    "password": "vmware",
-    "domain": "default",
-    "tenant": "admin"
-}
+run aai container
+# ./createAll.bash -n onap -a aai
 
 
+Finally run multicloud container
+# ./createAll.bash -n onap -a multicloud
 
-2 Testing Examples
+get all pods
+# kubectl get pods --all-namespaces
+NAMESPACE         NAME                                    READY     STATUS    RESTARTS   AGE
+kube-system       heapster-4285517626-2k4l1               1/1       Running   1          9d
+kube-system       kube-dns-2514474280-mxh18               3/3       Running   3          9d
+kube-system       kubernetes-dashboard-716739405-jl6mk    1/1       Running   1          9d
+kube-system       monitoring-grafana-3552275057-hrpn5     1/1       Running   1          9d
+kube-system       monitoring-influxdb-4110454889-t8tpv    1/1       Running   1          9d
+kube-system       tiller-deploy-737598192-8q523           1/1       Running   1          9d
+onap-aai          aai-resources-837807428-2t158           1/1       Running   0          2d
+onap-aai          aai-service-3869033750-1nvg5            1/1       Running   0          2d
+onap-aai          aai-traversal-50329389-gnsnk            1/1       Running   0          2d
+onap-aai          data-router-2254557428-zwxx1            1/1       Running   0          2d
+onap-aai          elasticsearch-622738319-sx6q1           1/1       Running   0          2d
+onap-aai          gremlin-671060974-npsg5                 1/1       Running   0          2d
+onap-aai          hbase-3690059193-2pjc5                  1/1       Running   0          2d
+onap-aai          model-loader-service-849987455-w6vwn    1/1       Running   0          2d
+onap-aai          search-data-service-4105978183-p1nnj    1/1       Running   0          2d
+onap-aai          sparky-be-2696729089-mcjbw              1/1       Running   0          2d
+onap-kube2msb     kube2msb-registrator-1600827891-1s3s4   1/1       Running   3          7d
+onap-msb          msb-consul-3388279333-hbr16             1/1       Running   0          2d
+onap-msb          msb-discovery-1109629174-t14q8          1/1       Running   0          2d
+onap-msb          msb-eag-3969419634-2fdnr                1/1       Running   0          2d
+onap-msb          msb-iag-1114772402-sjlww                1/1       Running   0          2d
+onap-multicloud   framework-1225620501-9567n              1/1       Running   0          21h
+onap-multicloud   multicloud-vio-269945856-rl6w6          1/1       Running   0          21h
+
+get cluster-ip and port
+
+# kubectl get svc --all-namespaces
+NAMESPACE         NAME                   CLUSTER-IP      EXTERNAL-IP   PORT(S)                                                             AGE
+default           kubernetes             10.43.0.1       <none>        443/TCP                                                             10d
+kube-system       heapster               10.43.96.134    <none>        80/TCP                                                              10d
+kube-system       kube-dns               10.43.0.10      <none>        53/UDP,53/TCP                                                       10d
+kube-system       kubernetes-dashboard   10.43.9.43      <none>        9090/TCP                                                            10d
+kube-system       monitoring-grafana     10.43.210.16    <none>        80/TCP                                                              10d
+kube-system       monitoring-influxdb    10.43.32.60     <none>        8086/TCP                                                            10d
+kube-system       tiller-deploy          10.43.84.208    <none>        44134/TCP                                                           10d
+onap-aai          aai-resources          None            <none>        8447/TCP,5005/TCP                                                   2d
+onap-aai          aai-service            10.43.88.92     <nodes>       8443:30233/TCP,8080:30232/TCP                                       2d
+onap-aai          aai-traversal          None            <none>        8446/TCP,5005/TCP                                                   2d
+onap-aai          elasticsearch          None            <none>        9200/TCP                                                            2d
+onap-aai          gremlin                None            <none>        8182/TCP                                                            2d
+onap-aai          hbase                  None            <none>        2181/TCP,8080/TCP,8085/TCP,9090/TCP,16000/TCP,16010/TCP,16201/TCP   2d
+onap-aai          model-loader-service   10.43.172.213   <nodes>       8443:30229/TCP,8080:30210/TCP                                       2d
+onap-aai          search-data-service    None            <none>        9509/TCP                                                            2d
+onap-aai          sparky-be              None            <none>        9517/TCP                                                            2d
+onap-msb          msb-consul             10.43.41.203    <nodes>       8500:30500/TCP                                                      2d
+onap-msb          msb-discovery          10.43.6.205     <nodes>       10081:30081/TCP                                                     2d
+onap-msb          msb-eag                10.43.81.104    <nodes>       80:30082/TCP                                                        2d
+onap-msb          msb-iag                10.43.188.78    <nodes>       80:30080/TCP                                                        2d
+onap-multicloud   framework              10.43.97.54     <nodes>       9001:30291/TCP                                                      21h
+onap-multicloud   multicloud-vio         10.43.230.197   <nodes>       9004:30294/TCP                                                      21h
+
+
+Now msb,aai and multicloud container are online, navigate to http://msb_docker_host_ip:30081/iui/microservices/index.html,
+you can see  multicloud endpoint have been registered.
+
+No	Service Name	Version	NameSpace	Url	Protocol	Visualrange	Control
+1	multicloud	v0		/api/multicloud/v0	REST	InSystem
+2	multicloud-vio	v0		/api/multicloud-vio/v0	REST	InSystem
+
+
+Then register vio information into AAI service with region name "vmware" and region id "vio"
+# cur -X PUT  -H "Authorization: Basic QUFJOkFBSQ=="  - "Content-Type: application/json" -H "X-TransactionId:get_aai_subcr"
+https://aai_resource_docker_host_ip:30233/aai/v01/cloud-infrastructure/cloud-regions/cloud-region/vmware/vio
+-d "{
+	"cloud-type": "vmware",
+	"cloud-region-version": "4.0",
+	"esr-system-info-list": {
+		"esr-system-info": [
+			{
+				"esr-system-info-id": "123-456",
+				"system-name": "vim-vio",
+				"system-type": "vim",
+				"type": "vim",
+				"user-name": "admin",
+				"password": "vmware",
+				"service-url": "<keystone auth url>",
+				"cloud-domain": "default",
+				"default-tenant": "admin",
+				"ssl-insecure": false
+			}
+			]
+	}
+}"
+
+
+
+
+3 Test Examples
+
+The env HOST_IP is msb-iag service cluster-ip value is "10.43.188.78"(see it above).
+The vimid is "vmware_vio"  the registered name in aai.
+
 
 2.1  Get auth token
 
-you need to input <vimid> in url path.
+# send request to multicloud-framework(broker) service to get token
 
-curl -X  POST   -d @test.json  -H 'Content-Type:application/json'   http://$HOST_IP/api/multivim/v1/<vimid>/identity/auth/tokens
+curl -X  POST   -d @test.json  -H 'Content-Type:application/json'   http://$HOST_IP/api/multicloud/v0/<vimid>/identity/auth/tokens
 
 test.json content example:
 
@@ -98,75 +156,80 @@ test.json content example:
 
 
 Response:
-There are a large amounts of data including service endpoint, user information, etc.  For our testing  We  take nova and identity service endpoint address and auth token which is in response header named “X-Subject-Token”.
+There are a large amounts of data including service endpoint, user information, etc.
+For our testing  We  take nova and identity service endpoint address and auth token which is in response header named “X-Subject-Token”.
+
+# you can find the endpoint url namespace is "api/multicloiud-vio/v0", it represent the multicloud-vio service, So
+requests sending to mulitcloud-vio will be forwarded to backend  VIO openstack.
+
 
 Identity endpoint:
-	http://$HOST_IP/api/multivim-vio/v1/<vimid>/identity
+	http://$HOST_IP/api/multicloud-vio/v0/<vimid>/identity
 
 Nova endpoint:
-	http://$HOST_IP/api/multivim-vio/v1/<vimid>/compute/<user-tenantid>
+	http://$HOST_IP/api/multicloud-vio/v0/<vimid>/compute/<user-tenantid>
 
 
 2.2 List projects
 
-Use identity’s endpoint:  http://$HOST_IP/api/multivim-vio/v1/<vimid>/identity/
+Use identity’s endpoint:  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/identity/
 
-curl -X GET   -H 'X-Auth-Token:<token>'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/identity/projects
+curl -X GET   -H 'X-Auth-Token:<token>'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/identity/projects
 
 
 2.3 Get os Hypervisor
 
-Use nova’s endpoint:  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<user-tenantid>
+Use nova’s endpoint:  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<user-tenantid>
 
 
-curl -X GET   -H 'X-Auth-Token:<token>'   http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/os-hypervisors/detail
+curl -X GET   -H 'X-Auth-Token:<token>'   http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/os-hypervisors/detail
 
 
 2.4  List instance of  user’s project
 
-curl -X GET   -H 'X-Auth-Token:<token>'    http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers
+curl -X GET   -H 'X-Auth-Token:<token>'    http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers
 
 
 2.5  Show instance detail
 
 you need to input <server-id> in url path.
 
-curl -X GET   -H 'X-Auth-Token:<token>'    http://$HOST_IP/api/multivim-vio/v1/vimid/nova/tenantid/servers/<server-id>
+curl -X GET   -H 'X-Auth-Token:<token>'    http://$HOST_IP/api/multicloud-vio/v0/vimid/nova/tenantid/servers/<server-id>
 
 
 2.6 Shutdown instance
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"os-stop":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"os-stop":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
 2.7  Start instance
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"os-start":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"os-start":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
 2.8  Suspend instance
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"suspend":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"suspend":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
 2.9 Resume  instance
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"resume":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"resume":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
 2.10  Pause instance
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"pause":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"pause":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
 
@@ -174,11 +237,11 @@ curl -X POST -d '{"pause":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:appl
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"unpause":null}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"unpause":null}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
 2.12 Reboot instance
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"reboot":{"type":"HARD"}}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$HOST_IP/api/multivim-vio/v1/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"reboot":{"type":"HARD"}}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
