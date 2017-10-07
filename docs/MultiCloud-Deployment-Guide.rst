@@ -1,4 +1,9 @@
-1 prepare docker environment
+================================
+ONAP MultiCloud Deployment Guide
+================================
+
+prepare docker environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Please refer to onap deployment in kubernetes website(https://wiki.onap.org/display/DW/ONAP+on+Kubernetes)
 to setup kubernets cluster.
@@ -22,7 +27,8 @@ kube-public       Active    10d
 kube-system       Active    10d
 onap              Active    9d
 
-2 startup containers
+startup containers
+~~~~~~~~~~~~~~~~~~
 
 first run kube2msb container.
 
@@ -101,16 +107,18 @@ No	Service Name	Version	NameSpace	Url	Protocol	Visualrange	Control
 1	multicloud	v0		/api/multicloud/v0	REST	InSystem
 2	multicloud-vio	v0		/api/multicloud-vio/v0	REST	InSystem
 
-
 Then register vio information into AAI service with region name "vmware" and region id "vio"
-# cur -X PUT  -H "Authorization: Basic QUFJOkFBSQ=="  - "Content-Type: application/json" -H "X-TransactionId:get_aai_subcr"
+
+.. code-block:: console
+
+# curl -X PUT -H "Authorization: Basic QUFJOkFBSQ==" -H "Content-Type: application/json" -H "X-TransactionId:get_aai_subcr"
 https://aai_resource_docker_host_ip:30233/aai/v01/cloud-infrastructure/cloud-regions/cloud-region/vmware/vio
 -d "{
-	"cloud-type": "vmware",
-	"cloud-region-version": "4.0",
-	"esr-system-info-list": {
-		"esr-system-info": [
-			{
+   "cloud-type": "vmware",
+   "cloud-region-version": "4.0",
+   "esr-system-info-list": {
+       "esr-system-info": [
+           {
 				"esr-system-info-id": "123-456",
 				"system-name": "vim-vio",
 				"system-type": "vim",
@@ -121,31 +129,32 @@ https://aai_resource_docker_host_ip:30233/aai/v01/cloud-infrastructure/cloud-reg
 				"cloud-domain": "default",
 				"default-tenant": "admin",
 				"ssl-insecure": false
-			}
-			]
-	}
+           }
+       ]
+   }
 }"
 
-
-
-
-3 Test Examples
+Test Examples
+~~~~~~~~~~~~~
 
 The env HOST_IP is msb-iag service cluster-ip value is "10.43.188.78"(see it above).
 The vimid is "vmware_vio"  the registered name in aai.
 
 
-2.1  Get auth token
+Get auth token
+--------------
 
 # send request to multicloud-framework(broker) service to get token
 
+.. code-block:: console
+
 curl -X  POST   -d @test.json  -H 'Content-Type:application/json'   http://$HOST_IP/api/multicloud/v0/<vimid>/identity/auth/tokens
 
-test.json content example:
+.. code-block:: console
 
+test.json content example:
 {
-	"auth":
-	{
+    "auth": sudo pip install virtualenv{
 		"scope": {"project": {"id": “<project-id>”}},
 		"identity":
 		{
@@ -170,77 +179,91 @@ Nova endpoint:
 	http://$HOST_IP/api/multicloud-vio/v0/<vimid>/compute/<user-tenantid>
 
 
-2.2 List projects
+List projects
+-------------
 
 Use identity’s endpoint:  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/identity/
 
 curl -X GET   -H 'X-Auth-Token:<token>'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/identity/projects
 
 
-2.3 Get os Hypervisor
+Get os Hypervisor
+-----------------
 
 Use nova’s endpoint:  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<user-tenantid>
 
 
-curl -X GET   -H 'X-Auth-Token:<token>'   http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/os-hypervisors/detail
+curl -X GET -H 'X-Auth-Token:<token>' http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/os-hypervisors/detail
 
 
-2.4  List instance of  user’s project
+List instance of  user’s project
+--------------------------------
 
-curl -X GET   -H 'X-Auth-Token:<token>'    http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers
+curl -X GET -H 'X-Auth-Token:<token>' http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers
 
 
-2.5  Show instance detail
+Show instance detail
+--------------------
 
 you need to input <server-id> in url path.
 
-curl -X GET   -H 'X-Auth-Token:<token>'    http://$HOST_IP/api/multicloud-vio/v0/vimid/nova/tenantid/servers/<server-id>
+.. code-block:: console
+
+  $ curl -X GET -H 'X-Auth-Token:<token>' http://$HOST_IP/api/multicloud-vio/v0/vimid/nova/tenantid/servers/<server-id>
 
 
-2.6 Shutdown instance
-
-you need to input <server-id> in url path
-
-curl -X POST -d '{"os-stop":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
-
-
-2.7  Start instance
+Shutdown instance
+-----------------
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"os-start":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
+.. code-block:: console
+
+  $ curl -X POST -d '{"os-stop":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json' http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
-2.8  Suspend instance
+Start instance
+--------------
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"suspend":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"os-start":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json' http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
-2.9 Resume  instance
+Suspend instance
+----------------
+
+you need to input <server-id> in url path
+
+curl -X POST -d '{"suspend":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json' http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
+
+
+Resume  instance
+----------------
 
 you need to input <server-id> in url path
 
 curl -X POST -d '{"resume":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
-2.10  Pause instance
+Pause instance
+--------------
 
 you need to input <server-id> in url path
 
-curl -X POST -d '{"pause":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
+curl -X POST -d '{"pause":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json' http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
-
-2.11 Unpasue instance
+Unpasue instance
+----------------
 
 you need to input <server-id> in url path
 
 curl -X POST -d '{"unpause":null}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/nova/<tenantid>/servers/<server-id>/action
 
 
-2.12 Reboot instance
+Reboot instance
+---------------
 
 you need to input <server-id> in url path
 
