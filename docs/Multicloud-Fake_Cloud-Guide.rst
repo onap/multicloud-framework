@@ -1,0 +1,212 @@
+================================
+MultiCloud Fake_Cloud User Case
+================================
+
+
+
+multilcoud-vmware server not only provide vio plugin to access real openstack platform,but
+also provide fake_cloud plugin which simulate thereal VIO function.The fake
+cloud is suitable for testing openstack function if there is not real VIO platform.
+
+
+Make sure you environment have msb,aai service and multicloud-vmware config file has the right msb_ip and
+msb_port value,The config file path is vio/vio/pub/config/congfig.py
+
+
+
+Register Fake Cloud to AAI
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Register vio information into AAI service with region name "vmware" and region id "fake"
+
+.. code-block:: console
+
+$ curl -X PUT  -H "X-TransactionId":"get_aai_subr" -H "X-FromAppId":"AAI" -H "Accept":"application/json" \
+  -H "Content-Type:"application/json" \
+  https://aai_ip:aai_port/aai/v11/cloud-infrastructure/cloud-regions/cloud-region/vmware/fake \
+
+    -d "{
+          "cloud-owner": "vmware",
+          "cloud-region-id": "vio",
+          "cloud-type": "vmware",
+          "cloud-region-version": "4.0",
+          "identity-url": "http://MSB_IP:MSB_PORT/api/multicloud-vio/v0/vmware_fake/identity/v3",
+          "sriov-automation": false,
+          "resource-version": "1505892661724",
+          "esr-system-info-list": {
+              "esr-system-info": [
+                  {
+                      "esr-system-info-id": "62e17285-c207-42b0-9d55-b472b274c254",
+                      "system-name": "vim-fake-cloud",
+                      "type": "vim",
+                      "service-url": "http://127.0.0.1:5000/v3",
+                      "user-name": "admin",
+                      "password": "vmware",
+                      "system-type": "vim",
+                      "ssl-insecure": false,
+                      "cloud-domain": "default",
+                      "default-tenant": "admin",
+                      "resource-version": "1505892661819"
+                  }
+              ]
+          }
+    }"
+
+
+the identity url reprent the fake cloud identity url.
+
+
+
+Test Examples
+~~~~~~~~~~~~
+
+the ${fake_identiy_url}= "http://MSB_IP:MSB_PORT/api/multicloud-vio/v0/vmware_fake/identity/v3"
+the ${msb_address} =  "MSB_IP:MSB_PORT"
+
+Get auth token
+--------------
+
+# send request to multicloud-framework(broker) service to get token
+
+.. code-block:: console
+
+  $ curl -X  POST   -d @test.json  -H 'Content-Type:application/json'   ${fake_identiy_url}
+
+test.json content example:
+
+::
+
+  {
+    "auth": sudo pip install virtualenv{
+      "scope": {"project": {"id": “<project-id>”}},
+      "identity":
+	  {
+		"password": {"user": {"domain": {"name": “<doman-name>”}, "password": “<user-password>”, "name": “<user-name>”}}, "methods": ["password"]
+	  }
+    }
+  }
+
+
+Response:
+There are a large amounts of data including service endpoint, user information, etc.
+For our testing  We  take nova and identity service endpoint address and auth token which is in response header named “X-Subject-Token”.
+
+# you can find the endpoint url namespace is "api/multicloiud-vio/v0/vmware_fake", it represent the multicloud-vio service, So
+requests sending to mulitcloud-vio will be forwarded to fake cloud.the ip and port reprenst ${msb_address}
+
+
+Identity endpoint:
+	http://$msb_address/api/multicloud-vio/v0/vmware_fake/identity
+
+Nova endpoint:
+	http://$msb_address/api/multicloud-vio/v0/vmware_fake/compute/<user-tenantid>
+
+
+List projects
+-------------
+
+Use identity’s endpoint:  http://$msb_address/api/multicloud-vio/v0/vmware_fake/identity/
+
+.. code-block:: console
+
+  $ curl -X GET   -H 'X-Auth-Token:<token>'  http://$msb_address/api/multicloud-vio/v0/vmware_fake/identity/projects
+
+
+Get os Hypervisor
+-----------------
+
+Use nova’s endpoint:  http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<user-tenantid>
+
+
+.. code-block:: console
+
+  $ curl -X GET -H 'X-Auth-Token:<token>' http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/os-hypervisors/detail
+
+
+List instance of  user’s project
+--------------------------------
+
+.. code-block:: console
+
+  $ curl -X GET -H 'X-Auth-Token:<token>' http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers
+
+
+Show instance detail
+--------------------
+
+you need to input <server-id> in url path.
+
+.. code-block:: console
+
+  $ curl -X GET -H 'X-Auth-Token:<token>' http://$msb_address/api/multicloud-vio/v0/vimid/nova/tenantid/servers/<server-id>
+
+
+Shutdown instance
+-----------------
+
+you need to input <server-id> in url path
+
+.. code-block:: console
+
+  $ curl -X POST -d '{"os-stop":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json' http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers/<server-id>/action
+
+
+Start instance
+--------------
+
+you need to input <server-id> in url path
+
+.. code-block:: console
+
+  $ curl -X POST -d '{"os-start":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json' http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers/<server-id>/action
+
+
+Suspend instance
+----------------
+
+you need to input <server-id> in url path
+
+.. code-block:: console
+
+   $ curl -X POST -d '{"suspend":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json' http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers/<server-id>/action
+
+
+Resume  instance
+----------------
+
+you need to input <server-id> in url path
+
+.. code-block:: console
+
+  $ curl -X POST -d '{"resume":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json'  http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers/<server-id>/action
+
+
+Pause instance
+--------------
+
+you need to input <server-id> in url path
+
+.. code-block:: console
+
+  $ curl -X POST -d '{"pause":null}' -H 'X-Auth-Token:<token>' -H 'Content-Type:application/json' http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers/<server-id>/action
+
+
+Unpasue instance
+----------------
+
+you need to input <server-id> in url path
+
+.. code-block:: console
+
+  $ curl -X POST -d '{"unpause":null}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers/<server-id>/action
+
+
+Reboot instance
+---------------
+
+you need to input <server-id> in url path
+
+.. code-block:: console
+
+  $ curl -X POST -d '{"reboot":{"type":"HARD"}}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers/<server-id>/action
+
