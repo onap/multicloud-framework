@@ -8,3 +8,4 @@ MultiCloud Documentation Repository
    MultiCloud-Deployment-Guide
    MultiCloud-API-Specification-V1
    Multicloud-Fake_Cloud-Guide
+   MUlticloud-Heat-Deploymnet-Guide
