@@ -325,6 +325,7 @@ Upload Image Task
 create uploading image task by image url:
 
 .. code-block:: console
+
    $ curl -X POST -d '{"input": {"image_properties":
      {"container_format": "bare", "name": "<image_name>"},
      "import_from_format": "<disk_format>",
@@ -335,6 +336,7 @@ create uploading image task by image url:
 get the taskid from response body,then query the task status by taskid.
 
 .. code-block:: console
+
    $ curl -X GET -H 'X-Auth-Token:<token>'  http://$HOST_IP/api/multicloud-vio/v0/<vimid>/glance/v2/tasks/<taskid>
 
 You can see the description and properties of task in response body,if 'status' is  success, it will show image_id in
@@ -343,6 +345,7 @@ result block.
 query the image status by image_id
 
 .. code-block:: console
+
   $ curl -X GET -H 'X-Auth-Token:<token>' http://$HOST_IP/api/multicloud-vio/v0/<vimid>/glance/v2/images/<image_id>
 
 

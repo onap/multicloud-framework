@@ -21,36 +21,35 @@ Register vio information into AAI service with region name "vmware" and region i
 
 .. code-block:: console
 
-$ curl -X PUT  -H "X-TransactionId":"get_aai_subr" -H "X-FromAppId":"AAI" -H "Accept":"application/json" \
-  -H "Content-Type:"application/json" \
-  https://aai_ip:aai_port/aai/v11/cloud-infrastructure/cloud-regions/cloud-region/vmware/fake \
-
-    -d "{
-          "cloud-owner": "vmware",
-          "cloud-region-id": "vio",
-          "cloud-type": "vmware",
-          "cloud-region-version": "4.0",
-          "identity-url": "http://MSB_IP:MSB_PORT/api/multicloud-vio/v0/vmware_fake/identity/v3",
-          "sriov-automation": false,
-          "resource-version": "1505892661724",
-          "esr-system-info-list": {
-              "esr-system-info": [
-                  {
-                      "esr-system-info-id": "62e17285-c207-42b0-9d55-b472b274c254",
-                      "system-name": "vim-fake-cloud",
-                      "type": "vim",
-                      "service-url": "http://127.0.0.1:5000/v3",
-                      "user-name": "admin",
-                      "password": "vmware",
-                      "system-type": "vim",
-                      "ssl-insecure": false,
-                      "cloud-domain": "default",
-                      "default-tenant": "admin",
-                      "resource-version": "1505892661819"
-                  }
-              ]
-          }
-    }"
+  $ curl -X PUT  -H "X-TransactionId":"get_aai_subr" -H "X-FromAppId":"AAI" -H "Accept":"application/json" \
+    -H "Content-Type:"application/json" \
+    https://aai_ip:aai_port/aai/v11/cloud-infrastructure/cloud-regions/cloud-region/vmware/fake \
+      -d "{
+            "cloud-owner": "vmware",
+            "cloud-region-id": "vio",
+            "cloud-type": "vmware",
+            "cloud-region-version": "4.0",
+            "identity-url": "http://MSB_IP:MSB_PORT/api/multicloud-vio/v0/vmware_fake/identity/v3",
+            "sriov-automation": false,
+            "resource-version": "1505892661724",
+            "esr-system-info-list": {
+                "esr-system-info": [
+                    {
+                        "esr-system-info-id": "62e17285-c207-42b0-9d55-b472b274c254",
+                        "system-name": "vim-fake-cloud",
+                        "type": "vim",
+                        "service-url": "http://127.0.0.1:5000/v3",
+                        "user-name": "admin",
+                        "password": "vmware",
+                        "system-type": "vim",
+                        "ssl-insecure": false,
+                        "cloud-domain": "default",
+                        "default-tenant": "admin",
+                        "resource-version": "1505892661819"
+                    }
+                ]
+            }
+      }"
 
 
 the identity url reprent the fake cloud identity url.
@@ -58,7 +57,7 @@ the identity url reprent the fake cloud identity url.
 
 
 Test Examples
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 the ${fake_identiy_url}= "http://MSB_IP:MSB_PORT/api/multicloud-vio/v0/vmware_fake/identity/v3"
 the ${msb_address} =  "MSB_IP:MSB_PORT"
