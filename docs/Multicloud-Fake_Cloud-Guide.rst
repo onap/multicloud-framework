@@ -49,7 +49,6 @@ Register vio information into AAI service with region name "vmware" and region i
             }
       }"
 
-
 the identity url reprent the fake cloud identity url.
 
 
@@ -63,11 +62,11 @@ the ${msb_address} =  "MSB_IP:MSB_PORT"
 Get auth token
 --------------
 
-# send request to multicloud-framework(broker) service to get token
+# send request to multicloud-framework(broker) service to get token of keystone V3
 
 .. code-block:: console
 
-  $ curl -X  POST   -d @test.json  -H 'Content-Type:application/json'   ${fake_identiy_url}
+  $ curl -X  POST   -d @test.json  -H 'Content-Type:application/json'   http://MSB_IP:MSB_PORT/api/multicloud/v0/vmware_fake/identity/v3/auth/tokens
 
 test.json content example:
 
@@ -206,4 +205,100 @@ you need to input <server-id> in url path
 .. code-block:: console
 
   $ curl -X POST -d '{"reboot":{"type":"HARD"}}' -H 'X-Auth-Token:<token> -H 'Content-Type:application/json'  http://$msb_address/api/multicloud-vio/v0/vmware_fake/nova/<tenantid>/servers/<server-id>/action
+
+
+list heat stacks
+----------------
+
+.. code-block:: console
+
+  $ curl -X GET -H 'X-Auth-Token:<token>'  http://$msb_address/api/multicloud-vio/v0/vmware_fake/heat/<tenantid>/stacks
+
+
+create preview stack
+--------------------
+
+.. code-block:: console
+
+  $ curl -X POST -H 'X-Auth-Token:<token>'  http://$msb_address/api/multicloud-vio/v0/vmware_fake/heat/<tenantid>/stacks/preview \
+        -d "{
+              "files": {},
+              "disable_rollback": true,
+              "parameters": {
+                  "flavor": "m1.heat"
+              },
+              "stack_name": "teststack",
+              "template": {
+                  "heat_template_version": "2013-05-23",
+                  "description": "Simple template to test heat commands",
+                  "parameters": {
+                      "flavor": {
+                          "default": "m1.tiny",
+                          "type": "string"
+                      }
+                  },
+                  "resources": {
+                      "hello_world": {
+                          "type": "OS::Nova::Server",
+                          "properties": {
+                              "key_name": "heat_key",
+                              "flavor": {
+                                  "get_param": "flavor"
+                              },
+                              "image": "40be8d1a-3eb9-40de-8abd-43237517384f",
+                              "user_data": "#!/bin/bash -xv\necho \"hello world\" &gt; /root/hello-world.txt\n"
+                          }
+                      }
+                  }
+              },
+              "timeout_mins": 60
+           }"
+
+
+create  stack
+-------------
+
+.. code-block:: console
+
+  $ curl -X POST -H 'X-Auth-Token:<token>' http://$msb_address/api/multicloud-vio/v0/vmware_fake/heat/<tenantid>/stacks \
+          -d  "{
+                  "files": {},
+                  "disable_rollback": true,
+                  "parameters": {
+                      "flavor": "m1.heat"
+                  },
+                  "stack_name": "teststack",
+                  "template": {
+                      "heat_template_version": "2013-05-23",
+                      "description": "Simple template to test heat commands",
+                      "parameters": {
+                          "flavor": {
+                              "default": "m1.tiny",
+                              "type": "string"
+                          }
+                      },
+                      "resources": {
+                          "hello_world": {
+                              "type": "OS::Nova::Server",
+                              "properties": {
+                                  "key_name": "heat_key",
+                                  "flavor": {
+                                      "get_param": "flavor"
+                                  },
+                                  "image": "40be8d1a-3eb9-40de-8abd-43237517384f",
+                                  "user_data": "#!/bin/bash -xv\necho \"hello world\" &gt; /root/hello-world.txt\n"
+                              }
+                          }
+                      }
+                  },
+                  "timeout_mins": 60
+              }"
+
+
+delete stack
+------------
+
+.. code-block:: console
+
+  $ curl -X DELETE -H 'X-Auth-Token:<token>'  http://$msb_address/api/multicloud-vio/v0/vmware_fake/heat/<tenantid>/stacks/<stack_name>/<stack_id>
 
