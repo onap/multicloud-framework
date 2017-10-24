@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a2f8d8d_a14ebcbf",
+        "filename": "docs/MultiCloud-Deployment-Guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-10-24T03:42:36Z",
+      "side": 1,
+      "message": "Use v2.0 here?",
+      "range": {
+        "startLine": 182,
+        "startChar": 125,
+        "endLine": 182,
+        "endChar": 127
+      },
+      "revId": "db29c8b5621e0ea2cd6b05c7e4b5e4af0715c8b4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
