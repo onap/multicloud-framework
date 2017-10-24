@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a2f8d8d_21d2ccd2",
+        "filename": "docs/Multicloud-Fake_Cloud-Guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2017-10-24T03:44:15Z",
+      "side": 1,
+      "message": "Resolve the conflicts here.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 23
+      },
+      "revId": "f86b49f866585aa9d907fd9006f2cec0f5c3e19b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
