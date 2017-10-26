@@ -26,6 +26,16 @@ logger = logging.getLogger(__name__)
 
 class BaseHandler(object):
 
+    HEADER_MAPPING = {
+        'HTTP_X_AUTH_TOKEN': 'X-Auth-Token',
+        'HTTP_X_SUBJECT_TOKEN': 'X-Subject-Token',
+        'CONTENT_TYPE': 'Content-Type',
+        'HTTP_ACCEPT': 'Accept',
+        'HTTP_USER_AGENT': 'User-Agent',
+        'HTTP_ACCEPT_LANGUAGE': 'Accept-Language',
+        'HTTP_ACCEPT_ENCODING': 'Accept-Encoding'
+    }
+
     def _request(self, route_uri, method, body="", headers=None):
 
         try:
@@ -50,6 +60,12 @@ class BaseHandler(object):
         return response
 
     def send(self, vimid, full_path, body, method, headers=None):
+        new_headers = None
+        if headers:
+            new_headers = {}
+            for k,v in self.HEADER_MAPPING.items():
+                if k in headers:
+                    new_headers[v] = headers[k]
 
         try:
             url = getMultivimDriver(vimid, full_path=full_path)
@@ -61,4 +77,4 @@ class BaseHandler(object):
             return HttpResponse(str(e),
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        return self._request(url, method, body=body, headers=headers)
+        return self._request(url, method, body=body, headers=new_headers)
