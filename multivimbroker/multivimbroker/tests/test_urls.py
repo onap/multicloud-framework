@@ -22,5 +22,5 @@ class TestUrls(unittest.TestCase):
                         "req_by_msb") as req_by_msb:
             urls.req_msb(True)
             req_by_msb.assert_called_once_with(
-               config.REG_TO_MSB_REG_URL, "POST",
-               json.JSONEncoder().encode(config.REG_TO_MSB_REG_PARAM))
+                config.REG_TO_MSB_REG_URL, "POST",
+                json.JSONEncoder().encode(config.REG_TO_MSB_REG_PARAM))
