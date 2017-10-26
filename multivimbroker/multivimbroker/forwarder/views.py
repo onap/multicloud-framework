@@ -46,11 +46,13 @@ class Identity(BaseServer):
 
     def get(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "GET")
+        return self.send(vimid, request.get_full_path(), request.body, "GET",
+                         headers=request.META)
 
     def post(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "POST")
+        return self.send(vimid, request.get_full_path(), request.body, "POST",
+                         headers=request.META)
 
 
 class Registry(BaseServer):
@@ -114,28 +116,30 @@ class Forward(BaseServer):
 
     def get(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "GET")
+        return self.send(vimid, request.get_full_path(), request.body, "GET",
+                         headers=request.META)
 
     def post(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body, "POST",
-                         headers=None)
+                         headers=request.META)
 
     def patch(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body, "PATCH",
-                         headers=None)
+                         headers=request.META)
 
     def delete(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body,
-                         "DELETE", headers=None)
+                         "DELETE", headers=request.META)
 
     def head(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "HEAD")
+        return self.send(vimid, request.get_full_path(), request.body, "HEAD",
+                         headers=request.META)
 
     def put(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body, "PUT",
-                         headers=None)
+                         headers=request.META)
