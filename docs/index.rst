@@ -4,8 +4,7 @@ MultiCloud Documentation Repository
 -----------------------------------
 .. toctree::
    :maxdepth: 2
-   
-   MultiCloud-Deployment-Guide
+
    MultiCloud-API-Specification-V1
    Multicloud-Fake_Cloud-Guide
    MUlticloud-Heat-Deploymnet-Guide
