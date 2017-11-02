@@ -10,3 +10,4 @@ MultiCloud Documentation Repository
    MultiCloud-API-Specification-V1
    Multicloud-Fake_Cloud-Guide
    MultiCloud-Heat-Deployment-Guide
+   MultiCloud-Administrator-Guide
