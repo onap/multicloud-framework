@@ -5,11 +5,11 @@ ONAP MultiCloud Heat Deployment Guide
 Prerequisites
 ~~~~~~~~~~~~~
 
-1. A VIO platofrom install with nova,keystone,horizon,image,
-,neutron and heat service, make sure  floating ip is work.
+1. A VIO platform install with nova, keystone, horizon, image,
+neutron and heat service, make sure floating ip is work.
 
-2  A local host as openstackclient cloud access opentack platform,
-install python,python-pip,vietualenv, python-openstackclient,
+2. A local host as OpenStack client cloud access OpenStack platform,
+install python, python-pip, virtualenv, python-openstackclient,
 python-heatclient.
 
 
