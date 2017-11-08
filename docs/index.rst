@@ -5,6 +5,7 @@ MultiCloud Documentation Repository
 .. toctree::
    :maxdepth: 2
    
+   Release Notes
    MultiCloud-Deployment-Guide
    MultiCloud-Test-Guide
    MultiCloud-API-Specification-V1
