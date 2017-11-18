@@ -10,14 +10,14 @@ Release Date
 New Features
 ------------
 * keystone proxy to support original OpenStack consumed modules
-* Mutiple VIM registry and unregistry
+* Multiple VIM registry and unregister
 * Resources LCM functions
-* Hierarchical bindig based SDN integration in each Datacenter
-* Fcaps basic data collection support, OS panic alert is thrown out as an example
+* Hierarchical binding based integration with the third party SDN controller
+* Basic Fcaps alert collection support, VM abnormal status is thrown out as an example
 * Auto-deployment support to both K8s and heat
 * Fake cloud based Unit and system test framework
 * Complete code coverage detection and CSIT framework
-* Complish plugins of different backends, including: Vanilla OpenStack (based on Ocata) and commercial Clouds including OpenStack (including Titanium - Mitaka from Wind River and VIO - Ocata from VMware) 
+* Complete plugins of different backbends, including: Vanilla OpenStack (based on Ocata) and commercial Clouds including OpenStack (including Titanium - Mitaka from Wind River and VIO - Ocata from VMware)
 
 Bug Fixes
 ---------
