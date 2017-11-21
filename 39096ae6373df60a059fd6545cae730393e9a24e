@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Rich Bennett <rb2745@att.com>
+Code-Review+2: xinhuili <lxinhui@vmware.com>
+Verified+1: xinhuili <lxinhui@vmware.com>
+Submitted-by: xinhuili <lxinhui@vmware.com>
+Submitted-at: Tue, 21 Nov 2017 23:43:58 +0000
+Reviewed-on: https://gerrit.onap.org/r/24743
+Project: multicloud/framework
+Branch: refs/heads/master
