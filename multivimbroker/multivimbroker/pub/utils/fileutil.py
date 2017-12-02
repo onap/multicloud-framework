@@ -43,7 +43,7 @@ def download_file_from_http(url, local_dir, file_name):
         save_file.close()
         req.close()
         is_download_ok = True
-    except:
+    except Exception as e:
         logger.error(traceback.format_exc())
         logger.error("Failed to download %s to %s.", url, local_file_name)
     return is_download_ok, local_file_name
