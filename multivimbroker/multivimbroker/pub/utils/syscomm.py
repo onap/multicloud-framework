@@ -10,6 +10,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 import inspect
+import json
+import os
 import re
 
 import multivimbroker.pub.exceptions as exceptions
@@ -34,20 +36,16 @@ def getHeadersKeys(response):
 
 
 def findMultivimDriver(vim=None):
-
-    if vim and vim["type"] == "openstack":
-        if vim["version"] == "ocata":
-            multivimdriver = "multicloud-ocata"
-        elif vim["version"] == "titanium_cloud":
-            multivimdriver = "multicloud-titanium_cloud"
-        else:
-            # if vim type is openstack, use "ocata" version as default
-            multivimdriver = "multicloud-ocata"
-    elif vim and vim["type"] == "vmware":
-            multivimdriver = "multicloud-vio"
-    else:
+    json_file = os.path.join(os.path.dirname(__file__),
+                                 '../config/provider-plugin.json')
+    with open(json_file, "r") as f:
+        plugins = json.load(f)
+    if not vim or vim.get("type") not in plugins.keys():
         raise exceptions.NotFound("Not support VIM type")
-    return multivimdriver
+    plugin = plugins[vim["type"]]
+    if vim.get("version") in plugin["versions"].keys():
+        return plugin["versions"][vim["version"]]["provider-plugin"]
+    return plugin["provider-plugin"]
 
 
 def getMultivimDriver(vimid, full_path=""):
