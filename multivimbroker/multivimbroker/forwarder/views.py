@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
+import json
+
 from rest_framework.views import APIView
 from rest_framework.views import Response
 from rest_framework.views import status
@@ -79,33 +82,11 @@ class VIMTypes(BaseServer):
 
     def get(self, request):
         # Fix here unless we have plugin registry
-        data = {
-            "vim_types": [
-                {
-                    "vim_type": "openstack",
-                    "versions": [
-                        {
-                            "version": "titanium_cloud",
-                            "extra_info_hint": ""
-                        },
-                        {
-                            "version": "ocata",
-                            "extra_info_hint": ""
-                        }
-                    ]
-                },
-                {
-                    "vim_type": "vmware",
-                    "versions": [
-                        {
-                            "version": "4.0",
-                            "extra_info_hint": ""
-                        }
-                    ]
-                }
-            ]
-        }
-
+        json_file = os.path.join(os.path.dirname(__file__),
+                                 '../pub/config/provider-plugin.json')
+        with open(json_file, "r") as f:
+            plugins = json.load(f)
+        data = {"vim_types": plugins}
         return Response(data=data, status=status.HTTP_200_OK)
 
 
