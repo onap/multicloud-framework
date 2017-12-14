@@ -17,7 +17,6 @@ from multivimbroker.pub.config import config
 
 urlpatterns = [
     url(r'^', include('multivimbroker.swagger.urls')),
-    url(r'^', include('multivimbroker.samples.urls')),
     url(r'^', include('multivimbroker.forwarder.urls')),
 ]
 
