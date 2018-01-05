@@ -32,11 +32,6 @@ AAI_PASSWORD = 'AAI'
 ROOT_PATH = os.path.dirname(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# [REDIS]
-REDIS_HOST = '127.0.0.1'
-REDIS_PORT = '6379'
-REDIS_PASSWD = ''
-
 # [register]
 REG_TO_MSB_WHEN_START = False
 REG_TO_MSB_REG_URL = "/api/microservices/v1/services"
