@@ -2,6 +2,7 @@
 * ============LICENSE_START==========================================
 * ===================================================================
 * Copyright © 2017 AT&T Intellectual Property. All rights reserved.
+* Copyright (c) 2017-2018 VMware, Inc.
 * ===================================================================
 *
 * Unless otherwise specified, all software contained herein is licensed

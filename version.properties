@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (c) 2017 VMware, Inc.
+# Copyright (c) 2017-2018 VMware, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
