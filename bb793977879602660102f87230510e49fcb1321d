@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_0240d5a3",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-01-24T14:33:42Z",
+      "side": 1,
+      "message": "I hope this is not intending to change the interface of broker and plugins which are loosely coupled by rest APIs. I prefer sticking to existing overall architecture with regarding to how broker and plugins collaborate and the flexibility to deploy/maintain as well as to expose NBIs via MSB.\n\nThis Multi process framework could be applied to individual plugins which is up to their committer/maintainer\u0027s choice. But it need more discussion when it comes to broker . We need to figure out the specific use case and see what is the benefits.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c2498dd1",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-01-24T14:33:42Z",
+      "side": 1,
+      "message": "This is good to evaluate, again it is up to each individual plugins to decide whether to change the framework.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 79
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_e244c9b8",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-01-24T14:33:42Z",
+      "side": 1,
+      "message": "does this tool generate API for microservice framework? or just generate swagger file ?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 12
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_821385b7",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-01-24T14:33:42Z",
+      "side": 1,
+      "message": "I get confused, since I think django is just internal implementation element which is invisible to external API consumers. Backward compatibility refer to API related to external consumers, changing of internal implementation should be irrelevant to API it exposed, correct?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
