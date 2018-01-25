@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_85ef0f87",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-25T02:26:57Z",
+      "side": 1,
+      "message": "This is not intending to change the interface, but to change how the process works.\n\nAnd this is not a functionality enhancement, but a performance enhancement. I don\u0027t think we can identify *specific* use case for it.\n\nThe change here is to comply the R2 S3P goal. The benefit will be improving the parallelism of API handler. From what I tested in my local computer, current way to run django server can only handle one api request at one time. And according to [Django_Document], we are just using django debug mode in multi-cloud. I see no reason to keep it that way.",
+      "parentUuid": "5a93c517_0240d5a3",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c2498dd1",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2018-01-24T14:33:42Z",
       "side": 1,
       "message": "This is good to evaluate, again it is up to each individual plugins to decide whether to change the framework.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 79
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_e5f7f357",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-25T02:26:57Z",
+      "side": 1,
+      "message": "reply below",
+      "parentUuid": "5a93c517_c2498dd1",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_0503ff42",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-25T02:26:57Z",
+      "side": 1,
+      "message": "this is to generate api for http server that each multicloud component will expose.",
+      "parentUuid": "5a93c517_e244c9b8",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 12
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_821385b7",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2018-01-24T14:33:42Z",
       "side": 1,
       "message": "I get confused, since I think django is just internal implementation element which is invisible to external API consumers. Backward compatibility refer to API related to external consumers, changing of internal implementation should be irrelevant to API it exposed, correct?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_45b7c786",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-25T02:26:57Z",
+      "side": 1,
+      "message": "You are correct. But as your concern above, I agree new things mean unstable. So, we are not replacing current api framework. Instead, I propose to have 2 sets of api framework. And this configuration option is to giving user a choice. And as I mentioned, default value will still choose the current django framework. So that users who don\u0027t care about this feature will not be affected.\nUntil this api framework is mature, it will still be the alternative option. And I don\u0027t think this api framework will be mature in R2.\nSo, what I proposed here is how we can take baby steps while still working toward S3P.",
+      "parentUuid": "5a93c517_821385b7",
       "range": {
         "startLine": 87,
         "startChar": 0,
