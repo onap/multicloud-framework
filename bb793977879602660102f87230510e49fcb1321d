@@ -187,6 +187,30 @@
       "revId": "bb793977879602660102f87230510e49fcb1321d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_366e7302",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 299
+      },
+      "writtenOn": "2018-01-25T22:24:19Z",
+      "side": 1,
+      "message": "Having looked at the Django docs and a bit into Pecan, +1 to this proposal. It\u0027s not uncommon to provide a user multiple options for the backend that can be configured by the cloud admin that won\u0027t affect end users. It\u0027s like the difference between an OpenStack Cinder deployment using an LVM backend versus a Ceph one. If there\u0027s any part of the work items that you could use a hand with I\u0027d be happy to help.",
+      "parentUuid": "5a93c517_45b7c786",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
