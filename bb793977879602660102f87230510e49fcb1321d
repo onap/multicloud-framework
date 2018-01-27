@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_3c065187",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-27T02:12:07Z",
+      "side": 1,
+      "message": "I might have misunderstood something here. The problem statement above shows me the need of the ability of adding/removing APIs in a automatic way, i.e. generating APIs based on YAML according to what was described at project meeting on Monday.\n\nBut the \"Multi Processes Framework\" seems the improvement of API handling, i.e. the need of the ability of handling multiple API requests concurrently.\n\nThere is a difference between \"Extensible API Framework\" and \"Concurrent API Handling Framework\". The former means the front-end API endpoints can be generated at runtime if YAML changes. The latter means the internal handling of API requests concurrently (no matter what the front-end APIs are, either static or dynamic). The latter actually is more an implementation issue, ie. multi-threading. The former is more a design issue, i.e. definition of API root URL, API pattern, and how to map resource objects in YAML to the API endpoints / resource path in URL, and a tool to generate the dynamic API endpoints (resource path) that can be appended to API root URL, and related data object schema of resources for CRUD operations.",
+      "parentUuid": "5a93c517_85ef0f87",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c2498dd1",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -143,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_bcf90182",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-27T02:12:07Z",
+      "side": 1,
+      "message": "This is in line with what I understood of an \"Extensible API Framework\". But I didn\u0027t see anything proposed here.\n\nAre you going to develop the spec?\n\nI suggest that we can reuse the design of what OpenStack Gluon project has done - exactly the same thing.\n\nThe design of \"Extensible API Framework\" can be found here:\n\nhttps://github.com/openstack/gluon/blob/master/doc/source/devref/gluon_api_spec.inc.",
+      "parentUuid": "5a93c517_0503ff42",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 12
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_821385b7",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -207,6 +255,53 @@
         "startChar": 0,
         "endLine": 90,
         "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_dcf40d89",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-27T02:12:07Z",
+      "side": 1,
+      "message": "Agree it is quite stretch to make it mature in R2. Then questions:\n(1) It is an MVP component now. What if it cannot meet R2 schedule? Should we move it as a stretch goal/long term task?\n(2) Once it is mature, can we run both framework concurrently?\n\nThe goal is to have zero impact on current happy users (VF-C, APP-C etc.) If they keep on using existing APIs, there are 2 options:\n(1) support existing APIs in new framework.\n(2) run 2 frameworks concurrently: one for existing APIs to support current users if they don\u0027t want to change; and the other one for new APIs to support anyone who wants to use new APIs.",
+      "parentUuid": "5a93c517_366e7302",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_7cf3799e",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-27T02:12:07Z",
+      "side": 1,
+      "message": "Certainly, the design of API framework is missing in the task list. But the design of API framework is actually the essence/core/heart of the \"Extensible API Framework\". In addition the API Generator work item is also missing, which is another pillar of this API Framework. Without the design and API Generator tool, current task list won\u0027t achieve the goal of \"Extensible API Framework\".\n\nPlease refer to OpenStack Gluon:\n\n(1) API Design: https://github.com/openstack/gluon/blob/master/doc/source/devref/gluon_api_spec.inc\n\n(2) API Generator (aka Particle Generator): https://github.com/openstack/gluon/tree/master/gluon/particleGenerator\n\n(3) API Server (aka Proton Server): https://github.com/openstack/gluon/tree/master/gluon/api\n\nI encourage reuse.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 10
       },
       "revId": "bb793977879602660102f87230510e49fcb1321d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
