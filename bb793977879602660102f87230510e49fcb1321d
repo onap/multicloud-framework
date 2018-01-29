@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_dfcddf5e",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-29T02:33:45Z",
+      "side": 1,
+      "message": "Bin, you are right. We are addressing 2 issues here. I know it is a bit confusing, but the fixing of 2 issues are tight coupled. So I use one spec file for them. Maybe I should change the tile of this spec, any suggestion?",
+      "parentUuid": "5a93c517_3c065187",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c2498dd1",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -191,6 +215,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_1f3a6736",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-29T02:33:45Z",
+      "side": 1,
+      "message": "Thanks, reply below",
+      "parentUuid": "5a93c517_bcf90182",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 12
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_821385b7",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -286,6 +334,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_5f30ef55",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-29T02:33:45Z",
+      "side": 1,
+      "message": "For questions,\n\n(1) The goal is to implement the work in this spec in R2. We are not planning to leave things to R3. So, I don\u0027t think it is good to move it to long term task. What I meant \"it will not be mature in R2\" is that it might have some bugs/issues, and we may spend another one or two release to fix the bugs to make it mature. Does this make sense?\n\n(2) The plan is to let cloud admin choose one framework.\n\nFor options, The plan it so support option (1)",
+      "parentUuid": "5a93c517_dcf40d89",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_7cf3799e",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -297,6 +369,30 @@
       "writtenOn": "2018-01-27T02:12:07Z",
       "side": 1,
       "message": "Certainly, the design of API framework is missing in the task list. But the design of API framework is actually the essence/core/heart of the \"Extensible API Framework\". In addition the API Generator work item is also missing, which is another pillar of this API Framework. Without the design and API Generator tool, current task list won\u0027t achieve the goal of \"Extensible API Framework\".\n\nPlease refer to OpenStack Gluon:\n\n(1) API Design: https://github.com/openstack/gluon/blob/master/doc/source/devref/gluon_api_spec.inc\n\n(2) API Generator (aka Particle Generator): https://github.com/openstack/gluon/tree/master/gluon/particleGenerator\n\n(3) API Server (aka Proton Server): https://github.com/openstack/gluon/tree/master/gluon/api\n\nI encourage reuse.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 10
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ffd21bd1",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-29T02:33:45Z",
+      "side": 1,
+      "message": "Thanks Bin for pointing that out. I just had a rough mind, written some some poc code locally and draft this spec. I went through project Gluon and find that project Gluon indeed has many same ideas in this spec. I will definitely take Project Gluon as reference.",
+      "parentUuid": "5a93c517_7cf3799e",
       "range": {
         "startLine": 92,
         "startChar": 0,
