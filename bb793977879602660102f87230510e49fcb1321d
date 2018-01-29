@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a93c517_221148ac",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-01-29T06:30:03Z",
+      "side": 1,
+      "message": "Django is a framework and runserver is a simple webserver for demo. we can change to nginx + uwsgi to improve the performance by supporting concurrent API processing. We don\u0027t need another framework to address this issue. Please refer to:\nhttp://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 107
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_0240d5a3",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -90,6 +113,29 @@
         "startChar": 0,
         "endLine": 37,
         "endChar": 25
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_225f0874",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-01-29T06:30:03Z",
+      "side": 1,
+      "message": "while oslo can be a candidate to achieve this \"multiple processing\" purpose, we might also need take a look at another option: django + celery : https://simpleisbetterthancomplex.com/tutorial/2017/08/20/how-to-use-celery-with-django.html",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 59
       },
       "revId": "bb793977879602660102f87230510e49fcb1321d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
@@ -346,6 +392,29 @@
       "side": 1,
       "message": "For questions,\n\n(1) The goal is to implement the work in this spec in R2. We are not planning to leave things to R3. So, I don\u0027t think it is good to move it to long term task. What I meant \"it will not be mature in R2\" is that it might have some bugs/issues, and we may spend another one or two release to fix the bugs to make it mature. Does this make sense?\n\n(2) The plan is to let cloud admin choose one framework.\n\nFor options, The plan it so support option (1)",
       "parentUuid": "5a93c517_dcf40d89",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_02d3ecd6",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-01-29T06:30:03Z",
+      "side": 1,
+      "message": "basically, I am very concerned to switch to another framework and make it a MVP in such tight schedule for Beijing Release. I suggest we stick to existing building blocks and see how to improve it with existing solutions to accomplish our S3P goal. Anyway, Stability is part of S3P, change the framework is a radical change will endanger the Stability with unknown performance improvement.",
       "range": {
         "startLine": 87,
         "startChar": 0,
