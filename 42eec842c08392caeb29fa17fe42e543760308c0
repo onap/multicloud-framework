@@ -46,6 +46,30 @@
       "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6230ab01",
+        "filename": "docs/specs/multicloud_resource_capacity_check.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T21:51:39Z",
+      "side": 1,
+      "message": "(1) Here is an example of available capacity check:\n\n* Request:\n\ncheck_vim_capacity({“vcpu”: int, “mem”: int, “vims”: [cloud-region-id1, cloud-region-id2, cloud-region-id3]})\n\n\n* Response:\n\n{\n\tcloud-region-1: \n\t\t{\n\t\t\t has_capacity: Yes, \n\t\t \t capacities: { \n\t\t\t\t“vcpu”: 20, \n\t\t\t\t“mem”: 100\n\t\t\t }\n\t\t}\n\tcloud-region-2: \n\t\t{\n\t\t\thas_capacity: Yes, \n\t\t \t capacities: { \n\t\t\t }\n\t\t}\n\tcloud-region-3: \n\t\t{\n\t\t\thas_capacity: No, \n\t\t \t capacities: { \n\t\t\t\t“vcpu”: 0, \n\t\t\t\t“mem”: 10\n\t\t\t }\n\t\t}\n}\n\n(3) Holistic Check Example:\n\nAssume we have [cpupin, numa, largepages] as the HPA capabilities for vCPU resource, \"Holistic Check\" of a vCPU with those HPA means:\n\ncpupin AND numa AND largepages AND capacity(vcpu: 5)\n\n\nThis is just an example.",
+      "parentUuid": "5a93c517_62774b3b",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
