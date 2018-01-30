@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_b345acb4",
+        "filename": "docs/specs/Event \u0026 Image.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T06:47:27Z",
+      "side": 1,
+      "message": "This spec is another example of \"messing up\" 2 different things together. This is a bad practice. I suggest that we split it into 2 different specs. One for Event/Alert/Metrics Federation, and the other one for Image service.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 30
+      },
+      "revId": "1757412e776e736d697214e5ee3b082692e03a51",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d34078a7",
+        "filename": "docs/specs/Event \u0026 Image.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T06:47:27Z",
+      "side": 1,
+      "message": "Have you discussed with APP-C team to let them know that they can no longer poll Nova for status information? Have they agreed to this change?",
+      "range": {
+        "startLine": 12,
+        "startChar": 86,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "1757412e776e736d697214e5ee3b082692e03a51",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
