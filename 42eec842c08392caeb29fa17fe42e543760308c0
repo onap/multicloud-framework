@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_b3d7ecec",
+        "filename": "docs/specs/multicloud_resource_capacity_check.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T06:29:19Z",
+      "side": 1,
+      "message": "I might have misunderstood lots of things.\n\nIn Matti\u0027s email at Tue 1/23/2018 8:28 AM PST, he gave the example in Bullet #5. Basically, his example API looks like:\n\n- available_capacity(cloud_region_id) -\u003e {x: vCPU, y: memory, z: storage}\n\nHost-aggregate example:\n\n- available_capacity(cloud_region, host_aggregate) with the same output.\n\nHPA example:\n\n-available_capacity(cloud_region, {HPA1, HPA2}) and the output would give the available capacity where the two HPA attributes are satisfied\n\nAll of his examples show me that:\n- Input parameters of API call from OOF include VIM identifier\n- Output of API response to OOF are actual available resources of the identified cloud, e.g. number of CPUs, memory size, storage size, HPA capacity etc.\n\nBut the design of this API specs doesn\u0027t meet OOF\u0027s requirement. The output of this API design doesn\u0027t give the actual cloud capacity. Instead, it gives back list of VIMs that it \"thinks\" to have enough capacity, or a simple boolean {true|false}. Therefore the output of proposed API design is not what OOF needs.\n\nOOF needs the actual capacity number, then OOF can determine if the capacity is enough or not based on its own judgement algorithm. It is not MultiVIM\u0027s job to do such judgement/determination for OOF. Rather MultiVIM\u0027s job is to give OOF the capacity data so that OOF can make its own decision based on those data from MultiVIM.\n\nThus IMHO, the API design is wrong.",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
