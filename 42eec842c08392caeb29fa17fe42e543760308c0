@@ -22,6 +22,30 @@
       "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_62774b3b",
+        "filename": "docs/specs/multicloud_resource_capacity_check.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T18:10:36Z",
+      "side": 1,
+      "message": "Based on email discussion, here is the suggestion:\n\n(1)\tavailable_capacity()\n\nAs Shankar documented in wiki, getting the capacity data of specified VIMs is a more scalable approach and preferred by OOF. It is understandable that some VIM may not be willing to give those information. Under this circumstance, I suggest that VIM may return empty data of those specific capacities. In addition, you may add one more optional attribute “Other Information” which may suggest a list of other VIMs to OOF.\n\nPlease note that OOF is doing global optimization, and many other constraints need to be considered than capacity. As Shankar documented in wiki, “…OOF would have eliminated many VIMs based on other constraints that make them an infeasible choice for a given problem…”.\n\nSo in a word:\n-\tInput parameter: a list of VIMs (from OOF that has been optimized based on other constraints)\n-\tOutput:\no\tThe capacity data of those VIMs\no\tEmpty data of a VIM, if this VIM is not giving capacity data\no\t(Optional) “Other Information” may give other suggested VIMs.\n\n(2)\tHPA attributes\n\nWhen handling HPA attributes, the capacity data will look like:\n-\tcloud-region-id1: {CPU Pinning: True, NUMA: False, Large Pages: True}\nas suggested by Shankar.\n\nNote this is only an example, not the design.\n\n(3)\tholistic capacity checks\n\nLet us keep on discussion.",
+      "parentUuid": "5a93c517_b3d7ecec",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
