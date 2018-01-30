@@ -120,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_13b260e6",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T06:00:44Z",
+      "side": 1,
+      "message": "I suggest to split it into 2 specs, one for Extensible API Framework, and the other one for Concurrent API Handling.",
+      "parentUuid": "5a93c517_dfcddf5e",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_225f0874",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -427,6 +451,54 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_d3cb9851",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T06:00:44Z",
+      "side": 1,
+      "message": "Based on my comments above, i.e. very stretch for R2 considering the amount of work and immaturity/uncertainty of new framework, I would agree with Bin Yang that we stick to existing building blocks. \"Platform Stability\" is #1 in S3P.",
+      "parentUuid": "5a93c517_02d3ecd6",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_33b51ccd",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T06:00:44Z",
+      "side": 1,
+      "message": "If the plan is to support option (1), i.e. supporting existing APIs in new framework, it is very stretch for R2 considering the amount of work and immaturity/uncertainty of new framework.",
+      "parentUuid": "5a93c517_5f30ef55",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_7cf3799e",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -462,6 +534,30 @@
       "side": 1,
       "message": "Thanks Bin for pointing that out. I just had a rough mind, written some some poc code locally and draft this spec. I went through project Gluon and find that project Gluon indeed has many same ideas in this spec. I will definitely take Project Gluon as reference.",
       "parentUuid": "5a93c517_7cf3799e",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 10
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_f3c6d448",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T06:00:44Z",
+      "side": 1,
+      "message": "That\u0027s great. As I commented at the beginning, we need to split into 2 specs. This current spec with current task list seems more about Concurrent API Handling. We need another spec to define API Framework.",
+      "parentUuid": "5a93c517_ffd21bd1",
       "range": {
         "startLine": 92,
         "startChar": 0,
