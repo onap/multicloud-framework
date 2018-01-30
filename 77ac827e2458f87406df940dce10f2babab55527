@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_a2a473a6",
+        "filename": "docs/specs/Event Federation.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-30T18:18:18Z",
+      "side": 1,
+      "message": "Pending discussion with APP-C. If APP-C does not plan to interface with DMaaP for Beijing Release, we need a different design. Otherwise, APP-C will not be able to use MultiVIM in Beijing Release.\nI will mark -1 for the sake of this pending discussion, and the discussion result may result in a new design.",
+      "range": {
+        "startLine": 12,
+        "startChar": 86,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "77ac827e2458f87406df940dce10f2babab55527",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
