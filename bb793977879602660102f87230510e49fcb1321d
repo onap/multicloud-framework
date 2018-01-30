@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_4e283b86",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-30T08:00:06Z",
+      "side": 1,
+      "message": "Actually, I investigated the django based solution before I drafted this spec and thought that it might not be ideal api framework. I will add more details in new version, we can carry on discussion in new version.",
+      "parentUuid": "5a93c517_221148ac",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 107
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_0240d5a3",
         "filename": "docs/specs/extensible_api_framework.rst",
         "patchSetId": 1
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "I suggest to split it into 2 specs, one for Extensible API Framework, and the other one for Concurrent API Handling.",
       "parentUuid": "5a93c517_dfcddf5e",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ae19bf7a",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-30T08:00:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_13b260e6",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -487,6 +535,30 @@
       "side": 1,
       "message": "If the plan is to support option (1), i.e. supporting existing APIs in new framework, it is very stretch for R2 considering the amount of work and immaturity/uncertainty of new framework.",
       "parentUuid": "5a93c517_5f30ef55",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 36
+      },
+      "revId": "bb793977879602660102f87230510e49fcb1321d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2e25afaa",
+        "filename": "docs/specs/extensible_api_framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-01-30T08:00:06Z",
+      "side": 1,
+      "message": "I will upload a new version of the spec, we can carry on discussion there.",
+      "parentUuid": "5a93c517_d3cb9851",
       "range": {
         "startLine": 87,
         "startChar": 0,
