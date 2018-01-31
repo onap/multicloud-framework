@@ -70,6 +70,30 @@
       "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b6d275fe",
+        "filename": "docs/specs/multicloud_resource_capacity_check.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-31T20:23:05Z",
+      "side": 1,
+      "message": "Explanation of above example as documented in wiki https://wiki.onap.org/display/DW/OOF+-+MultiCloud+interaction+in+R2:\n\nStep 0: This is pre-condition. OOF is doing global optimization with many constraints, and worked out a shortlist of 3 VIMs { cloud-region-id1, cloud-region-id2, cloud-region-id3 }. Now OOF needs to check those VIMs\u0027 capacity.\n\nStep 1: OOF calls MultiVIM\u0027s API to check those 3 VIMs\u0027 capacity information.\n\nStep 2: MultiVIM checks those 3 VIMs\u0027 capacity information (internal implementation of MultiVIM)\nStep 3: MultiVIM returns 2 pieces of information of each VIM to OOF:\n\n\t1. One piece of information is { Yes | No }, which indicates whether this VIM has sufficient capacity (\"Yes\") or not (\"No\").\n\t1.1. If there is no knowledge (either directly or indirectly) of \"Yes\" or \"No\", empty data will be returned\n\t2. The other piece of information is the actual capacity data of the VIM.\n\t2.1. If the actual capacity data is not available, empty data will be returned\n\nStep 3: OOF gets the capacity information of those 3 VIMs, and continue its work.\n\nIn the example above, cloud-region-1 has capacity and is willing to give precise capacity information, cloud-region-2 has capacity, but is unwilling to provide exact numbers, while cloud-region-3 doesn’t have capacity but is willing to provide available capacity information. Therefore, OOF will now be able to recommend placement for both cloud-region-1 and cloud-region-2, and will be able to cache cloud-region-1 and cloud-region-3 capacities for making better placement decisions.",
+      "parentUuid": "5a93c517_6230ab01",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
