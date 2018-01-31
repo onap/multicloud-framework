@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_f85b0c2c",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-01-31T06:14:45Z",
+      "side": 1,
+      "message": "Would you please consider another option: django + celery ?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 36
+      },
+      "revId": "dc30ea1c088611459eac63e8637595e9dc6aa913",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
