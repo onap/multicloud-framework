@@ -22,6 +22,30 @@
       "revId": "77ac827e2458f87406df940dce10f2babab55527",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_76f38d9e",
+        "filename": "docs/specs/Event Federation.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-01-31T20:28:03Z",
+      "side": 1,
+      "message": "Adding a historical email thread that APP-C communicated in mailing list, as a plan of record.\n\nhttps://lists.onap.org/pipermail/onap-discuss/2018-January/007502.html\n\nIt seems that APP-C doesn’t plan to use DMaaP for Beijing Release.",
+      "parentUuid": "5a93c517_a2a473a6",
+      "range": {
+        "startLine": 12,
+        "startChar": 86,
+        "endLine": 13,
+        "endChar": 80
+      },
+      "revId": "77ac827e2458f87406df940dce10f2babab55527",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
