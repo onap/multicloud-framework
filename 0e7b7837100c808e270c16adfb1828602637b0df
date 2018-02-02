@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_4a4a5dc6",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-02-02T09:46:15Z",
+      "side": 1,
+      "message": "This is very fancy feature , I am supportive for this feature as long as it can co-exist/co-work with existing implementing practices .\nSo my questions: 1, is this a tool to generate python source codes so that developers could modify/customize them?\n2, is that possible to add other NBI/SBI translation codes and exposing them without putting them into the YAML?\nthanks",
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
