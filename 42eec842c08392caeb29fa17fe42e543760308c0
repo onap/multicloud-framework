@@ -94,6 +94,29 @@
       "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c7b188e2",
+        "filename": "docs/specs/multicloud_resource_capacity_check.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-02-02T00:28:06Z",
+      "side": 1,
+      "message": "Please make the specification of VIM in the list be possible to be extended. So the input for check_capacity API might looks like:  {“vcpu”: int, “men”: int, “vims”: [{\"cloud-owner\":\"vim1 owner\", \"cloud-region-id\":\"region id 1\"}, {\"cloud-owner\":\"vim2 owner\", \"cloud-region-id\":\"region id 2\"}, {\"cloud-owner\":\"vim3 owner\", \"cloud-region-id\":\"region id 3}]}. With this format, later OOF could add more constraints to those specified VIMs in list, e.g. for the cloud region with multiple available zone,  and OOF want to check that if required capacity is available on specified AZ, then the vim list could be  [{\"cloud-owner\":\"vim1 owner\", \"cloud-region-id\":\"region id 1\", \"availabe-zone\":\"az1\"}, {\"cloud-owner\":\"vim2 owner\", \"cloud-region-id\":\"region id 2\",\"availabe-zone\":\"az2\"}, {\"cloud-owner\":\"vim3 owner\", \"cloud-region-id\":\"region id 3, \"availabe-zone\":\"az3\"}]",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 49
+      },
+      "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
