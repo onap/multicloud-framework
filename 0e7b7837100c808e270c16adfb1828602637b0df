@@ -16,6 +16,24 @@
       "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_30a664c2",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T01:42:17Z",
+      "side": 1,
+      "message": "For the questions:\n\n1. It is not a tool to generate python code. It is  a set of python code that read YAML file and act according to it.\n2. This spec will only consider definition in YAML files.",
+      "parentUuid": "5a93c517_4a4a5dc6",
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
