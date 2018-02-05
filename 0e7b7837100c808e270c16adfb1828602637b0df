@@ -78,6 +78,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_50821095",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T07:35:39Z",
+      "side": 1,
+      "message": "(1) I don\u0027t see a conflict between the guide and this spec. The guide said that we should not use url definition like this:\n\n /api/petstore/v1/pets/getalldogs\n\n /api/petstore/v1/pets/createdog\n\n /api/petstore/v1/pets/deletedog\n\nIn the spec, I just define supported http methods, the url will not change. And I am using the swagger rule here. So that it will be easier to covert to swagger file latter.\n\n\n(2) I have checked the gluon spec, there are many good point to take reference.",
+      "parentUuid": "5a93c517_7045ccb1",
+      "range": {
+        "startLine": 25,
+        "startChar": 57,
+        "endLine": 26,
+        "endChar": 40
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_1014889e",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
@@ -89,6 +113,30 @@
       "writtenOn": "2018-02-05T06:22:08Z",
       "side": 1,
       "message": "I think we are mixing HTTP methods with YAML resources here. Please refer to https://wiki.onap.org/display/DW/RESTful+API+Design+Specification for a good explanation of resources and RESTful APIs using HTTP.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_707dccb0",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T07:35:39Z",
+      "side": 1,
+      "message": "see above answer",
+      "parentUuid": "5a93c517_1014889e",
       "range": {
         "startLine": 57,
         "startChar": 0,
@@ -124,6 +172,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_d045c070",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T07:35:39Z",
+      "side": 1,
+      "message": "in this example, it will be vimid, tenantid and hostid. Application can use these parameters to get extra information.",
+      "parentUuid": "5a93c517_301744a5",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 79
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_d00dc091",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
@@ -135,6 +207,30 @@
       "writtenOn": "2018-02-05T06:22:08Z",
       "side": 1,
       "message": "Those are standard methods of using HTTP-based RESTful APIs to handle those resources. It is redundant here because it is off the focus of this document as mentioned at the beginning and clarified in comments: \"This spec will only consider definition in YAML files.\"",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 28
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b05a744e",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T07:35:39Z",
+      "side": 1,
+      "message": "But we are not support all the http method for all url, right? In the example, only \u0027get\u0027 is supported.",
+      "parentUuid": "5a93c517_d00dc091",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -170,6 +266,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_7054ec20",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T07:35:39Z",
+      "side": 1,
+      "message": "actually, the \u0027host\u0027 in this spec is a normative definition. It might be extended in future, but for now, it is full( unless you tell me something is missing :) )",
+      "parentUuid": "5a93c517_b02274ff",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 30
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_d084e0d5",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
@@ -181,6 +301,30 @@
       "writtenOn": "2018-02-05T06:22:08Z",
       "side": 1,
       "message": "Certainly, the full, normative and machine-parsable definition of YAML is missing. Without this full, normative definition, how can a parser parse, validate and take actions accordingly?\n\nI guess we don\u0027t want to hardcode any tool, do we?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 10
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_f03f9cd4",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T07:35:39Z",
+      "side": 1,
+      "message": "There is no intention to hardcode anything. Could you elaborate what is \"full normative definition\". I believe the example in this spec is enough for api \"/hosts\". I don\u0027t plan to add all the content of YAML in the spec.",
+      "parentUuid": "5a93c517_d084e0d5",
       "range": {
         "startLine": 170,
         "startChar": 0,
@@ -216,6 +360,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_b02114b6",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T07:35:39Z",
+      "side": 1,
+      "message": "Yes, this workitem is to use a restclient in plugin to call VIM api. because we are using openstack-sdk for now. But we can\u0027t use openstack-sdk in this spec, because openstack-sdk\u0027s method name has no relationship with url.",
+      "parentUuid": "5a93c517_701cecc1",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 46
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_307e64e5",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
@@ -227,6 +395,30 @@
       "writtenOn": "2018-02-05T06:22:08Z",
       "side": 1,
       "message": "Shouldn\u0027t YAML Parser validate the conformance?",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 30
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_702b8c94",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-05T07:35:39Z",
+      "side": 1,
+      "message": "YAML parser is what I intend to build in this spec. So, yes, validator is port of the YAML parser. I don\u0027t get your point here.",
+      "parentUuid": "5a93c517_307e64e5",
       "range": {
         "startLine": 175,
         "startChar": 0,
