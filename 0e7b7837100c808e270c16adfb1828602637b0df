@@ -34,6 +34,208 @@
       "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_504a10c6",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "It is a very good start of this work. Thank you for moving it forward. Just a few observations and comments:\n\n1. Regarding \"act according to it\", which actions do you have in mind after the code reads YAML?\n\n2. Can you expand the full definition of YAML file as you mentioned above? I admit that myself, as a normal person, won\u0027t be able to write an YAML yet after reading this document in its current format.\n\n3. The same type of work (or a prior art) has already been done in OpenStack Gluon project. There is a well defined and very mature specification in https://github.com/openstack/gluon/blob/master/doc/source/devref/gluon_api_spec.inc.",
+      "parentUuid": "5a93c517_30a664c2",
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_7045ccb1",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "I might be wrong, but I wouldn\u0027t expect the APIs are explicitly defined in YAML.\n\nPlease refer to:\n\n(1) https://wiki.onap.org/display/DW/RESTful+API+Design+Specification provides a good guidance of how the resources would look like, and the APIs are those CRUD actions over those resources.\n\n(2) The same type of work (or a prior art) has already been done in OpenStack Gluon project. There is a well defined and very mature specification in https://github.com/openstack/gluon/blob/master/doc/source/devref/gluon_api_spec.inc.",
+      "range": {
+        "startLine": 25,
+        "startChar": 57,
+        "endLine": 26,
+        "endChar": 40
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_1014889e",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "I think we are mixing HTTP methods with YAML resources here. Please refer to https://wiki.onap.org/display/DW/RESTful+API+Design+Specification for a good explanation of resources and RESTful APIs using HTTP.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 24
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_301744a5",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "Can you give an explicit example of those \"`parameters` are the variables in the URL\"?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 79
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d00dc091",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "Those are standard methods of using HTTP-based RESTful APIs to handle those resources. It is redundant here because it is off the focus of this document as mentioned at the beginning and clarified in comments: \"This spec will only consider definition in YAML files.\"",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 28
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b02274ff",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "Those are actually examples. Can we have a full, normative definition?",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 30
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d084e0d5",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "Certainly, the full, normative and machine-parsable definition of YAML is missing. Without this full, normative definition, how can a parser parse, validate and take actions accordingly?\n\nI guess we don\u0027t want to hardcode any tool, do we?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 10
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_701cecc1",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "Shouldn\u0027t Plugins call southbound VIM APIs?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 46
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_307e64e5",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-05T06:22:08Z",
+      "side": 1,
+      "message": "Shouldn\u0027t YAML Parser validate the conformance?",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 30
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
