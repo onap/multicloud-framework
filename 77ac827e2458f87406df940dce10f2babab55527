@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a93c517_7f36f0e8",
+        "filename": "docs/specs/Event Federation.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-02-07T12:59:19Z",
+      "side": 1,
+      "message": "I am curious/concerned about how this olso notification be can listened outside of VIM without touching VIM, I mean, without changing configurations/adding extra services inside of VIM.",
+      "range": {
+        "startLine": 9,
+        "startChar": 74,
+        "endLine": 9,
+        "endChar": 109
+      },
+      "revId": "77ac827e2458f87406df940dce10f2babab55527",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_a2a473a6",
         "filename": "docs/specs/Event Federation.rst",
         "patchSetId": 2
