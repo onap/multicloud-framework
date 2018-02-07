@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_7a36fee8",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-07T17:03:42Z",
+      "side": 1,
+      "message": "Yes, those three points are all valid. I\u0027m backing to address them.\n\nBut the title of this proposal is \"parallelism\".\nIt\u0027s confusing that emphasizing point is the complexity of django framework.\n\nI suppose parallelism is also issue. In that case, IO parallelism is issue. pecan doesn\u0027t address it. but eventlet does.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 69
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_fa78ce90",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-07T17:03:42Z",
+      "side": 1,
+      "message": "Does this proposal includes implementation of the existing API with pecan + eventlet?\nboth implementaiton(django and pecan) will be supported in Beijing?\nWhat\u0027s the deprecation/removal plan? in Cassandra?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_9a6f4ac5",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-07T17:03:42Z",
+      "side": 1,
+      "message": "Are you proposing to use eventlet?\nIt\u0027s a big change. so it should be discussed in this spec either.",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 96,
+        "endChar": 51
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ba7246ab",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-07T17:03:42Z",
+      "side": 1,
+      "message": "Yeah, we can shamelessly steal openstack code.\nThey are tried and proven.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 59
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
