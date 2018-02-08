@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_b55ed974",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-02-08T02:51:01Z",
+      "side": 1,
+      "message": "Ok, it sounds like a runtime framework which will consume YAML and expose service to consumers. Another question is: will this runtime framework allow to hook extensions written in python (or some other languages) to the logic defined in YAML? On the other hand, does the developers have to compose all logic by the \"language\"/model specified by this YAML? Thanks",
+      "parentUuid": "5a93c517_30a664c2",
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_7045ccb1",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
