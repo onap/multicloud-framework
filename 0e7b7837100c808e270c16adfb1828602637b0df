@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_6daf252b",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-02-08T09:52:03Z",
+      "side": 1,
+      "message": "You answered my question. That is exactly my concern or more precisely, my confusion. Imaging the case that if the API need do more things in addition to translating NBI to SBI, unfortunately it cannot be captured in that YAML, what should we do about that?",
+      "parentUuid": "5a93c517_ed8fb528",
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_7045ccb1",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
