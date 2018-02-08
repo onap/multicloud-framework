@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ade0cdfa",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T07:28:31Z",
+      "side": 1,
+      "message": "Right, one reason that we are using pecan is because it is widely used with eventlet. I should add more content about eventlet. \n\n\nThe complexity of django impedes the improvement of parallelism. It makes the work harder to accomplish.\n\nThe second and third problems I mentioned here may not directly be related to \"parallelism\", but they are related to which solution we chose.  I think it is fair to add them here, or else there will be concern about why we don\u0027t just chose solution based on django.",
+      "parentUuid": "5a93c517_7a36fee8",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 69
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_fa78ce90",
         "filename": "docs/specs/parallelism_improvement.rst",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-07T17:03:42Z",
       "side": 1,
       "message": "Does this proposal includes implementation of the existing API with pecan + eventlet?\nboth implementaiton(django and pecan) will be supported in Beijing?\nWhat\u0027s the deprecation/removal plan? in Cassandra?",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 48
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cda3d9b0",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T07:28:31Z",
+      "side": 1,
+      "message": "Does this proposal includes implementation of the existing API with pecan + eventlet?\nYes\n\n\nboth implementaiton(django and pecan) will be supported in Beijing?\nYes, for the backward compatibility and stability concern.\n\n\n\nWhat\u0027s the deprecation/removal plan? in Cassandra?\nThere is no real plan for now, but yes, it will start in Cassandra.",
+      "parentUuid": "5a93c517_fa78ce90",
       "range": {
         "startLine": 83,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_8da95192",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T07:28:31Z",
+      "side": 1,
+      "message": "Will update, thanks.",
+      "parentUuid": "5a93c517_9a6f4ac5",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 96,
+        "endChar": 51
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_ba7246ab",
         "filename": "docs/specs/parallelism_improvement.rst",
         "patchSetId": 3
@@ -82,6 +154,30 @@
       "writtenOn": "2018-02-07T17:03:42Z",
       "side": 1,
       "message": "Yeah, we can shamelessly steal openstack code.\nThey are tried and proven.",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 59
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_adae8d96",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T07:28:31Z",
+      "side": 1,
+      "message": "Pls check https://gerrit.onap.org/r/#/c/30223/\n\n\nit only takes about 100 lines of code to build eventlet+pecan based on oslo.",
+      "parentUuid": "5a93c517_ba7246ab",
       "range": {
         "startLine": 111,
         "startChar": 0,
