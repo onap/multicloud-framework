@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ed8fb528",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T08:07:40Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t get your point \"hook extensions\", can you give an example. For the other question, yes, developers have to do that.",
+      "parentUuid": "5a93c517_b55ed974",
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_7045ccb1",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
@@ -262,6 +280,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ad852d08",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T08:07:40Z",
+      "side": 1,
+      "message": "No, actually, it is something like this:\n\nhttp://.../{vimid}/{tenantid}/hosts/{hostid}\n\nThis is what the current multi-cloud api looks like.",
+      "parentUuid": "5a93c517_16c1e0e3",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 79
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_d00dc091",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
@@ -333,6 +375,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_8d97113a",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T08:07:40Z",
+      "side": 1,
+      "message": "But the current multi-cloud doesn\u0027t support CRUD for all resources. Take the /hosts as example, only get method is support. So we need to explicitly specify the supported HTTP method here. We don\u0027t want to change how the api may looks, in this spec.",
+      "parentUuid": "5a93c517_f6647423",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 28
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_b02274ff",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
@@ -392,6 +458,30 @@
       "side": 1,
       "message": "That is my biggest concern.\n\nHere the work item is \"Elastic API Exposure\", the previous sections \"Problem Description\" and \"Proposed Change\" all lead to making a normal reader think it is a general framework for extending APIs.\n\nIn the \"Definition of API\" part, \"host\" is used as an example.\n\nPerhaps \"host\" itself may be a normative definition for now. But what is the normative definition of the framework?\n\nFor example, when I write a YAML, what is the root object that covers every branch, where \"host\" belongs to one of the branches?\n\nIf we want to extend the \"host\" definition, how should I specify the backward compatibility?\n\nLet alone there are many other resources than \"host\", and what is the structure to aggregate them in a normative format in YAML that supports both extensibility and backward compatibility?",
       "parentUuid": "5a93c517_7054ec20",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 30
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_edbd75b8",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T08:07:40Z",
+      "side": 1,
+      "message": "I guess I understand your point here. What I try to accomplish here is much simpler approach. The restful resources are all \"flat\" resources. I don\u0027t intent to design a sophisticating model definition here. I guess the current resources of multi-cloud are \"flat\", I don\u0027t see much relationship between them.  For the extensibility and backward compatibility concern, developer can define different YAML file for that.\n\nThis spec just want to do one thing, that is provide a new way to expose APIs so that we don\u0027t need to use static code to maintain them.",
+      "parentUuid": "5a93c517_f619d488",
       "range": {
         "startLine": 91,
         "startChar": 0,
@@ -546,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_4dcca96a",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T08:07:40Z",
+      "side": 1,
+      "message": "If the change is made in framework, then yes, call will be forwarded to plugin. If the change is made to plugin, then the plugin needs to interact with VIM.",
+      "parentUuid": "5a93c517_a10f842d",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 46
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_307e64e5",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
@@ -605,6 +719,30 @@
       "side": 1,
       "message": "My point here is: if validator is part of YAML parser, shouldn\u0027t they be the same/one work item?",
       "parentUuid": "5a93c517_702b8c94",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 30
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0dc22134",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-08T08:07:40Z",
+      "side": 1,
+      "message": "Yes, it could be. I thought, maybe I could get all the data first, for example, get the \"minimal\" data first in YAML parser, and validate the value in this work item.",
+      "parentUuid": "5a93c517_212b7483",
       "range": {
         "startLine": 175,
         "startChar": 0,
