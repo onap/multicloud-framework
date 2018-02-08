@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_ba87a6d6",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "change to \"is\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 14,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_5a6ea230",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Redundant. Suggest to remove it.",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_3a739616",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Suggest to add \"... for VNFs\" at the end. Otherwise, it may confuse people because ONAP itself can be deployed on containers already. And the purpose of this proposal is for containerized VNFs.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 63
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b55b392d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "I think those are copy\u0026paste from a word :). Suggest to re-format them using bullets / indents so that they will be more human-readable.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_15a0ed9d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "It should be \"multicloud/v0/kubernetes\" in order to be consistent with existing API framework.",
+      "range": {
+        "startLine": 66,
+        "startChar": 28,
+        "endLine": 66,
+        "endChar": 52
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d5892527",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Can you clarify what this function is?\n\nWho will use this API for what purpose?",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 68,
+        "endChar": 8
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_359ba973",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Currently VIM is registered via ESR.\n\nBin Yang: can you comment on the method of register/unregister a K8S cluster instance? Should it be consistent with how a VIM is normally registered?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 47
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_f58c6137",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Not sure why we need this Kubernetes proxy APIs.\n\nWho will use those APIs? For what purposes?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b586d911",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Can you clarify what the elements of path mean?\n\ne.g.: Are we managing multiple clusters? (meaning multiple VIMs)?",
+      "range": {
+        "startLine": 101,
+        "startChar": 8,
+        "endLine": 101,
+        "endChar": 32
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_557d151b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Why do we need this?\n\nA use case flow will be good to clarify why we need to expose so many APIs? Who are the users of those APIs?",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_7578512b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "This packaging work needs to align with modeling and SO.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 35
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_3572c949",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Confused. Who will generate K8S TOSCA template?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 23
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_f593014d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-08T01:33:46Z",
+      "side": 1,
+      "message": "Isn\u0027t it provided when user creates a K8S cluster?\n\nIt is part of creating a VIM, and out of scope of ONAP.",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 21
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
