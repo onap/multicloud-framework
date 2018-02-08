@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_6d8885c5",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_ba87a6d6",
+      "range": {
+        "startLine": 9,
+        "startChar": 14,
+        "endLine": 9,
+        "endChar": 18
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4d8b49c3",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_5a6ea230",
+      "range": {
+        "startLine": 9,
+        "startChar": 36,
+        "endLine": 9,
+        "endChar": 50
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_3a739616",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2018-02-08T01:33:46Z",
       "side": 1,
       "message": "Suggest to add \"... for VNFs\" at the end. Otherwise, it may confuse people because ONAP itself can be deployed on containers already. And the purpose of this proposal is for containerized VNFs.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 63
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0d91c1f0",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_3a739616",
       "range": {
         "startLine": 15,
         "startChar": 0,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_2da59d46",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_b55b392d",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 15
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_15a0ed9d",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 2
@@ -105,6 +201,30 @@
       "writtenOn": "2018-02-08T01:33:46Z",
       "side": 1,
       "message": "It should be \"multicloud/v0/kubernetes\" in order to be consistent with existing API framework.",
+      "range": {
+        "startLine": 66,
+        "startChar": 28,
+        "endLine": 66,
+        "endChar": 52
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cd65191f",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_15a0ed9d",
       "range": {
         "startLine": 66,
         "startChar": 28,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ad3e8dd8",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Done\nThis returns swagger.json definitions similar to other plugins.\ne.g. openstack/kilo/kilo/swagger/urls.py",
+      "parentUuid": "5a93c517_d5892527",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 68,
+        "endChar": 8
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_359ba973",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 2
@@ -151,6 +295,30 @@
       "writtenOn": "2018-02-08T01:33:46Z",
       "side": 1,
       "message": "Currently VIM is registered via ESR.\n\nBin Yang: can you comment on the method of register/unregister a K8S cluster instance? Should it be consistent with how a VIM is normally registered?",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 47
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2d2a7d90",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Yeah, ESR should be used.",
+      "parentUuid": "5a93c517_359ba973",
       "range": {
         "startLine": 74,
         "startChar": 0,
@@ -186,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ed1fb56a",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "those APIs are layered.\ncsar uses yaml, yaml uses proxy.\nFor beijing only csar api is directly consumed. Anyway internally those API is needed.",
+      "parentUuid": "5a93c517_f58c6137",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_b586d911",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 2
@@ -197,6 +389,30 @@
       "writtenOn": "2018-02-08T01:33:46Z",
       "side": 1,
       "message": "Can you clarify what the elements of path mean?\n\ne.g.: Are we managing multiple clusters? (meaning multiple VIMs)?",
+      "range": {
+        "startLine": 101,
+        "startChar": 8,
+        "endLine": 101,
+        "endChar": 32
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d0013206",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "the goal is to accept k8s yaml file in CSAR without modifying adaptors in SO.\nPost Beijing, this API will be revised to adapt model driven API.",
+      "parentUuid": "5a93c517_b586d911",
       "range": {
         "startLine": 101,
         "startChar": 8,
@@ -232,6 +448,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_70129e58",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "This is work around to avoid modification to adapter in SO.\nso that we can re-use the existing adapters.",
+      "parentUuid": "5a93c517_557d151b",
+      "range": {
+        "startLine": 121,
+        "startChar": 8,
+        "endLine": 121,
+        "endChar": 32
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_7578512b",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 2
@@ -243,6 +483,30 @@
       "writtenOn": "2018-02-08T01:33:46Z",
       "side": 1,
       "message": "This packaging work needs to align with modeling and SO.",
+      "range": {
+        "startLine": 127,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 35
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_30189674",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Yes. supplemented.",
+      "parentUuid": "5a93c517_7578512b",
       "range": {
         "startLine": 127,
         "startChar": 0,
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_d0285288",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "For beijing, human will writes it by hand. This TOSCA node definition is short term work around to re-use the existing component.\nPost Beijing, the packaging needs to be revised.",
+      "parentUuid": "5a93c517_3572c949",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 23
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_f593014d",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 2
@@ -289,6 +577,30 @@
       "writtenOn": "2018-02-08T01:33:46Z",
       "side": 1,
       "message": "Isn\u0027t it provided when user creates a K8S cluster?\n\nIt is part of creating a VIM, and out of scope of ONAP.",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 21
+      },
+      "revId": "a6d9d48c4e64fec6e1b12c813d9ce5bce149bb4b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d04ff269",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-08T10:21:05Z",
+      "side": 1,
+      "message": "Ah, right. I updated it.",
+      "parentUuid": "5a93c517_f593014d",
       "range": {
         "startLine": 177,
         "startChar": 0,
