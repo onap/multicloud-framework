@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a93c517_e78a6e1a",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "\u0027The current ONAP\u0027 or just \u0027Currently ONAP\u0027",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_73014837",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "\u0027other COE\u0027s (Container Orchestration Engines) are\u0027",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0790ba48",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "\u0027Integration Scenario\u0027",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_5ce9b9e4",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 3
@@ -48,6 +117,52 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_877b6a27",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "Beijing",
+      "range": {
+        "startLine": 101,
+        "startChar": 61,
+        "endLine": 101,
+        "endChar": 68
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2774d634",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "\u0027http/https\u0027 ?",
+      "range": {
+        "startLine": 110,
+        "startChar": 23,
+        "endLine": 110,
+        "endChar": 27
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_7ce6f516",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 3
@@ -71,6 +186,52 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_c79c1260",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "temporary",
+      "range": {
+        "startLine": 138,
+        "startChar": 25,
+        "endLine": 138,
+        "endChar": 35
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_27ab7676",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "use of acronym can looks cryptic, using at least once \u0027SO (Service Orchestrator)\u0027  in this doc would be helpful",
+      "range": {
+        "startLine": 139,
+        "startChar": 28,
+        "endLine": 139,
+        "endChar": 30
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_1cefb1ea",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 3
@@ -87,6 +248,75 @@
         "startChar": 0,
         "endLine": 155,
         "endChar": 20
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_07be7ab4",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "SO can directly to talk to multicloud ?",
+      "range": {
+        "startLine": 251,
+        "startChar": 38,
+        "endLine": 252,
+        "endChar": 21
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c7b3b2e7",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "sorry for weird question it may be my lack of knowledge, \n ARIA adaptor has capability to bypass directly to multicloud or this should be multicloud plugin or adaptor ?",
+      "range": {
+        "startLine": 259,
+        "startChar": 14,
+        "endLine": 261,
+        "endChar": 34
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_67cc1e6b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "handles",
+      "range": {
+        "startLine": 290,
+        "startChar": 13,
+        "endLine": 290,
+        "endChar": 19
       },
       "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
@@ -133,6 +363,52 @@
         "startChar": 9,
         "endLine": 294,
         "endChar": 131
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_87c92a5b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "was it intended to add a reference ? whether it is this spec document or some reference document for more details ?",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 13
+      },
+      "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_47bfa2aa",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 3141
+      },
+      "writtenOn": "2018-02-09T18:21:27Z",
+      "side": 1,
+      "message": "instantiation",
+      "range": {
+        "startLine": 386,
+        "startChar": 65,
+        "endLine": 386,
+        "endChar": 78
       },
       "revId": "701cca1ce1e8117e15035ce8b171a0220f8ed6ee",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
