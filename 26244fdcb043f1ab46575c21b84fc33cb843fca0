@@ -143,6 +143,167 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_856fdd2a",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 447
+      },
+      "writtenOn": "2018-02-12T19:08:03Z",
+      "side": 1,
+      "message": "Would the onboarding not happen in SDC?",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_457555f8",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 447
+      },
+      "writtenOn": "2018-02-12T19:08:03Z",
+      "side": 1,
+      "message": "Is the plugin in k8s cluster or deploying a VNF in k8s cluster using k8s plugin?",
+      "range": {
+        "startLine": 49,
+        "startChar": 57,
+        "endLine": 50,
+        "endChar": 16
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0563cd42",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 447
+      },
+      "writtenOn": "2018-02-12T19:08:03Z",
+      "side": 1,
+      "message": "what do you think is specific to VNF configuration when it comes to k8s? I think the Configuration interface should remain same regardless.",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 36
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c558858c",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 447
+      },
+      "writtenOn": "2018-02-12T19:08:03Z",
+      "side": 1,
+      "message": "would this be stored in AAI?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 47
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_a501b939",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 447
+      },
+      "writtenOn": "2018-02-12T19:08:03Z",
+      "side": 1,
+      "message": "I would support this approach. We can expose Native Helm/k8s based API from multi-cloud. It can delegate it to an appropriate k8s instance along with Authorization. Depending on the infrastructure SO can decide how much of orchestration it should do",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 68
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_259da90b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 447
+      },
+      "writtenOn": "2018-02-12T19:08:03Z",
+      "side": 1,
+      "message": "TOSCA can\u0027t even identify different version of the same TOSCA blueprint. How would you support continuous deployment?",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 20
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_e5a2614a",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 447
+      },
+      "writtenOn": "2018-02-12T19:08:03Z",
+      "side": 1,
+      "message": "Each node that can be deployed as Helm is to use this node?",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 144,
+        "endChar": 39
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_8796204b",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 1
@@ -183,6 +344,29 @@
         "startChar": 10,
         "endLine": 146,
         "endChar": 20
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_858b5dc2",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 447
+      },
+      "writtenOn": "2018-02-12T19:08:03Z",
+      "side": 1,
+      "message": "Would we have the TOSCA O running in SO and the plugin in Multi-VIM? If so, it would be a bit strange.",
+      "range": {
+        "startLine": 152,
+        "startChar": 1,
+        "endLine": 153,
+        "endChar": 59
       },
       "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
