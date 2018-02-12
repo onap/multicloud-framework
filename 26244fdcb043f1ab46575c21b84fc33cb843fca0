@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_404c63c8",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-12T23:01:24Z",
+      "side": 1,
+      "message": "No for Beijing cycle.\nPost Beijing, it will be addressed.",
+      "parentUuid": "5a93c517_856fdd2a",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 35
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_457555f8",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 1
@@ -177,6 +201,30 @@
       "writtenOn": "2018-02-12T19:08:03Z",
       "side": 1,
       "message": "Is the plugin in k8s cluster or deploying a VNF in k8s cluster using k8s plugin?",
+      "range": {
+        "startLine": 49,
+        "startChar": 57,
+        "endLine": 50,
+        "endChar": 16
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_e0d48fbe",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-12T23:01:24Z",
+      "side": 1,
+      "message": "Yes. I added diagram which would help the understanding.",
+      "parentUuid": "5a93c517_457555f8",
       "range": {
         "startLine": 49,
         "startChar": 57,
@@ -212,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_20cfd72b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-12T23:01:24Z",
+      "side": 1,
+      "message": "we shouldn\u0027t change the existing configuration interface without good reason. I supplemented the documentation.\nProbably post Beijing, we would like to introduce an interface based on config-map. but it\u0027s out of beijing scope.\nThat\u0027s another story.",
+      "parentUuid": "5a93c517_0563cd42",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 36
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c558858c",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 1
@@ -223,6 +295,30 @@
       "writtenOn": "2018-02-12T19:08:03Z",
       "side": 1,
       "message": "would this be stored in AAI?",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 47
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_a0da07e6",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-12T23:01:24Z",
+      "side": 1,
+      "message": "Yes, it\u0027s discussed in the later version.",
+      "parentUuid": "5a93c517_c558858c",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -258,6 +354,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_40e303a4",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-12T23:01:24Z",
+      "side": 1,
+      "message": "Great. Please volunteer for it.",
+      "parentUuid": "5a93c517_a501b939",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 68
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_259da90b",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 1
@@ -281,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_60e07f96",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-12T23:01:24Z",
+      "side": 1,
+      "message": "Good point. My short answer is, I don\u0027t know. We can raise it to the ONAP community and discuss it. How does modeling group address it?",
+      "parentUuid": "5a93c517_259da90b",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 20
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_e5a2614a",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 1
@@ -292,6 +436,30 @@
       "writtenOn": "2018-02-12T19:08:03Z",
       "side": 1,
       "message": "Each node that can be deployed as Helm is to use this node?",
+      "range": {
+        "startLine": 144,
+        "startChar": 2,
+        "endLine": 144,
+        "endChar": 39
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_00f17b6a",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-12T23:01:24Z",
+      "side": 1,
+      "message": "I don\u0027t have concrete definition of this.\nPlease propose it. and Let\u0027s integrate your proposal into this spec.",
+      "parentUuid": "5a93c517_e5a2614a",
       "range": {
         "startLine": 144,
         "startChar": 2,
@@ -362,6 +530,30 @@
       "writtenOn": "2018-02-12T19:08:03Z",
       "side": 1,
       "message": "Would we have the TOSCA O running in SO and the plugin in Multi-VIM? If so, it would be a bit strange.",
+      "range": {
+        "startLine": 152,
+        "startChar": 1,
+        "endLine": 153,
+        "endChar": 59
+      },
+      "revId": "26244fdcb043f1ab46575c21b84fc33cb843fca0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c0e633b0",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-12T23:01:24Z",
+      "side": 1,
+      "message": "the clause was supplemented in the later version. Please review it.",
+      "parentUuid": "5a93c517_858b5dc2",
       "range": {
         "startLine": 152,
         "startChar": 1,
