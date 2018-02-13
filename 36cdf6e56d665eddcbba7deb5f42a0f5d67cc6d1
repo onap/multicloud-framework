@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_9e3c0bca",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-13T18:52:37Z",
+      "side": 1,
+      "message": "the conversion from vdu to k8s is only for beijing.\nthe mapping from VDU to k8s is 1:1. VDU to VM mapping depends on complex VNF or simple VNF. \nif simple VNF. VNF-C, there is no problem.\nIf VNF with multiple componentes, VDU should be more flexible in terms of mapping.\n\nFor CoE, this mapping should be always 1:1?\nhow multicloud use CSAR file? \nSO does VNFD/NSD decomposition. multicloud doesn\u0027t, shouldn\u0027t.\n\n1 component per 1 container.",
+      "range": {
+        "startLine": 474,
+        "startChar": 39,
+        "endLine": 474,
+        "endChar": 75
+      },
+      "revId": "36cdf6e56d665eddcbba7deb5f42a0f5d67cc6d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_5e49a35e",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-13T18:52:37Z",
+      "side": 1,
+      "message": "TODO: Isaku. check the publication of modeling wg.",
+      "range": {
+        "startLine": 483,
+        "startChar": 0,
+        "endLine": 483,
+        "endChar": 0
+      },
+      "revId": "36cdf6e56d665eddcbba7deb5f42a0f5d67cc6d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
