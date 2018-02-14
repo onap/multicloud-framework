@@ -109,6 +109,52 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_fe5d0f7a",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-14T00:37:56Z",
+      "side": 1,
+      "message": "I\u0027m not sure why this proposal solves this issue.\nEven if yaml format is adapted, the yaml file will be maintained manually?\n\nWhat\u0027s the advantage of this proposal over swagger yaml?\nswagger support yaml format instead of json.\nWhy don\u0027t we just adapt swagger yaml?",
+      "range": {
+        "startLine": 17,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_5e4c43c8",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-14T00:37:56Z",
+      "side": 1,
+      "message": "Can you please elaborate \u0027dynamically\u0027?\nWill REST API controller will be constructed at server startup time instead of pre-compilartion?\n\nProbably you\u0027d like to check openstack gluon.",
+      "range": {
+        "startLine": 25,
+        "startChar": 44,
+        "endLine": 25,
+        "endChar": 55
+      },
+      "revId": "0e7b7837100c808e270c16adfb1828602637b0df",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_7045ccb1",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 1
