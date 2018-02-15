@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_af5d0f49",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "URL prefix? Do you mean the resource path in URL? The base URL is always fixed, and also described later in this spec.",
+      "range": {
+        "startLine": 80,
+        "startChar": 46,
+        "endLine": 80,
+        "endChar": 56
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cf397bf3",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "and stored in A\u0026AI.",
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cf109b5b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "Do you want to add explanation at 3rd column?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 11
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2a07ad1a",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "Should the name here be consistent with \"vimAuthInfos\" in above table?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 12
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8a15a141",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "Is this API for LCM operations of K8S resources, such as pods?\n\nIf yes, it needs to get alignment with overall LCM APIs.",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 20
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ea122508",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "Do you expect SO directly call this to deploy a YAML? Under what circumstance will SO do this? Examples?\n\nBased on workflow described later, and that SO passes CSAR to K8S Plugin, this YAML API doesn\u0027t seem needed.",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 15
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0a2f5140",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "Do you mean \"kubectl create -f ...\"?",
+      "range": {
+        "startLine": 194,
+        "startChar": 11,
+        "endLine": 194,
+        "endChar": 30
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ca240962",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "I will wait for discussion result, and see how it fits. Examples and use cases will be helpful.\n\nBased on workflow described later, and my comments there, this is an implementation option within K8S Plugin to interact with K8S Cluster. This Helm API is NOT needed.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 68
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8a228150",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "Can you further explain how it works?",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 48
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4a18f91d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "I am glad to see this work flow. Under this circumstance, only the CSAR API endpoints is needed for deployment.\n\nKubernetes YAML API is NOT needed.\n\nKubernetes Proxy API is needed only for LCM.",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 23
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6a15b5e3",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "Exactly. This Helm option is an implementation choice within K8S Plugin to interact with K8S cluster.\n\nPrevious Helm API is NOT needed.",
+      "range": {
+        "startLine": 354,
+        "startChar": 11,
+        "endLine": 354,
+        "endChar": 71
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0ad67128",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "through CSAR as described in above diagram, right?",
+      "range": {
+        "startLine": 362,
+        "startChar": 6,
+        "endLine": 362,
+        "endChar": 44
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2adb2d51",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-15T07:30:47Z",
+      "side": 1,
+      "message": "Strange, and it is not consistent with previous description.\n\nIn previous sections:\n- the CSAR API is: \u003ccloud-id\u003e/csar.\n- the Proxy API is: \u003ccloud-id\u003e/proxy/\u003cresources\u003e\n\nSo there is no relationship between Proxy API and CSAR API.",
+      "range": {
+        "startLine": 373,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 81
+      },
+      "revId": "d43f2765b29f2370990437261baec05fc4d7219c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
