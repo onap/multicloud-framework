@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_bdb22492",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 2913
+      },
+      "writtenOn": "2018-02-19T06:28:30Z",
+      "side": 1,
+      "message": "for some issues (https://github.com/kubernetes/kubeadm/issues/23), I think ESR should provide authenticating by bearer token for Kubernetes cluster if possible beside basic authentication.",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 41
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_1dba386e",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 2913
+      },
+      "writtenOn": "2018-02-19T06:28:30Z",
+      "side": 1,
+      "message": "I am confusing about Virtual Function controller (VFC). It is controller for ETSI-aligned, and it also provide a generic VNFM capability. Should we consider it in workflow here (or next release)?",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 9
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
