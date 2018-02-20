@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a93c517_732dada7",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-20T02:54:13Z",
+      "side": 1,
+      "message": "OK for now PoC in Beijing release. We need to revisit this later on, because, if I understand correctly, \"complex\" is used to specify { Latitude, Longitude } of a data center location for the purpose of homing optimization. In case of k8s, the physical location of the k8s cluster will serve the purpose of homing optimization too.",
+      "range": {
+        "startLine": 141,
+        "startChar": 38,
+        "endLine": 141,
+        "endChar": 59
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_bdb22492",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 7
@@ -18,6 +41,52 @@
         "startChar": 0,
         "endLine": 170,
         "endChar": 41
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_932ab98e",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-20T02:54:13Z",
+      "side": 1,
+      "message": "As we discussed in last patch 6, this API is internally used. So it shouldn\u0027t be exposed here as north bound public API.\n\nI suggest to move it to the later section, where we talk about internal work flow, and mentions the YAML API will be used by CSAR API there.",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 15
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_331ba582",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-20T02:54:13Z",
+      "side": 1,
+      "message": "@Munish:\n\nCan you give more feedback here before we clean up, remove it in order to approve this patch?",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 68
       },
       "revId": "19ba7b465841588671707ec29705e596817ff982",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
