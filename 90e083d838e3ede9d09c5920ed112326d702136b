@@ -2,6 +2,362 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a93c517_908dc17e",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "The scope of this plugin will *ONLY* supports k8s for R2 and future, won\u0027t consider other container orchestrator, right?",
+      "range": {
+        "startLine": 31,
+        "startChar": 65,
+        "endLine": 31,
+        "endChar": 68
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d0cb4951",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Agree, since Notes in this spec indicate many workarounds will be applied to this plugin, it would be good that we don\u0027t break current MultiCloud workflow.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 75
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_90c14131",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "So the ONLY change for multicloud is to add a new k8s plugin with two new APIs, no other changes to framework and other plugins, right?",
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_10f1b100",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Are you going to both support vFW and vDNS? or either of it? Is there any change to current vFW and vDNS tosca template to support container?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_f0c8c556",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "It would be good to make a test plan on how would you like to test these two new APIs independently. API Input and output,  CSIT test etc.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 21
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_3044ed19",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Could we keep this consistent with other plugin and use /api/multicloud/v0/\u003ccloud-id\u003e as base url?",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 53
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b0bebdac",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Since multicloud leverage msb for requests dispatch, you might need a new namespace in msb for your plugin, for example \"multicloud-ocata\" for openstack plugin.",
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_503979a2",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Since for now APPC is the only consumer of this API, do you confirm with them that they will add kubernetes adapter in their project?\n\nHow does APPC get this endpoint? In R1, we expose multicloud endpoint through AAI cloud-region/identity-url.",
+      "range": {
+        "startLine": 91,
+        "startChar": 8,
+        "endLine": 91,
+        "endChar": 37
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d04ca944",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Does SO team agree to add a adapter to call this API?",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 27
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_70d7d54b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "From the description, seems only POST is needed.",
+      "range": {
+        "startLine": 116,
+        "startChar": 10,
+        "endLine": 116,
+        "endChar": 21
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_90bb810e",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "How are you going to differ if the payload is a CSAR package or Helm package? Could you give more details about the request body format?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 71
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b0b8fd11",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Which project will generate this k8s yaml file? SO? or user will upload it when onboard vFW?",
+      "range": {
+        "startLine": 137,
+        "startChar": 12,
+        "endLine": 137,
+        "endChar": 25
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_703ef58d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Where do you get the Tiller API",
+      "range": {
+        "startLine": 144,
+        "startChar": 15,
+        "endLine": 144,
+        "endChar": 25
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_f049a531",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "ESR will call registry API when register a new VIM(k8s), make sure you have this API in your plugin and give them response.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 8
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_10ae9181",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Seems this doesn\u0027t fall into multicloud\u0027s scope.",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 13
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_30b38dea",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "cloud id here your means \"\u003ccloudOwner\u003e_\u003ccloudRegionId\u003e\" ?",
+      "range": {
+        "startLine": 435,
+        "startChar": 3,
+        "endLine": 435,
+        "endChar": 11
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_50d5f919",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 12
@@ -18,6 +374,29 @@
         "startChar": 62,
         "endLine": 444,
         "endChar": 76
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_70e4b5e0",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-02-23T07:41:26Z",
+      "side": 1,
+      "message": "Is it needed for this spec for R2? we could separate it to another spec for future discussion.",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 527,
+        "endChar": 37
       },
       "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
