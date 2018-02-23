@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_f011a552",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-23T00:30:07Z",
+      "side": 1,
+      "message": "Okay. So it\u0027s out of openstack/k8s scope how to get those values(latitude/longtitude), right?\nIf somehow out of band way onap admin can get them, we can put it.",
+      "parentUuid": "5a93c517_732dada7",
+      "range": {
+        "startLine": 141,
+        "startChar": 38,
+        "endLine": 141,
+        "endChar": 59
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_bdb22492",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2018-02-19T06:28:30Z",
       "side": 1,
       "message": "for some issues (https://github.com/kubernetes/kubeadm/issues/23), I think ESR should provide authenticating by bearer token for Kubernetes cluster if possible beside basic authentication.",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 41
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_901aa16d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-23T00:30:07Z",
+      "side": 1,
+      "message": "Such token can be stash within cloudExtraInfo.",
+      "parentUuid": "5a93c517_bdb22492",
       "range": {
         "startLine": 168,
         "startChar": 0,
@@ -105,6 +153,30 @@
       "writtenOn": "2018-02-19T06:28:30Z",
       "side": 1,
       "message": "I am confusing about Virtual Function controller (VFC). It is controller for ETSI-aligned, and it also provide a generic VNFM capability. Should we consider it in workflow here (or next release)?",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 298,
+        "endChar": 9
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b0179d44",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-23T00:30:07Z",
+      "side": 1,
+      "message": "those advanced topic are for post-beijing release.\nMaybe VF-C is for ETSI-aligned which doesn\u0027t scope container.\nAt first APP-C would be addressed.",
+      "parentUuid": "5a93c517_1dba386e",
       "range": {
         "startLine": 298,
         "startChar": 0,
