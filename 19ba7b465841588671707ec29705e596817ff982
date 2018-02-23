@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_504f396b",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-23T00:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_901aa16d",
+      "range": {
+        "startLine": 168,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 41
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_932ab98e",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 7
@@ -107,6 +131,30 @@
       "writtenOn": "2018-02-20T02:54:13Z",
       "side": 1,
       "message": "As we discussed in last patch 6, this API is internally used. So it shouldn\u0027t be exposed here as north bound public API.\n\nI suggest to move it to the later section, where we talk about internal work flow, and mentions the YAML API will be used by CSAR API there.",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 15
+      },
+      "revId": "19ba7b465841588671707ec29705e596817ff982",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_7054b5fe",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 7
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-23T00:54:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_932ab98e",
       "range": {
         "startLine": 199,
         "startChar": 0,
