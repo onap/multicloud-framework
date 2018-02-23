@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_300ced3a",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-23T00:30:07Z",
+      "side": 1,
+      "message": "one path component is needed to distinguish \u003cresource\u003e and package.\nPATH: /\u003ccloud-id\u003e/proxy/\u003cresources\u003e",
+      "range": {
+        "startLine": 91,
+        "startChar": 20,
+        "endLine": 91,
+        "endChar": 31
+      },
+      "revId": "0ceb63727e793f02631602795bbebc7f40c64003",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_50289985",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-23T00:30:07Z",
+      "side": 1,
+      "message": "accidental new line?",
+      "range": {
+        "startLine": 329,
+        "startChar": 1,
+        "endLine": 329,
+        "endChar": 1
+      },
+      "revId": "0ceb63727e793f02631602795bbebc7f40c64003",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
