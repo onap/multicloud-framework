@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_50d5f919",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-23T05:23:39Z",
+      "side": 1,
+      "message": "Based on design /\u003ccloud-id\u003e/proxy/\u003cresources\u003e, do we need a \"proxy\" in between? e.g.:\n\n.../\u003ccloud-id\u003e/proxy/api/...",
+      "range": {
+        "startLine": 444,
+        "startChar": 62,
+        "endLine": 444,
+        "endChar": 76
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
