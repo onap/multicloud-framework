@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_a9c5f45c",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-25T03:23:54Z",
+      "side": 1,
+      "message": "Copy my comments for Patch Set 12:\n\nLine 134-135 (PS#12) or Line 166-167 (this PS#13) indicates that \"k8s Plugin will distinguish package types based on its suffix and interact with k8s cluster appropriately\".\n\nSo if the suffix is .csar, it is a CSAR. If the suffix is .tgz, it is a Helm Charts package.\n\nThus the original design of \"/\u003ccloud-id\u003e/package\" is more scalable.\n\nI suggest to remove this.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 28
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c9c2c052",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-25T03:23:54Z",
+      "side": 1,
+      "message": "See comments above.\n\nThose paragraphs are discussion texts. We can remove it from a formal spec.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 45
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
