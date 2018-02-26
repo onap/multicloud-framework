@@ -45,6 +45,30 @@
       "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_df3b52cf",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-26T10:04:23Z",
+      "side": 1,
+      "message": "Yeah, once we reachedm, this should be eliminated.",
+      "parentUuid": "5a93c517_c9c2c052",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 45
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
