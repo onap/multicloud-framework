@@ -87,8 +87,13 @@ class VIMTypes(BaseServer):
                                  '../pub/config/provider-plugin.json')
         with open(json_file, "r") as f:
             plugins = json.load(f)
-        data = {"vim_types": plugins}
-        return Response(data=data, status=status.HTTP_200_OK)
+        ret = []
+        for k, v in plugins.items():
+            item = {}
+            item["vim_type"] = v.get("vim_type")
+            item["versions"] = [k for k in v.get('versions', {})]
+            ret.append(item)
+        return Response(data=ret, status=status.HTTP_200_OK)
 
 
 # forward  handler
