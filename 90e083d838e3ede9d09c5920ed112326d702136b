@@ -543,6 +543,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_bfa3e5b0",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-26T18:33:32Z",
+      "side": 1,
+      "message": "Filename in \"Content-Disposition\" header seems a practical way. Thank you for documenting this detail in PS#13.\n\n\"Content-Type\" header may work for tgz \"application/x-compressed\", but not for csar because you can only use general \"application/octet-stream\", which is not scalable for other new types if they also use the general \"application/octet-stream\".",
+      "parentUuid": "5a93c517_bf176644",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 71
+      },
+      "revId": "90e083d838e3ede9d09c5920ed112326d702136b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_b0b8fd11",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 12
