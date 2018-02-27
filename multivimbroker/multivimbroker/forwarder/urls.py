@@ -16,6 +16,7 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 
+from multivimbroker.forwarder.views import CheckCapacity
 from multivimbroker.forwarder.views import Extension
 from multivimbroker.forwarder.views import Forward
 from multivimbroker.forwarder.views import Identity
@@ -27,6 +28,8 @@ from multivimbroker.forwarder.views import VIMTypes
 urlpatterns = [
     url(r'^api/multicloud/v0/vim_types$',
         VIMTypes.as_view()),
+    url(r'^api/multicloud/v0/check_vim_capacity$',
+        CheckCapacity.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3$',
         Identity.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/identity/v3'
