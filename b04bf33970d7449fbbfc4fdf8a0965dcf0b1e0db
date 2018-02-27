@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_ae9df1bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-27T15:54:58Z",
+      "side": 1,
+      "message": "it\u0027s s3p now.",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "b04bf33970d7449fbbfc4fdf8a0965dcf0b1e0db",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ee5f790d",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-27T15:54:58Z",
+      "side": 1,
+      "message": "It\u0027s now S3P.\nand the occurence below also should be replaced to s3p.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 12
+      },
+      "revId": "b04bf33970d7449fbbfc4fdf8a0965dcf0b1e0db",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4e678de9",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-27T15:54:58Z",
+      "side": 1,
+      "message": "Now proposal is to address S3P, not parallelism.\nSo the title of this should be updated to reflect it.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "b04bf33970d7449fbbfc4fdf8a0965dcf0b1e0db",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
