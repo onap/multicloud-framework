@@ -91,6 +91,39 @@ class VIMTypes(BaseServer):
         return Response(data=data, status=status.HTTP_200_OK)
 
 
+class CheckCapacity(BaseServer):
+
+    def post(self, request):
+        try:
+            body = json.loads(request.body)
+        except Exception as e:
+            return Response(
+                data={'error': 'Invalidate request body %s.' % e},
+                status=status.HTTP_400_BAD_REQUEST)
+
+        ret = {"VIMs": []}
+        vims = body.get("VIMs", [])
+        newbody = {
+            "vCPU": body.get("vCPU", 0),
+            "Memory": body.get("Memory", 0),
+            "Storage": body.get("Storage", 0)
+        }
+        for vim in vims:
+            url = request.get_full_path().replace(
+                "check_vim_capacity", "capacity_check")
+            resp = self.send(vim, url, newbody, "POST")
+            if resp.status_code != status.HTTP_200_OK:
+                continue
+            try:
+                resp_body = json.loads(resp.body)
+            except Exception:
+                continue
+            if not resp_body.get("result"):
+                continue
+            ret['VIMs'].append(vim)
+        return Response(data=ret, status=status.HTTP_200_OK)
+
+
 # forward  handler
 class Forward(BaseServer):
 
