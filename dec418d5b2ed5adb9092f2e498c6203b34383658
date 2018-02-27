@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_ee1a196e",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-27T15:36:24Z",
+      "side": 1,
+      "message": "item[\u0027versions\u0027] \u003d list(v.get(\u0027versions\u0027, {}).values())",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 62
+      },
+      "revId": "dec418d5b2ed5adb9092f2e498c6203b34383658",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
