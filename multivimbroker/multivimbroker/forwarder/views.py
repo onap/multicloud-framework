@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import logging
 import os
 import json
 
@@ -21,7 +22,8 @@ from rest_framework.views import Response
 from rest_framework.views import status
 from multivimbroker.forwarder.base import BaseHandler
 
-#
+
+logger = logging.getLogger(__name__)
 
 
 class BaseServer(BaseHandler, APIView):
@@ -89,6 +91,38 @@ class VIMTypes(BaseServer):
             plugins = json.load(f)
         data = {"vim_types": plugins}
         return Response(data=data, status=status.HTTP_200_OK)
+
+
+class CheckCapacity(BaseServer):
+
+    def post(self, request):
+        try:
+            body = json.loads(request.body)
+        except json.JSONDecodeError as e:
+            return Response(
+                data={'error': 'Invalidate request body %s.' % e},
+                status=status.HTTP_400_BAD_REQUEST)
+
+        ret = {"VIMs": []}
+        newbody = {
+            "vCPU": body.get("vCPU", 0),
+            "Memory": body.get("Memory", 0),
+            "Storage": body.get("Storage", 0)
+        }
+        for vim in body.get("VIMs", []):
+            url = request.get_full_path().replace(
+                "check_vim_capacity", "%s/capacity_check" % vim)
+            resp = self.send(vim, url, newbody, "POST")
+            if resp.status_code != status.HTTP_200_OK:
+                continue
+            try:
+                resp_body = json.loads(resp.body)
+            except json.JSONDecodeError:
+                continue
+            if not resp_body.get("result"):
+                continue
+            ret['VIMs'].append(vim)
+        return Response(data=ret, status=status.HTTP_200_OK)
 
 
 # forward  handler
