@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_ce895d76",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-27T16:08:47Z",
+      "side": 1,
+      "message": "nice. Now I think the meaning of \"dynamic\" is clear.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 53
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4e954d85",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-02-27T16:08:47Z",
+      "side": 1,
+      "message": "So is the following definition different from swagger?\ni.e. https://swagger.io/docs/specification/paths-and-operations/\n\nIf same, we can just include pointer.\nIf no, why? and what\u0027s the advantage of this our own definition?",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 34
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
