@@ -45,6 +45,30 @@
       "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2879d4c7",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-28T08:08:17Z",
+      "side": 1,
+      "message": "I am trying to follow swagger convention here. Do you mean why we need a swagger yaml here and keep the swagger json file at the same time?\n\nIf so, then the answer is MSB project will read MultiCloud\u0027s api definition by a constant url, like \"api/multicloud/v0/swagger.json\". I don\u0027t intent to change that for now.",
+      "parentUuid": "5a93c517_4e954d85",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 34
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
