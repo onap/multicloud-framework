@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_41399bd5",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-28T17:52:54Z",
+      "side": 1,
+      "message": "Suggest to add the following paragraph at Line 63 here, based on prior comments and agreement in comments to take reference to prior art in industry:\n\n\"\nIt should be noted that there is a prior art in OpenStack \"Gluon\" [1]_ project which provides a model-driven framework to generate APIs based on model definitions in YAML. A full, normative definition and extension mechanism of \"API Specification\" [2]_ is available in Gluon. Although our current work has limited scope, for those who are interested in full normative definition and extension mechanism in our future work, please refer to those references in \"Gluon\" [1]_ project and its \"API Specifications\" [2]_.\n\"",
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_4e954d85",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 2
@@ -66,6 +83,46 @@
         "endLine": 81,
         "endChar": 34
       },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c154cb00",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-28T17:52:54Z",
+      "side": 1,
+      "message": "It would also be good to add Testing part, i.e. how to test those newly generated APIs, CSIT etc.",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 14
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_a14f3f6a",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-28T17:52:54Z",
+      "side": 1,
+      "message": "Suggest to add the reference section at the end:\n\n\"\nReferences\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n.. [1] https://wiki.openstack.org/wiki/Gluon\n.. [2] https://github.com/openstack/gluon/blob/master/doc/source/devref/gluon_api_spec.inc\n\"",
       "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
