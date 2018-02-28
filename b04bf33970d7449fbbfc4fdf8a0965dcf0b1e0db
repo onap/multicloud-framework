@@ -68,6 +68,30 @@
       "revId": "b04bf33970d7449fbbfc4fdf8a0965dcf0b1e0db",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_0b189273",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-02-28T08:18:09Z",
+      "side": 1,
+      "message": "I am not sure the replacement is appropriate, I use the title from our MVP goals. And there is no security consideration in this spec.",
+      "parentUuid": "5a93c517_4e678de9",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "b04bf33970d7449fbbfc4fdf8a0965dcf0b1e0db",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
