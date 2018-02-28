@@ -25,6 +25,29 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_c1060b1d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-02-28T17:31:40Z",
+      "side": 1,
+      "message": "Some more details regarding uploading file, including file name, with HTTP Post method + Content-Disposition header in multipart. It is quite a standard way in HTTP client:\n\n- RFC 1867:\n  * https://tools.ietf.org/html/rfc1867\n- Detailed explanation from Mozilla Developer Docs:\n  * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition\n- An example in Stackoverflow to upload a file:\n  * https://stackoverflow.com/questions/8659808/how-does-http-file-upload-work\n\nIn essence, the action at HTTP client side to post a file is the same as to upload a file at client side (i.e. SO side from MultiVIM perspective). It is the standard way to implement it. No matter how package file changes, the way of posting it to MultiVIM is the same in SO. The client side code in SO stays the same. The API in MultiVIM stays the same.\n\nOn the other hand, if we provide separate API for different package, there is extra code in SO to differentiate file types. More importantly, when we need to add new package support in the future:\n- MultiVIM needs to add new API. So not only the new code to handle new API, but also the overhead of documenting and maintaining extra APIs, and deprecating old APIs.\n- SO needs to add new code to differentiate new package and post to new API.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 48
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c9c2c052",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
