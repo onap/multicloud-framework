@@ -99,3 +99,9 @@ Work Items
 #. Work with ESR team for location inport form.
 #. Add check_vim_capacity API to MultiCloud Broker.
 #. Add check_vim_capacity API to each MultiCloud Plugins.
+
+Tests
+=====
+
+#. Unit Tests with tox
+#. CSIT Tests, the input/ouput of broker and each plugin see API design above.
