@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "5a93c517_adbdeeb8",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-01T16:43:58Z",
+      "side": 1,
+      "message": "Here is the namespace you choose in msb, not multicloud.",
+      "range": {
+        "startLine": 97,
+        "startChar": 28,
+        "endLine": 97,
+        "endChar": 38
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6d9cc65d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-01T16:43:58Z",
+      "side": 1,
+      "message": "Since you plan to support other CoE in the future, naming this plugin to \"multicloud-kubernetes\" sounds not reasonable.",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 22
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_2da23e99",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-01T16:43:58Z",
+      "side": 1,
+      "message": "Would be better change to kubernetes since it\u0027s only for kuberntes",
+      "range": {
+        "startLine": 113,
+        "startChar": 20,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_a9c5f45c",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -39,6 +108,29 @@
       "range": {
         "startLine": 145,
         "startChar": 0,
+        "endLine": 148,
+        "endChar": 48
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cdd87a20",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-01T16:43:58Z",
+      "side": 1,
+      "message": "If using headers to distinguish package type, it would be good to give possible contents of the this header.",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
         "endLine": 148,
         "endChar": 48
       },
