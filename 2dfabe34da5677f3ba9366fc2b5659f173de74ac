@@ -89,6 +89,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_5c7ae277",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-01T00:26:44Z",
+      "side": 1,
+      "message": "No. I understand the necessity of it.\nMy question is, is your schema suggested by below example same to swagger yaml\u0027s or not?\n\nFrom the above your comment, the answer is yes, right?\nSo please write it down explicitly(e.g. the schema of swagger yaml is adapted and its schema definition can be found at this url)\nOtherwise, with only the below example, I couldn\u0027t figure out,\nyou adapted swagger yaml schema definition or you (re-)invented your own schema definition or you started from swagger yaml schema, but twisted it.\nWhat is your intention?\n\n\nthe section of \"swagger file generation\" implies it. but not explicit.\n\n\nTo implement this proposal, formal schema definition is required to validate if the given yaml file for API definition is valid or not.",
+      "parentUuid": "5a93c517_2879d4c7",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 34
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c154cb00",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 2
@@ -105,6 +129,52 @@
         "startChar": 0,
         "endLine": 208,
         "endChar": 14
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_3c959686",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-01T00:26:44Z",
+      "side": 1,
+      "message": "Are there any OSS tools available?",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 46
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_1c98dabe",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-01T00:26:44Z",
+      "side": 1,
+      "message": "Isn\u0027t there any OSS tools for this?",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 30
       },
       "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
