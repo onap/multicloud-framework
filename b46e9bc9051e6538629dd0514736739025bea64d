@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ed48d6b4",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-01T17:32:45Z",
+      "side": 1,
+      "message": "thanks",
+      "parentUuid": "5a93c517_6e1e0961",
+      "range": {
+        "startLine": 99,
+        "startChar": 14,
+        "endLine": 99,
+        "endChar": 24
+      },
+      "revId": "b46e9bc9051e6538629dd0514736739025bea64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_ee48d95d",
         "filename": "multivimbroker/multivimbroker/forwarder/views.py",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_8dc91228",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-01T17:32:45Z",
+      "side": 1,
+      "message": "Will be ignored, please see related spec.",
+      "parentUuid": "5a93c517_ee48d95d",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 9
+      },
+      "revId": "b46e9bc9051e6538629dd0514736739025bea64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_0e46654f",
         "filename": "multivimbroker/multivimbroker/forwarder/views.py",
         "patchSetId": 2
@@ -59,6 +107,30 @@
       "writtenOn": "2018-02-27T15:48:56Z",
       "side": 1,
       "message": "Since this is constant regarding to vims.\nso move out from the loop.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 55
+      },
+      "revId": "b46e9bc9051e6538629dd0514736739025bea64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cde2ba9f",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-01T17:32:45Z",
+      "side": 1,
+      "message": "revise it.",
+      "parentUuid": "5a93c517_0e46654f",
       "range": {
         "startLine": 112,
         "startChar": 0,
