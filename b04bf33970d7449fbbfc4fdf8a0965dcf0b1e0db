@@ -92,6 +92,30 @@
       "revId": "b04bf33970d7449fbbfc4fdf8a0965dcf0b1e0db",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8d6032a6",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-01T15:32:49Z",
+      "side": 1,
+      "message": "I\u0027m confused. the line 16-18 talks about security, doesn\u0027t it?",
+      "parentUuid": "5a93c517_0b189273",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "b04bf33970d7449fbbfc4fdf8a0965dcf0b1e0db",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
