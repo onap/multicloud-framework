@@ -184,6 +184,29 @@
       "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cdef1ab0",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-01T16:45:54Z",
+      "side": 1,
+      "message": "You have to give an example input/output of each API for CSIT tests.",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 25
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
