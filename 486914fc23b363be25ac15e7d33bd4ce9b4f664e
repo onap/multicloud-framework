@@ -308,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_280c6bec",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-02T01:20:59Z",
+      "side": 1,
+      "message": "If I read the guideline correctly, the relevant paragraph is under section \"URI Construction\":\n\n\"A REST API should not include artificial file extensions in URIs to indicate the format of a message’s entity body. Instead, they should rely on the media type, as communicated through the Content-Type header, to determine how to process the body’s content. \"\n\nHere, it doesn\u0027t suggest to use file extensions in *URIs*.\n\nBased on the context and example in the whole section of URI Construction, it really means the file extensions shouldn\u0027t be in URI. For example:\n- we should use (in given example): /api/petstore/v1/pets/dogs\n- we shouldn\u0027t use: /api/petstore/v1/pets/dogs.json\n\nIn our case, the URI is \"\u003ccloud-id\u003e/package\".\n\nBoth \"Content-Disposition\" and \"Content-Type\" are headers. It is not part of URI.\n\nFor double safety to distinguish the type, I agree that both should be used. In case the proprietary content type \"onap-...\" is not supported, we always can distinguish them.",
+      "parentUuid": "5a93c517_48e69745",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 148,
+        "endChar": 48
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c9c2c052",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
