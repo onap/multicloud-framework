@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_2e7b138d",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-02T10:15:54Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "5a93c517_08d40f46",
+      "range": {
+        "startLine": 97,
+        "startChar": 28,
+        "endLine": 97,
+        "endChar": 38
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_6d9cc65d",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -144,6 +168,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ee70cba5",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-02T10:15:54Z",
+      "side": 1,
+      "message": "Okay, we have some misunderstanding here:\n  By supporting other CoE you mean adding new plugins in the future, right? if this spec will be only for kubernetes plugin, we would better rename the \"multicloud-container-plugin\" to \"multicloud-kubernetes-plugin\" to eliminate the confusion. And also remove the plan to support other CoE in this spec, and if needed use another spec for other CoE plugin. And also change the title \"Container based network service/function deployment\" to reflect it\u0027s only for kubernetes.",
+      "parentUuid": "5a93c517_a8db9b7a",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 22
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_2da23e99",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "kubernetes doesn\u0027t mean much because the context here is kubernetes.\n\nif we used kubernetes, what of kuberentes here?",
       "parentUuid": "5a93c517_2da23e99",
+      "range": {
+        "startLine": 113,
+        "startChar": 20,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8e6b47b6",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-02T10:15:54Z",
+      "side": 1,
+      "message": "I was thought that you will use this plugin for other CoE in the future, seems not, see my comments above.",
+      "parentUuid": "5a93c517_68e11329",
       "range": {
         "startLine": 113,
         "startChar": 20,
@@ -320,6 +392,30 @@
       "side": 1,
       "message": "If I read the guideline correctly, the relevant paragraph is under section \"URI Construction\":\n\n\"A REST API should not include artificial file extensions in URIs to indicate the format of a message’s entity body. Instead, they should rely on the media type, as communicated through the Content-Type header, to determine how to process the body’s content. \"\n\nHere, it doesn\u0027t suggest to use file extensions in *URIs*.\n\nBased on the context and example in the whole section of URI Construction, it really means the file extensions shouldn\u0027t be in URI. For example:\n- we should use (in given example): /api/petstore/v1/pets/dogs\n- we shouldn\u0027t use: /api/petstore/v1/pets/dogs.json\n\nIn our case, the URI is \"\u003ccloud-id\u003e/package\".\n\nBoth \"Content-Disposition\" and \"Content-Type\" are headers. It is not part of URI.\n\nFor double safety to distinguish the type, I agree that both should be used. In case the proprietary content type \"onap-...\" is not supported, we always can distinguish them.",
       "parentUuid": "5a93c517_48e69745",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 148,
+        "endChar": 48
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_ae6643eb",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-02T10:15:54Z",
+      "side": 1,
+      "message": "Yes, something like this, it\u0027s for tests and integration convenient. The details input/output of this API will avoid confusion in the future. For example what will you get if API request success, what is the output if  failed.",
+      "parentUuid": "5a93c517_c81f075a",
       "range": {
         "startLine": 147,
         "startChar": 2,
