@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_08d40f46",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-02T00:24:21Z",
+      "side": 1,
+      "message": "Do you mean multicloud-kubernetes?",
+      "parentUuid": "5a93c517_88b25f4a",
+      "range": {
+        "startLine": 97,
+        "startChar": 28,
+        "endLine": 97,
+        "endChar": 38
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_6d9cc65d",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -96,6 +120,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_a8db9b7a",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-02T00:24:21Z",
+      "side": 1,
+      "message": "for another COE, each COE support has its own API end point.\nSo they will have multicloud-\u003ccoe name\u003e",
+      "parentUuid": "5a93c517_e82203a2",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 22
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_2da23e99",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -107,6 +155,30 @@
       "writtenOn": "2018-03-01T16:43:58Z",
       "side": 1,
       "message": "Would be better change to kubernetes since it\u0027s only for kuberntes",
+      "range": {
+        "startLine": 113,
+        "startChar": 20,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_68e11329",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-02T00:24:21Z",
+      "side": 1,
+      "message": "kubernetes doesn\u0027t mean much because the context here is kubernetes.\n\nif we used kubernetes, what of kuberentes here?",
+      "parentUuid": "5a93c517_2da23e99",
       "range": {
         "startLine": 113,
         "startChar": 20,
@@ -212,6 +284,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_48e69745",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-02T00:24:21Z",
+      "side": 1,
+      "message": "The goal is to distinguish type of given data.\nAccording to onap guide line we should use application media type. and to avoid to use filename extension.\n\nSo we should use Contenct-Type with our private sub type.\nin out  case\napplication/onap-multicloud-kubernetes-[csar|helm]\n\n\n\nhttps://wiki.onap.org/display/DW/RESTful+API+Design+Specification",
+      "parentUuid": "5a93c517_c81f075a",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 148,
+        "endChar": 48
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c9c2c052",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -270,6 +366,30 @@
       "writtenOn": "2018-03-01T16:45:54Z",
       "side": 1,
       "message": "You have to give an example input/output of each API for CSIT tests.",
+      "range": {
+        "startLine": 222,
+        "startChar": 2,
+        "endLine": 222,
+        "endChar": 25
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_28d78b4c",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-02T00:24:21Z",
+      "side": 1,
+      "message": "why? this is not test case itself.",
+      "parentUuid": "5a93c517_cdef1ab0",
       "range": {
         "startLine": 222,
         "startChar": 2,
