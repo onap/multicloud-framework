@@ -21,10 +21,15 @@ sed -i "s/AAI_SCHEMA_VERSION =.*/AAI_SCHEMA_VERSION = \"${AAI_SCHEMA_VERSION}\"/
 sed -i "s/AAI_USERNAME =.*/AAI_USERNAME = \"${AAI_USERNAME}\"/g" multivimbroker/pub/config/config.py
 sed -i "s/AAI_PASSWORD =.*/AAI_PASSWORD = \"${AAI_PASSWORD}\"/g" multivimbroker/pub/config/config.py
 
+logDir="/var/log/onap/multicloud/multivimbroker"
+if [ ! -x  $logDir  ]; then
+       mkdir -p $logDir
+fi
+
 nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
 
-while [ ! -f logs/runtime_multivimbroker.log ]; do
+while [ ! -f $logDir/multivimbroker.log ]; do
     sleep 1
 done
 
-tail -F logs/runtime_multivimbroker.log
+tail -F  $logDir/multivimbroker.log
