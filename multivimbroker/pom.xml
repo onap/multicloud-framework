@@ -27,6 +27,11 @@
     <packaging>pom</packaging>
     <name>multicloud-framework-broker</name>
     <description>multivim broker</description>
+    <properties>
+        <sonar.language>py</sonar.language>
+        <sonar.pluginname>python</sonar.pluginname>
+        <sonar.inclusions>**/**.py</sonar.inclusions>
+    </properties>
     <build>
         <plugins>
             <plugin>
