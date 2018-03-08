@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_cec94fad",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-08T20:09:51Z",
+      "side": 1,
+      "message": "the scope is any coe. But for Beijing, we address only k8s as line 30-33 says so.\nAnd with event driven API, we would have api agnostic to coe.\nin that case the namespace might be \"multicloud-coe\".",
+      "parentUuid": "5a93c517_ee70cba5",
+      "range": {
+        "startLine": 101,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 22
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_2da23e99",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -263,6 +287,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_eecc4bbd",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-08T20:09:51Z",
+      "side": 1,
+      "message": "Right. this is only for k8s. which coe is identified by api end point via MSB.",
+      "parentUuid": "5a93c517_8e6b47b6",
+      "range": {
+        "startLine": 113,
+        "startChar": 20,
+        "endLine": 113,
+        "endChar": 25
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_a9c5f45c",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -274,6 +322,30 @@
       "writtenOn": "2018-02-25T03:23:54Z",
       "side": 1,
       "message": "Copy my comments for Patch Set 12:\n\nLine 134-135 (PS#12) or Line 166-167 (this PS#13) indicates that \"k8s Plugin will distinguish package types based on its suffix and interact with k8s cluster appropriately\".\n\nSo if the suffix is .csar, it is a CSAR. If the suffix is .tgz, it is a Helm Charts package.\n\nThus the original design of \"/\u003ccloud-id\u003e/package\" is more scalable.\n\nI suggest to remove this.",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 28
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_8e4ee739",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-08T20:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_a9c5f45c",
       "range": {
         "startLine": 139,
         "startChar": 0,
@@ -428,6 +500,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_ae496332",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-08T20:09:51Z",
+      "side": 1,
+      "message": "okay I updated the document. please review the updated version.",
+      "parentUuid": "5a93c517_ae6643eb",
+      "range": {
+        "startLine": 147,
+        "startChar": 2,
+        "endLine": 148,
+        "endChar": 48
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c9c2c052",
         "filename": "docs/specs/multicloud-container-plugin.rst",
         "patchSetId": 13
@@ -463,6 +559,30 @@
       "side": 1,
       "message": "Yeah, once we reachedm, this should be eliminated.",
       "parentUuid": "5a93c517_c9c2c052",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 187,
+        "endChar": 45
+      },
+      "revId": "486914fc23b363be25ac15e7d33bd4ce9b4f664e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_4e545fc9",
+        "filename": "docs/specs/multicloud-container-plugin.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 287
+      },
+      "writtenOn": "2018-03-08T20:09:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_df3b52cf",
       "range": {
         "startLine": 182,
         "startChar": 0,
