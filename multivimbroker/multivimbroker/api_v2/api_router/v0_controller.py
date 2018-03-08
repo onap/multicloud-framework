@@ -13,10 +13,10 @@
 import logging
 import pecan
 
-from multivimbroker.swagger import utils
 from multivimbroker.pub import exceptions
 from multivimbroker.pub.utils import restcall
 from multivimbroker.pub.utils import syscomm
+from multivimbroker.swagger import utils
 
 
 logger = logging.getLogger(__name__)
@@ -29,6 +29,10 @@ IDENTITY_AUTH_URI = "identity/v3/auth/tokens"
 
 
 class V0_Controller(object):
+
+    @pecan.expose('json')
+    def vim_types(self):
+        return syscomm.getVIMTypes()
 
     @pecan.expose('json', route="swagger.json")
     def swagger_json(self):

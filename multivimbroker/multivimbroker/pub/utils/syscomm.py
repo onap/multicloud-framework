@@ -62,3 +62,19 @@ def getMultivimDriver(vimid, full_path=""):
     vim = get_vim_by_id(vimid)
     multclouddriver = findMultivimDriver(vim=vim)
     return re.sub(multcloud, multclouddriver, full_path)
+
+
+def getVIMTypes():
+        # Fix here unless we have plugin registry
+        json_file = os.path.join(os.path.dirname(__file__),
+                                 '../config/provider-plugin.json')
+        with open(json_file, "r") as f:
+            plugins = json.load(f)
+        ret = []
+        for k, v in plugins.items():
+            item = {}
+            item["vim_type"] = v.get("vim_type")
+            item["versions"] = [k for k in v.get('versions', {})]
+            ret.append(item)
+
+        return ret
