@@ -12,10 +12,15 @@
 
 import pecan
 
+from multivimbroker.pub.utils import syscomm
 from multivimbroker.swagger import utils
 
 
 class V0_Controller(object):
+
+    @pecan.expose('json')
+    def vim_types(self):
+        return syscomm.getVIMTypes()
 
     @pecan.expose('json', route="swagger.json")
     def swagger_json(self):

@@ -13,13 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-import json
-
 from rest_framework.views import APIView
 from rest_framework.views import Response
 from rest_framework.views import status
 from multivimbroker.forwarder.base import BaseHandler
+from multivimbroker.pub.utils import syscomm
 
 #
 
@@ -82,18 +80,7 @@ class Extension(BaseServer):
 class VIMTypes(BaseServer):
 
     def get(self, request):
-        # Fix here unless we have plugin registry
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 '../pub/config/provider-plugin.json')
-        with open(json_file, "r") as f:
-            plugins = json.load(f)
-        ret = []
-        for k, v in plugins.items():
-            item = {}
-            item["vim_type"] = v.get("vim_type")
-            item["versions"] = [k for k in v.get('versions', {})]
-            ret.append(item)
-        return Response(data=ret, status=status.HTTP_200_OK)
+        return Response(data=syscomm.getVIMTypes(), status=status.HTTP_200_OK)
 
 
 # forward  handler
