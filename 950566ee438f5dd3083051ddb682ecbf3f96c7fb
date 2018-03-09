@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_30927bf6",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-03-09T03:30:10Z",
+      "side": 1,
+      "message": "be careful of the format of \"vim\": is the format of this \"vim\" been finalized with OOF yet?\nfor your information, community prefer the compound keys of \"cloud_owner\" and \"cloud_region_id\" to the concatenated peer (vim_id in format of {cloud_owner}_{cloud_region_id})",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 35
+      },
+      "revId": "950566ee438f5dd3083051ddb682ecbf3f96c7fb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
