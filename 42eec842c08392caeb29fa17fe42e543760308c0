@@ -189,6 +189,29 @@
       "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_b09e8b05",
+        "filename": "docs/specs/multicloud_resource_capacity_check.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-03-09T03:23:37Z",
+      "side": 1,
+      "message": "One question: has the specification of this VIM array been finalized with OOF team or not? Is it a list of vim_id with format {cloud_owner}_{cloud_region_id} or a list of compound keys: {\"cloud_owner\":\"owner1\", \"cloud_region_id\":\"RegionOne\"} ?\nI believe there is no consensus yet , correct?",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 65
+      },
+      "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
