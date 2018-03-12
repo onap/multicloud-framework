@@ -22,6 +22,30 @@
       "revId": "950566ee438f5dd3083051ddb682ecbf3f96c7fb",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cc9b7b16",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-12T02:33:31Z",
+      "side": 1,
+      "message": "Hi Bin, in multicloud we always use {cloud_owner}_{cloud_region} as vim ID, isn\u0027t it better to keep it align with other APIs in multicloud?",
+      "parentUuid": "5a93c517_30927bf6",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 35
+      },
+      "revId": "950566ee438f5dd3083051ddb682ecbf3f96c7fb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
