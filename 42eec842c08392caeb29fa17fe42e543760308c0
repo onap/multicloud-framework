@@ -212,6 +212,30 @@
       "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_6c9ee708",
+        "filename": "docs/specs/multicloud_resource_capacity_check.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-12T02:30:31Z",
+      "side": 1,
+      "message": "Hi Bin, is it better to align with the input VIMs format, which was recommended as {cloud_owner}_{cloud_region}?",
+      "parentUuid": "5a93c517_b09e8b05",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 65
+      },
+      "revId": "42eec842c08392caeb29fa17fe42e543760308c0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
