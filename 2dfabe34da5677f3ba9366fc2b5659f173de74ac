@@ -42,6 +42,24 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_7e6d29cb",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-13T07:25:42Z",
+      "side": 1,
+      "message": "Will add, gluon will be a good reference if a full normative definition is required.",
+      "parentUuid": "5a93c517_41399bd5",
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_4e954d85",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 2
@@ -113,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_9e7035a5",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-13T07:25:42Z",
+      "side": 1,
+      "message": "The plan is to adapt swagger schema, will update the spec, thanks for pointing out.",
+      "parentUuid": "5a93c517_5c7ae277",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 34
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c154cb00",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 2
@@ -124,6 +166,30 @@
       "writtenOn": "2018-02-28T17:52:54Z",
       "side": 1,
       "message": "It would also be good to add Testing part, i.e. how to test those newly generated APIs, CSIT etc.",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 14
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_1ee18529",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-13T07:25:42Z",
+      "side": 1,
+      "message": "plan is to test it with volte case. but I am not sure if it is part of CSIT.",
+      "parentUuid": "5a93c517_c154cb00",
       "range": {
         "startLine": 207,
         "startChar": 0,
@@ -159,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_9eccb5bc",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-13T07:25:42Z",
+      "side": 1,
+      "message": "I plan to use pyyaml to parse the yaml file. For the rest client, I plan to reuse the existing code. Any suggestion is welcomed here.",
+      "parentUuid": "5a93c517_3c959686",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 214,
+        "endChar": 46
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_1c98dabe",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 2
@@ -182,6 +272,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_3ec7a197",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-13T07:25:42Z",
+      "side": 1,
+      "message": "No plan for now, just some plain code to do the conversion.",
+      "parentUuid": "5a93c517_1c98dabe",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 30
+      },
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_a14f3f6a",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 2
@@ -193,6 +307,24 @@
       "writtenOn": "2018-02-28T17:52:54Z",
       "side": 1,
       "message": "Suggest to add the reference section at the end:\n\n\"\nReferences\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n.. [1] https://wiki.openstack.org/wiki/Gluon\n.. [2] https://github.com/openstack/gluon/blob/master/doc/source/devref/gluon_api_spec.inc\n\"",
+      "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_7ea44907",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-13T07:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_a14f3f6a",
       "revId": "2dfabe34da5677f3ba9366fc2b5659f173de74ac",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
