@@ -33,4 +33,5 @@ class TestUrls(unittest.TestCase):
             }
         ]
         self.assertEqual(status.HTTP_200_OK, resp.status_code)
-        self.assertEqual(expect_body, resp.data)
+        for item in resp.data:
+            self.assertIn(item, expect_body)
