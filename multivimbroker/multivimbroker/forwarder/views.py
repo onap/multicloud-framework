@@ -20,7 +20,7 @@ from rest_framework.views import APIView
 from rest_framework.views import Response
 from rest_framework.views import status
 from multivimbroker.forwarder.base import BaseHandler
-
+from multivimbroker.pub.utils.syscomm import originHeaders
 #
 
 
@@ -50,18 +50,21 @@ class Identity(BaseServer):
 
     def get(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "GET")
+        return self.send(vimid, request.get_full_path(), request.body, "GET",
+                         headers=originHeaders(request))
 
     def post(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "POST")
+        return self.send(vimid, request.get_full_path(), request.body, "POST",
+                         headers=originHeaders(request))
 
 
 class Registry(BaseServer):
 
     def post(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "POST")
+        return self.send(vimid, request.get_full_path(), request.body, "POST",
+                         headers=originHeaders(request))
 
 
 class UnRegistry(BaseServer):
@@ -69,14 +72,15 @@ class UnRegistry(BaseServer):
     def delete(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body,
-                         "DELETE")
+                         "DELETE", headers=originHeaders(request))
 
 
 class Extension(BaseServer):
 
     def get(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "GET")
+        return self.send(vimid, request.get_full_path(), request.body, "GET",
+                         headers=originHeaders(request))
 
 
 class VIMTypes(BaseServer):

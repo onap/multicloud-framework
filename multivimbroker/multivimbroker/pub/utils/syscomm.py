@@ -19,6 +19,8 @@ import multivimbroker.pub.exceptions as exceptions
 from multivimbroker.pub.msapi.extsys import get_vim_by_id
 
 
+
+
 def fun_name():
     return inspect.stack()[1][3]
 
@@ -34,6 +36,14 @@ def getHeadersKeys(response):
     hopbyhop.extend([x.strip()
                      for x in response.get('connection', '').split(',')])
     return [header for header in response.keys() if header not in hopbyhop]
+
+
+#trim out 'HTTP_' prefix part and replace "_" wiht "-".
+def originHeaders(request):
+    regex = re.compile('^HTTP_')
+    return dict((regex.sub('', header).replace("_", "-"), value)
+                for (header, value)
+         in request.META.items() if header.startswith('HTTP_'))
 
 
 def findMultivimDriver(vim=None):
