@@ -36,6 +36,14 @@ def getHeadersKeys(response):
     return [header for header in response.keys() if header not in hopbyhop]
 
 
+# trim out 'HTTP_' prefix part and replace "_" wiht "-".
+def originHeaders(request):
+    regex = re.compile('^HTTP_')
+    return dict((regex.sub('', header).replace("_", "-"), value)
+                for (header, value) in request.META.items()
+                if header.startswith('HTTP_'))
+
+
 def findMultivimDriver(vim=None):
     json_file = os.path.join(os.path.dirname(__file__),
                              '../config/provider-plugin.json')
