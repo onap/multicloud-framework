@@ -31,19 +31,3 @@ AAI_PASSWORD = 'AAI'
 # [IMAGE LOCAL PATH]
 ROOT_PATH = os.path.dirname(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-# [register]
-REG_TO_MSB_WHEN_START = False
-REG_TO_MSB_REG_URL = "/api/microservices/v1/services"
-REG_TO_MSB_REG_PARAM = {
-    "serviceName": "multicloud",
-    "version": "v0",
-    "url": "/api/multicloud/v0",
-    "protocol": "REST",
-    "visualRange": "1",
-    "nodes": [{
-        "ip": "127.0.0.1",
-        "port": "9001",
-        "ttl": 0
-    }]
-}
