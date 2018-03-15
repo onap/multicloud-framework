@@ -28,6 +28,9 @@ AAI_SCHEMA_VERSION = "v11"
 AAI_USERNAME = 'AAI'
 AAI_PASSWORD = 'AAI'
 
+# [MDC]
+SERVICE_NAME = "multicloud-broker"
+
 # [IMAGE LOCAL PATH]
 ROOT_PATH = os.path.dirname(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
