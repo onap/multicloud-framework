@@ -22,6 +22,30 @@
       "revId": "e5c1dcb8599232d68bee87e6e7344498c48b086a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_00491130",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-03-16T06:15:37Z",
+      "side": 1,
+      "message": "Hi Haibin,\n   This \"try\" handles the request.body in case it\u0027s not json.\n   The L119 try in loop handles the messages between broker and each plugins, in case some plugins are not following the spec, we should ignore the messages it returned and continue to check other VIM. That\u0027s why we can not simply put the \"try\" at L119 simply out of loop.",
+      "parentUuid": "5a93c517_00111151",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "e5c1dcb8599232d68bee87e6e7344498c48b086a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
