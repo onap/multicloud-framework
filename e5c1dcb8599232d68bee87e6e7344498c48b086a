@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_00111151",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-03-16T03:53:18Z",
+      "side": 1,
+      "message": "please merge many \"try\", like below\ntry:\n\nexcept:\n\nexcept:\n\nexcept:",
+      "range": {
+        "startLine": 100,
+        "startChar": 8,
+        "endLine": 100,
+        "endChar": 11
+      },
+      "revId": "e5c1dcb8599232d68bee87e6e7344498c48b086a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
