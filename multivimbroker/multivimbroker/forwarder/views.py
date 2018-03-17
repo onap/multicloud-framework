@@ -15,11 +15,14 @@
 
 import os
 import json
+from poster.encode import multipart_encode
+from poster.streaminghttp import register_openers
 
 from rest_framework.views import APIView
 from rest_framework.views import Response
 from rest_framework.views import status
 from multivimbroker.forwarder.base import BaseHandler
+from rest_framework.parsers import MultiPartParser
 
 #
 
@@ -126,3 +129,20 @@ class Forward(BaseServer):
 
         return self.send(vimid, request.get_full_path(), request.body, "PUT",
                          headers=None)
+
+#Multipart view
+
+class MultiPartView(BaseServer):
+    parser_classes = (MultiPartParser, )
+    def post(self,request,vimid):
+        register_openers()
+        datagen,headers=multipart_encode(dict(request.data.iterlists()))
+        requestData = "".join(datagen) #will convert the datagen to be accepted by httplib2 body param
+        
+        #MultiPart parser modifies the header keys and stores in request.META
+        #A custom header in request body(for ex: Cloud_Type) will be transformed to HTTP_CLOUD_TYPE
+        for key ,value in request.META.iteritems():
+            if key.startswith("HTTP_"):
+                headers[key]=value
+        return self.send(vimid,request.path,requestData,"POST",headers=headers)
+
