@@ -2,6 +2,9 @@
 Django==1.9.6
 djangorestframework==3.3.3
 
+#multipart support
+poster==0.8.1
+
 # redis cache
 redis==2.10.5
 
