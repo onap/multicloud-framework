@@ -138,6 +138,30 @@
       "revId": "77ac827e2458f87406df940dce10f2babab55527",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_a9ed9827",
+        "filename": "docs/specs/Image Service.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1945
+      },
+      "writtenOn": "2018-03-20T08:48:43Z",
+      "side": 1,
+      "message": "Thanks, I will split and enrich it",
+      "parentUuid": "5a93c517_0ad048c7",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 11,
+        "endChar": 117
+      },
+      "revId": "77ac827e2458f87406df940dce10f2babab55527",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
