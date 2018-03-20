@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_bca87821",
+        "filename": "docs/specs/multicloud_event_federation.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-20T13:14:22Z",
+      "side": 1,
+      "message": "Have you discussed with APP-C team to let them know that they can no longer poll Nova for status information? Have they agreed to this change?\n\nFor the plan of record, this email thread:\n\nhttps://lists.onap.org/pipermail/onap-discuss/2018-January/007502.html\n\nshows us that APP-C PTL has already communicated with our MultiVIM PTL that APP-C does NOT plan to use DMaaP for Beijing Release.",
+      "range": {
+        "startLine": 12,
+        "startChar": 86,
+        "endLine": 13,
+        "endChar": 79
+      },
+      "revId": "92fa7e02a03fec336639800b349ade4c3de58cf0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
