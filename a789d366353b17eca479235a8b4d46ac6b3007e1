@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_d40994de",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-03-21T14:35:13Z",
+      "side": 1,
+      "message": "Please elaborate the term \"extension support\". With my understanding of \"extension support\", it would allow the code library to be plugged into yaml to implement the API exposed in this yaml. If my understanding is correct, I didn\u0027t find out how this \"extension support\" will be supported in \"Definition of API\" .",
+      "range": {
+        "startLine": 63,
+        "startChar": 63,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "a789d366353b17eca479235a8b4d46ac6b3007e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_f45370e0",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-03-21T14:35:13Z",
+      "side": 1,
+      "message": "There",
+      "range": {
+        "startLine": 95,
+        "startChar": 35,
+        "endLine": 95,
+        "endChar": 38
+      },
+      "revId": "a789d366353b17eca479235a8b4d46ac6b3007e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
