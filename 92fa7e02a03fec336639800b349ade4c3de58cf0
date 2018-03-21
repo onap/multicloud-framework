@@ -70,6 +70,30 @@
       "revId": "92fa7e02a03fec336639800b349ade4c3de58cf0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_cbf2536f",
+        "filename": "docs/specs/multicloud_event_federation.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1945
+      },
+      "writtenOn": "2018-03-21T07:46:32Z",
+      "side": 1,
+      "message": "I think this feature will not change anything in APPC, at least in this release, it only provides another option for them.",
+      "parentUuid": "5a93c517_abcfc7b2",
+      "range": {
+        "startLine": 12,
+        "startChar": 86,
+        "endLine": 13,
+        "endChar": 79
+      },
+      "revId": "92fa7e02a03fec336639800b349ade4c3de58cf0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
