@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_ba3b8f9b",
+        "filename": "docs/specs/multicloud_event_federation.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-21T18:51:34Z",
+      "side": 1,
+      "message": "Looks good clarification. Can we more explicitly ensure there is no impact on APPC? Consider something like:\n\n\"This design will ensure backward compatibility. Northbound components, e.g. APP-C, VF-C etc., can choose to continue their current way of receiving VM status/events check and all of the lifecycle management operations that they currently support in Amsterdam release. Their current capability and operation will not be impacted without having to use this feature.\"\n\nThank you\nBin",
+      "range": {
+        "startLine": 12,
+        "startChar": 86,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "bde3407c68979fd3d062f33c96cbe7bf775ca8c8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_5a57ebca",
+        "filename": "docs/specs/multicloud_event_federation.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-21T18:51:34Z",
+      "side": 1,
+      "message": "Because Listener listens to the events from VM, the questions are:\n\n- what type of \"publisher\" do we anticipate in the VIM? In another word:\n  * shall we reuse current mechanism of VIM to publish those events for Listener to capture?\n  * Or shall we need to install/change/revise current VIM in order for VIM to publish events?\n- what about public clouds such as Azure, Amazon etc?",
+      "range": {
+        "startLine": 32,
+        "startChar": 44,
+        "endLine": 32,
+        "endChar": 103
+      },
+      "revId": "bde3407c68979fd3d062f33c96cbe7bf775ca8c8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_1a716377",
+        "filename": "docs/specs/multicloud_event_federation.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-21T18:51:34Z",
+      "side": 1,
+      "message": "Will this Publisher be implemented in VIM (e.g. OpenStack, or Azure) or somewhere else?",
+      "range": {
+        "startLine": 32,
+        "startChar": 106,
+        "endLine": 32,
+        "endChar": 115
+      },
+      "revId": "bde3407c68979fd3d062f33c96cbe7bf775ca8c8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
