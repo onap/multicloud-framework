@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_a5bb7074",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-22T02:28:15Z",
+      "side": 1,
+      "message": "Your understanding is correct. Check the section \"vim_path\" I will consolidate the description in following update.",
+      "parentUuid": "5a93c517_d40994de",
+      "range": {
+        "startLine": 63,
+        "startChar": 63,
+        "endLine": 64,
+        "endChar": 42
+      },
+      "revId": "a789d366353b17eca479235a8b4d46ac6b3007e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_f45370e0",
         "filename": "docs/specs/elastic_api_exposure.rst",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2018-03-21T14:35:13Z",
       "side": 1,
       "message": "There",
+      "range": {
+        "startLine": 95,
+        "startChar": 35,
+        "endLine": 95,
+        "endChar": 38
+      },
+      "revId": "a789d366353b17eca479235a8b4d46ac6b3007e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c5c0fce2",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-22T02:28:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_f45370e0",
       "range": {
         "startLine": 95,
         "startChar": 35,
