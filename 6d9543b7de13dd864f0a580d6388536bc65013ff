@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_60af967e",
+        "filename": "docs/specs/multicloud_event_federation.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-22T05:48:25Z",
+      "side": 1,
+      "message": "Sorry Bin Sun, it is still not clear if those REST APIs are existing APIs or new APIs. Can you add the paragraph, which I suggested in Patchset #3, to ensure that APP-C will not be impacted without having to add anything new?",
+      "range": {
+        "startLine": 13,
+        "startChar": 77,
+        "endLine": 14,
+        "endChar": 84
+      },
+      "revId": "6d9543b7de13dd864f0a580d6388536bc65013ff",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_80b422d2",
+        "filename": "docs/specs/multicloud_event_federation.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-22T05:48:25Z",
+      "side": 1,
+      "message": "Is it a new API or existing API?",
+      "range": {
+        "startLine": 108,
+        "startChar": 9,
+        "endLine": 108,
+        "endChar": 34
+      },
+      "revId": "6d9543b7de13dd864f0a580d6388536bc65013ff",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
