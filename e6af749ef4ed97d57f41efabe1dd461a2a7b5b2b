@@ -73,6 +73,29 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_2a091195",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-03-22T05:48:51Z",
+      "side": 1,
+      "message": "Is it feasible to make solution 1 as MVP an solution 2 as stretch goal. This will guarantee we can deliver what we committed and also allow us have more time to evaluate the strength and shortcomings of either solution.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 48
+      },
+      "revId": "e6af749ef4ed97d57f41efabe1dd461a2a7b5b2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_fa78ce90",
         "filename": "docs/specs/parallelism_improvement.rst",
         "patchSetId": 3
