@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_e0bc0609",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-22T04:58:07Z",
+      "side": 1,
+      "message": "I suggest to add one new section here, detailing the test set up, configuration, and result/performance analysis of 3 situations: django (current), django+uwsgi, and pecan+eventlet+wsgi, which shows the best technology we will choose.",
+      "revId": "f73ac0b022c9906d3f6f8d9928358f26fe18ba99",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_c03b0a9b",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-03-22T04:58:07Z",
+      "side": 1,
+      "message": "Can you add a description about how oslo can help provide a stable implementation?",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 36
+      },
+      "revId": "f73ac0b022c9906d3f6f8d9928358f26fe18ba99",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
