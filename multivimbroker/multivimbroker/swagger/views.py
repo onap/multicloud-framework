@@ -10,96 +10,14 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
-import json
-import logging
-import os
-# import traceback
 
 # from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-# from multivimbroker.pub.exceptions import VimBrokerException
-
-logger = logging.getLogger(__name__)
+from multivimbroker.swagger import utils
 
 
 class SwaggerJsonView(APIView):
     def get(self, request):
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.flavor.swagger.json')
-        f = open(json_file)
-        json_data = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.image.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.network.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.subnet.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.server.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.volume.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.vport.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.tenant.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.host.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.limit.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        #
-        json_file = os.path.join(os.path.dirname(__file__),
-                                 'multivim.identity.swagger.json')
-        f = open(json_file)
-        json_data_temp = json.JSONDecoder().decode(f.read())
-        f.close()
-        json_data["paths"].update(json_data_temp["paths"])
-        json_data["definitions"].update(json_data_temp["definitions"])
-        return Response(json_data)
+        return Response(utils.get_swagger_json_data())
