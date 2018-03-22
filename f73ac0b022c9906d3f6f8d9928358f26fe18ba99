@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_a0d27e32",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-22T05:36:31Z",
+      "side": 1,
+      "message": "sure, will add",
+      "parentUuid": "5a93c517_e0bc0609",
+      "revId": "f73ac0b022c9906d3f6f8d9928358f26fe18ba99",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_c03b0a9b",
         "filename": "docs/specs/parallelism_improvement.rst",
         "patchSetId": 8
@@ -30,6 +48,30 @@
       "writtenOn": "2018-03-22T04:58:07Z",
       "side": 1,
       "message": "Can you add a description about how oslo can help provide a stable implementation?",
+      "range": {
+        "startLine": 117,
+        "startChar": 8,
+        "endLine": 117,
+        "endChar": 36
+      },
+      "revId": "f73ac0b022c9906d3f6f8d9928358f26fe18ba99",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_80e18200",
+        "filename": "docs/specs/parallelism_improvement.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-22T05:36:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a93c517_c03b0a9b",
       "range": {
         "startLine": 117,
         "startChar": 8,
