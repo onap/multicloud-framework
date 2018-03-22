@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5a93c517_a0035e75",
+        "filename": "docs/specs/multicloud_event_federation.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-03-22T05:54:51Z",
+      "side": 1,
+      "message": "If I understand, this is the rest api which called by multicloud plugin for all VIM/cloud which cannot expose oslo event to listener.\nThe APP-C should not be impacted since APP-C can still call the existing API which implemented in Amsterdam Release.\nI suggest Bin Sun just put these statement in the design to eliminate these concerns.",
+      "parentUuid": "5a93c517_60af967e",
+      "range": {
+        "startLine": 13,
+        "startChar": 77,
+        "endLine": 14,
+        "endChar": 84
+      },
+      "revId": "6d9543b7de13dd864f0a580d6388536bc65013ff",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5a93c517_80b422d2",
         "filename": "docs/specs/multicloud_event_federation.rst",
         "patchSetId": 6
