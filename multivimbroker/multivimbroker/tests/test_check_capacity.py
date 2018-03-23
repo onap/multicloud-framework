@@ -52,3 +52,29 @@ class CheckCapacityTest(unittest.TestCase):
             }
             self.assertEqual(status.HTTP_200_OK, resp.status_code)
             self.assertDictEqual(expect_body, resp.data)
+
+    def test_check_capacity_no_suitable_vim(self):
+        req = mock.Mock()
+        req.body = """
+        {
+            "vCPU": 1,
+            "Memory": 1,
+            "Storage": 500,
+            "VIMs": ["openstack_RegionOne"]
+        }"""
+        req.get_full_path.return_value = ("http://msb.onap.org/api/multicloud"
+                                          "/v0/check_vim_capacity")
+        with mock.patch.object(self.view, "send") as send:
+            plugin_resp = mock.Mock()
+            plugin_resp.body = """{
+                "result": false
+            }"""
+            plugin_resp.status_code = status.HTTP_200_OK
+            send.return_value = plugin_resp
+
+            resp = self.view.post(req)
+            expect_body = {
+                "VIMs": []
+            }
+            self.assertEqual(status.HTTP_200_OK, resp.status_code)
+            self.assertDictEqual(expect_body, resp.data)
