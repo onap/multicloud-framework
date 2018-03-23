@@ -104,7 +104,7 @@ class CheckCapacity(BaseServer):
     def post(self, request):
         try:
             body = json.loads(request.body)
-        except json.JSONDecodeError as e:
+        except ValueError as e:
             return Response(
                 data={'error': 'Invalidate request body %s.' % e},
                 status=status.HTTP_400_BAD_REQUEST)
@@ -123,7 +123,7 @@ class CheckCapacity(BaseServer):
                 continue
             try:
                 resp_body = json.loads(resp.body)
-            except json.JSONDecodeError:
+            except ValueError:
                 continue
             if not resp_body.get("result", False):
                 continue

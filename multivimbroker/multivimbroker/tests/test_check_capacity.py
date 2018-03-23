@@ -78,3 +78,16 @@ class CheckCapacityTest(unittest.TestCase):
             }
             self.assertEqual(status.HTTP_200_OK, resp.status_code)
             self.assertDictEqual(expect_body, resp.data)
+
+    def test_check_capacity_invalid_input(self):
+        req = mock.Mock()
+        req.body = "hello world"
+        req.get_full_path.return_value = ("http://msb.onap.org/api/multicloud"
+                                          "/v0/check_vim_capacity")
+        expect_body = {
+            "error": ("Invalidate request body "
+                      "No JSON object could be decoded.")
+        }
+        resp = self.view.post(req)
+        self.assertEqual(status.HTTP_400_BAD_REQUEST, resp.status_code)
+        self.assertDictEqual(expect_body, resp.data)
