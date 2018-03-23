@@ -5,6 +5,7 @@
 target/
 logs/*.log
 *.pyc
+*.swp
 
 # Test related files
 multivimbroker/.coverage
