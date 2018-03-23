@@ -116,7 +116,7 @@ Result:
 100000 requests, concurrency level 1000
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Command:  `ab  -n 10000 -c 100 http://<IP:port>/api/multicloud/v0/vim_types`
+Command:  `ab  -n 100000 -c 1000 http://<IP:port>/api/multicloud/v0/vim_types`
 Result:
   Django runserver: Apache Benchmark quit because it reports timeout after
   running a random portion of all requests.
