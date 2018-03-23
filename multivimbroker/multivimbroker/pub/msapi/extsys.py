@@ -14,7 +14,7 @@ import json
 import logging
 
 from multivimbroker.pub.exceptions import VimBrokerException
-from multivimbroker.pub.utils.restcall import get_res_from_aai
+from multivimbroker.pub.utils import restcall
 
 logger = logging.getLogger(__name__)
 
@@ -28,8 +28,9 @@ def split_vim_to_owner_region(vim_id):
 
 def get_vim_by_id(vim_id):
     cloud_owner, cloud_region = split_vim_to_owner_region(vim_id)
-    ret = get_res_from_aai("/cloud-infrastructure/cloud-regions/cloud-region"
-                           "/%s/%s" % (cloud_owner, cloud_region))
+    ret = restcall.get_res_from_aai("/cloud-infrastructure/cloud-regions/"
+                                    "cloud-region/%s/%s" % (
+                                        cloud_owner, cloud_region))
     if ret[0] != 0:
         logger.error("Status code is %s, detail is %s." % (ret[2], ret[1]))
         raise VimBrokerException(
