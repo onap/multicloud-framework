@@ -26,7 +26,8 @@ if [ ! -x  $logDir  ]; then
        mkdir -p $logDir
 fi
 
-nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
+#nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
+nohup uwsgi --http :9006 --module multivimbroker.wsgi --master --processes 4 &
 
 while [ ! -f $logDir/multivimbroker.log ]; do
     sleep 1
