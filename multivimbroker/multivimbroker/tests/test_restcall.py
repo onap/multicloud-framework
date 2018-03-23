@@ -8,6 +8,7 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
+import mock
 import unittest
 
 from multivimbroker.pub.utils import restcall
@@ -22,3 +23,21 @@ class TestRestCall(unittest.TestCase):
         expected = "http://a.com/test/resource"
         for i in range(len(url)):
             self.assertEqual(expected, restcall.combine_url(url[i], res[i]))
+
+    @mock.patch.object(restcall, "call_req")
+    def test_get_res_from_aai(self, mock_call):
+        res = "cloud-regions"
+        content = ""
+        expect_url = "https://aai.api.simpledemo.openecomp.org:8443/aai/v13"
+        expect_user = "AAI"
+        expect_pass = "AAI"
+        expect_headers = {
+            'X-FromAppId': 'MultiCloud',
+            'X-TransactionId': '9001',
+            'content-type': 'application/json',
+            'accept': 'application/json'
+        }
+        restcall.get_res_from_aai(res, content=content)
+        mock_call.assert_called_once_with(
+            expect_url, expect_user, expect_pass, restcall.rest_no_auth,
+            res, "GET", content, expect_headers)
