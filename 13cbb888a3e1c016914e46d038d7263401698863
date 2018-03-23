@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_b9bb9474",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-23T03:57:11Z",
+      "side": 1,
+      "message": "Is there always code generation? I mean generating some runtime data can also achieve the elastic api exposure.",
+      "range": {
+        "startLine": 22,
+        "startChar": 35,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "13cbb888a3e1c016914e46d038d7263401698863",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_d9c0e0e2",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-23T03:57:11Z",
+      "side": 1,
+      "message": "There is no post/put/delete for host in Multicloud for now, does this mean  the model definition will extend the capability of Multicloud.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 77
+      },
+      "revId": "13cbb888a3e1c016914e46d038d7263401698863",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a93c517_99ba586d",
+        "filename": "docs/specs/elastic_api_exposure.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1205
+      },
+      "writtenOn": "2018-03-23T03:57:11Z",
+      "side": 1,
+      "message": "not sure if these examples are appropriate.  But there is no such interface resource in Multi-cloud for now.",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 14
+      },
+      "revId": "13cbb888a3e1c016914e46d038d7263401698863",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
