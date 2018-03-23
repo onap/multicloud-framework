@@ -26,10 +26,14 @@ if [ ! -x  $logDir  ]; then
        mkdir -p $logDir
 fi
 
-nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
+if [ "$WEB_FRAMEWORK" == "pecan" ]
+then
+    python multivimbroker/scripts/api.py
+else
+    nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
 
-while [ ! -f $logDir/multivimbroker.log ]; do
-    sleep 1
-done
+    while [ ! -f $logDir/multivimbroker.log ]; do
+        sleep 1
+    done
 
-tail -F  $logDir/multivimbroker.log
+    tail -F  $logDir/multivimbroker.log
