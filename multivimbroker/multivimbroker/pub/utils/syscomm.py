@@ -16,7 +16,7 @@ import os
 import re
 
 import multivimbroker.pub.exceptions as exceptions
-from multivimbroker.pub.msapi.extsys import get_vim_by_id
+from multivimbroker.pub.msapi import extsys
 
 
 def fun_name():
@@ -59,7 +59,7 @@ def findMultivimDriver(vim=None):
 
 def getMultivimDriver(vimid, full_path=""):
     multcloud = "multicloud"
-    vim = get_vim_by_id(vimid)
+    vim = extsys.get_vim_by_id(vimid)
     multclouddriver = findMultivimDriver(vim=vim)
     return re.sub(multcloud, multclouddriver, full_path)
 
