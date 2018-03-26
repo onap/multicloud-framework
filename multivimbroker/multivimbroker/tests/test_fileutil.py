@@ -49,3 +49,18 @@ class TestFileutil(unittest.TestCase):
         new_path = "/tmp/tests"
         fileutil.delete_dirs(new_path)
         mock_rmtree.assert_called_once_with(new_path)
+
+    @mock.patch.object(fileutil, "make_dirs")
+    @mock.patch("urllib2.urlopen")
+    def test_download_file_from_http_success(self, mock_urlopen, mock_mkdir):
+        url = "http://www.example.org/test.dat"
+        local_dir = "/tmp/"
+        file_name = "test.dat"
+        mock_req = mock.Mock()
+        mock_req.read.return_value = "hello world"
+        mock_urlopen.return_value = mock_req
+        m = mock.mock_open()
+        expect_ret = (True, "/tmp/test.dat")
+        with mock.patch('{}.open'.format(__name__), m, create=True):
+            ret = fileutil.download_file_from_http(url, local_dir, file_name)
+            self.assertEqual(expect_ret, ret)
