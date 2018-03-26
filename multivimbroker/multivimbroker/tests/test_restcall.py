@@ -53,3 +53,15 @@ class TestRestCall(unittest.TestCase):
         mock_call.assert_called_once_with(
             expect_url, "", "", restcall.rest_no_auth, res, method,
             content, headers)
+
+    @mock.patch("httplib2.Http.request")
+    def test_call_req_success(self, mock_req):
+        mock_resp = {
+            "status": "200"
+        }
+        resp_content = "hello"
+        mock_req.return_value = mock_resp, resp_content
+        expect_ret = [0, resp_content, "200", mock_resp]
+        ret = restcall.call_req("http://onap.org/", "user", "pass",
+                                restcall.rest_no_auth, "vim", "GET")
+        self.assertEqual(expect_ret, ret)
