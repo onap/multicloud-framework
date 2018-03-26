@@ -41,3 +41,15 @@ class TestRestCall(unittest.TestCase):
         mock_call.assert_called_once_with(
             expect_url, expect_user, expect_pass, restcall.rest_no_auth,
             res, "GET", content, expect_headers)
+
+    @mock.patch.object(restcall, "call_req")
+    def test_req_by_msb(self, mock_call):
+        res = "multicloud"
+        method = "GET"
+        content = "no content"
+        headers = None
+        restcall.req_by_msb(res, method, content=content, headers=headers)
+        expect_url = "http://127.0.0.1:10080/"
+        mock_call.assert_called_once_with(
+            expect_url, "", "", restcall.rest_no_auth, res, method,
+            content, headers)
