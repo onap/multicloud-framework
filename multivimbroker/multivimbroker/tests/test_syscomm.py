@@ -52,3 +52,15 @@ class TestSyscomm(unittest.TestCase):
         vim = {"type": "openstack", "version": "titanium_cloud"}
         ret = syscomm.findMultivimDriver(vim)
         self.assertEqual("multicloud-titanium_cloud", ret)
+
+    def test_originHeaders(self):
+        req = mock.Mock()
+        req.META = {
+            "HTTP_X_AUTH_TOKEN": "token_1",
+            "NOT_STARTSWITH_HTTP": "value_1"
+        }
+        expect_headers = {
+            "X-AUTH-TOKEN": "token_1"
+        }
+        ret_headers = syscomm.originHeaders(req)
+        self.assertDictEqual(expect_headers, ret_headers)
