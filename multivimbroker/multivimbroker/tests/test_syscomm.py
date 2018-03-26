@@ -47,3 +47,8 @@ class TestSyscomm(unittest.TestCase):
         vim = {"type": "openstack"}
         ret = syscomm.findMultivimDriver(vim)
         self.assertEqual("multicloud-ocata", ret)
+
+    def test_findMultivimDriver_with_version(self):
+        vim = {"type": "openstack", "version": "titanium_cloud"}
+        ret = syscomm.findMultivimDriver(vim)
+        self.assertEqual("multicloud-titanium_cloud", ret)
