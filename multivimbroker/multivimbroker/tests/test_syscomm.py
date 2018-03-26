@@ -8,8 +8,10 @@
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
+import mock
 import unittest
 
+from multivimbroker.pub.msapi import extsys
 from multivimbroker.pub.utils import syscomm
 
 
@@ -24,3 +26,14 @@ class TestSyscomm(unittest.TestCase):
         for item in ret:
             for v in item['versions']:
                 self.assertIn(v, expected_body[item['vim_type']])
+
+    @mock.patch.object(extsys, "get_vim_by_id")
+    def test_getMultivimDriver(self, mock_get_vim):
+        mock_get_vim.return_value = {
+            "type": "openstack",
+            "version": "ocata"
+        }
+        full_path = "multicloud/v0/openstack_regionone/identity"
+        expect_path = "multicloud-ocata/v0/openstack_regionone/identity"
+        ret_path = syscomm.getMultivimDriver("openstack_regionone", full_path)
+        self.assertEqual(expect_path, ret_path)
