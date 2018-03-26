@@ -64,3 +64,17 @@ class TestSyscomm(unittest.TestCase):
         }
         ret_headers = syscomm.originHeaders(req)
         self.assertDictEqual(expect_headers, ret_headers)
+
+    def test_getHeadersKeys_no_connection(self):
+        resp = {}
+        self.assertEqual([], syscomm.getHeadersKeys(resp))
+
+    def test_getHeadersKeys_with_connection(self):
+        resp = {
+            "connection": "aa,bb",
+            "keep-alive": "yes",
+            "aa": "vaa",
+            "bb": "vbb",
+            "cc": "vcc"
+        }
+        self.assertEqual(["cc"], syscomm.getHeadersKeys(resp))
