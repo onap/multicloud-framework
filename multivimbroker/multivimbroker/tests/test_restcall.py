@@ -49,7 +49,7 @@ class TestRestCall(unittest.TestCase):
         content = "no content"
         headers = None
         restcall.req_by_msb(res, method, content=content, headers=headers)
-        expect_url = "http://127.0.0.1:10080/"
+        expect_url = "http://msb.onap.org:10080/"
         mock_call.assert_called_once_with(
             expect_url, "", "", restcall.rest_no_auth, res, method,
             content, headers)
