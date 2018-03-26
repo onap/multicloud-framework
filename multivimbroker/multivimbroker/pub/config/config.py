@@ -36,3 +36,6 @@ FORWARDED_FOR_FIELDS = ["HTTP_X_FORWARDED_FOR", "HTTP_X_FORWARDED_HOST",
 # [IMAGE LOCAL PATH]
 ROOT_PATH = os.path.dirname(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+# [Local Config]
+API_SERVER_PORT = 9001

@@ -16,6 +16,7 @@ from oslo_service import service
 from oslo_service import wsgi
 
 from multivimbroker.api_v2 import app
+from multivimbroker.pub.config import config as mc_cfg
 
 
 CONF = cfg.CONF
@@ -33,9 +34,8 @@ class WSGIService(service.ServiceBase):
             CONF,
             "multivimbroker",
             self.app,
-            # TODO(xiaohhui): these should be configurable.
             host="0.0.0.0",
-            port="9002",
+            port=mc_cfg.API_SERVER_PORT,
             use_ssl=False
         )
 
