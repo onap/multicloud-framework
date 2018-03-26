@@ -42,3 +42,8 @@ class TestSyscomm(unittest.TestCase):
     def test_findMultivimDriver_no_type(self):
         vim = {"type": "wrong type"}
         self.assertRaises(exceptions.NotFound, syscomm.findMultivimDriver, vim)
+
+    def test_findMultivimDriver_no_version(self):
+        vim = {"type": "openstack"}
+        ret = syscomm.findMultivimDriver(vim)
+        self.assertEqual("multicloud-ocata", ret)
