@@ -11,6 +11,7 @@
 import mock
 import unittest
 
+from multivimbroker.pub import exceptions
 from multivimbroker.pub.msapi import extsys
 from multivimbroker.pub.utils import syscomm
 
@@ -37,3 +38,7 @@ class TestSyscomm(unittest.TestCase):
         expect_path = "multicloud-ocata/v0/openstack_regionone/identity"
         ret_path = syscomm.getMultivimDriver("openstack_regionone", full_path)
         self.assertEqual(expect_path, ret_path)
+
+    def test_findMultivimDriver_no_type(self):
+        vim = {"type": "wrong type"}
+        self.assertRaises(exceptions.NotFound, syscomm.findMultivimDriver, vim)
