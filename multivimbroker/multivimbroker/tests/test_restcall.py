@@ -18,8 +18,8 @@ class TestRestCall(unittest.TestCase):
 
     def test_combine_url(self):
         url = ["http://a.com/test/", "http://a.com/test/",
-               "http://a.com/test"]
-        res = ["/resource", "resource", "/resource"]
+               "http://a.com/test", "http://a.com/test"]
+        res = ["/resource", "resource", "/resource", "resource"]
         expected = "http://a.com/test/resource"
         for i in range(len(url)):
             self.assertEqual(expected, restcall.combine_url(url[i], res[i]))
