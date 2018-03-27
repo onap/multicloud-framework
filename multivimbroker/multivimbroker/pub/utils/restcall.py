@@ -34,6 +34,35 @@ HTTP_401_UNAUTHORIZED, HTTP_400_BADREQUEST = '401', '400'
 logger = logging.getLogger(__name__)
 
 
+def call_multipart_req(base_url, user, passwd, auth_type, resource, method,
+                       content, headers=None):
+    callid = str(uuid.uuid1())
+#    logger.debug("[%s]call_req('%s','%s','%s',%s,'%s','%s','%s')" % (
+#    callid, base_url, user, passwd, auth_type, resource, method, content))
+    ret = None
+    resp = ""
+    full_url = ""
+
+    try:
+        full_url = combine_url(base_url, resource)
+        logger.debug("request=%s)" % full_url)
+        requestObj = urllib2.Request(full_url, content,
+                                     headers)
+        resp = urllib2.urlopen(requestObj)
+        if resp.code in status_ok_list:
+            ret = [0, resp.read(), resp.code, resp]
+        else:
+            ret = [1, resp.read(), resp.code, resp]
+    except urllib2.URLError as err:
+        ret = [2, str(err), resp.code, resp]
+    except Exception:
+        logger.error(traceback.format_exc())
+        logger.error("[%s]ret=%s" % (callid, str(sys.exc_info())))
+        res_info = str(sys.exc_info())
+        ret = [3, res_info, 500, resp]
+    return ret
+
+
 def call_req(base_url, user, passwd, auth_type, resource, method,
              content='', headers=None):
     callid = str(uuid.uuid1())
@@ -99,6 +128,12 @@ def req_by_msb(resource, method, content='', headers=None):
     base_url = "http://%s:%s/" % (MSB_SERVICE_IP, MSB_SERVICE_PORT)
     return call_req(base_url, "", "",
                     rest_no_auth, resource, method, content, headers)
+
+
+def req_by_msb_multipart(resource, method, content, headers=None):
+    base_url = "http://%s:%s/" % (MSB_SERVICE_IP, MSB_SERVICE_PORT)
+    return call_multipart_req(base_url, "", "",
+                              rest_no_auth, resource, method, content, headers)
 
 
 def get_res_from_aai(resource, content=''):
