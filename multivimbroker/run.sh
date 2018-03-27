@@ -38,3 +38,4 @@ else
     done
 
     tail -F  $logDir/multivimbroker.log
+fi
