@@ -64,3 +64,16 @@ class TestFileutil(unittest.TestCase):
         with mock.patch('{}.open'.format(__name__), m, create=True):
             ret = fileutil.download_file_from_http(url, local_dir, file_name)
             self.assertEqual(expect_ret, ret)
+
+    @mock.patch.object(fileutil, "make_dirs")
+    @mock.patch("urllib2.urlopen")
+    def test_download_file_from_http_fail(self, mock_urlopen, mock_mkdir):
+        url = "http://www.example.org/test.dat"
+        local_dir = "/tmp/"
+        file_name = "test.dat"
+        mock_req = mock.Mock()
+        mock_req.read.return_value = "hello world"
+        mock_urlopen.side_effect = [Exception("fake exception")]
+        expect_ret = (False, "/tmp/test.dat")
+        ret = fileutil.download_file_from_http(url, local_dir, file_name)
+        self.assertEqual(expect_ret, ret)
