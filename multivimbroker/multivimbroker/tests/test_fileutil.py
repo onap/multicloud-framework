@@ -32,3 +32,11 @@ class TestFileutil(unittest.TestCase):
         mock_exists.return_value = False
         fileutil.make_dirs(new_path)
         mock_mkdir.assert_called_once_with(new_path, 0777)
+
+    @mock.patch.object(os.path, "exists")
+    @mock.patch("shutil.rmtree")
+    def test_delete_dirs_success(self, mock_rmtree, mock_exists):
+        mock_exists.return_value = True
+        new_path = "/tmp/tests"
+        fileutil.delete_dirs(new_path)
+        mock_rmtree.assert_called_once_with(new_path)
