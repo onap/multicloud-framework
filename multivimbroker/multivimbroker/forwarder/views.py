@@ -13,7 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
 import json
+import tempfile
+from poster.encode import multipart_encode
+from poster.streaminghttp import register_openers
 
 from rest_framework.views import APIView
 from rest_framework.views import Response
@@ -21,6 +25,7 @@ from rest_framework.views import status
 from multivimbroker.forwarder.base import BaseHandler
 from multivimbroker.pub.utils.syscomm import originHeaders
 from multivimbroker.pub.utils import syscomm
+from rest_framework.parsers import MultiPartParser
 
 
 class BaseServer(BaseHandler, APIView):
@@ -150,3 +155,34 @@ class Forward(BaseServer):
 
         return self.send(vimid, request.get_full_path(), request.body, "PUT",
                          headers=None)
+
+
+#Multipart view
+class MultiPartView(BaseServer):
+
+    parser_classes = (MultiPartParser, )
+
+    def post(self,request,vimid):
+        try:
+            register_openers()
+            fileDict = dict(request.FILES.iterlists())
+            params = {}
+            for key in fileDict.keys():
+                fileObj = fileDict[key][0]
+                f = tempfile.NamedTemporaryFile(prefix="django_",
+                                                suffix=fileObj._name,
+                                                delete=False)
+                f.write(fileObj.file.read())
+                f.seek(fileObj.file.tell(), 0)
+                fileObj.file.close();
+                params[key] = open(f.name, 'rb')
+            datagen,headers = multipart_encode(params)
+            resp = self.send(vimid, request.path, datagen, "POST",
+                             headers=originHeaders(request))
+        finally:
+            for key in params:
+                fileRef = params[key]
+                if fileRef.closed == False:
+                    fileRef.close()
+                os.remove(fileRef.name)
+        return resp

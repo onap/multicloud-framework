@@ -23,6 +23,7 @@ from multivimbroker.forwarder.views import Identity
 from multivimbroker.forwarder.views import Registry
 from multivimbroker.forwarder.views import UnRegistry
 from multivimbroker.forwarder.views import VIMTypes
+from multivimbroker.forwarder.views import MultiPartView
 
 
 urlpatterns = [
@@ -40,6 +41,8 @@ urlpatterns = [
         UnRegistry.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/extensions$',
         Extension.as_view()),
+    url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/multipart',
+        MultiPartView.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)',
         Forward.as_view()),
 ]

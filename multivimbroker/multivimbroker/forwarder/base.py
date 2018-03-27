@@ -19,6 +19,7 @@ import multivimbroker.pub.exceptions as exceptions
 from multivimbroker.pub.utils.syscomm import getHeadersKeys
 from multivimbroker.pub.utils.syscomm import getMultivimDriver
 from multivimbroker.pub.utils.restcall import req_by_msb
+from multivimbroker.pub.utils.restcall import req_by_msb_multipart
 
 
 logger = logging.getLogger(__name__)
@@ -29,6 +30,8 @@ class BaseHandler(object):
     def _request(self, route_uri, method, body="", headers=None):
 
         try:
+            if "multipart" in route_uri:
+                return self._multipart_req(route_uri, method, body, headers)
             retcode, content, status_code, resp = \
                 req_by_msb(route_uri, method, body, headers)
             if retcode != 0:
@@ -47,6 +50,27 @@ class BaseHandler(object):
         response = HttpResponse(content, status=status_code)
         for k in getHeadersKeys(resp):
             response[k] = resp[k]
+        return response
+
+    def _multipart_req(self, route_uri, method, body, headers=None):
+
+        try:
+            retcode, content, status_code, resp = \
+                req_by_msb_multipart(route_uri, method, body, headers)
+            if retcode != 0:
+                # Execptions are handled within req_by_msb
+                logger.error("Status code is %s, detail is %s.",
+                             status_code, content)
+
+        except exceptions.NotFound as e:
+            return HttpResponse(str(e), status=status.HTTP_404_NOT_FOUND)
+
+        except Exception as e:
+            content = e
+            status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+            logger.exception("exception: %s" % e)
+
+        response = HttpResponse(content, status=status_code)
         return response
 
     def send(self, vimid, full_path, body, method, headers=None):
