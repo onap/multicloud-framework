@@ -13,7 +13,7 @@
 import os
 
 # [MSB]
-MSB_SERVICE_IP = '127.0.0.1'
+MSB_SERVICE_IP = 'msb.onap.org'
 MSB_SERVICE_PORT = '10080'
 
 
