@@ -12,9 +12,13 @@
 import eventlet
 eventlet.monkey_patch()
 
+import os # noqa
 from oslo_config import cfg # noqa
 from oslo_service import service # noqa
 import sys # noqa
+# FIXME: Since there is no explicitly setup process for the project. Hack the
+# python here.
+sys.path.append(os.path.abspath('.'))
 
 from multivimbroker.api_v2 import service as api_service # noqa
 
