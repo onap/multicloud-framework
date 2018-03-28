@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_890c213d",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-03-28T05:34:42Z",
+      "side": 1,
+      "message": "could you add a random number (uuid) to make sure the temporary file name is unique in case the concurrent processing which is handling the same filename?",
+      "range": {
+        "startLine": 172,
+        "startChar": 16,
+        "endLine": 174,
+        "endChar": 61
+      },
+      "revId": "63bf19e9be7fe29fc691bef4088ec544444a4a19",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
