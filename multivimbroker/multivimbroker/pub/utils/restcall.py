@@ -54,7 +54,7 @@ def call_multipart_req(base_url, user, passwd, auth_type, resource, method,
         else:
             ret = [1, resp.read(), resp.code, resp]
     except urllib2.URLError as err:
-        ret = [2, str(err), resp.code, resp]
+        ret = [2, str(err), 500, resp]
     except Exception:
         logger.error(traceback.format_exc())
         logger.error("[%s]ret=%s" % (callid, str(sys.exc_info())))

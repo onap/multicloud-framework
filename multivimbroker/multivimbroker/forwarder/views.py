@@ -177,8 +177,12 @@ class MultiPartView(BaseServer):
                 fileObj.file.close()
                 params[key] = open(f.name, 'rb')
             datagen, headers = multipart_encode(params)
+            regex = re.compile('^HTTP_')
+            for key, value in request.META.iteritems():
+                if key.startswith("HTTP_"):
+                    headers[regex.sub('', key).replace('_', '-')] = value
             resp = self.send(vimid, request.path, datagen, "POST",
-                             headers=originHeaders(request))
+                             headers=headers)
         finally:
             for key in params:
                 fileRef = params[key]
