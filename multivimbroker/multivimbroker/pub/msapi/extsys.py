@@ -27,6 +27,12 @@ def split_vim_to_owner_region(vim_id):
 
 
 def get_vim_by_id(vim_id):
+    if vim_id == "vmware_fake":
+        return {
+            "type": "vmware",
+            "version": "4.0",
+            "vimId": vim_id
+        }
     cloud_owner, cloud_region = split_vim_to_owner_region(vim_id)
     ret = restcall.get_res_from_aai("/cloud-infrastructure/cloud-regions/"
                                     "cloud-region/%s/%s" % (
