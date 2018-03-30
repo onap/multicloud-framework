@@ -40,10 +40,10 @@ class CheckCapacityTest(unittest.TestCase):
                                           "/v0/check_vim_capacity")
         with mock.patch.object(self.view, "send") as send:
             plugin_resp = mock.Mock()
-            plugin_resp.body = """{
+            plugin_resp.content = """{
                 "result": true
             }"""
-            plugin_resp.status_code = status.HTTP_200_OK
+            plugin_resp.status_code = str(status.HTTP_200_OK)
             send.return_value = plugin_resp
 
             resp = self.view.post(req)
@@ -66,10 +66,10 @@ class CheckCapacityTest(unittest.TestCase):
                                           "/v0/check_vim_capacity")
         with mock.patch.object(self.view, "send") as send:
             plugin_resp = mock.Mock()
-            plugin_resp.body = """{
+            plugin_resp.content = """{
                 "result": false
             }"""
-            plugin_resp.status_code = status.HTTP_200_OK
+            plugin_resp.status_code = str(status.HTTP_200_OK)
             send.return_value = plugin_resp
 
             resp = self.view.post(req)

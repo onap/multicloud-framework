@@ -113,11 +113,11 @@ class CheckCapacity(BaseServer):
         for vim in body.get("VIMs", []):
             url = request.get_full_path().replace(
                 "check_vim_capacity", "%s/capacity_check" % vim)
-            resp = self.send(vim, url, newbody, "POST")
-            if resp.status_code != status.HTTP_200_OK:
+            resp = self.send(vim, url, str(newbody), "POST")
+            if int(resp.status_code) != status.HTTP_200_OK:
                 continue
             try:
-                resp_body = json.loads(resp.body)
+                resp_body = json.loads(resp.content)
             except ValueError:
                 continue
             if not resp_body.get("result", False):
