@@ -86,8 +86,8 @@ class V0_Controller(object):
             logger.error("Status code is %s, detail is %s.",
                          status_code, content)
         response = pecan.Response(body=content, status=status_code)
-
-        for k in syscomm.getHeadersKeys(resp):
-            response.headers[k] = resp[k]
+        if retcode == 0:
+            for k in syscomm.getHeadersKeys(resp):
+                response.headers[k] = resp[k]
 
         return response

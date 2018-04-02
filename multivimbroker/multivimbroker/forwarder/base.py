@@ -48,8 +48,9 @@ class BaseHandler(object):
             logger.exception("exception: %s" % e)
 
         response = HttpResponse(content, status=status_code)
-        for k in getHeadersKeys(resp):
-            response[k] = resp[k]
+        if retcode == 0:
+            for k in getHeadersKeys(resp):
+                response[k] = resp[k]
         return response
 
     def _multipart_req(self, route_uri, method, body, headers=None):

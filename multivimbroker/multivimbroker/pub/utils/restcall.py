@@ -69,7 +69,7 @@ def call_req(base_url, user, passwd, auth_type, resource, method,
 #    logger.debug("[%s]call_req('%s','%s','%s',%s,'%s','%s','%s')" % (
 #    callid, base_url, user, passwd, auth_type, resource, method, content))
     ret = None
-    resp_status = ''
+    resp_status = '500'
     resp = ""
     full_url = ""
 
