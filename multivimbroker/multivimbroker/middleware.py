@@ -50,7 +50,7 @@ class LogContextMiddleware(object):
             request.META["HTTP_X_TRANSACTIONID"] = ReqeustID
         MDC.put("requestID", ReqeustID)
         # generate the unique  id
-        InovocationID = str(uuid.uuid3(uuid.NAMESPACE_DNS, SERVICE_NAME))
+        InovocationID = str(uuid.uuid4())
         MDC.put("invocationID", InovocationID)
         MDC.put("serviceName", SERVICE_NAME)
         # access ip
