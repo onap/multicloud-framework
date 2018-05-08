@@ -71,12 +71,7 @@ REST_FRAMEWORK = {
     )
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+
 
 # CACHE_BACKEND = 'redis_cache.cache://%s@%s:%s' %
 # (REDIS_PASSWD, REDIS_HOST, REDIS_PORT)
@@ -97,11 +92,6 @@ config.yamlConfig(filepath=LOGGING_FILE, watchDog=True)
 
 if 'test' in sys.argv:
     from multivimbroker.pub.config import config
-    DATABASES = {}
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ':memory:',
-    }
     REST_FRAMEWORK = {}
     import platform
 
