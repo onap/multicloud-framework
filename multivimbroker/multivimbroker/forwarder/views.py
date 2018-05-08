@@ -131,31 +131,33 @@ class Forward(BaseServer):
 
     def get(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "GET")
+        return self.send(vimid, request.get_full_path(), request.body, "GET", 
+                         headers=originHeaders(request))
 
     def post(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body, "POST",
-                         headers=None)
+                         headers=originHeaders(request))
 
     def patch(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body, "PATCH",
-                         headers=None)
+                         headers=originHeaders(request))
 
     def delete(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body,
-                         "DELETE", headers=None)
+        return self.send(vimid, request.get_full_path(), request.body, "DELETE", 
+                         headers=originHeaders(request))
 
     def head(self, request, vimid):
 
-        return self.send(vimid, request.get_full_path(), request.body, "HEAD")
+        return self.send(vimid, request.get_full_path(), request.body, "HEAD", 
+                         headers=originHeaders(request))
 
     def put(self, request, vimid):
 
         return self.send(vimid, request.get_full_path(), request.body, "PUT",
-                         headers=None)
+                         headers=originHeaders(request))
 
 
 # Multipart view
