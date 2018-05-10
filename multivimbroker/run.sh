@@ -31,7 +31,7 @@ then
     python multivimbroker/scripts/api.py
 else
     # nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
-    nohup uwsgi --http :9001 --module multivimbroker.wsgi --master --processes 4 &
+    nohup uwsgi --http :9001 -t 120 --module multivimbroker.wsgi --master --processes 4 &
 
     while [ ! -f $logDir/multivimbroker.log ]; do
         sleep 1
