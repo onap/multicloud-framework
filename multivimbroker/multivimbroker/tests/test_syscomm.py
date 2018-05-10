@@ -57,10 +57,12 @@ class TestSyscomm(unittest.TestCase):
         req = mock.Mock()
         req.META = {
             "HTTP_X_AUTH_TOKEN": "token_1",
-            "NOT_STARTSWITH_HTTP": "value_1"
+            "NOT_STARTSWITH_HTTP": "value_1",
+            "CONTENT_TYPE": "application/json"
         }
         expect_headers = {
-            "X-AUTH-TOKEN": "token_1"
+            "X-AUTH-TOKEN": "token_1",
+            "CONTENT-TYPE": "application/json"
         }
         ret_headers = syscomm.originHeaders(req)
         self.assertDictEqual(expect_headers, ret_headers)

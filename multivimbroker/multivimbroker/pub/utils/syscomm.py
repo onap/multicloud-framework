@@ -38,10 +38,13 @@ def getHeadersKeys(response):
 
 # trim out 'HTTP_' prefix part and replace "_" wiht "-".
 def originHeaders(request):
-    regex = re.compile('^HTTP_')
-    return dict((regex.sub('', header).replace("_", "-"), value)
-                for (header, value) in request.META.items()
-                if header.startswith('HTTP_'))
+    headers = {}
+    for key, value in request.META.items():
+        if key.startswith('HTTP_') and key != 'HTTP_HOST':
+            headers[key[5:].replace('_', '-')] = value
+        elif key in ('CONTENT_TYPE', 'CONTENT_LENGTH'):
+            headers[key.replace('_', '-')] = value
+    return headers
 
 
 def findMultivimDriver(vim=None):
