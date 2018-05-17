@@ -8,7 +8,7 @@ Release Notes
 
 Release Date
 ------------
-2017-11-16
+2018-05-24
 
 
 New Features
