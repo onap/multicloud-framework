@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a93c517_2ff436ef",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-05-17T09:30:06Z",
+      "side": 1,
+      "message": "typo: HPA discovery and representing",
+      "range": {
+        "startLine": 19,
+        "startChar": 15,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "80e4a122dee0dcab06a16a2d1d29b17b1435902c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
