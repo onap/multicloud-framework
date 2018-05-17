@@ -8,7 +8,7 @@ Release Notes
 
 Release Date
 ------------
-2017-11-16
+2018-05-24
 
 
 New Features
@@ -16,7 +16,7 @@ New Features
 * Allow to check capacity capability for smart VNF placement across VIMs.
 * Declarative template driven framework to generate API dynamically.
 * Federate the events of VIM layer with ONAP message bus which provide direct help to HA fencing and improve the efficiency of VM recover with performance verification.
-* Enable basic HAP support at Multi VIM/Cloud when registry.
+* Enable basic HPA discovery and representing at Multi VIM/Cloud when registry.
 * Enable distributed log collection mechanism to a centralized logging analysis system.
 * Improve parallelism of Multi VIM/Cloud service framework with performance verification.
 * Upload and download images based on Cloud storage capabilities to support remote image distribution requirement.
