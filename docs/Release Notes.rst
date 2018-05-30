@@ -7,17 +7,14 @@ Release Notes
 =============
 
 
-Version
+Version: 1.1.0
 -------
-1.1.0
 
-Release Date
-------------
-2018-05-24
+:Release Date: 2018-06-07
 
 
-New Features
-------------
+**New Features**
+
 * Allow to check capacity capability for smart VNF placement across VIMs.
 * Declarative template driven framework to generate API dynamically.
 * Federate the events of VIM layer with ONAP message bus which provide direct help to HA fencing and improve the efficiency of VM recover with performance verification.
@@ -26,8 +23,8 @@ New Features
 * Improve parallelism of Multi VIM/Cloud service framework with performance verification.
 * Upload and download images based on Cloud storage capabilities to support remote image distribution requirement.
 
-Bug Fixes
----------
+**Bug Fixes**
+
 - `MULTICLOUD-225 <https://jira.onap.org/browse/MULTICLOUD-225>`_
   Allow to forward header properties through Multi VIM/Cloud framework
 
@@ -38,40 +35,39 @@ Bug Fixes
   Fix Multi VIM/Cloud plugins to enable ID binding with each request.
 
 
-Known Issues
-------------
+**Known Issues**
+
 None
 
-Security Issues
----------------
+**Security Notes**
+
+MULTICLOUD code has been formally scanned during build time using NexusIQ and no Critical vulnerability were found.
+
+Quick Links:
+ 	- `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
+ 	
+ 	- `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+
+**Upgrade Notes**
+
 None
 
-Upgrade Notes
--------------
+**Deprecation Notes**
+
 None
 
-Deprecation Notes
------------------
+**Other**
+
 None
 
-Other
------
-None
-
-====
-
-
-Version
+Version: 1.0.0
 -------
-1.0.0
 
-Release Date
-------------
-2017-11-16
+:Release Date: 2017-11-16
 
 
-New Features
-------------
+**New Features**
+
 * Keystone proxy for convenient integration with modules which depend on original OpenStack functions
 * Multiple VIM registry and unregister
 * Resources LCM functions
@@ -82,8 +78,8 @@ New Features
 * Complete code coverage detection, CSIT, and document framework
 * Provide several plugins of different backbends, including: Vanilla OpenStack (based on Ocata) and commercial Clouds including OpenStack (including Titanium - Mitaka from Wind River and VIO - Ocata from VMware)
 
-Bug Fixes
----------
+**Bug Fixes**
+
 - `MULTICLOUD-123 <https://jira.onap.org/browse/MULTICLOUD-123>`_
   Append v3 to keystone url by default, if keystone version is missing.
 
@@ -94,24 +90,24 @@ Bug Fixes
   Fix failed to add image info to AAI if image name didn't contain '-'.
 
 
-Known Issues
-------------
+**Known Issues**
+
 None
 
-Security Issues
----------------
+**Security Issues**
+
 None
 
-Upgrade Notes
--------------
+**Upgrade Notes**
+
 None
 
-Deprecation Notes
------------------
+**Deprecation Notes**
+
 None
 
-Other
------
+**Other**
+
 None
 
 ===========
