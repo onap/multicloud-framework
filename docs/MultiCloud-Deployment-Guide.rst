@@ -13,11 +13,14 @@ Please refer to onap deployment in kubernetes website(https://wiki.onap.org/disp
 to setup kubernets cluster.
 
 
-After installing kubectl and helm, execute "kubectl cluster-info" command to verify your kubernets cluster.
+After installing kubectl and helm, execute "kubectl cluster-info" command to
+verify your kubernets cluster.
 
 Clone oom project:  git clone http://gerrit.onap.org/r/oom
-Source the setenv.bash script in /oom/kubernetes/oneclick/, it will set your helm list of components to start/delete
-Run the one time config pod - which mounts the volume /dockerdata/ contained in the pod config-init.
+Source the setenv.bash script in /oom/kubernetes/oneclick/, it will set your
+helm list of components to start/delete
+Run the one time config pod - which mounts the volume /dockerdata/ contained
+in the pod config-init.
 
 .. code-block:: console
 
@@ -141,7 +144,8 @@ No	Service Name	Version	NameSpace	Url	Protocol	Visualrange	Control
 1	multicloud	v0		/api/multicloud/v0	REST	InSystem
 2	multicloud-vio	v0		/api/multicloud-vio/v0	REST	InSystem
 
-Then register vio information into AAI service with region name "vmware" and region id "vio"
+Then register vio information into AAI service with region name "vmware" and
+region id "vio"
 
 .. code-block:: console
 

@@ -2,6 +2,7 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright (c) 2017-2018 VMware, Inc.
 
+=======================================
 MultiCloud Resources Capacity Check API
 =======================================
 
@@ -50,8 +51,8 @@ check whether have enough resources for this deployment. The ouput of
 Multicloud will be a list of VIMs which have enough resources.
 
 There will be two part of APIs for this requirement, an check_vim_capacity API
-will be added to MultiCloud borker to return a list of VIMs, another
-API <vim_id>/capacity_check will be added to each MultiCloud plugins, and return
+will be added to MultiCloud borker to return a list of VIMs, another API
+<vim_id>/capacity_check will be added to each MultiCloud plugins, and return
 true or false based on whether the VIM have enought resources. When MultiCloud
 broker receive a POST request on check_vim_capacity, it will request to each
 <vim_id>/capacity_check API, and return a list of VIMs with a true in response
@@ -61,6 +62,7 @@ data.
 Input of check_vim_capacity will be
 
 ::
+
   {
     "vCPU": int,  // number of cores
     "Memory": float,  // size of memory, GB
@@ -71,6 +73,7 @@ Input of check_vim_capacity will be
 Output of check_vim_capacity will be
 
 ::
+
   {
     "VIMs": array  // VIMs satisfy with this resource requirement
   }
@@ -78,6 +81,7 @@ Output of check_vim_capacity will be
 Input of <vim_id>/capacity_check will be
 
 ::
+
   {
     "vCPU": int,
     "Memory": float,
@@ -88,6 +92,7 @@ Input of <vim_id>/capacity_check will be
 Output of <vim_id>/capacity_check will be
 
 ::
+
   {
     "result": bool
   }

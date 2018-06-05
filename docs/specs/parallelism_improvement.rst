@@ -31,7 +31,8 @@ Solution 1
 
 Django is a mature framework. And it has its own way to improve parallelism.
 Instead of running Django's build-in webserver, Django APP can be deployed in
-some dedicated web server. Django’s primary deployment platform is WSGI[django_deploy]_,
+some dedicated web server. Django’s primary deployment platform is
+WSGI[django_deploy]_,
 the Python standard for web servers and applications.
 
 .. [django_deploy] https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
@@ -42,14 +43,15 @@ doesn't have good knowledge of it. Adding feature based on Django may be
 time-consuming. For example, the unit test[unit_test]_ of Multi-Cloud can't use
 regular python test library because of Django. The unit test has to base on
 Django's test framework. When we want to improve the parallelism of Multi-Cloud
-services, we need to find out how Django can implement it, instead of using some
-common method.
+services, we need to find out how Django can implement it, instead of using
+some common method.
 
 .. [unit_test] https://gerrit.onap.org/r/#/c/8909/
 
 Besides, Django's code pattern is too much like web code. And, most famous use
 cases of Django are web UI. Current code of Multi-Cloud puts many logic in
-files named `views.py`, but actually there is no view to expose. It is confusing.
+files named `views.py`, but actually there is no view to expose. It is
+confusing.
 
 The benefit of this solution is that most current code needs no change.
 
@@ -57,8 +59,8 @@ Solution 2
 ----------
 
 Given the fact that Django has shortcomings to move on, this solution propose
-to use a alternative framework. Eventlet[Eventlet]_ with Pecan[Pecan]_ will be the
-idea web framework in this case, because it is lightweight, lean and widely
+to use a alternative framework. Eventlet[Eventlet]_ with Pecan[Pecan]_ will be
+the idea web framework in this case, because it is lightweight, lean and widely
 used.
 
 .. [Eventlet] http://eventlet.net/doc/modules/wsgi.html
@@ -92,14 +94,15 @@ Test Command
 Test result
 -----------
 
-It should be noted that data may vary in different test run, but overall result is
-similar as below.
+It should be noted that data may vary in different test run, but overall result
+is similar as below.
 
 100 requests, concurrency level 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Command:  `ab  -n 100 -c 1 http://<IP:port>/api/multicloud/v0/vim_types`
-Result:
+Result::
+
   Django runserver: total takes 0.512 seconds, all requests success
   Django+uwsgi: totally takes 0.671 seconds, all requests success.
   Pecan+eventlet:  totally takes 0.149 seconds, all requests success.
@@ -108,7 +111,8 @@ Result:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Command:  `ab  -n 10000 -c 100 http://<IP:port>/api/multicloud/v0/vim_types`
-Result:
+Result::
+
   Django runserver: total takes 85.326 seconds, all requests success
   Django+uwsgi: totally takes 3.808 seconds, all requests success.
   Pecan+eventlet:  totally takes 3.181 seconds, all requests success.
@@ -117,7 +121,8 @@ Result:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Command:  `ab  -n 100000 -c 1000 http://<IP:port>/api/multicloud/v0/vim_types`
-Result:
+Result::
+
   Django runserver: Apache Benchmark quit because it reports timeout after
   running a random portion of all requests.
   Django+uwsgi: totally takes 37.316 seconds, about 32% requests fail. I see

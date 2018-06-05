@@ -8,12 +8,15 @@ MultiCloud Fake_Cloud User Case
 
 
 
-multilcoud-vmware server not only provide vio plugin to access real openstack platform,but
+multilcoud-vmware server not only provide vio plugin to access real openstack
+platform,but
 also provide fake_cloud plugin which simulate thereal VIO function.The fake
-cloud is suitable for testing openstack function if there is not real VIO platform.
+cloud is suitable for testing openstack function if there is not real VIO
+platform.
 
 
-Make sure you environment have msb,aai service and multicloud-vmware config file has the right msb_ip and
+Make sure you environment have msb,aai service and multicloud-vmware config
+file has the right msb_ip and
 msb_port value,The config file path is vio/vio/pub/config/congfig.py
 
 
@@ -21,7 +24,8 @@ msb_port value,The config file path is vio/vio/pub/config/congfig.py
 Register Fake Cloud to AAI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Register vio information into AAI service with region name "vmware" and region id "fake"
+Register vio information into AAI service with region name "vmware" and region
+id "fake"
 
 .. code-block:: console
 
@@ -66,7 +70,8 @@ the ${msb_address} =  "MSB_IP:MSB_PORT"
 Get auth token
 --------------
 
-# send request to multicloud-framework(broker) service to get token of keystone V3
+# send request to multicloud-framework(broker) service to get token of keystone
+V3
 
 .. code-block:: console
 
@@ -76,36 +81,42 @@ test.json content example:
 
 ::
 
-  {
+    {
     "auth": {
-      "scope": {"project": {"id": “<project-id>”}},
-      "identity":
-	  {
-		"password": {"user": {"domain": {"name": “<doman-name>”}, "password": “<user-password>”, "name": “<user-name>”}}, "methods": ["password"]
-	  }
+        "scope": {"project": {"id": “<project-id>”}},
+        "identity":
+        {
+        "password": {"user": {"domain": {"name": “<doman-name>”}, "password": “<user-password>”, "name": “<user-name>”}}, "methods": ["password"]
+        }
     }
-  }
+    }
 
 
 Response:
-There are a large amounts of data including service endpoint, user information, etc.
-For our testing  We  take nova and identity service endpoint address and auth token which is in response header named “X-Subject-Token”.
+There are a large amounts of data including service endpoint, user information,
+etc.
+For our testing  We  take nova and identity service endpoint address and auth
+token which is in response header named “X-Subject-Token”.
 
-# you can find the endpoint url namespace is "api/multicloiud-vio/v0/vmware_fake", it represent the multicloud-vio service, So
-requests sending to mulitcloud-vio will be forwarded to fake cloud.the ip and port reprenst ${msb_address}
+# you can find the endpoint url namespace is
+"api/multicloiud-vio/v0/vmware_fake", it represent the multicloud-vio service,
+So requests sending to mulitcloud-vio will be forwarded to fake cloud.the ip
+and port reprenst ${msb_address}
 
 
-Identity endpoint:
-	http://$msb_address/api/multicloud-vio/v0/vmware_fake/identity
+Identity endpoint::
 
-Nova endpoint:
-	http://$msb_address/api/multicloud-vio/v0/vmware_fake/compute/<user-tenantid>
+    http://$msb_address/api/multicloud-vio/v0/vmware_fake/identity
+
+Nova endpoint::
+
+    http://$msb_address/api/multicloud-vio/v0/vmware_fake/compute/<user-tenantid>
 
 
 List projects
 -------------
 
-Use identity’s endpoint:  http://$msb_address/api/multicloud-vio/v0/vmware_fake/identity/
+Use identity’s endpoint: http://$msb_address/api/multicloud-vio/v0/vmware_fake/identity/
 
 .. code-block:: console
 

@@ -73,10 +73,14 @@ implementation for now will still focus on the northbound and southboud API
 conversion.
 
 It should be noted that there is a prior art in OpenStack "Gluon" [1]_ project
-which provides a model-driven framework to generate APIs based on model definitions
-in YAML. A full, normative definition and extension mechanism of "API Specification"
-[2]_ is available in Gluon. Although our current work has limited scope, for those
-who are interested in full normative definition and extension mechanism in our future
+which provides a model-driven framework to generate APIs based on model
+definitions
+in YAML. A full, normative definition and extension mechanism of "API
+Specification"
+[2]_ is available in Gluon. Although our current work has limited scope, for
+those
+who are interested in full normative definition and extension mechanism in our
+future
 work, please refer to those references in "Gluon" [1]_ project and its "API
 Specifications" [2]_.
 
@@ -84,10 +88,11 @@ Specifications" [2]_.
 .. [2] https://github.com/openstack/gluon/blob/master/doc/source/devref/gluon_api_spec.inc
 
 Since the API are defined by YAML files, swagger files can also be generated
-from YAML files and exist without manually maintaining. The framework will cover
-the conversion from YAML file to swagger files.
+from YAML files and exist without manually maintaining. The framework will
+cover the conversion from YAML file to swagger files.
 
-To keep backward compatibility, the proposal in this spec will be bound to [MULTICLOUD-150]_.
+To keep backward compatibility, the proposal in this spec will be bound to
+[MULTICLOUD-150]_.
 This means that the proposal is only usable when evenlet with pecan is
 enabled. So that uses don't care about this feature will not be affected.
 
@@ -98,9 +103,9 @@ Definition of API
 -----------------
 
 Take the API of `host` as example. The API will be defined as follow. URLs of
-the API are defined under `paths`. There are several attributes for the API. The
-number of kinds of attributes is not constrained to following example, other
-attributes can be added if needed.
+the API are defined under `paths`. There are several attributes for the API.
+The number of kinds of attributes is not constrained to following example,
+other attributes can be added if needed.
 
 ::
 
@@ -126,8 +131,8 @@ attributes can be added if needed.
 parameters
 ~~~~~~~~~~
 
-`parameters` are the variables in the URL. It can be extracted from URL and then
-used in data retrieving and manipulating.
+`parameters` are the variables in the URL. It can be extracted from URL and
+then used in data retrieving and manipulating.
 
 `parameters` are discriminated by `name`, and validated by `type` and `format`.
 
@@ -138,17 +143,18 @@ These attributes represents the supported HTTP method. In above example, only
 `get` method is defined. When client sends other HTTP method to the URL, a 404
 response will be returned.
 
-`responses` defines the response of the request. `success_code` is the HTTP code
-in the response. `description` is an optional parameter. It describes the response.
+`responses` defines the response of the request. `success_code` is the HTTP
+code in the response. `description` is an optional parameter. It describes the
+response.
 `schema` points to the RESTful resource that will be in the response body. In
-above example, the RESTful resource is `host`. It should be found in the RESTful
-resource definition section.
+above example, the RESTful resource is `host`. It should be found in the
+RESTful resource definition section.
 
 vim_path
 ~~~~~~~~
 
-`vim_path` defines the relative URL path of the southbound VIM. Multi-Cloud will
-use this path to retrieve data from VIM.
+`vim_path` defines the relative URL path of the southbound VIM. Multi-Cloud
+will use this path to retrieve data from VIM.
 
 Definition of RESTful resource
 ------------------------------
@@ -188,8 +194,8 @@ example, other attributes can be added if needed.
 vim_resource
 ~~~~~~~~~~~~
 
-`vim_resource` points to the resource that comes from southbound VIM. Multi-Cloud
-will use the resource to build its own resource.
+`vim_resource` points to the resource that comes from southbound VIM.
+Multi-Cloud will use the resource to build its own resource.
 
 properties
 ~~~~~~~~~~
@@ -198,32 +204,40 @@ properties
 and several attributes. The number of kinds of attributes is not constrained
 to the example, other attributes can be added if needed.
 
-`type` of property means the type of current property. It can be some simple data,
-like string or integer. It can also be some composite data like, object or array.
+`type` of property means the type of current property. It can be some simple
+data,
+like string or integer. It can also be some composite data like, object or
+array.
 
-`required` of property means if this property is required for the resource. If it
-is required, missing this property will cause request failure. Default value of
-`required` is false.
+`required` of property means if this property is required for the resource. If
+it is required, missing this property will cause request failure. Default value
+of `required` is false.
 
 `source` of property means that current property will be built from it. It is
-usually a property from `vim_resource`. By default, it will be the same property
-in `vim_resource`.
+usually a property from `vim_resource`. By default, it will be the same
+property in `vim_resource`.
 
-`action` of property means that current property will be build by using this action.
-By default, it will be `copy`, which means the data from property of VIM resource
+`action` of property means that current property will be build by using this
+action.
+By default, it will be `copy`, which means the data from property of VIM
+resource
 is copied to property of Multi-Cloud resource. Other actions can be defined for
 different scenarios.
 
-`minimal` is one of the constraint of the property. It means the minimal possible
+`minimal` is one of the constraint of the property. It means the minimal
+possible
 value of the property. If value of the property is less than minimal value. The
 request will fail.
 
 Swagger File generation
 -----------------------
 
-Multi-Cloud is using Swagger file to describe its API. It is maintained manually.
-Since this spec proposes to use YAML file to generate Multi-Cloud's API, Swagger
-file can also be generated from YAML file. The API generating framework will also
+Multi-Cloud is using Swagger file to describe its API. It is maintained
+manually.
+Since this spec proposes to use YAML file to generate Multi-Cloud's API,
+Swagger
+file can also be generated from YAML file. The API generating framework will
+also
 generate Swagger file.
 
 Implementation

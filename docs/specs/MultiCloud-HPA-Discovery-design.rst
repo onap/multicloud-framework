@@ -24,7 +24,7 @@ be ESR (External System Registration service). Whenever the ONAP user is
 onboarding a VIM instance or a cloud, he/she will fill in VIM/Cloud access
 information including but not limited to :  authentication url, user/password,
 tenant name, cloud owner and region id, and cloud extra information pertaining
- to this VIM/Cloud.
+to this VIM/Cloud.
 
 Given these access information for a VIM instance, ESR will request MultiCloud
 to perform VIM/Cloud registration process.

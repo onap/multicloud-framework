@@ -20,6 +20,7 @@ ONAP to support VNFs as containers in addition to VNFs as VMs.
 
 It is beneficial to support for multiple container orchestration technologies
 as cloud infrastructure:
+
 * Allow VNFs to run within container technology and also allow closed
   feedback loop same to VM based VIM. e.g. openstack.
 * Support for co-existence of VNF VMs and VNF containers
@@ -39,13 +40,15 @@ Proposed Change
 Scope for Beijing release(R-2)
 ------------------------------
 Basic principle
+
 * First baby step is to support containers in a Kubernetes cluster via a
   Multicloud SBI /K8S Plugin
   (other COE's(Container Orchestration Engine) are out of Beijing scope.
-   They are future scope.)
+  They are future scope.)
 * Minimal implementation with zero impact on MVP of Multicloud Beijing work
 
 Use Cases
+
 * Sample VNFs(vFW and vDNS)
   (vCPE use case is post Beijing release)
   Both vFW and vDNS are targeted. Since custom TOSCA node definitions
@@ -158,7 +161,8 @@ deploying containerized VNF package into Kubernetes cluster. The VNF package
 is delivered as payload of HTTP request body in the API call. The VNF package
 could be a CSAR or Helm Charts.
 
-CSAR deployment package will include a yaml deployment file and other artifacts.
+CSAR deployment package will include a yaml deployment file and other
+artifacts.
 This approach would work for simple VNFs consisting of single PODs.
 
 For VNFs comprising of multiple PODs which are dependent on each other, Helm
@@ -167,15 +171,15 @@ package consisting of a set of Helm charts and k8s yamls for each constituent
 service that is part of the VNF.
 
 There would be no change required in the Northboud API from MultiCloud for
-either CSAR package or Helm package or any other package in the future. SO calls
-this MultiVIM Northbound API and sends the k8s package (e.g. csar, or tgz)
-as payload. k8s Plugin will distinguish package types based on its suffix
+either CSAR package or Helm package or any other package in the future. SO
+calls this MultiVIM Northbound API and sends the k8s package (e.g. csar, or
+tgz) as payload. k8s Plugin will distinguish package types based on its suffix
 and interact with k8s cluster appropriately:
 
 * For CSAR: k8s yaml file will be extracted from CSAR. k8s REST API server
   will be called to create k8s resources (e.g. pods), which is equivalent to
-  "kubectl create -f <file.yaml>". The TOSCA file in CSAR is expected to include
-  onap.multicloud.container.kubernetes.proxy.nodes.resources_yaml
+  "kubectl create -f <file.yaml>". The TOSCA file in CSAR is expected to
+  include onap.multicloud.container.kubernetes.proxy.nodes.resources_yaml
   node which is explained below. In another word, Kubernetes yaml is stored as
   artifact in CSAR. it is extracted and then it is fed to k8s API.
 
@@ -190,6 +194,7 @@ support in the future, no extra code in SO is needed.
 
 swagger.json
 ------------
+
 * PATH: swagger.json
   swagger.json for kubernetes API definitions
 * METHOD: GET
@@ -216,9 +221,11 @@ to get experience. the following class of test would be planned as
 stretched goal.
 
 * Unit Test
-** API input/output
+
+  * API input/output
 * functional test
-** communication to backend(K8S API server, helm tiller server)
+
+  * communication to backend(K8S API server, helm tiller server)
 * CSIT as end-to-end test
 
 
@@ -252,37 +259,39 @@ Operation Type	POST
 
 Request Body:
 
------------------- ---------- ------- ----------------------------------------
-Attribute          Qualifier  Content Description
-================== ========== ======= ========================================
-cloudOwner         M          String  any string as cloud owner
------------------- ---------- ------- ----------------------------------------
-cloudRegionId      M          String  e.g. "kubernetes-<N>" as it doesn't apply
-                                      to k8s. Cloud admin assigns unique id.
------------------- ---------- ------- ----------------------------------------
-cloudType          M          String  "kubernetes". new type
------------------- ---------- ------- ----------------------------------------
-cloudRegionVersion M          String  kubernetes version. "v1.9", "v1.8" ...
------------------- ---------- ------- ----------------------------------------
-ownerDefinedType   O          String  None. (not specified)
------------------- ---------- ------- ----------------------------------------
-cloudZone          O          String  None. (not speicfied)
-                                      as kubernetes doesn't have notion of
-                                      zone.
------------------- ---------- ------- ----------------------------------------
-complexName        O          String  None. (not specified)
-                                      as kubernetes doesn't have notion of
-                                      complex.
------------------- ---------- ------- ----------------------------------------
-cloudExtraInfo     O          String  json string(dictionary) for necessary
-                                      info. For now "{}" empty dictionary.
-                                      For helm support, URL for tiller server
-                                      is stored.
------------------- ---------- ------- ----------------------------------------
-vimAuthInfos       M          [Obj]   Auth information of Cloud
-                                      list of authInfoItem which is described
-                                      below.
-================== ========== ======= ========================================
+::
+
+  ------------------ ---------- ------- ----------------------------------------
+  Attribute          Qualifier  Content Description
+  ================== ========== ======= ========================================
+  cloudOwner         M          String  any string as cloud owner
+  ------------------ ---------- ------- ----------------------------------------
+  cloudRegionId      M          String  e.g. "kubernetes-<N>" as it doesn't apply
+                                        to k8s. Cloud admin assigns unique id.
+  ------------------ ---------- ------- ----------------------------------------
+  cloudType          M          String  "kubernetes". new type
+  ------------------ ---------- ------- ----------------------------------------
+  cloudRegionVersion M          String  kubernetes version. "v1.9", "v1.8" ...
+  ------------------ ---------- ------- ----------------------------------------
+  ownerDefinedType   O          String  None. (not specified)
+  ------------------ ---------- ------- ----------------------------------------
+  cloudZone          O          String  None. (not speicfied)
+                                        as kubernetes doesn't have notion of
+                                        zone.
+  ------------------ ---------- ------- ----------------------------------------
+  complexName        O          String  None. (not specified)
+                                        as kubernetes doesn't have notion of
+                                        complex.
+  ------------------ ---------- ------- ----------------------------------------
+  cloudExtraInfo     O          String  json string(dictionary) for necessary
+                                        info. For now "{}" empty dictionary.
+                                        For helm support, URL for tiller server
+                                        is stored.
+  ------------------ ---------- ------- ----------------------------------------
+  vimAuthInfos       M          [Obj]   Auth information of Cloud
+                                        list of authInfoItem which is described
+                                        below.
+  ================== ========== ======= ========================================
 
 There are several constraints/assumptions on cloudOwner and
 cloudRegionId. `cloud-region`_ . For k8s, cloudRegionId is (ab)used to
@@ -298,22 +307,24 @@ authInfoItem
 
 Basic authentication is used for k8s api server.
 
--------------- --------- ------- -------------------------------------------
-Attribute      Qualifier Content Description
-============== ========= ======= ===========================================
-cloudDomain    M         String  "kubernetes" as this doesn't apply.
--------------- --------- ------- -------------------------------------------
-userName       M         String  User name
--------------- --------- ------- -------------------------------------------
-password       M         String  Password
--------------- --------- ------- -------------------------------------------
-authUrl        M         String  URL for kubernetes API server
--------------- --------- ------- -------------------------------------------
-sslCacert      O         String  ca file content if enabled ssl on
-                                 kubernetes API server
--------------- --------- ------- -------------------------------------------
-sslInsecure    O         Boolean Whether to verify VIM's certificate
-============== ========= ======= ===========================================
+::
+
+  -------------- --------- ------- -------------------------------------------
+  Attribute      Qualifier Content Description
+  ============== ========= ======= ===========================================
+  cloudDomain    M         String  "kubernetes" as this doesn't apply.
+  -------------- --------- ------- -------------------------------------------
+  userName       M         String  User name
+  -------------- --------- ------- -------------------------------------------
+  password       M         String  Password
+  -------------- --------- ------- -------------------------------------------
+  authUrl        M         String  URL for kubernetes API server
+  -------------- --------- ------- -------------------------------------------
+  sslCacert      O         String  ca file content if enabled ssl on
+                                  kubernetes API server
+  -------------- --------- ------- -------------------------------------------
+  sslInsecure    O         Boolean Whether to verify VIM's certificate
+  ============== ========= ======= ===========================================
 
 NOTE: For some issues `issue23`_, ESR should provide authenticating by
 bearer token for Kubernetes cluster if possible beside basic authentication.
@@ -354,19 +365,20 @@ VNF-SDK need to be addressed for creation.
 * onap.multicloud.nodes.kubernetes.proxy
 
   * node definitions
-  .. code-block::
 
-     data_types:
-       onap.multicloud.container.kubernetes.proxy.nodes.resources_yaml:
-       properties:
-         name:
-           type: string
-           description: >
-             Name of application
-         path:
-           type: string
-           description: >
-             Paths to kubernetes yaml file
+    ::
+
+      data_types:
+        onap.multicloud.container.kubernetes.proxy.nodes.resources_yaml:
+        properties:
+          name:
+            type: string
+            description: >
+              Name of application
+          path:
+            type: string
+            description: >
+              Paths to kubernetes yaml file
 
 For VNFs that are packages as Helm package there would be only one
 TOSCA node in the TOSCA template which would have reference to the
@@ -375,19 +387,20 @@ Helm package.
 * onap.multicloud.nodes.kubernetes.helm
 
   * node definitions
-  .. code-block::
 
-     data_types:
-       onap.multicloud.container.kubernetes.helm.nodes.helm_package:
-       properties:
-         name:
-           type: string
-           description: >
-             Name of application
-         path:
-           type: string
-           description: >
-             Paths to Helm package file
+    ::
+
+      data_types:
+        onap.multicloud.container.kubernetes.helm.nodes.helm_package:
+        properties:
+          name:
+            type: string
+            description: >
+              Name of application
+          path:
+            type: string
+            description: >
+              Paths to Helm package file
 
 This TOSCA node definitions wrap kubernetes yaml file or helm chart.
 cloudify.nodes.Kubernetes isn't reused in order to avoid definition conflict.
@@ -475,13 +488,15 @@ multicloud k8s plugin::
 
 NOTE: In this work flow. only the northbound deployment API endpoint is needed
 for VNF deployment. LCM APIs are only needed for lifecycle management. Other
-internal APIs, e.g. k8s YAML API may be needed only for internal implementation.
+internal APIs, e.g. k8s YAML API may be needed only for internal
+implementation.
 
 SO ARIA multicloud plugin needs to be twisted to call k8s plugin.
 
 The strategy is to keep the existing design of ONAP or to follow
 agreed design.
 The key point of The interaction between SO and multicloud is
+
 * SO decomposes VNFD/NSD into single atomic resource
   (e.g. VNF-C corresponding to single VM or single container/pod)
   and send requests to create each resources via deployment API.
@@ -551,8 +566,8 @@ References
 Past presentations/proposals
 ----------------------------
 .. _Munish proposal: https://schd.ws/hosted_files/onapbeijing2017/dd/Management%20of%20Cloud%20Native%20VNFs%20with%20ONAP%20PA5.pptx
-.. _Isaku proposal:https://schd.ws/hosted_files/onapbeijing2017/9d/onap-kubernetes-arch-design-proposal.pdf
-.. _Bin Hu proposal:https://wiki.onap.org/download/attachments/16007890/ONAP-SantaClara-BinHu-final.pdf?version=1&modificationDate=1513558701000&api=v2
+.. _Isaku proposal: https://schd.ws/hosted_files/onapbeijing2017/9d/onap-kubernetes-arch-design-proposal.pdf
+.. _Bin Hu proposal: https://wiki.onap.org/download/attachments/16007890/ONAP-SantaClara-BinHu-final.pdf?version=1&modificationDate=1513558701000&api=v2
 
 ONAP components
 ---------------
@@ -655,7 +670,7 @@ This example is very early phase and there are hard-coded values.
 
 
 * TOSCA hello world
-  .. code-block::
+  ::
 
     topology_template:
       node_templates:
@@ -679,7 +694,7 @@ This example is very early phase and there are hard-coded values.
 
 
 * converted k8s yaml
-  .. code-block::
+  ::
 
     $ PYTHONPATH=. python -m tosca_translator.shell -d --debug --template-file tosca_translator/tests/data/tosca_helloworld.yaml
     api_version: apps/v1beta1
