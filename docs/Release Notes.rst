@@ -8,7 +8,7 @@ Release Notes
 
 
 Version: 1.1.0
--------
+--------------
 
 :Release Date: 2018-06-07
 
@@ -44,9 +44,9 @@ None
 MULTICLOUD code has been formally scanned during build time using NexusIQ and no Critical vulnerability were found.
 
 Quick Links:
- 	- `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
- 	
- 	- `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+  - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
+
+  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
 
 **Upgrade Notes**
 
@@ -61,7 +61,7 @@ None
 None
 
 Version: 1.0.0
--------
+--------------
 
 :Release Date: 2017-11-16
 

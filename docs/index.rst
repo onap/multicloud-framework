@@ -1,6 +1,6 @@
-.. This work is licensed under a Creative Commons Attribution 4.0 International License.
-.. http://creativecommons.org/licenses/by/4.0
-.. Copyright (c) 2017-2018 VMware, Inc.
+..
+ This work is licensed under a Creative Commons Attribution 4.0
+ International License.
 
 .. _index-multicloud:
 
@@ -16,3 +16,18 @@ MultiCloud Documentation Repository
    Multicloud-Fake_Cloud-Guide
    MultiCloud-Heat-Deployment-Guide
    MultiCloud-Administrator-Guide
+
+
+MultiCloud Specification Documentation
+--------------------------------------
+.. toctree::
+   :maxdepth: 1
+
+   specs/elastic_api_exposure
+   specs/logging_enablement
+   specs/multicloud_event_federation
+   specs/multicloud_image_service
+   specs/multicloud_resource_capacity_check
+   specs/multicloud-container-plugin
+   specs/MultiCloud-HPA-Discovery-design
+   specs/parallelism_improvement

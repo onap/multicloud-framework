@@ -1,10 +1,10 @@
 INTRO
 =====
 
-This directory holds the proposals of non-trivial changes to multicloud. We host
-them here to avoid the potential headaches in managing yet another project,
-say `multicloud-specs`. When the needs rise up for a dedicated project for
-proposals, we can create such a project and migrate things here.
+This directory holds the proposals of non-trivial changes to multicloud. We
+host them here to avoid the potential headaches in managing yet another
+project, say `multicloud-specs`. When the needs rise up for a dedicated project
+for proposals, we can create such a project and migrate things here.
 
 
 DIRECTORY LAYOUT
