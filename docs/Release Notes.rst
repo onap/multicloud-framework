@@ -7,7 +7,7 @@ Release Notes
 =============
 
 
-Version: 1.1.0
+Version: 1.1.2
 --------------
 
 :Release Date: 2018-06-07
@@ -17,7 +17,8 @@ Version: 1.1.0
 
 * Allow to check capacity capability for smart VNF placement across VIMs.
 * Declarative template driven framework to generate API dynamically.
-* Federate the events of VIM layer with ONAP message bus which provide direct help to HA fencing and improve the efficiency of VM recover with performance verification.
+* Federate the events of VIM layer with ONAP message bus which provide direct help to HA fencing and improve the
+  efficiency of VM recover with performance verification.
 * Enable basic HPA discovery and representing at Multi VIM/Cloud when registry.
 * Enable distributed log collection mechanism to a centralized logging analysis system.
 * Improve parallelism of Multi VIM/Cloud service framework with performance verification.
@@ -37,7 +38,9 @@ Version: 1.1.0
 
 **Known Issues**
 
-None
+- `MULTICLOUD-242 <https://jira.onap.org/browse/MULTICLOUD-242>`_
+  One known issue is that the Ocata image is not put into the consistent place as R1 and please attention to the
+  download path when you choose manual installation of Ocata plugin from the image pool.
 
 **Security Notes**
 
