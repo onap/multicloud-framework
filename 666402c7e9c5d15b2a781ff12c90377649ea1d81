@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da7095c5_b63178a4",
+        "filename": "docs/specs/multicloud-cloud-region-id.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-07-26T01:47:02Z",
+      "side": 1,
+      "message": "change http to http(s)",
+      "range": {
+        "startLine": 56,
+        "startChar": 68,
+        "endLine": 56,
+        "endChar": 72
+      },
+      "revId": "666402c7e9c5d15b2a781ff12c90377649ea1d81",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da7095c5_5626dc69",
+        "filename": "docs/specs/multicloud-cloud-region-id.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-07-26T01:47:02Z",
+      "side": 1,
+      "message": "I think this is v1 not v0, right?",
+      "range": {
+        "startLine": 73,
+        "startChar": 42,
+        "endLine": 73,
+        "endChar": 44
+      },
+      "revId": "666402c7e9c5d15b2a781ff12c90377649ea1d81",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
