@@ -45,6 +45,23 @@
       "revId": "666402c7e9c5d15b2a781ff12c90377649ea1d81",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a6a9dd7_d7f75c8b",
+        "filename": "docs/specs/multicloud-cloud-region-id.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-07-30T01:37:43Z",
+      "side": 1,
+      "message": "My suggestions would be:\n1. If only one region in openstack, openstack plugin should be able to automatically discover and use it. No need to specify.\n2. If multiple regions in openstack, a default region should be specify on VIM registering through a new key \"openstack-region-id\"\n3. Considering ESR is the blocker, using \"cloud-extra-info\" as a temporarily store of \"openstack-region-id\" could be consider as a workaround in R3 release.",
+      "revId": "666402c7e9c5d15b2a781ff12c90377649ea1d81",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
