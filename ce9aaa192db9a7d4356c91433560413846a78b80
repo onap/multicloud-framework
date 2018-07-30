@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a6a9dd7_7709b094",
+        "filename": "docs/specs/multicloud-heat-aai-bridge.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-07-30T01:30:55Z",
+      "side": 1,
+      "message": "Could you show more details about the requests body?",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 12
+      },
+      "revId": "ce9aaa192db9a7d4356c91433560413846a78b80",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a6a9dd7_17fe346c",
+        "filename": "docs/specs/multicloud-heat-aai-bridge.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-07-30T01:30:55Z",
+      "side": 1,
+      "message": "Could kubernetes/azure plugin leverage this API?",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "ce9aaa192db9a7d4356c91433560413846a78b80",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
