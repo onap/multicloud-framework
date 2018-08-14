@@ -45,6 +45,30 @@
       "revId": "ce9aaa192db9a7d4356c91433560413846a78b80",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_eff5b383",
+        "filename": "docs/specs/multicloud-heat-aai-bridge.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-14T05:35:01Z",
+      "side": 1,
+      "message": "I think so, please refer to https://wiki.onap.org/display/DW/SO+Casablanca+HPA+Design for the proposed API",
+      "parentUuid": "9a6a9dd7_17fe346c",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 20
+      },
+      "revId": "ce9aaa192db9a7d4356c91433560413846a78b80",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
