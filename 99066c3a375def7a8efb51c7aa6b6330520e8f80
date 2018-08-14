@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_185e33e7",
+        "filename": "docs/specs/multicloud-heat-aai-bridge.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-14T13:37:06Z",
+      "side": 1,
+      "message": "Can you give an example.",
+      "revId": "99066c3a375def7a8efb51c7aa6b6330520e8f80",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
