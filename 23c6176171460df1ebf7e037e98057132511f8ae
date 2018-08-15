@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_cb6a221a",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-08-15T14:04:09Z",
+      "side": 1,
+      "message": "As Bin shows the future roadmap, CSARS will be distributed to MultiCloud for other plugins such as k8s plugin.\n\nI suggest to add a \"csar_locations:[{key: xxx, value: xxx}]\" parameter to this new API for other plugins if they would like to use CSAR.\n\nThis API now is too heat specified.",
+      "revId": "23c6176171460df1ebf7e037e98057132511f8ae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
