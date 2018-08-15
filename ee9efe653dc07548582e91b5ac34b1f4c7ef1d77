@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_0804a079",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-15T08:45:43Z",
+      "side": 1,
+      "message": "I believe the purposes for this API includes:\n1, Integration of SO and MultiCloud\n2, generic API for SO to talk to different MultiCloud plugins",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 41
+      },
+      "revId": "ee9efe653dc07548582e91b5ac34b1f4c7ef1d77",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
