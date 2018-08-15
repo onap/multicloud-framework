@@ -2,6 +2,322 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a76adc5_ab956641",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "I will only comment on the format of this RST document, which makes it inconvenient to review the content efficiently.\n\n(1) I suggest to keep the length of each line under 80 characters.\n\n(2) The only exception may be for tables. But even if for tables, it is still possible to split a long line into several short lines so that the table length can be controlled within a reasonable limit, e.g. 88 characters. Line 1261-1263 has an example of splitting a long line into several lines.\n\nSome specific comments are inline too.\n\nOnce format issue is fixed, I will have more comments on content.",
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8b9c2a6b",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 112
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cb79c230",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 119
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2b907642",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 111
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_0b9fba53",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Is it needed?",
+      "range": {
+        "startLine": 200,
+        "startChar": 2,
+        "endLine": 200,
+        "endChar": 3
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_aba3269d",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "These 2 lines are not aligned with other lines",
+      "range": {
+        "startLine": 225,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_6bad0e88",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 121
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8baaea6e",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "4th column of those 2 lines are not aligned with other lines\u0027.",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 132
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4bbcd2bb",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 113
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ebb03edf",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "The width of this table is too wide.",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 18
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_0bb6dad9",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "The width of this table is too wide.",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 378,
+        "endChar": 19
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_abca464d",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Duplicate line separator.",
+      "range": {
+        "startLine": 388,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 359
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cbc78244",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "4th and 5th columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 412,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_6bc42e40",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 444,
+        "startChar": 0,
+        "endLine": 444,
+        "endChar": 125
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_689f5460",
         "filename": "docs/MultiCloud-APIv1-Specification.rst",
         "patchSetId": 1
@@ -18,6 +334,29 @@
         "startChar": 24,
         "endLine": 448,
         "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8bc18a30",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 113
       },
       "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
@@ -48,6 +387,75 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_ebe7dee2",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "The width of the table is too wide.",
+      "range": {
+        "startLine": 483,
+        "startChar": 0,
+        "endLine": 484,
+        "endChar": 19
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4be372d9",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "4th and 5th columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 493,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_abd1e6fc",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 568,
+        "startChar": 0,
+        "endLine": 568,
+        "endChar": 122
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_488e1830",
         "filename": "docs/MultiCloud-APIv1-Specification.rst",
         "patchSetId": 1
@@ -64,6 +472,236 @@
         "startChar": 24,
         "endLine": 572,
         "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4b0a928b",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "The width of the table is too wide.",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 581,
+        "endChar": 19
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_0b049a79",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 614,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "4th and 5th columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 612,
+        "startChar": 0,
+        "endLine": 614,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_abf8067d",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 662,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 112
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8bef4ab0",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 752,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "4th and 5th columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 750,
+        "startChar": 0,
+        "endLine": 752,
+        "endChar": 122
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4b313259",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 843,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 123
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_0b3b3a3b",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 866,
+        "startChar": 0,
+        "endLine": 866,
+        "endChar": 112
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ab3fa624",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "4th and 5th columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 894,
+        "startChar": 0,
+        "endLine": 896,
+        "endChar": 107
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cb3c6232",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 995,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 995,
+        "startChar": 0,
+        "endLine": 995,
+        "endChar": 123
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2b1396b9",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "4th and 5th columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 1017,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 107
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_0b125ab1",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1107,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1107,
+        "startChar": 0,
+        "endLine": 1107,
+        "endChar": 110
       },
       "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
@@ -94,6 +732,305 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_6b20aef7",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1151,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 1149,
+        "startChar": 0,
+        "endLine": 1151,
+        "endChar": 132
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2b7ab6f1",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Why does we need **bold** for this item?",
+      "range": {
+        "startLine": 1177,
+        "startChar": 0,
+        "endLine": 1177,
+        "endChar": 132
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4b7ff2e0",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1186,
+        "startChar": 0,
+        "endLine": 1186,
+        "endChar": 119
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_6b774e03",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1209,
+        "startChar": 0,
+        "endLine": 1209,
+        "endChar": 109
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2b615639",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1237,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "4th and 5th columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 1235,
+        "startChar": 0,
+        "endLine": 1237,
+        "endChar": 129
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_eb5a7e82",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1249,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Why do we need **bold** for this item?",
+      "range": {
+        "startLine": 1249,
+        "startChar": 2,
+        "endLine": 1249,
+        "endChar": 17
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ab548654",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1279,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1279,
+        "startChar": 0,
+        "endLine": 1279,
+        "endChar": 119
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_6b4e6ec3",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 1301,
+        "startChar": 0,
+        "endLine": 1303,
+        "endChar": 128
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8b4bcaaf",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Why do we need **bold** here?",
+      "range": {
+        "startLine": 1329,
+        "startChar": 75,
+        "endLine": 1329,
+        "endChar": 109
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2bc87621",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1346,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1346,
+        "startChar": 0,
+        "endLine": 1346,
+        "endChar": 112
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4bcdb230",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1502,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines",
+      "range": {
+        "startLine": 1500,
+        "startChar": 0,
+        "endLine": 1502,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_0bd7bac2",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Why do we need **bold** here?",
+      "range": {
+        "startLine": 1524,
+        "startChar": 0,
+        "endLine": 1532,
+        "endChar": 286
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_abdb26ec",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1557,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1557,
+        "startChar": 0,
+        "endLine": 1557,
+        "endChar": 123
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_a87c8c21",
         "filename": "docs/MultiCloud-APIv1-Specification.rst",
         "patchSetId": 1
@@ -110,6 +1047,29 @@
         "startChar": 24,
         "endLine": 1561,
         "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cbd8e2f1",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1580,
+        "startChar": 0,
+        "endLine": 1580,
+        "endChar": 112
       },
       "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
@@ -140,6 +1100,75 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_8be2ea9d",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1610,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 1608,
+        "startChar": 0,
+        "endLine": 1610,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4bf4d25a",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1638,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Why do we need **bold** here?",
+      "range": {
+        "startLine": 1632,
+        "startChar": 0,
+        "endLine": 1638,
+        "endChar": 287
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ebe83e7e",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1651,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1651,
+        "startChar": 0,
+        "endLine": 1651,
+        "endChar": 123
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_8873d04c",
         "filename": "docs/MultiCloud-APIv1-Specification.rst",
         "patchSetId": 1
@@ -163,6 +1192,98 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_0beeda88",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1675,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 1673,
+        "startChar": 0,
+        "endLine": 1675,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ab02463c",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1701,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Why do we need **bold** here?",
+      "range": {
+        "startLine": 1695,
+        "startChar": 0,
+        "endLine": 1701,
+        "endChar": 287
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cbff8233",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1717,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1717,
+        "startChar": 0,
+        "endLine": 1717,
+        "endChar": 112
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8bf98a4f",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1781,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines",
+      "range": {
+        "startLine": 1779,
+        "startChar": 0,
+        "endLine": 1781,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_4895b831",
         "filename": "docs/MultiCloud-APIv1-Specification.rst",
         "patchSetId": 1
@@ -179,6 +1300,443 @@
         "startChar": 108,
         "endLine": 1790,
         "endChar": 109
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4b9b7218",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1790,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1790,
+        "startChar": 0,
+        "endLine": 1790,
+        "endChar": 124
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_0ba57a52",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1813,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1813,
+        "startChar": 0,
+        "endLine": 1813,
+        "endChar": 113
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cb86a2b9",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1861,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 1859,
+        "startChar": 0,
+        "endLine": 1861,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_6b93cefa",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1876,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1876,
+        "startChar": 0,
+        "endLine": 1876,
+        "endChar": 126
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2bbdd668",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1918,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines",
+      "range": {
+        "startLine": 1916,
+        "startChar": 0,
+        "endLine": 1918,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4bc292ea",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1936,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 1936,
+        "startChar": 0,
+        "endLine": 1936,
+        "endChar": 112
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_0bbc9a68",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1992,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines",
+      "range": {
+        "startLine": 1990,
+        "startChar": 0,
+        "endLine": 1992,
+        "endChar": 114
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_abb0068c",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2029,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2029,
+        "startChar": 0,
+        "endLine": 2029,
+        "endChar": 123
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cbad4233",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2052,
+        "startChar": 0,
+        "endLine": 2052,
+        "endChar": 112
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2b64f620",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2082,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines.",
+      "range": {
+        "startLine": 2080,
+        "startChar": 0,
+        "endLine": 2082,
+        "endChar": 136
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4b6932f8",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2177,
+        "startChar": 0,
+        "endLine": 2177,
+        "endChar": 123
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ab77a6d3",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2201,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines",
+      "range": {
+        "startLine": 2199,
+        "startChar": 0,
+        "endLine": 2201,
+        "endChar": 136
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cb7462d1",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2287,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2287,
+        "startChar": 0,
+        "endLine": 2287,
+        "endChar": 101
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8b7e6aad",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2355,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2355,
+        "startChar": 0,
+        "endLine": 2355,
+        "endChar": 111
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cb5b0253",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2379,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "Columns are not aligned with those of other lines",
+      "range": {
+        "startLine": 2377,
+        "startChar": 0,
+        "endLine": 2379,
+        "endChar": 144
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_6b58ae56",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2461,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2461,
+        "startChar": 0,
+        "endLine": 2461,
+        "endChar": 110
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8b550a1f",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2604,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2604,
+        "startChar": 0,
+        "endLine": 2604,
+        "endChar": 122
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_2b32b610",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2744,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2744,
+        "startChar": 0,
+        "endLine": 2744,
+        "endChar": 121
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4b37f2ff",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2775,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-15T14:23:42Z",
+      "side": 1,
+      "message": "This line is not aligned with other lines",
+      "range": {
+        "startLine": 2775,
+        "startChar": 0,
+        "endLine": 2775,
+        "endChar": 122
       },
       "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
