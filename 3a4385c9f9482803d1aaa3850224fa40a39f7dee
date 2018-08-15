@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_689f5460",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-15T08:24:39Z",
+      "side": 1,
+      "message": "I think this is VNFLCM instead of NFLCM.",
+      "range": {
+        "startLine": 448,
+        "startChar": 24,
+        "endLine": 448,
+        "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_28895c26",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-15T08:24:39Z",
+      "side": 1,
+      "message": "I think this is VNFLCM instead of NFLCM.",
+      "range": {
+        "startLine": 471,
+        "startChar": 24,
+        "endLine": 471,
+        "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_488e1830",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-15T08:24:39Z",
+      "side": 1,
+      "message": "I think this is VNFLCM instead of NFLCM.",
+      "range": {
+        "startLine": 572,
+        "startChar": 24,
+        "endLine": 572,
+        "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_08b100f8",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-15T08:24:39Z",
+      "side": 1,
+      "message": "The valid values are normal, macvtap, direct, baremetal, direct-physical and virtio-forwarder",
+      "range": {
+        "startLine": 1132,
+        "startChar": 81,
+        "endLine": 1132,
+        "endChar": 131
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_a87c8c21",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1561,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-15T08:24:39Z",
+      "side": 1,
+      "message": "I think this is VNFLCM instead of NFLCM.",
+      "range": {
+        "startLine": 1561,
+        "startChar": 24,
+        "endLine": 1561,
+        "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_68767440",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1584,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-15T08:24:39Z",
+      "side": 1,
+      "message": "I think this is VNFLCM instead of NFLCM.",
+      "range": {
+        "startLine": 1584,
+        "startChar": 24,
+        "endLine": 1584,
+        "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8873d04c",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-15T08:24:39Z",
+      "side": 1,
+      "message": "I think this is VNFLCM instead of NFLCM.",
+      "range": {
+        "startLine": 1655,
+        "startChar": 24,
+        "endLine": 1655,
+        "endChar": 29
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_4895b831",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1790,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-15T08:24:39Z",
+      "side": 1,
+      "message": "Please delete the blank",
+      "range": {
+        "startLine": 1790,
+        "startChar": 108,
+        "endLine": 1790,
+        "endChar": 109
+      },
+      "revId": "3a4385c9f9482803d1aaa3850224fa40a39f7dee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
