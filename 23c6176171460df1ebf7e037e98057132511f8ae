@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a76adc5_9c6d4e35",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2018-08-16T03:25:04Z",
+      "side": 1,
+      "message": "could VNF module be moved from the multicloud interface and dealed in the SO? Otherwise, this interface will be limited to SO. VNF module concept are not in VFC.",
+      "range": {
+        "startLine": 40,
+        "startChar": 38,
+        "endLine": 40,
+        "endChar": 41
+      },
+      "revId": "23c6176171460df1ebf7e037e98057132511f8ae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_cb6a221a",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 2
@@ -13,6 +36,29 @@
       "writtenOn": "2018-08-15T14:04:09Z",
       "side": 1,
       "message": "As Bin shows the future roadmap, CSARS will be distributed to MultiCloud for other plugins such as k8s plugin.\n\nI suggest to add a \"csar_locations:[{key: xxx, value: xxx}]\" parameter to this new API for other plugins if they would like to use CSAR.\n\nThis API now is too heat specified.",
+      "revId": "23c6176171460df1ebf7e037e98057132511f8ae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_fc8802e9",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2018-08-16T03:25:04Z",
+      "side": 1,
+      "message": "should we consider a common directives, considering the TOSCA HEAT, TOSCA R2+, even SDNC, etc?\nSuggestions:\ndirectives:[\n  \"id\":\"\"   # unique id of the directives, such as \"oof\" # sdnc,flavor,vnf instance id, etc It is a Must attribute\n  \"attributes\":{#} # it is key-value pair, and be option attribute\n  \"directives\":[....] # it is nested directives, and be option\n]",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 14
+      },
       "revId": "23c6176171460df1ebf7e037e98057132511f8ae",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
