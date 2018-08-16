@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_1ceffe88",
+        "filename": "multivimbroker/multivimbroker/forwarder/urls.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1899
+      },
+      "writtenOn": "2018-08-16T03:35:14Z",
+      "side": 1,
+      "message": "the \u003cvimid\u003e parameter in url is not matching with view\u0027s parameter \u003ccloud_owner, cloud_region_id\u003e.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 4
+      },
+      "revId": "56692b2d4485aa53ee13d1a3a7515d1226f1e6f3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
