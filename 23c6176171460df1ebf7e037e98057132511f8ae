@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_37a1b5f8",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2018-08-16T05:28:36Z",
+      "side": 1,
+      "message": "thanks. So this API only supports SO and heat.",
+      "parentUuid": "1a76adc5_fca48258",
+      "range": {
+        "startLine": 40,
+        "startChar": 38,
+        "endLine": 40,
+        "endChar": 41
+      },
+      "revId": "23c6176171460df1ebf7e037e98057132511f8ae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_cb6a221a",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 2
@@ -101,6 +125,30 @@
       "side": 1,
       "message": "MultiCloud is flexible on whatever the json schema is. Maybe Srini/Marcus has some reason for this proposal. You may also put your comment at wiki: https://wiki.onap.org/display/DW/SO+Casablanca+HPA+Design",
       "parentUuid": "1a76adc5_fc8802e9",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 14
+      },
+      "revId": "23c6176171460df1ebf7e037e98057132511f8ae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_f7aa5dd3",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2018-08-16T05:28:36Z",
+      "side": 1,
+      "message": "Haibin is in charge of this issue. Let him confirm what I suggest. The directive structure will effect more projects.",
+      "parentUuid": "1a76adc5_9c89cecc",
       "range": {
         "startLine": 81,
         "startChar": 0,
