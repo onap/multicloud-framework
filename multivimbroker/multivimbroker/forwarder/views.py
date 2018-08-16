@@ -27,7 +27,7 @@ from multivimbroker.forwarder.base import BaseHandler
 from multivimbroker.pub.utils.syscomm import originHeaders
 from multivimbroker.pub.utils import syscomm
 from rest_framework.parsers import MultiPartParser
-
+from common.msapi import extsys
 
 class BaseServer(BaseHandler, APIView):
 
@@ -193,3 +193,118 @@ class MultiPartView(BaseServer):
                     fileRef.close()
                 os.remove(fileRef.name)
         return resp
+
+
+
+# API v1
+# proxy handler
+class APIv1Identity(Identity):
+
+    def get(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Identity, self).get(request, vimid)
+
+    def post(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Identity, self).post(request, vimid)
+
+
+class APIv1Registry(Registry):
+
+    def post(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Registry, self).post(request, vimid)
+
+
+class APIv1UnRegistry(UnRegistry):
+
+    def delete(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1UnRegistry, self).delete(request, vimid)
+
+
+class APIv1Extension(Extension):
+
+    def get(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Extension, self).get(request, vimid)
+
+
+class APIv1VIMTypes(VIMTypes):
+
+    def get(self, request):
+        return super(APIv1VIMTypes, self).get(request)
+
+
+class APIv1CheckCapacity(CheckCapacity):
+
+    def post(self, request):
+        try:
+            body = json.loads(request.body)
+        except ValueError as e:
+            return Response(
+                data={'error': 'Invalidate request body %s.' % e},
+                status=status.HTTP_400_BAD_REQUEST)
+
+        ret = {"VIMs": []}
+        newbody = {
+            "vCPU": body.get("vCPU", 0),
+            "Memory": body.get("Memory", 0),
+            "Storage": body.get("Storage", 0)
+        }
+        for vim in body.get("VIMs", []):
+            cloud_owner = vim["cloud-owner"]
+            cloud_region_id = vim["cloud-region-id"]
+            url = request.get_full_path().replace(
+                "check_vim_capacity", "%s/%s/capacity_check" %
+                                      (cloud_owner, cloud_region_id))
+            vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+            resp = self.send(vimid, url, json.dumps(newbody), "POST")
+            if int(resp.status_code) != status.HTTP_200_OK:
+                continue
+            try:
+                resp_body = json.loads(resp.content)
+            except ValueError:
+                continue
+            if not resp_body.get("result", False):
+                continue
+            ret['VIMs'].append(vim)
+        return Response(data=ret, status=status.HTTP_200_OK)
+
+
+# forward  handler
+class APIv1Forward(Forward):
+
+    def get(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Forward, self).get(request, vimid)
+
+    def post(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Forward, self).post(request, vimid)
+
+    def patch(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Forward, self).patch(request, vimid)
+
+    def delete(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Forward, self).delete(request, vimid)
+
+    def head(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Forward, self).head(request, vimid)
+
+    def put(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Forward, self).put(request, vimid)
+
+
+# Multipart view
+class APIv1MultiPartView(MultiPartView):
+
+    def post(self, request, cloud_owner, cloud_region_id):
+
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1MultiPartView, self).post(request, vimid)
+
