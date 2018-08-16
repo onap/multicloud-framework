@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_21b09242",
+        "filename": "multivimbroker/multivimbroker/forwarder/urls.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-16T16:08:44Z",
+      "side": 1,
+      "message": "Can we add a description that this is for API v0?",
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_81808647",
+        "filename": "multivimbroker/multivimbroker/forwarder/urls.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-16T16:08:44Z",
+      "side": 1,
+      "message": "If the only difference between API v0 and v1 is the URL path \".../v0/...\" v.s. \".../v1/...\", perhaps we can define a variable (or a constant depending on usage scenario) to capture the version part, and keep other components in the path the same.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_01b55630",
+        "filename": "multivimbroker/multivimbroker/forwarder/urls.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-16T16:08:44Z",
+      "side": 1,
+      "message": "Can we add a description that this is for API v0?",
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_e1be1aff",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-16T16:08:44Z",
+      "side": 1,
+      "message": "Looks like those methods are specific for API v1. What if we upgrade to v2 in the future? How to maintain forward compatibility?\n\nShould we use the method that is version agnostic, while versions (backward compatibility and forward compatibility) are handled within the method?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 15
+      },
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_a1d10259",
+        "filename": "multivimbroker/multivimbroker/pub/msapi/extsys.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-16T16:08:44Z",
+      "side": 1,
+      "message": "As mentioned in line 41 and 42, what if \u0027_\u0027 is used by cloud owner?",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 33
+      },
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
