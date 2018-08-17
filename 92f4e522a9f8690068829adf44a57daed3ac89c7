@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_8f3f4dd6",
+        "filename": "multivimbroker/multivimbroker/forwarder/urls.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-17T05:09:18Z",
+      "side": 1,
+      "message": "Yes, will do it in next patch",
+      "parentUuid": "1a76adc5_21b09242",
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_81808647",
         "filename": "multivimbroker/multivimbroker/forwarder/urls.py",
         "patchSetId": 7
@@ -30,6 +48,30 @@
       "writtenOn": "2018-08-16T16:08:44Z",
       "side": 1,
       "message": "If the only difference between API v0 and v1 is the URL path \".../v0/...\" v.s. \".../v1/...\", perhaps we can define a variable (or a constant depending on usage scenario) to capture the version part, and keep other components in the path the same.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_6f3c31e3",
+        "filename": "multivimbroker/multivimbroker/forwarder/urls.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-17T05:09:18Z",
+      "side": 1,
+      "message": "the difference is not only the v0 to v1, but also the \"vimid\" to \"cloud_owner\"/\"cloud_region_id\".",
+      "parentUuid": "1a76adc5_81808647",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -82,6 +124,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_af32490e",
+        "filename": "multivimbroker/multivimbroker/forwarder/views.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-17T05:09:18Z",
+      "side": 1,
+      "message": "not sure get your points about \"backward, forward\u0027 compatibility. backward comptability is a principle of ONAP, forward compatibility is not yet.\nFor the multicloud user, as long as the API with specific version can work as expected, this is fine, no matter how it is implemented/reused from API handler\u0027s perspective. On the other hand, if the API of v0 and v1 share the same API handler, any change to this API handler should not break the API with either version. So I didn\u0027s see why a version agnostic method is needed. the existing API handler for API v0 can be reused by API v1, and it has been tested and verified very well, I prefer not touch them, that kind of refactoring brings least value but major risks.",
+      "parentUuid": "1a76adc5_e1be1aff",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 15
+      },
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_a1d10259",
         "filename": "multivimbroker/multivimbroker/pub/msapi/extsys.py",
         "patchSetId": 7
@@ -93,6 +159,30 @@
       "writtenOn": "2018-08-16T16:08:44Z",
       "side": 1,
       "message": "As mentioned in line 41 and 42, what if \u0027_\u0027 is used by cloud owner?",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 33
+      },
+      "revId": "92f4e522a9f8690068829adf44a57daed3ac89c7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_cf4ea596",
+        "filename": "multivimbroker/multivimbroker/pub/msapi/extsys.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-17T05:09:18Z",
+      "side": 1,
+      "message": "As mentioned in line 38-43, the constraints can and will be workaround, but not with this patch. This patch is meant to expose the API v1 which aligned to the \"consistent ID of cloud region\".",
+      "parentUuid": "1a76adc5_a1d10259",
       "range": {
         "startLine": 55,
         "startChar": 4,
