@@ -137,6 +137,29 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_4f1cd513",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-08-17T00:04:18Z",
+      "side": 1,
+      "message": "Since these are heat related parameters, it would be good to group them under \"heat_params\" key like \n\n{\"heat_params\": {\"stack_name\": xxx, \"template\": xxx}}\n\nSo the kubernetes parameters could be group under \"kubernetes_params\"",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "23c6176171460df1ebf7e037e98057132511f8ae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_fc8802e9",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 2
