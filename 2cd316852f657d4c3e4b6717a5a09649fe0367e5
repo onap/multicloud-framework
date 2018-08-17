@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_e7c065e2",
+        "filename": "docs/MultiCloud-HPA-Deployment-Guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 845
+      },
+      "writtenOn": "2018-08-17T23:09:25Z",
+      "side": 1,
+      "message": "Suggest to remove this extra space.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 1
+      },
+      "revId": "2cd316852f657d4c3e4b6717a5a09649fe0367e5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
