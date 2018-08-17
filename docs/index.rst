@@ -2,8 +2,6 @@
  This work is licensed under a Creative Commons Attribution 4.0
  International License.
 
-.. _index-multicloud:
-
 MultiCloud Documentation Repository
 -----------------------------------
 .. toctree::

@@ -7,9 +7,11 @@ target/
 logs/*.log
 *.pyc
 *.swp
+.tox/
 
 # Test related files
 multivimbroker/.coverage
+multivimbroker/coverage.xml
 multivimbroker/.tox/
 multivimbroker/logs/*.log
 multivimbroker/test-reports/
