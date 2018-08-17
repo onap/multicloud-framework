@@ -565,20 +565,20 @@ References
 ==========
 Past presentations/proposals
 ----------------------------
-.. _Munish proposal: https://schd.ws/hosted_files/onapbeijing2017/dd/Management%20of%20Cloud%20Native%20VNFs%20with%20ONAP%20PA5.pptx
-.. _Isaku proposal: https://schd.ws/hosted_files/onapbeijing2017/9d/onap-kubernetes-arch-design-proposal.pdf
-.. _Bin Hu proposal: https://wiki.onap.org/download/attachments/16007890/ONAP-SantaClara-BinHu-final.pdf?version=1&modificationDate=1513558701000&api=v2
+.. Munish proposal: https://schd.ws/hosted_files/onapbeijing2017/dd/Management%20of%20Cloud%20Native%20VNFs%20with%20ONAP%20PA5.pptx
+.. Isaku proposal: https://schd.ws/hosted_files/onapbeijing2017/9d/onap-kubernetes-arch-design-proposal.pdf
+.. Bin Hu proposal: https://wiki.onap.org/download/attachments/16007890/ONAP-SantaClara-BinHu-final.pdf?version=1&modificationDate=1513558701000&api=v2
 
 ONAP components
 ---------------
 .. _ESR: Extenral System Register https://wiki.onap.org/pages/viewpage.action?pageId=11930343#A&AI:ExternalSystemOperationAPIDefinition-VIM
-.. _AAI: Active and Available Inventory https://wiki.onap.org/display/DW/Active+and+Available+Inventory+Project
+.. AAI: Active and Available Inventory https://wiki.onap.org/display/DW/Active+and+Available+Inventory+Project
 .. _OOM: ONAP Operations Manager https://wiki.onap.org/display/DW/ONAP+Operations+Manager+Project
-.. _ONAPREST: RESTful API Design Specification https://wiki.onap.org/display/DW/RESTful+API+Design+Specification
+.. ONAPREST: RESTful API Design Specification https://wiki.onap.org/display/DW/RESTful+API+Design+Specification
 
 kubernetes
 ----------
-.. _kubernetes-python-client: Kubernetes python client https://github.com/kubernetes-client/python
+.. kubernetes-python-client: Kubernetes python client https://github.com/kubernetes-client/python
 
 .. _issue23: https://github.com/kubernetes/kubeadm/issues/23
 

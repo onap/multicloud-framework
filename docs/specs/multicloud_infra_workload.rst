@@ -33,8 +33,7 @@ API URL: http://{msb IP}:{msb port}/api/multicloud /v1/{cloud-owner}/{cloud-regi
 
 Request Body:
 
-
-::
+.. code-block:: json
 
   {
      "generic-vnf-id":"<generic-vnf-id>",
@@ -46,8 +45,10 @@ Request Body:
   }
 
 oof_directives:
-::
 
+.. code-block:: json
+
+  {
       "directives":[
          {
            "id":"<ID of VNFC>",
@@ -80,11 +81,14 @@ oof_directives:
            ]
          }
       ]
-
+   }
 
 Heat examples
 =============
 
+.. code-block:: json
+
+  {
   "template_type":"heat",
   "template_data":{
      "files":{  },
@@ -118,6 +122,7 @@ Heat examples
         }
      },
      "timeout_mins":60
+  }
   }
 
 Work Items

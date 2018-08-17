@@ -12,10 +12,7 @@ This proposal describes how MultiCloud plugin automates the on-boarding of tens 
 Problems Statement
 ==================
 
-The ONAP functional requirement for Edge Automation aims to automate the VNF orchestration across edge stacks.
-
-..
-https://wiki.onap.org/display/DW/Edge+Automation+through+ONAP
+The `ONAP functional requirement for Edge Automation <https://wiki.onap.org/display/DW/Edge+Automation+through+ONAP>`_ aims to automate the VNF orchestration across edge stacks.
 
 Before VNF can be orchestrated over these edge stacks, these edge stacks must be on-boarded into ONAP. This can be a very big challenge in case of tens of or hundred of edge stacks. Fortunately, With OpenStack multi-region feature, the OpenStack primary region will expose
 all secondary regions' endpoints. Hence MultiCloud plugins could automate the discovery and registry
@@ -32,8 +29,8 @@ Proposed Design and Workflow
 
 
 **With OpenStack primary region, the ONAP user will**:
-..
-https://wiki.onap.org/pages/viewpage.action?pageId=25431491
+.. https://wiki.onap.org/pages/viewpage.action?pageId=25431491
+
  - Manually on-board this primary region with ESR VIM registration portal.
  - Input the {cloud-owner} and {cloud-region-id} as the ID of cloud region which is unique.
  - Specify the location id
@@ -64,8 +61,7 @@ Appendix:
 =========
 
 There is a property of cloud region object named "cloud-extra-info"
-..
-https://wiki.onap.org/display/DW/AAI+REST+API+Documentation+-+Beijing
+.. https://wiki.onap.org/display/DW/AAI+REST+API+Documentation+-+Beijing
 
 ::
 
