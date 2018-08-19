@@ -73,25 +73,54 @@ policy、output location、text output format、message level and so on, support
 MDC context specific logging, able to
 change configuration at runtime, and make logging quite fast.
 
+Supporting Python3 version
+-------------------------
+Right now, this library only has be used in Python2 version. Python2 will not be
+maintained after 2020, besides a part of ONAP project have used python3 version.
+It should be better to support Python2 and Python3 version
 
 
+Markers
+-------
+Markers can be used to characterize log entries, The allow message that have
+a specific meaning to be cheaply and easily identified in logger output, without
+inherently unreliable schemes like scanning for magic strings in the text of each
+log message.
+Onap logging requires the emission of markers reporting entry, exit and invocation
+as the execution if requests pass between ONAP components, This information is used
+to generate a call graph.
+Useful and commonplace, See https://stackoverflow.com/questions/4165558/best-practices-for-using-markers-in-slf4j-logback
 
 
+colored terminal output
+-----------------------
+As we known, in log4j coloring is supported. It would be better to render logging message in color.
+Bash colors refer: http://webhome.csc.uvic.ca/~sae/seng265/fall04/tips/s265s047-tips/bash-using-colors.html
+
+The standard colors(nosupport windows) list as below:
++---------------------+-------------------------+------------------------+
+| **Text color**      | **Hightlight color**    |  **Text Attribute**    |
++=====================+==================================================+
+|  Black              |   Black                 |   Normal               |
++---------------------+--------------------------------------------------+
+|  Red                |   Red                   |   Bold                 |
++---------------------+--------------------------------------------------+
+|  Green              |   Green                 |   Underline            |
++---------------------+--------------------------------------------------+
+|  Yellow             |   Yellow                |   Blink                |
++------------------------------------------------------------------------+
+|  Blue               |   Blue                  |   Invert               |
++------------------------------------------------------------------------+
+|  Purple             |   Purple                |   Hide                 |
++------------------------------------------------------------------------+
+|  Cyan               |   Cyan                  |                        |
++------------------------------------------------------------------------+
+|  White              |   White                 |                        |
++------------------------------------------------------------------------+
 
 
+Test
+====
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#. Unit tests with tox
+#. CSIT tests, verify marker label in logging message
