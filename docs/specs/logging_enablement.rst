@@ -73,25 +73,33 @@ policy、output location、text output format、message level and so on, support
 MDC context specific logging, able to
 change configuration at runtime, and make logging quite fast.
 
+Supprting Python3 version
+-------------------------
+Right now, this library only has be used in Python2 version. Python2 will not be
+maintained past 2020, besides a part of ONAP project have used python3 version.
+It shuould be better to support Python2 and Python3 version
 
 
+Markers
+-------
+Markers can be used to characterize log entries, The allow message that have
+a specific meaning to be cheaply and easuly identified in logger output, without
+inherently unreliable schemes like scanning for magic strings in the text of each
+log message.
+Onap logging requires the emission of markers reporting entry, exit and invocation
+as the execution if requests pass between ONAP components, This information is used
+to generate a call graph.
+Useful and commonplace, See https://stackoverflow.com/questions/4165558/best-practices-for-using-markers-in-slf4j-logback
 
 
+colored terminal output
+-----------------------
+As we known, in log4j coloring is supported. It would be better to render logging message in color.
+The standard colors list as below:
 
 
+Test
+====
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#. Unite tests with tox
+#. CSIT tests, verify marker label in logging message
