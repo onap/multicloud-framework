@@ -26,12 +26,13 @@ The detail design refer to https://wiki.onap.org/display/DW/SO+Casablanca+HPA+De
 Propose Change
 ==============
 
-Add infrastructure workload API
--------------------------------
+Add infrastructure workload
+---------------------------
 
-API URL: http://{msb IP}:{msb port}/api/multicloud /v1/{cloud-owner}/{cloud-region-id}/infra_workload
+API URL: POST http://{msb IP}:{msb port}/api/multicloud/v1/{cloud-owner}/{cloud-region-id}/infra_workload
 
 Request Body:
+>>>>>>>>>>>>>
 ::
 
   {
@@ -44,6 +45,7 @@ Request Body:
   }
 
 oof_directives:
+:::::::::::::::
 ::
 
       "directives":[
@@ -79,9 +81,181 @@ oof_directives:
          }
       ]
 
+Heat examples
+:::::::::::::
+::
+
+  "template_type":"heat",
+  "template_data":{
+     "files":{  },
+     "disable_rollback":true,
+     "parameters":{
+        "flavor":"m1.heat"
+     },
+     "stack_name":"teststack",
+     "template":{
+        "heat_template_version":"2013-05-23",
+        "description":"Simple template to test heat commands",
+        "parameters":
+        {
+           "flavor":{
+              "default":"m1.tiny",
+              "type":"string"
+           }
+        },
+        "resources":{
+           "hello_world":{
+              "type":"OS::Nova::Server",
+              "properties":{
+                 "key_name":"heat_key",
+                 "flavor":{
+                    "get_param":"flavor"
+                 },
+                 "image":"40be8d1a-3eb9-40de-8abd-43237517384f",
+                 "user_data":"#!/bin/bash -xv\necho \"hello world\" &gt; /root/hello-world.txt\n"
+              }
+           }
+        }
+     },
+     "timeout_mins":60
+  }
+
+Response:
+>>>>>>>>>
+
+Response Codes
+::::::::::::::
+Success
+.......
+
++--------------------+----------------------------------------------------------------------+
+| Code               | Reason                                                               |
++====================+======================================================================+
+| 201 - Created      | Resource was created and is ready to use.                            |
++--------------------+----------------------------------------------------------------------+
+
+Error
+.....
+
++--------------------+----------------------------------------------------------------------+
+| Code               | Reason                                                               |
++====================+======================================================================+
+| 400 - Bad Request  | Some content in the request was invalid.                             |
++--------------------+----------------------------------------------------------------------+
+| 401 - Unauthorized | User must authenticate before making a request.                      |
++--------------------+----------------------------------------------------------------------+
+| 409 - Conflict     | This operation conflicted with another operation on this resource.   |
++--------------------+----------------------------------------------------------------------+
+
+Response Body
+:::::::::::::
+::
+
+    {
+        "template_type":"heat",
+        "workload_id": "<The ID of infrastructure workload resource>"
+        "template_response":
+        {
+            "stack": {
+            "id": "<The UUID of stack>",
+            "links": [
+                {
+                     "href": "<A list of URLs for the stack>",
+                     "rel": "self"
+                }
+            ]
+        }
+    }
+
+Delete infrastructure workload
+------------------------------
+
+API DELETE URL: http://{msb IP}:{msb port}/api/multicloud/v1/{cloud-owner}/{cloud-region-id}/infra_workload/{workload-id}
+
+Response:
+>>>>>>>>>
+
+Response Codes
+::::::::::::::
+Success
+.......
+
++--------------------+----------------------------------------------------------------------+
+| Code               | Reason                                                               |
++====================+======================================================================+
+| 204 - No Content   | The server has fulfilled the request by deleting the resource.       |
++--------------------+----------------------------------------------------------------------+
+
+Error
+.....
+
++--------------------+----------------------------------------------------------------------+
+| Code               | Reason                                                               |
++====================+======================================================================+
+| 400 - Bad Request  | Some content in the request was invalid.                             |
++--------------------+----------------------------------------------------------------------+
+| 401 - Unauthorized | User must authenticate before making a request.                      |
++--------------------+----------------------------------------------------------------------+
+| 404 - Not Found    | The requested resource could not be found.                           |
++--------------------+----------------------------------------------------------------------+
+| 500 - Internal     | Something went wrong inside the service. This should not happen      |
+|       Server Error | usually. If it does happen, it means the server has experienced      |
+|                    | some serious problems.                                               |
++--------------------+----------------------------------------------------------------------+
+
+Response Body
+:::::::::::::
+This request does not return anything in the response body.
+
+Get infrastructure workload
+----------------------------
+
+API GET URL: http://{msb IP}:{msb port}/api/multicloud/v1/{cloud-owner}/{cloud-region-id}/infra_workload/{workload-id}
+
+Response:
+>>>>>>>>>
+
+Response Codes
+::::::::::::::
+Success
+.......
+
++--------------------+----------------------------------------------------------------------+
+| Code               | Reason                                                               |
++====================+======================================================================+
+| 200 - OK           | Request was successful.                                              |
++--------------------+----------------------------------------------------------------------+
+
+Error
+.....
+
++--------------------+----------------------------------------------------------------------+
+| Code               | Reason                                                               |
++====================+======================================================================+
+| 400 - Bad Request  | Some content in the request was invalid.                             |
++--------------------+----------------------------------------------------------------------+
+| 401 - Unauthorized | User must authenticate before making a request.                      |
++--------------------+----------------------------------------------------------------------+
+| 404 - Not Found    | The requested resource could not be found.                           |
++--------------------+----------------------------------------------------------------------+
+| 500 - Internal     | Something went wrong inside the service. This should not happen      |
+|       Server Error | usually. If it does happen, it means the server has experienced      |
+|                    | some serious problems.                                               |
++--------------------+----------------------------------------------------------------------+
+
+Response Body
+:::::::::::::
+::
+
+    {
+        "template_type":"<heat/tosca/etc.>",
+        "workload_id": "<The ID of infrastructure workload resource>",
+        "workload_status":"",
+        "template_data": {}
+    }
 
 Heat examples
-=============
+:::::::::::::
 ::
 
   "template_type":"heat",
@@ -125,9 +299,12 @@ Work Items
 #. Work with SO.
 #. Work with OOF team for oof_directive form.
 #. Work with SDNC team for sdc_directive form.
+#. Expose API by broker and each plugin.
 
 Tests
 =====
 
-#. Unit Tests with tox
+#. Unit Tests with tox.
+#. Pairwise test with SO project.
+#. Integration test with vCPE HPA test.
 #. CSIT Tests, the input/ouput of broker and each plugin see API design above.
