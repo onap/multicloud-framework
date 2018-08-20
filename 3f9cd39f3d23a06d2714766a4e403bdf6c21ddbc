@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_f32fc3f4",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-20T13:07:44Z",
+      "side": 1,
+      "message": "make sense, the heat stack id will be updated into AAI, so later SO invoke the GET/Delete API, by generic vnf id and vf module id, multicloud should be able to checkout the heat stack id.",
+      "parentUuid": "1a76adc5_f8a560b5",
+      "range": {
+        "startLine": 158,
+        "startChar": 9,
+        "endLine": 158,
+        "endChar": 20
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_389bd873",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 1
@@ -154,6 +178,30 @@
       "writtenOn": "2018-08-20T09:48:14Z",
       "side": 1,
       "message": "Why do you still need this? Since these information will be stored in A\u0026AI.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 37
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_733bb338",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-20T13:07:44Z",
+      "side": 1,
+      "message": "Maybe we should put them into URI: DELETE URL: http://{msb IP}:{msb port}/api/multicloud /v1/{cloud-owner}/{cloud-region-id}/infra_workload/{generic vnf id}/{vf module id}\nmaybe the add/creating API could follow the same URI as well.",
+      "parentUuid": "1a76adc5_389bd873",
       "range": {
         "startLine": 182,
         "startChar": 0,
@@ -224,6 +272,30 @@
       "side": 1,
       "message": "Do you mean that we just save template_id?",
       "parentUuid": "1a76adc5_d8898427",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 3
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_134a7fc5",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-20T13:07:44Z",
+      "side": 1,
+      "message": "He means put the generic vnf id and vf module id into the URI",
+      "parentUuid": "1a76adc5_b345cb18",
       "range": {
         "startLine": 230,
         "startChar": 0,
