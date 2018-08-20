@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_736e5398",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-20T12:15:00Z",
+      "side": 1,
+      "message": "I think we must save template_type.",
+      "parentUuid": "1a76adc5_78915051",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 31
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_38ed18f0",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 1
@@ -59,6 +83,54 @@
       "writtenOn": "2018-08-20T09:48:14Z",
       "side": 1,
       "message": "Where do you plan to store this ID?",
+      "range": {
+        "startLine": 158,
+        "startChar": 9,
+        "endLine": 158,
+        "endChar": 20
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_73c0937c",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-20T12:15:00Z",
+      "side": 1,
+      "message": "yes, This ID will use to delete and get infrastructure workload.",
+      "parentUuid": "1a76adc5_f8a560b5",
+      "range": {
+        "startLine": 158,
+        "startChar": 9,
+        "endLine": 158,
+        "endChar": 20
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_b3ce2bb3",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-20T12:15:00Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_38ed18f0",
       "range": {
         "startLine": 158,
         "startChar": 9,
@@ -140,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_b345cb18",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-20T12:15:00Z",
+      "side": 1,
+      "message": "Do you mean that we just save template_id?",
+      "parentUuid": "1a76adc5_d8898427",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 3
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_f8bec0d3",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 1
@@ -151,6 +247,30 @@
       "writtenOn": "2018-08-20T09:37:39Z",
       "side": 1,
       "message": "The same as above, also the GET api should return the workload status: \"workload_status\"",
+      "range": {
+        "startLine": 278,
+        "startChar": 9,
+        "endLine": 278,
+        "endChar": 20
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_13bfdffc",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-20T12:15:00Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_f8bec0d3",
       "range": {
         "startLine": 278,
         "startChar": 9,
