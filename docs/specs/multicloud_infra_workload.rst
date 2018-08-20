@@ -15,8 +15,8 @@ we have two purposes for this API:
 Problem Description
 ===================
 
-Currently HPA flavors are returned by OOF  to SO and SO copies these flavors in
-the Heat template before sending the Heat template to Multicloud.  In Casablanca
+Currently HPA flavors are returned by OOF  to SO and SO copies these flavors in
+the Heat template before sending the Heat template to Multicloud.  In Casablanca
 instead of SO making changes in the Heat template the flavor information will be
 provided to Multicloud and Multicloud will pass these as parameters to HEAT
 command line.
@@ -32,8 +32,6 @@ Add infrastructure workload API
 API URL: http://{msb IP}:{msb port}/api/multicloud /v1/{cloud-owner}/{cloud-region-id}/infra_workload
 
 Request Body:
-
-
 ::
 
   {
@@ -84,6 +82,7 @@ oof_directives:
 
 Heat examples
 =============
+::
 
   "template_type":"heat",
   "template_data":{
@@ -132,4 +131,3 @@ Tests
 
 #. Unit Tests with tox
 #. CSIT Tests, the input/ouput of broker and each plugin see API design above.
-
