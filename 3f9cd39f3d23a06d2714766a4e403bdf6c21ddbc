@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_f089f4ca",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-08-21T02:59:27Z",
+      "side": 1,
+      "message": "Do you wanna setup a DB in MultiCloud or store it into A\u0026AI?",
+      "parentUuid": "1a76adc5_736e5398",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 31
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_38ed18f0",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 1
