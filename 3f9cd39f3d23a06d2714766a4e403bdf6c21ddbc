@@ -452,6 +452,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_5671c0de",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-08-21T09:25:45Z",
+      "side": 1,
+      "message": "Do you mean we couldn\u0027t find stack by its ID in A\u0026AI? Could you give out more details?\n\nSince neither vnf object nor vf module is created by MultiCloud, from multicloud\u0027s perspective, we should use template_id as unique ID to delete a related resource.",
+      "parentUuid": "1a76adc5_932a0a7d",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 3
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_f8bec0d3",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 1
