@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_5cef9f87",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "s/be/been",
+      "range": {
+        "startLine": 78,
+        "startChar": 33,
+        "endLine": 78,
+        "endChar": 35
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_3cec238f",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "besides part of ONAP has used python3 version",
+      "range": {
+        "startLine": 79,
+        "startChar": 23,
+        "endLine": 79,
+        "endChar": 78
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_dc02cf3d",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "It\u0027s better",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 19
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_bcf7d358",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "s/The/To ?",
+      "range": {
+        "startLine": 85,
+        "startChar": 49,
+        "endLine": 85,
+        "endChar": 52
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_9cfc5740",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "s/,/.",
+      "range": {
+        "startLine": 85,
+        "startChar": 47,
+        "endLine": 85,
+        "endChar": 48
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_5c96bff1",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "s/have/has",
+      "range": {
+        "startLine": 85,
+        "startChar": 72,
+        "endLine": 85,
+        "endChar": 76
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_7c993b1e",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "s/,/.",
+      "range": {
+        "startLine": 90,
+        "startChar": 57,
+        "endLine": 90,
+        "endChar": 58
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_1ca04742",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "s/message/messages",
+      "range": {
+        "startLine": 97,
+        "startChar": 82,
+        "endLine": 97,
+        "endChar": 89
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_3ca3c350",
+        "filename": "docs/specs/logging_enablement.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-21T14:17:37Z",
+      "side": 1,
+      "message": "s/color/colors",
+      "range": {
+        "startLine": 97,
+        "startChar": 93,
+        "endLine": 97,
+        "endChar": 98
+      },
+      "revId": "20c39dfea0a9d3838feeaf91dd40443b78b16817",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
