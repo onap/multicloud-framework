@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_b31dc668",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-21T03:57:45Z",
+      "side": 1,
+      "message": "Store the stack id into AAI, there is property in AAI generic vnf / VF module object for this purpose",
+      "parentUuid": "1a76adc5_f089f4ca",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 31
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_38ed18f0",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 1
@@ -203,6 +227,30 @@
       "side": 1,
       "message": "Is this ID the same with stack ID or a new ID?",
       "parentUuid": "1a76adc5_f32fc3f4",
+      "range": {
+        "startLine": 158,
+        "startChar": 9,
+        "endLine": 158,
+        "endChar": 20
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_d3188277",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-21T03:57:45Z",
+      "side": 1,
+      "message": "the stack ID.",
+      "parentUuid": "1a76adc5_d0f71858",
       "range": {
         "startLine": 158,
         "startChar": 9,
@@ -368,6 +416,30 @@
       "side": 1,
       "message": "For example:\n\nhttp://{msb IP}:{msb port}/api/multicloud /v1/{cloud-owner}/{cloud-region-id}/infra_workload?template_type\u003dheat\u0026template_id\u003dxxx\n\nWe don\u0027t need vf-module-id and generic-vnf-id here.",
       "parentUuid": "1a76adc5_134a7fc5",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 3
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_932a0a7d",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-21T03:57:45Z",
+      "side": 1,
+      "message": "I prefer the genric vnf id and vf module id, since they are the critical information for multicloud looking up the generic vnf object and vf module object in AAI.",
+      "parentUuid": "1a76adc5_9099a021",
       "range": {
         "startLine": 230,
         "startChar": 0,
