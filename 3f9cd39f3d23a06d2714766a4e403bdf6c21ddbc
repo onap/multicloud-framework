@@ -522,6 +522,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_01fea438",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-21T12:17:42Z",
+      "side": 1,
+      "message": "heat stack id will be populated into AAI VF module object. there is no way to look up the stack id directly.\nIf you do not want to couple the workload resource with Generic VNF /VF Module objects, then the stack id should be used between SO and MultiCloud, that means, return stack id to SO after creation API, and then SO should use stack id to query the creating progess, and delete ... \nI am also ok with this approach. but make sure finalize it soon",
+      "parentUuid": "1a76adc5_5671c0de",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 3
+      },
+      "revId": "3f9cd39f3d23a06d2714766a4e403bdf6c21ddbc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_f8bec0d3",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 1
