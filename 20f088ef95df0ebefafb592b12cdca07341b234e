@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_1347da1e",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1663,
+      "author": {
+        "id": 141
+      },
+      "writtenOn": "2018-08-21T05:13:21Z",
+      "side": 1,
+      "message": "Sorry, power_data should be modified to \"power_state\"",
+      "parentUuid": "1a76adc5_93d44a48",
+      "range": {
+        "startLine": 1663,
+        "startChar": 17,
+        "endLine": 1663,
+        "endChar": 19
+      },
+      "revId": "20f088ef95df0ebefafb592b12cdca07341b234e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_535b122e",
         "filename": "docs/MultiCloud-APIv1-Specification.rst",
         "patchSetId": 2
