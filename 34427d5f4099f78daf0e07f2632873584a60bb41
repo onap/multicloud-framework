@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_76af1795",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-22T00:48:50Z",
+      "side": 1,
+      "message": "Is this the correct example? seems to be a duplication of POST response",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 3
+      },
+      "revId": "34427d5f4099f78daf0e07f2632873584a60bb41",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
