@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "1a76adc5_b91cc078",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-08-22T06:02:24Z",
+      "side": 1,
+      "message": "I think it\u0027s not needed in response, since it\u0027s already in request body.",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 31
+      },
+      "revId": "34427d5f4099f78daf0e07f2632873584a60bb41",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_190db43e",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-08-22T06:02:24Z",
+      "side": 1,
+      "message": "Please confirm with SO if this is needed.",
+      "range": {
+        "startLine": 254,
+        "startChar": 8,
+        "endLine": 254,
+        "endChar": 27
+      },
+      "revId": "34427d5f4099f78daf0e07f2632873584a60bb41",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_76af1795",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 3
