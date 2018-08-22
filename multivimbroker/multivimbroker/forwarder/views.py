@@ -307,3 +307,21 @@ class APIv1MultiPartView(MultiPartView):
 
         vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
         return super(APIv1MultiPartView, self).post(request, vimid)
+
+
+class APIv1InfraWorkload(BaseServer):
+
+    def post(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return self.send(vimid, request.get_full_path(), request.body, "POST",
+                         headers=originHeaders(request))
+
+    def get(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return self.send(vimid, request.get_full_path(), request.body, "GET",
+                         headers=originHeaders(request))
+
+    def delete(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return self.send(vimid, request.get_full_path(), request.body, 
+                         "DELETE", headers=originHeaders(request))
