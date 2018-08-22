@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_e5d60bf1",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-22T17:29:36Z",
+      "side": 1,
+      "message": "nit: s/we/We",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 2
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8505d77b",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-22T17:29:36Z",
+      "side": 1,
+      "message": "s/Intergrate/Integrate",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_85de3710",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-22T17:29:36Z",
+      "side": 1,
+      "message": "nit: extra white-space",
+      "range": {
+        "startLine": 18,
+        "startChar": 41,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_65ebdbb0",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-22T17:29:36Z",
+      "side": 1,
+      "message": "s/these/this information",
+      "range": {
+        "startLine": 21,
+        "startChar": 48,
+        "endLine": 21,
+        "endChar": 53
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_25cde35d",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-22T17:29:36Z",
+      "side": 1,
+      "message": "s/detail/detailed",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 10
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_c5dbcf19",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-08-22T17:29:36Z",
+      "side": 1,
+      "message": "remove this white-space",
+      "range": {
+        "startLine": 32,
+        "startChar": 50,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
