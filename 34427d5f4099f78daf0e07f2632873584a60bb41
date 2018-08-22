@@ -49,6 +49,29 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_ec711845",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-22T07:25:35Z",
+      "side": 1,
+      "message": "perhaps this should be renamed to \"workload_response\" as well, but not sure if it is necessary to have it in the response body , if SO does not need these information, this response data could be optional?",
+      "range": {
+        "startLine": 157,
+        "startChar": 8,
+        "endLine": 157,
+        "endChar": 27
+      },
+      "revId": "34427d5f4099f78daf0e07f2632873584a60bb41",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_190db43e",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 3
@@ -107,6 +130,30 @@
       "side": 1,
       "message": "Do you mean that return stack status like below.\n{\n    \"stack\": {\n        \"capabilities\": [],\n        \"creation_time\": \"2014-06-03T20:59:46Z\",\n        \"deletion_time\": null,\n        \"description\": \"sample stack\",\n        \"disable_rollback\": true,\n        \"id\": \"3095aefc-09fb-4bc7-b1f0-f21a304e864c\",\n        \"links\": [\n            {\n                \"href\": \"http://192.168.123.200:8004/v1/eb1c63a4f77141548385f113a28f0f52/stacks/simple_stack/3095aefc-09fb-4bc7-b1f0-f21a304e864c\",\n                \"rel\": \"self\"\n            }\n        ],\n        \"notification_topics\": [],\n        \"outputs\": [],\n        \"parameters\": {\n            \"OS::project_id\": \"3ab5b02f-a01f-4f95-afa1-e254afc4a435\",\n            \"OS::stack_id\": \"3095aefc-09fb-4bc7-b1f0-f21a304e864c\",\n            \"OS::stack_name\": \"simple_stack\"\n        },\n        \"parent\": null,\n        \"stack_name\": \"simple_stack\",\n        \"stack_owner\": \"simple_username\",\n        \"stack_status\": \"CREATE_COMPLETE\",\n        \"stack_status_reason\": \"Stack CREATE completed successfully\",\n        \"stack_user_project_id\": \"65728b74-cfe7-4f17-9c15-11d4f686e591\",\n        \"tags\": null,\n        \"template_description\": \"sample stack\",\n        \"timeout_mins\": null,\n        \"updated_time\": null\n    }\n}",
       "parentUuid": "1a76adc5_76af1795",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 3
+      },
+      "revId": "34427d5f4099f78daf0e07f2632873584a60bb41",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_8c90a444",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-22T07:25:35Z",
+      "side": 1,
+      "message": "Need to check with SO if the stack response is needed, if not , you can simple remove that, just make sure to return the stack status as \"workload_status\"",
+      "parentUuid": "1a76adc5_4c7dac6d",
       "range": {
         "startLine": 257,
         "startChar": 0,
