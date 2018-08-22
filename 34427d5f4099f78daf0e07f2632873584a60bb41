@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_2cc0707b",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-08-22T06:29:48Z",
+      "side": 1,
+      "message": "If \"template_response\" is needed to return to SO, the \"template_type\" should be there pairing with the \"template_response\"",
+      "parentUuid": "1a76adc5_b91cc078",
+      "range": {
+        "startLine": 155,
+        "startChar": 8,
+        "endLine": 155,
+        "endChar": 31
+      },
+      "revId": "34427d5f4099f78daf0e07f2632873584a60bb41",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_190db43e",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 3
