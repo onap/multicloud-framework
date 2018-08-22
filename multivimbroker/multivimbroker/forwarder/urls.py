@@ -16,6 +16,7 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 
+# API v0
 from multivimbroker.forwarder.views import CheckCapacity
 from multivimbroker.forwarder.views import Extension
 from multivimbroker.forwarder.views import Forward
@@ -34,8 +35,10 @@ from multivimbroker.forwarder.views import APIv1Registry
 from multivimbroker.forwarder.views import APIv1UnRegistry
 from multivimbroker.forwarder.views import APIv1VIMTypes
 from multivimbroker.forwarder.views import APIv1MultiPartView
+from multivimbroker.forwarder.views import APIv1InfraWorkload
 
 urlpatterns = [
+    # API v0
     url(r'^api/multicloud/v0/vim_types$',
         VIMTypes.as_view()),
     url(r'^api/multicloud/v0/check_vim_capacity$',
@@ -69,7 +72,7 @@ urlpatterns = [
     url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)'
         r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)/registry$',
         APIv1Registry.as_view()),
-    url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)i'
+    url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)'
         r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)$',
         APIv1UnRegistry.as_view()),
     url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)'
@@ -81,6 +84,9 @@ urlpatterns = [
     url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)'
         r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)',
         APIv1Forward.as_view()),
+    url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)'
+        r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)/infra_workload',
+        APIv1InfraWorkload.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
