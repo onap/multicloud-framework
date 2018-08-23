@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_7fba8324",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-23T03:40:21Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_e5d60bf1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 2
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_8505d77b",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 5
@@ -36,6 +60,30 @@
       "writtenOn": "2018-08-22T17:29:36Z",
       "side": 1,
       "message": "s/Intergrate/Integrate",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 13
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_3f840b5d",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-23T03:40:21Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_8505d77b",
       "range": {
         "startLine": 11,
         "startChar": 3,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_5f878761",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-23T03:40:21Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_85de3710",
+      "range": {
+        "startLine": 18,
+        "startChar": 41,
+        "endLine": 18,
+        "endChar": 43
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_65ebdbb0",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 5
@@ -82,6 +154,30 @@
       "writtenOn": "2018-08-22T17:29:36Z",
       "side": 1,
       "message": "s/these/this information",
+      "range": {
+        "startLine": 21,
+        "startChar": 48,
+        "endLine": 21,
+        "endChar": 53
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_ff7d336f",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-23T03:40:21Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_65ebdbb0",
       "range": {
         "startLine": 21,
         "startChar": 48,
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "1a76adc5_3fd2cb5c",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-23T03:40:21Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_25cde35d",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 10
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a76adc5_c5dbcf19",
         "filename": "docs/specs/multicloud_infra_workload.rst",
         "patchSetId": 5
@@ -128,6 +248,30 @@
       "writtenOn": "2018-08-22T17:29:36Z",
       "side": 1,
       "message": "remove this white-space",
+      "range": {
+        "startLine": 32,
+        "startChar": 50,
+        "endLine": 32,
+        "endChar": 51
+      },
+      "revId": "62a96c11df1881645b015f946700bc8faf68a64d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a76adc5_1f810f4a",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-08-23T03:40:21Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "1a76adc5_c5dbcf19",
       "range": {
         "startLine": 32,
         "startChar": 50,
