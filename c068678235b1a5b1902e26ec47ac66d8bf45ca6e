@@ -1,0 +1,11 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Bin Hu <bh526r@att.com>
+Code-Review+2: Victor Morales <victor.morales@intel.com>
+Verified+1: Victor Morales <victor.morales@intel.com>
+Code-Review+1: Luke Parker <lparker@amdocs.com>
+Code-Review+1: Michael O'Brien <frank.obrien@amdocs.com>
+Submitted-by: Bin Hu <bh526r@att.com>
+Submitted-at: Thu, 23 Aug 2018 14:00:58 +0000
+Reviewed-on: https://gerrit.onap.org/r/61213
+Project: multicloud/framework
+Branch: refs/heads/master
