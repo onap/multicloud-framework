@@ -74,7 +74,7 @@ MDC context specific logging, able to
 change configuration at runtime, and make logging quite fast.
 
 Supporting Python3 version
--------------------------
+--------------------------
 Right now, this library only has be used in Python2 version. Python2 will not been
 maintained after 2020, besides part of ONAP project have used python3 version.
 It's be better to support Python2 and Python3 version

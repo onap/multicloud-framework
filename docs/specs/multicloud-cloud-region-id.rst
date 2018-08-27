@@ -52,14 +52,14 @@ as example:
 This API consists of several parts referred as below terminologies:
 
 
- - **Terminology         | Description                   | Example**
- - **service endpoint**    | http(s)://{service IP}:{service port}| http://1.2.3.4:9001
- - **service namespace**   | api/{service-name}            | api/multicloud
- - **service API version** | v0, v1, etc.                  | v0
- - **ID of a cloud region**| the ID to specify a cloud region| OnaplabOwner_RegionOne
- - **proxied API catalog** | identity,compute, network, image,volume,etc.| identity
- - **proxied API endpoint**| consists of all above| *http://1.2.3.4:9001/api/multicloud/v0/OnaplabOwner_RegionOne/identity*
- - **proxied API resource**| URI for an OpenStack resource | v3/auth/tokens
+ - **Terminology            | Description                                  | Example**
+ - **service endpoint**     | http(s)://{service IP}:{service port}        | http://1.2.3.4:9001
+ - **service namespace**    | api/{service-name}                           | api/multicloud
+ - **service API version**  | v0, v1, etc.                                 | v0
+ - **ID of a cloud region** | the ID to specify a cloud region             | OnaplabOwner_RegionOne
+ - **proxied API catalog**  | identity,compute, network, image,volume,etc. | identity
+ - **proxied API endpoint** | consists of all above                        | *http://1.2.3.4:9001/api/multicloud/v0/OnaplabOwner_RegionOne/identity*
+ - **proxied API resource** | URI for an OpenStack resource                | v3/auth/tokens
 
 Given the terminology above, the general rules to upgrade MultiCloud North Bound API are:
  - Upgrade "service API version" from "v0" to "v1"
@@ -105,9 +105,9 @@ https://wiki.onap.org/pages/viewpage.action?pageId=25431491
 2. ONAP user should put this key-value pair into "cloud-extra-info" property via ESR GUI Portal, the input string
     looks like: "{\"openstack-region-id\":\"RegionOne\"}"
 3. the corresponding MultiCloud plugin should decode this string to extract this key-value pair "openstack-region-id" during cloud region on-boarding phase.
-4, Update AAI schema to add one more property "openstack-region-id" to AAI "esr-system-info" object which is the child of AAI "cloud-region" object.
-5, MultiCloud plugin for OpenStack should populate this property with the information acquired in step 3.
-6, MultiCloud should use this property to determine what OpenStack Region ID is when interacting with represented OpenStack Instance
+4. Update AAI schema to add one more property "openstack-region-id" to AAI "esr-system-info" object which is the child of AAI "cloud-region" object.
+5. MultiCloud plugin for OpenStack should populate this property with the information acquired in step 3.
+6. MultiCloud should use this property to determine what OpenStack Region ID is when interacting with represented OpenStack Instance
 7. Given the workflow above, the AAI's "cloud-region-id" can be populated by arbitrary string.
 8. In cases that either ONAP user doesn't input the key-value pair of "openstack-region-id" into "cloud-extra-info" or MultiCloud Plugin does not support the decoding/using key-value pair "openstack-region-id", the legacy constraint should be applied, that is: ONAP user should make sure AAI's "cloud-region-id" is populated by OpenStack Region ID.
 
@@ -118,7 +118,6 @@ The Identity API: "/v3/regions" can be used to list all regions. In case of no m
 this API should return the only one OpenStack Region information. In case of multi-region configuration for underlying OpenStack instances,
 The list of OpenStack Regions will be returned. In this case, I assume you either go with Option 1,
 or go with another proposal "MultiCloud Multi-Region support" to on-board all cloud regions at one time.
-
 ..
 https://developer.openstack.org/api-ref/identity/v3/index.html#regions
 

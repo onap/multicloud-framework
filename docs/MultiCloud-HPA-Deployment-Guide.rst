@@ -2,14 +2,14 @@
  This work is licensed under a Creative Commons Attribution 4.0
  International License.
 
-===================================
+====================================
 ONAP MultiCloud HPA Deployment Guide
-===================================
+====================================
 
 The guide for MultiCloud HPA Deployment.
 
 Architecture & Policies & Mappings
-============
+==================================
 
 Please refer to the link for more architecture details:
 
@@ -20,7 +20,7 @@ Please refer to the link for more Policies&Mappings details:
 https://wiki.onap.org/display/DW/HPA+Policies+and+Mappings
 
 Prerequisites
-============
+=============
 configure openstack with proper flavors (with name prefixed by "onap." to carry HPA information to ONAP), example flavor:
 
 .. code-block:: console
@@ -71,7 +71,7 @@ With OOM based ONAP:
     export ONAP_MSB_PORT=30280
 
 The geographic location of the cloud region
-============
+===========================================
 make sure there is complex object to represent the geographic location of the cloud region
 in case you need create a complex object "clli1":
 
@@ -107,7 +107,7 @@ in case you need create a complex object "clli1":
         }'
 
 Register a cloud region
-============
+=======================
 register a cloud region to represent the VIM with the specific tenant
 
 note: please update the parameters enclosed with "<>"

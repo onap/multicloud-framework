@@ -58,6 +58,7 @@ run_tox_test()
     pip freeze
     cd multivimbroker
     tox -e cover
+    tox -e rstcheck
     deactivate
     cd ..
     rm -rf ./venv-tox ./.tox
