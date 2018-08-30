@@ -7,7 +7,6 @@ MultiCloud security enhancement: secured communication
 ======================================================
 
 To support an ONAP Non-Functional Requirement with regarding to Security: "All internal/external system communications shall be able to be encrypted", MultiCloud project needs to explore the best way to implement it.
-
 ..
 https://wiki.onap.org/display/DW/Casablanca+Release+Requirements#CasablancaReleaseRequirements-NonFunctionalRequirements
 

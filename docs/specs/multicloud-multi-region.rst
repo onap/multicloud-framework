@@ -13,7 +13,6 @@ Problems Statement
 ==================
 
 The ONAP functional requirement for Edge Automation aims to automate the VNF orchestration across edge stacks.
-
 ..
 https://wiki.onap.org/display/DW/Edge+Automation+through+ONAP
 
@@ -25,15 +24,16 @@ of all OpenStack secondary regions.
 Proposed Design and Workflow
 ============================
 
-**This automation assumes**:
+This automation assumes:
  - ONAP could use the same set of credentials (project, user/password) to access all OpenStack regions for orchestration.
  - ONAP user will explicitly enable the automation of discovery OpenStack secondary regions during manually on-boarding the OpenStack primary region.
  - ONAP users could manually manage the cloud regions representing those secondary regions just like a normal cloud region
 
 
-**With OpenStack primary region, the ONAP user will**:
+With OpenStack primary region, the ONAP user will:
 ..
 https://wiki.onap.org/pages/viewpage.action?pageId=25431491
+
  - Manually on-board this primary region with ESR VIM registration portal.
  - Input the {cloud-owner} and {cloud-region-id} as the ID of cloud region which is unique.
  - Specify the location id
