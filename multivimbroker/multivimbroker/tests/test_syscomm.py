@@ -51,7 +51,7 @@ class TestSyscomm(unittest.TestCase):
     def test_findMultivimDriver_with_version(self):
         vim = {"type": "openstack", "version": "titanium_cloud"}
         ret = syscomm.findMultivimDriver(vim)
-        self.assertEqual("multicloud-titanium_cloud", ret)
+        self.assertEqual("multicloud-titaniumcloud", ret)
 
     def test_originHeaders(self):
         req = mock.Mock()
