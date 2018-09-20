@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a76adc5_e3da624b",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2018-09-20T23:04:18Z",
+      "side": 1,
+      "message": "You define is the \"name\", but the example is the \"networkName\".",
+      "range": {
+        "startLine": 368,
+        "startChar": 9,
+        "endLine": 368,
+        "endChar": 20
+      },
+      "revId": "dc7d4549085fb09da7777bbff9fe134f16175b1e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
