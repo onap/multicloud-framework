@@ -24,7 +24,6 @@ from multivimbroker.forwarder.views import Identity
 from multivimbroker.forwarder.views import Registry
 from multivimbroker.forwarder.views import UnRegistry
 from multivimbroker.forwarder.views import VIMTypes
-from multivimbroker.forwarder.views import MultiPartView
 
 # API v1
 from multivimbroker.forwarder.views import APIv1CheckCapacity
@@ -34,7 +33,6 @@ from multivimbroker.forwarder.views import APIv1Identity
 from multivimbroker.forwarder.views import APIv1Registry
 from multivimbroker.forwarder.views import APIv1UnRegistry
 from multivimbroker.forwarder.views import APIv1VIMTypes
-from multivimbroker.forwarder.views import APIv1MultiPartView
 from multivimbroker.forwarder.views import APIv1InfraWorkload
 
 urlpatterns = [
@@ -53,8 +51,6 @@ urlpatterns = [
         UnRegistry.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/extensions$',
         Extension.as_view()),
-    url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)/multipart',
-        MultiPartView.as_view()),
     url(r'^api/multicloud/v0/(?P<vimid>[0-9a-zA-Z_-]+)',
         Forward.as_view()),
 
@@ -79,14 +75,11 @@ urlpatterns = [
         r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)/extensions$',
         APIv1Extension.as_view()),
     url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)'
-        r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)/multipart',
-        APIv1MultiPartView.as_view()),
+        r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)/infra_workload',
+        APIv1InfraWorkload.as_view()),
     url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)'
         r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)',
         APIv1Forward.as_view()),
-    url(r'^api/multicloud/v1/(?P<cloud_owner>[0-9a-zA-Z_-]+)'
-        r'/(?P<cloud_region_id>[0-9a-zA-Z_-]+)/infra_workload',
-        APIv1InfraWorkload.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
