@@ -17,6 +17,7 @@ import os
 import json
 import re
 import tempfile
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from poster.encode import multipart_encode
 from poster.streaminghttp import register_openers
 
@@ -26,7 +27,6 @@ from rest_framework.views import status
 from multivimbroker.forwarder.base import BaseHandler
 from multivimbroker.pub.utils.syscomm import originHeaders
 from multivimbroker.pub.utils import syscomm
-from rest_framework.parsers import MultiPartParser
 from multivimbroker.pub.msapi import extsys
 
 
@@ -161,41 +161,6 @@ class Forward(BaseServer):
                          headers=originHeaders(request))
 
 
-# Multipart view
-class MultiPartView(BaseServer):
-
-    parser_classes = (MultiPartParser, )
-
-    def post(self, request, vimid):
-        try:
-            register_openers()
-            fileDict = dict(request.FILES.iterlists())
-            params = {}
-            for key in fileDict.keys():
-                fileObj = fileDict[key][0]
-                f = tempfile.NamedTemporaryFile(prefix="django_",
-                                                suffix=fileObj._name,
-                                                delete=False)
-                f.write(fileObj.file.read())
-                f.seek(fileObj.file.tell(), 0)
-                fileObj.file.close()
-                params[key] = open(f.name, 'rb')
-            datagen, headers = multipart_encode(params)
-            regex = re.compile('^HTTP_')
-            for key, value in request.META.iteritems():
-                if key.startswith("HTTP_"):
-                    headers[regex.sub('', key).replace('_', '-')] = value
-            resp = self.send(vimid, request.path, datagen, "POST",
-                             headers=headers)
-        finally:
-            for key in params:
-                fileRef = params[key]
-                if fileRef.closed is False:
-                    fileRef.close()
-                os.remove(fileRef.name)
-        return resp
-
-
 # API v1
 # proxy handler
 class APIv1Identity(Identity):
@@ -300,19 +265,12 @@ class APIv1Forward(Forward):
         return super(APIv1Forward, self).put(request, vimid)
 
 
-# Multipart view
-class APIv1MultiPartView(MultiPartView):
-
-    def post(self, request, cloud_owner, cloud_region_id):
-
-        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
-        return super(APIv1MultiPartView, self).post(request, vimid)
-
-
 class APIv1InfraWorkload(BaseServer):
 
     def post(self, request, cloud_owner, cloud_region_id):
         vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        if len(request.FILES) != 0:
+            return self.__process_multipart(request, vimid)
         return self.send(vimid, request.get_full_path(), request.body, "POST",
                          headers=originHeaders(request))
 
@@ -325,3 +283,36 @@ class APIv1InfraWorkload(BaseServer):
         vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
         return self.send(vimid, request.get_full_path(), request.body,
                          "DELETE", headers=originHeaders(request))
+
+    def __process_multipart(self, request, vimid):
+        try:
+            register_openers()
+            dataDict = dict(request.data.iterlists())
+            params = {}
+            for key in dataDict.keys():
+                dataObj = dataDict[key][0]
+                if isinstance(dataObj, InMemoryUploadedFile):
+                    f = tempfile.NamedTemporaryFile(prefix="django_",
+                                                    suffix=dataObj._name,
+                                                    delete=False)
+                    f.write(dataObj.file.read())
+                    f.seek(dataObj.file.tell(), 0)
+                    dataObj.file.close()
+                    params[key] = open(f.name, 'rb')
+                else:
+                    params[key] = dataObj
+            datagen, headers = multipart_encode(params)
+            regex = re.compile('^HTTP_')
+            for key, value in request.META.iteritems():
+                if key.startswith("HTTP_"):
+                    headers[regex.sub('', key).replace('_', '-')] = value
+            resp = self.send(vimid, request.path, datagen, "POST",
+                             headers=headers, multipart=True)
+        finally:
+            for key in params:
+                refobj = params[key]
+                if type(refobj) is not unicode:
+                    if refobj.closed is False:
+                        print refobj.close()
+                    os.remove(refobj.name)
+        return resp

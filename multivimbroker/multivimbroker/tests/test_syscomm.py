@@ -22,6 +22,7 @@ class TestSyscomm(unittest.TestCase):
         expected_body = {
             "openstack": ["titanium_cloud", "ocata"],
             "vmware": ["4.0"],
+            "azure": ["1.0"]
         }
         ret = syscomm.getVIMTypes()
         for item in ret:

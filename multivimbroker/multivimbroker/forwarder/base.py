@@ -27,10 +27,11 @@ logger = logging.getLogger(__name__)
 
 class BaseHandler(object):
 
-    def _request(self, route_uri, method, body="", headers=None):
+    def _request(self, route_uri, method, body="", headers=None,
+                 multipart=False):
 
         try:
-            if "multipart" in route_uri:
+            if multipart:
                 return self._multipart_req(route_uri, method, body, headers)
             retcode, content, status_code, resp = \
                 req_by_msb(route_uri, method, body, headers)
@@ -74,7 +75,8 @@ class BaseHandler(object):
         response = HttpResponse(content, status=status_code)
         return response
 
-    def send(self, vimid, full_path, body, method, headers=None):
+    def send(self, vimid, full_path, body, method, headers=None,
+             multipart=False):
 
         try:
             url = getMultivimDriver(vimid, full_path=full_path)
@@ -85,5 +87,5 @@ class BaseHandler(object):
             logging.exception("unkown exception: %s" % e)
             return HttpResponse(str(e),
                                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-        return self._request(url, method, body=body, headers=headers)
+        return self._request(url, method, body=body, headers=headers,
+                             multipart=multipart)

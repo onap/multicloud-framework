@@ -23,4 +23,4 @@ class TestUrls(unittest.TestCase):
     def test_vim_types_success(self):
         resp = self.view.get(mock.Mock())
         self.assertEqual(status.HTTP_200_OK, resp.status_code)
-        self.assertEqual(2, len(resp.data))
+        self.assertEqual(3, len(resp.data))
