@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bada0100_95ce8259",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2442,
+      "author": {
+        "id": 1209
+      },
+      "writtenOn": "2018-10-10T05:40:38Z",
+      "side": 1,
+      "message": "This might also require 202:Accepted status. I guess this is not incorporated as of now but based on the instantiation time require by different plugins, it might be required to provide this",
+      "range": {
+        "startLine": 2442,
+        "startChar": 0,
+        "endLine": 2442,
+        "endChar": 12
+      },
+      "revId": "cc140e25ed1e7bfca83e5669b9740975a794b571",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bada0100_d5ec0aca",
+        "filename": "docs/MultiCloud-APIv1-Specification.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2497,
+      "author": {
+        "id": 1209
+      },
+      "writtenOn": "2018-10-10T05:40:38Z",
+      "side": 1,
+      "message": "Can we have all the possible status? I took them from SO code.\nCREATE_IN_PROGRESS,CREATE_COMPLETE,CREATE_FAILED,DELETE_IN_PROGRESS,DELETE_COMPLETE,DELETE_FAILED,UPDATE_IN_PROGRESS,UPDATE_COMPLETE,UPDATE_FAILED",
+      "range": {
+        "startLine": 2497,
+        "startChar": 62,
+        "endLine": 2497,
+        "endChar": 115
+      },
+      "revId": "cc140e25ed1e7bfca83e5669b9740975a794b571",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
