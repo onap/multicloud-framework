@@ -11,6 +11,11 @@
                 "version": "ocata",
                 "extra_info_hint": "",
                 "provider_plugin": "multicloud-ocata"
+            },
+            "pike": {
+                "version": "pike",
+                "extra_info_hint": "",
+                "provider_plugin": "multicloud-pike"
             }
         },
         "provider_plugin": "multicloud-ocata"
