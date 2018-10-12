@@ -20,7 +20,7 @@ class TestSyscomm(unittest.TestCase):
 
     def test_getVIMTypes(self):
         expected_body = {
-            "openstack": ["titanium_cloud", "ocata"],
+            "openstack": ["titanium_cloud", "ocata", "pike"],
             "vmware": ["4.0"],
             "azure": ["1.0"]
         }
