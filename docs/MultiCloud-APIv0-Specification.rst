@@ -3,7 +3,7 @@
  International License.
 
 ================================
-MultiCloud API Specification V1
+MultiCloud API v0 Specification
 ================================
 
 API Catalog
