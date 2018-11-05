@@ -37,7 +37,8 @@ MultiCloud Plugins User Guides
    :maxdepth: 2
 
    multicloud-plugin-windriver/UserGuide-MultiCloud-WindRiver-TitaniumCloud
-   Multicloud-Fake_Cloud-Guide
+   multicloud-plugin-vio/UserGuide-MultiCloud-VMware-OpenStack
+   multicloud-plugin-vio/Multicloud-Fake_Cloud-Guide
    MultiCloud-Test-Guide
 
 MultiCloud Specifications
