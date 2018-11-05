@@ -2,18 +2,13 @@
  This work is licensed under a Creative Commons Attribution 4.0
  International License.
 
-================================
-MultiCloud Fake_Cloud User Case
-================================
+===================================================
+MultiCloud VMware OpenStack Simulated API User Case
+===================================================
 
-
-
-multilcoud-vmware server not only provide vio plugin to access real openstack
-platform,but
-also provide fake_cloud plugin which simulate thereal VIO function.The fake
-cloud is suitable for testing openstack function if there is not real VIO
-platform.
-
+When there's no real VIO environment at hands, we could still use fake_cloud APIs
+in VIO plugin to test ONAP functions. These set of APIs simulate the real VIO functions
+to interact with ONAP components.
 
 Make sure you environment have msb,aai service and multicloud-vmware config
 file has the right msb_ip and
