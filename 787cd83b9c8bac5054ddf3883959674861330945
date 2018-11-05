@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_ee6cfa38",
+        "filename": "docs/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2018-11-05T09:00:52Z",
+      "side": 1,
+      "message": "Would it be more reasonable to refer the Fake cloud guide from UserGuide of VIO?",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 52
+      },
+      "revId": "787cd83b9c8bac5054ddf3883959674861330945",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
