@@ -2,6 +2,213 @@
   "comments": [
     {
       "key": {
+        "uuid": "9adffdf1_613b38ec",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "s/support/supports",
+      "range": {
+        "startLine": 16,
+        "startChar": 37,
+        "endLine": 16,
+        "endChar": 44
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_c136a403",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "s/Upgarde/Upgraded",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 9
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_61125864",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "s/Add/Added",
+      "range": {
+        "startLine": 17,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 5
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_a1184085",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "Updated the Wind River\u0027s plugin for supporting Titanium Cloud R5",
+      "range": {
+        "startLine": 18,
+        "startChar": 14,
+        "endLine": 18,
+        "endChar": 64
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_4122b4ba",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "s/Updates/Update",
+      "range": {
+        "startLine": 18,
+        "startChar": 2,
+        "endLine": 18,
+        "endChar": 9
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_210c5042",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "Updated the VMWare VIO\u0027s plugin to support VIO 5.0",
+      "range": {
+        "startLine": 19,
+        "startChar": 2,
+        "endLine": 19,
+        "endChar": 46
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_01034c10",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "Added support to OpenStack Pike Release",
+      "range": {
+        "startLine": 20,
+        "startChar": 2,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_a4ffee00",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "Released Azure\u0027s plugin seed code.",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 55
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_c4047217",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "Released Kubernetes\u0027 plugin seed code.",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 53
+      },
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9adffdf1_22ad3332",
         "filename": "docs/Release Notes.rst",
         "patchSetId": 2
@@ -30,6 +237,23 @@
       "writtenOn": "2018-11-06T06:42:43Z",
       "side": 1,
       "message": "Please also adds these to VIO:\n* Expands the HPA discovery and registration to cover SR-IOV NICs.\n* Decouples AAI\u0027s cloud-region-id from OpenStack Region ID\n* Automates the on-boarding multiple OpenStack instances leveraging OpenStack multi-region feature.\n* Automates the decommission of a Cloud Region",
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_443722e4",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-06T16:19:09Z",
+      "side": 1,
+      "message": "* Initial seed code released.\n* Service, Deployment and Namespace Kubernetes objects supported for this initial phase.\n* Provided functional tests for ensuring its correct operation using an emulated ONAP interaction.\n* Included a vagrant project for provisioning a Kubernetes deployment.",
       "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
