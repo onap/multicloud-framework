@@ -6,6 +6,93 @@
 Release Notes
 =============
 
+Version: 1.2.2
+--------------
+
+:Release Date: TBD
+
+**New Features**
+
+* Upgarde Northbound API to v1 which support `Consistent ID of a Cloud Region`
+* Add new Generic API to offload Infrastructure's workload LCM from SO to MutliCloud
+* Updates the plugin for Wind River to support Titanium Cloud R5
+* Update the plugin for VIO to support VIO 5.0
+* Add a plugin to support OpenStack Pike
+* Add a plugin to support Azure cloud which is PoC yet.
+* Add a plugin to support kubernetes which is PoC yet.
+
+
+**MultiCloud Plugin for Wind River Titanium Cloud**
+
+* Expands the HPA discovery and registration to cover SR-IOV NICs.
+* Decouples AAI's cloud-region-id from OpenStack Region ID
+* Automates the on-boarding multiple OpenStack instances leveraging OpenStack multi-region feature.
+* Automates the decommission of a Cloud Region
+* Automates the updating AAI with heat stack resources
+* Enables Server Operations API for Auto-Healing
+
+
+**MultiCloud Plugin for OpenStack**
+
+* Expanding the HPA discovery and registration to cover SR-IOV NICs.
+* Enabled Server Operations API for Auto-Healing
+
+
+**MultiCloud Plugin for VIO**
+
+* Support Cloud Agnostic Placement Policies in VIO plugin
+* Enabled Server Operations API for Auto-Healing
+* Enables marker support on logging
+
+
+**MultiCloud Plugin for Azure**
+
+
+**MultiCloud Plugin for Kubernetes**
+
+
+**Bug Fixes**
+
+
+**Known Issues**
+
+- `MULTICLOUD-253 <https://jira.onap.org/browse/MULTICLOUD-353>`_
+  OPENO servers API: meta_data is generated in wrong type
+
+- `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
+  OPENO images API: image creating API cannot handle large image file
+
+- `MULTICLOUD-386 <https://jira.onap.org/browse/MULTICLOUD-386>`_
+  OPENO identity API: identity API cannot work with keystone endpoint v2.0
+
+- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
+  OPENO servers API: keypair cannot be passed for nova instance creation
+
+- `MULTICLOUD-390 <https://jira.onap.org/browse/MULTICLOUD-390>`_
+  OPENO servers API: pass userdata without contextArray, then "user_data"
+  is not being passed to nova instance API.
+
+**Security Notes**
+
+MULTICLOUD code has been formally scanned during build time using NexusIQ and no Critical vulnerability were found.
+
+Quick Links:
+  - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
+
+  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+
+**Upgrade Notes**
+
+None
+
+**Deprecation Notes**
+
+* The maintainance with regarding to MultiCloud plugin for OpenStack Newton has been stopped from Casablanca Release.
+
+**Other**
+
+None
+
 
 Version: 1.1.2
 --------------
