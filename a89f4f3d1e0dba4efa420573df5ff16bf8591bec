@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_22ff7336",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-11-06T06:42:43Z",
+      "side": 1,
+      "message": "Please also adds these to VIO:\n* Expands the HPA discovery and registration to cover SR-IOV NICs.\n* Decouples AAI\u0027s cloud-region-id from OpenStack Region ID\n* Automates the on-boarding multiple OpenStack instances leveraging OpenStack multi-region feature.\n* Automates the decommission of a Cloud Region",
+      "revId": "a89f4f3d1e0dba4efa420573df5ff16bf8591bec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
