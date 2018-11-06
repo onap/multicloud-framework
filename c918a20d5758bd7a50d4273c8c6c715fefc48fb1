@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Bin Yang <bin.yang@windriver.com>
+Code-Review+2: xinhuili <lxinhui@vmware.com>
+Verified+1: xinhuili <lxinhui@vmware.com>
+Submitted-by: xinhuili <lxinhui@vmware.com>
+Submitted-at: Tue, 06 Nov 2018 04:30:33 +0000
+Reviewed-on: https://gerrit.onap.org/r/71812
+Project: multicloud/framework
+Branch: refs/heads/master
