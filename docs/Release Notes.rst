@@ -6,6 +6,104 @@
 Release Notes
 =============
 
+Version: 1.2.1
+--------------
+
+:Release Date: TBD
+
+**New Features**
+
+* Upgarded Northbound API to v1 which support `Consistent ID of a Cloud Region`
+* Added new Generic API to offload Infrastructure's workload LCM from SO to MutliCloud
+* Updated the plugin for Wind River to support Titanium Cloud R5
+* Updated the plugin for VIO to support VIO 5.0
+* Added a plugin to support OpenStack Pike
+* Released Azure's plugin seed code
+* Released Kubernetes' plugin seed code
+
+
+**MultiCloud Plugin for Wind River Titanium Cloud**
+
+* Expanded the HPA discovery and registration to cover SR-IOV NICs.
+* Decoupled AAI's cloud-region-id from OpenStack Region ID
+* Automated the on-boarding multiple OpenStack instances leveraging OpenStack multi-region feature.
+* Enabled the on-boarding of subclouds of Titanium Cloud in Distributed Cloud Mode
+* Automated the decommission of a Cloud Region
+* Automated the updating AAI with heat stack resources
+* Enabled Server Operations API for Auto-Healing
+
+
+**MultiCloud Plugin for OpenStack**
+
+* Expanded the HPA discovery and registration to cover SR-IOV NICs.
+* Decoupled AAI's cloud-region-id from OpenStack Region ID
+* Enabled Server Operations API for Auto-Healing
+
+
+**MultiCloud Plugin for VIO**
+
+* Expanded the HPA discovery and registration to cover SR-IOV NICs.
+* Decoupled AAI's cloud-region-id from OpenStack Region ID
+* Automated the on-boarding multiple OpenStack instances leveraging OpenStack multi-region feature.
+* Automated the decommission of a Cloud Region
+* Supported Cloud Agnostic Placement Policies in VIO plugin
+* Enabled Server Operations API for Auto-Healing
+* Enabled marker support on logging
+
+
+**MultiCloud Plugin for Azure**
+* Released inital seed code
+* Enabled flavor discovery during on-boarding of azure cloud
+* Supported for OOB vFW and vDNS use cases using the plugin
+
+**MultiCloud Plugin for Kubernetes**
+* Released initial seed code
+* Supported Service, Deployment and Namespace Kubernetes objects for this initial phase
+* Provided functional tests for ensuring its correct operation using an emulated ONAP interaction
+* Included a vagrant project for provisioning a Kubernetes deployment
+
+**Bug Fixes**
+
+
+**Known Issues**
+
+- `MULTICLOUD-253 <https://jira.onap.org/browse/MULTICLOUD-353>`_
+  OPENO servers API: meta_data is generated in wrong type
+
+- `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
+  OPENO images API: image creating API cannot handle large image file
+
+- `MULTICLOUD-386 <https://jira.onap.org/browse/MULTICLOUD-386>`_
+  OPENO identity API: identity API cannot work with keystone endpoint v2.0
+
+- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
+  OPENO servers API: keypair cannot be passed for nova instance creation
+
+- `MULTICLOUD-390 <https://jira.onap.org/browse/MULTICLOUD-390>`_
+  OPENO servers API: pass userdata without contextArray, then "user_data"
+  is not being passed to nova instance API.
+
+**Security Notes**
+
+MULTICLOUD code has been formally scanned during build time using NexusIQ and no Critical vulnerability were found.
+
+Quick Links:
+  - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
+
+  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+
+**Upgrade Notes**
+
+None
+
+**Deprecation Notes**
+
+* The maintainance with regarding to MultiCloud plugin for OpenStack Newton has been stopped from Casablanca Release.
+
+**Other**
+
+None
+
 
 Version: 1.1.2
 --------------
