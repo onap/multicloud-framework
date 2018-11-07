@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_75720ee7",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-11-07T08:58:06Z",
+      "side": 1,
+      "message": "should be 253",
+      "range": {
+        "startLine": 70,
+        "startChar": 59,
+        "endLine": 70,
+        "endChar": 62
+      },
+      "revId": "4d46f0573d2c4ebe25ae174010818d4cb131d2bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
