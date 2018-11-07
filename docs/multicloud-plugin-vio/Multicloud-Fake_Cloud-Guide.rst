@@ -2,9 +2,9 @@
  This work is licensed under a Creative Commons Attribution 4.0
  International License.
 
-===================================================
+
 MultiCloud VMware OpenStack Simulated API User Case
-===================================================
+---------------------------------------------------
 
 When there's no real VIO environment at hands, we could still use fake_cloud APIs
 in VIO plugin to test ONAP functions. These set of APIs simulate the real VIO functions
