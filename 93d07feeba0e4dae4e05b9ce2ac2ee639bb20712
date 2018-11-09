@@ -1,0 +1,11 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Victor Morales <victor.morales@intel.com>
+Code-Review+2: xinhuili <lxinhui@vmware.com>
+Code-Review+2: Bin Hu <bin.hu@att.com>
+Code-Review-1: Bin Yang <bin.yang@windriver.com>
+Code-Review+2: Huang Haibin <haibin.huang@intel.com>
+Submitted-by: Huang Haibin <haibin.huang@intel.com>
+Submitted-at: Fri, 09 Nov 2018 06:24:22 +0000
+Reviewed-on: https://gerrit.onap.org/r/71912
+Project: multicloud/framework
+Branch: refs/heads/master
