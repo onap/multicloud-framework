@@ -9,7 +9,7 @@ Release Notes
 Version: 1.2.1
 --------------
 
-:Release Date: TBD
+:Release Date: 2018-11-12
 
 **New Features**
 
