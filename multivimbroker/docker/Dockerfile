@@ -14,7 +14,7 @@ EXPOSE 9001
 RUN apt-get update && \
     apt-get install -y unzip && \
     cd /opt/ && \
-    wget -O multicloud-framework.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework.broker&a=multicloud-framework-broker&e=zip&v=LATEST" && \
+    wget -O multicloud-framework.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework.broker&a=multicloud-framework-broker&e=zip&v=1.2.2-SNAPSHOT" && \
     unzip -q -o -B multicloud-framework.zip && \
     rm -f multicloud-framework.zip && \
     pip install -r /opt/multivimbroker/requirements.txt
