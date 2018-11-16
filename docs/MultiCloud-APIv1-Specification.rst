@@ -1152,14 +1152,6 @@ Parameter        Qualifier Cardinality  Content    Description
   portId              M         1       String          Port Id
 ================ ========= ============ ======== ================================
 
-**metadata**
-
-================ ========= ============ ======== ================================
-Parameter        Qualifier Cardinality  Content    Description
-================ ========= ============ ======== ================================
-  keyName             M         1       String          Key name
-  value               M         1       string          value
-================ ========= ============ ======== ================================
 
 ::
 
@@ -1203,13 +1195,11 @@ Parameter        Qualifier Cardinality  Content    Description
 
         }],
 
-        "metada": [{
+        "metada": {
 
-            "keyName": "foo",
+            "foo": "foo value"
 
-            "value": "foo value"
-
-        }],
+        },
 
         "userdata": "abcdedf"
 
