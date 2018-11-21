@@ -1,0 +1,259 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_30146143",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "avoid long lines to faciliatte review. should launch doc8 to detect long lines",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_500fa52e",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_10191d79",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_b027f1b5",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_d02ab57d",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_7021899e",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_90242db0",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_303b01d3",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_5036c5e8",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_f03499df",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_10303de7",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_b04e116e",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_d051550f",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_3042213f",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "OpenStack",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_905bcd2d",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 269
+      },
+      "writtenOn": "2018-11-21T07:17:59Z",
+      "side": 1,
+      "message": "long line",
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
