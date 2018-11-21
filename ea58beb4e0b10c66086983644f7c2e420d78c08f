@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "9adffdf1_50ab25d6",
+        "filename": "docs/MultiCloud-Architecture.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2018-11-21T07:27:54Z",
+      "side": 1,
+      "message": "Any reason to add this line?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 44
+      },
+      "revId": "ea58beb4e0b10c66086983644f7c2e420d78c08f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9adffdf1_30146143",
         "filename": "docs/MultiCloud-Architecture.rst",
         "patchSetId": 1
