@@ -4,6 +4,13 @@
 
 .. _index-multicloud:
 
+MultiCloud Architecture
+-----------------------------------
+.. toctree::
+   :maxdepth: 2
+
+   MultiCloud-Architecture
+
 MultiCloud API
 -----------------------------------
 .. toctree::

@@ -8,12 +8,6 @@ ONAP MultiCloud Administrator Guide
 
 The guide for MultiCloud Administrator.
 
-Architecture
-============
-
-Please refer to the link for more details:
-https://wiki.onap.org/pages/viewpage.action?pageId=8227952
-
 
 Configuration
 =============
