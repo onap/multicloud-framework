@@ -6,6 +6,71 @@
 Release Notes
 =============
 
+
+Version: 1.2.2
+--------------
+
+:Release Date: 2018-11-27
+
+**New Features**
+
+* Enriched the Documentaton with Architecture descriptions
+* Verified the supports to end to end vCPE TOSCA VNF use case
+
+
+**MultiCloud Plugin for Wind River Titanium Cloud**
+
+* Cached the AAI cloud region data to improve the API handling performance
+* Passed the vCPE TOSCA VNF use case with several critical issues fixed
+* Fixed the keystone v2.0 endpoint issue
+
+**MultiCloud Plugin for OpenStack**
+
+* Cached the AAI cloud region data to improve the API handling performance
+* Passed the vCPE TOSCA VNF use case with several critical issues fixed
+* Fixed the keystone v2.0 endpoint issue
+
+
+**Bug Fixes**
+
+- `MULTICLOUD-253 <https://jira.onap.org/browse/MULTICLOUD-253>`_
+  OPENO servers API: meta_data is generated in wrong type
+
+- `MULTICLOUD-386 <https://jira.onap.org/browse/MULTICLOUD-386>`_
+  OPENO identity API: identity API cannot work with keystone endpoint v2.0
+
+- `MULTICLOUD-390 <https://jira.onap.org/browse/MULTICLOUD-390>`_
+  OPENO servers API: pass userdata without contextArray, then "user_data"
+  is not being passed to nova instance API.
+
+**Known Issues**
+
+- `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
+  OPENO images API: image creating API cannot handle large image file
+
+- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
+  OPENO servers API: keypair cannot be passed for nova instance creation
+
+- `MULTICLOUD-421 <https://jira.onap.org/browse/MULTICLOUD-421>`_
+  API request to multicloud with authorization header will be rejected
+
+**Security Issues**
+
+None
+
+**Upgrade Notes**
+
+None
+
+**Deprecation Notes**
+
+None
+
+**Other**
+
+None
+
+
 Version: 1.2.1
 --------------
 
@@ -14,7 +79,8 @@ Version: 1.2.1
 **New Features**
 
 * Upgraded Northbound API to v1 which support `Consistent ID of a Cloud Region`
-* Added new Generic API to offload Infrastructure's workload LCM from SO to MutliCloud
+* Added new Generic API to offload Infrastructure's workload LCM from SO to
+  MutliCloud
 * Updated the plugin for Wind River to support Titanium Cloud R5
 * Updated the plugin for VIO to support VIO 5.0
 * Added a plugin to support OpenStack Pike
@@ -26,8 +92,10 @@ Version: 1.2.1
 
 * Expanded the HPA discovery and registration to cover SR-IOV NICs.
 * Decoupled AAI's cloud-region-id from OpenStack Region ID
-* Automated the on-boarding multiple OpenStack instances leveraging OpenStack multi-region feature.
-* Enabled the on-boarding of subclouds of Titanium Cloud in Distributed Cloud Mode
+* Automated the on-boarding multiple OpenStack instances leveraging OpenStack
+  multi-region feature.
+* Enabled the on-boarding of subclouds of Titanium Cloud in Distributed Cloud
+  Mode
 * Automated the decommission of a Cloud Region
 * Automated the updating AAI with heat stack resources
 * Enabled Server Operations API for Auto-Healing
@@ -44,7 +112,8 @@ Version: 1.2.1
 
 * Expanded the HPA discovery and registration to cover SR-IOV NICs.
 * Decoupled AAI's cloud-region-id from OpenStack Region ID
-* Automated the on-boarding multiple OpenStack instances leveraging OpenStack multi-region feature.
+* Automated the on-boarding multiple OpenStack instances leveraging OpenStack
+  multi-region feature.
 * Automated the decommission of a Cloud Region
 * Supported Cloud Agnostic Placement Policies in VIO plugin
 * Enabled Server Operations API for Auto-Healing
@@ -52,14 +121,18 @@ Version: 1.2.1
 
 
 **MultiCloud Plugin for Azure**
+
 * Released inital seed code
 * Enabled flavor discovery during on-boarding of azure cloud
 * Supported for OOB vFW and vDNS use cases using the plugin
 
 **MultiCloud Plugin for Kubernetes**
+
 * Released initial seed code
-* Supported Service, Deployment and Namespace Kubernetes objects for this initial phase
-* Provided functional tests for ensuring its correct operation using an emulated ONAP interaction
+* Supported Service, Deployment and Namespace Kubernetes objects for this
+  initial phase
+* Provided functional tests for ensuring its correct operation using an
+  emulated ONAP interaction
 * Included a vagrant project for provisioning a Kubernetes deployment
 
 **Bug Fixes**
@@ -85,7 +158,8 @@ Version: 1.2.1
 
 **Security Notes**
 
-MULTICLOUD code has been formally scanned during build time using NexusIQ and no Critical vulnerability were found.
+MULTICLOUD code has been formally scanned during build time using NexusIQ and
+no Critical vulnerability were found.
 
 Quick Links:
   - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
@@ -98,7 +172,8 @@ None
 
 **Deprecation Notes**
 
-* The maintainance with regarding to MultiCloud plugin for OpenStack Newton has been stopped from Casablanca Release.
+* The maintainance with regarding to MultiCloud plugin for OpenStack Newton
+  has been stopped from Casablanca Release.
 
 **Other**
 
@@ -115,12 +190,16 @@ Version: 1.1.2
 
 * Allow to check capacity capability for smart VNF placement across VIMs.
 * Declarative template driven framework to generate API dynamically.
-* Federate the events of VIM layer with ONAP message bus which provide direct help to HA fencing and improve the
+* Federate the events of VIM layer with ONAP message bus which provide direct
+  help to HA fencing and improve the
   efficiency of VM recover with performance verification.
 * Enable basic HPA discovery and representing at Multi VIM/Cloud when registry.
-* Enable distributed log collection mechanism to a centralized logging analysis system.
-* Improve parallelism of Multi VIM/Cloud service framework with performance verification.
-* Upload and download images based on Cloud storage capabilities to support remote image distribution requirement.
+* Enable distributed log collection mechanism to a centralized logging
+  analysis system.
+* Improve parallelism of Multi VIM/Cloud service framework with performance
+  verification.
+* Upload and download images based on Cloud storage capabilities to support
+  remote image distribution requirement.
 
 **Bug Fixes**
 
@@ -137,12 +216,15 @@ Version: 1.1.2
 **Known Issues**
 
 - `MULTICLOUD-242 <https://jira.onap.org/browse/MULTICLOUD-242>`_
-  One known issue is that the Ocata image is not put into the consistent place as R1 and please attention to the
-  download path when you choose manual installation of Ocata plugin from the image pool.
+  One known issue is that the Ocata image is not put into the consistent place
+  as R1 and please attention to the
+  download path when you choose manual installation of Ocata plugin from the
+  image pool.
 
 **Security Notes**
 
-MULTICLOUD code has been formally scanned during build time using NexusIQ and no Critical vulnerability were found.
+MULTICLOUD code has been formally scanned during build time using NexusIQ and
+no Critical vulnerability were found.
 
 Quick Links:
   - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
@@ -169,15 +251,19 @@ Version: 1.0.0
 
 **New Features**
 
-* Keystone proxy for convenient integration with modules which depend on original OpenStack functions
+* Keystone proxy for convenient integration with modules which depend on
+  original OpenStack functions
 * Multiple VIM registry and unregister
 * Resources LCM functions
 * Auto-deployment support to both K8s and heat
 * Hierarchical binding based integration with the third party SDN controller
-* Basic Fcaps alert collection support, VM abnormal status is thrown out as an example
+* Basic Fcaps alert collection support, VM abnormal status is thrown out as
+  an example
 * Fake cloud based Unit and system test framework
 * Complete code coverage detection, CSIT, and document framework
-* Provide several plugins of different backbends, including: Vanilla OpenStack (based on Ocata) and commercial Clouds including OpenStack (including Titanium - Mitaka from Wind River and VIO - Ocata from VMware)
+* Provide several plugins of different backbends, including: Vanilla OpenStack
+  (based on Ocata) and commercial Clouds including OpenStack (including
+  Titanium - Mitaka from Wind River and VIO - Ocata from VMware)
 
 **Bug Fixes**
 
