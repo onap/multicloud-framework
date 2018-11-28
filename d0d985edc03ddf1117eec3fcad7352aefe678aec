@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9adffdf1_63776e3b",
+        "filename": "docs/multicloud-plugin-windriver/UserGuide-MultiCloud-WindRiver-TitaniumCloud.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-28T16:50:11Z",
+      "side": 1,
+      "message": "shouldn\u0027t be better to use list format? Something like\n\n  - offloading Heat ...\n  - Enabling the \"Centralized ...\n  - Automate the heatbridge ...",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 23
+      },
+      "revId": "d0d985edc03ddf1117eec3fcad7352aefe678aec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_83729247",
+        "filename": "docs/multicloud-plugin-windriver/UserGuide-MultiCloud-WindRiver-TitaniumCloud.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-28T16:50:11Z",
+      "side": 1,
+      "message": "This paragraph can use note directive[1]\n\n.. note:: There are still restrictions ...\n\n[1] https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html#colored-boxes-note-seealso-todo-and-warnings",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 66,
+        "endChar": 72
+      },
+      "revId": "d0d985edc03ddf1117eec3fcad7352aefe678aec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9adffdf1_23916647",
+        "filename": "docs/multicloud-plugin-windriver/UserGuide-MultiCloud-WindRiver-TitaniumCloud.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2018-11-28T16:50:11Z",
+      "side": 1,
+      "message": "s/1,/1.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 2
+      },
+      "revId": "d0d985edc03ddf1117eec3fcad7352aefe678aec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
