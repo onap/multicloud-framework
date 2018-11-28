@@ -29,11 +29,10 @@ Supported Features
     MultiCloud plugin for Wind River Titanium Cloud supports infra_workload APIs from Casablanca Release.
 
     These APIs enhances the workflow of Heat based VNF orchestration by:
-        offloading Heat template/parameter updating from SO to MultiCloud plugins
 
-        Enabling the "Centralized Representation of Cloud Regions"
-
-        Automate the heatbridge action by updating the AAI with deployed Heat stack resources
+     - offloading Heat template/parameter updating from SO to MultiCloud plugins
+     - Enabling the "Centralized Representation of Cloud Regions"
+     - Automate the heatbridge action by updating the AAI with deployed Heat stack resources
 
 **Support OOF**
 
@@ -56,8 +55,8 @@ Supported Features
     Users could also specify the "OpenStack Region ID" while onboarding a cloud region
     out of multi-region instances.
 
-    Note: There are still restrictions to populate {cloud-owner} and {cloud-region-id}, please
-    refer to section "On-board a Cloud Region"
+.. Note:: There are still restrictions to populate {cloud-owner} and
+          {cloud-region-id}, please refer to section "On-board a Cloud Region"
 
 **Support on-boarding of Multi-Region instances**
 
