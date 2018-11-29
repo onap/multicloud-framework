@@ -9,7 +9,7 @@ Release Notes
 Version: 1.2.1
 --------------
 
-:Release Date: 2018-11-12
+:Release Date: 2018-11-30
 
 **New Features**
 
@@ -85,12 +85,14 @@ Version: 1.2.1
 
 **Security Notes**
 
-MULTICLOUD code has been formally scanned during build time using NexusIQ and no Critical vulnerability were found.
+MULTICLOUD code has been formally scanned during build time using NexusIQ and all Critical vulnerabilities have been addressed, items that remain open have been assessed for risk and determined to be false positive. The DMAAP open Critical security vulnerabilities and their risk assessment have been documented as part of the `project <https://wiki.onap.org/pages/viewpage.action?pageId=43386067>`_.
 
 Quick Links:
   - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
 
   - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+  
+  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=43386067>`_
 
 **Upgrade Notes**
 
