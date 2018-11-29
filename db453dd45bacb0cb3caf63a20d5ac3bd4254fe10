@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Bin Yang <bin.yang@windriver.com>
+Code-Review+2: Bin Hu <bin.hu@att.com>
+Submitted-by: Bin Hu <bin.hu@att.com>
+Submitted-at: Thu, 29 Nov 2018 03:04:47 +0000
+Reviewed-on: https://gerrit.onap.org/r/73859
+Project: multicloud/framework
+Branch: refs/heads/casablanca
