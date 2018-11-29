@@ -115,12 +115,20 @@ Version: 3.0.0 (Casablanca Release)
 **Security Notes**
 
 MULTICLOUD code has been formally scanned during build time using NexusIQ and
-no Critical vulnerability were found.
+all Critical vulnerabilities have been addressed, items that remain open have
+been assessed for risk and determined to be false positive.
+
+The MULTICLOUD open Critical security vulnerabilities and their risk
+assessment have been documented as part of the
+`project <https://wiki.onap.org/pages/viewpage.action?pageId=43386067>`_.
+
 
 Quick Links:
   - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
 
   - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+  
+  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=43386067>`_
 
 **Upgrade Notes**
 
