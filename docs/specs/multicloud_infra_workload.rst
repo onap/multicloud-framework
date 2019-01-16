@@ -19,7 +19,8 @@ Currently HPA flavors are returned by OOF to SO and SO copies these flavors in
 the Heat template before sending the Heat template to Multicloud. In Casablanca
 instead of SO making changes in the Heat template the flavor information will be
 provided to Multicloud and Multicloud will pass this as parameters to HEAT
-command line.
+command line. In Dublin, instead of SO transferring the content of HEAT and HEAT_ENV
+to Multicloud, Mutlicloud will download these information/artifacts.
 For further detailed design, please refer to https://wiki.onap.org/display/DW/SO+Casablanca+HPA+Design
 
 
@@ -65,11 +66,22 @@ Request Body:
   {
      "generic-vnf-id":"<generic-vnf-id>",
      "vf-module-id":"<vf-module-id>",
+     "vf-module-model-invariant-id":"<uuid>",
+     "vf-module-model-version-id":"<uuid>",
+     "vf-module-model-customization-id":"<uuid>",
      "oof_directives":{},
      "sdnc_directives":{},
+     "user_directives":{},
      "template_type":"<heat/tosca/etc.>",
      "template_data":{}
   }
+
+ The ‘vf-module-model-"*"-id’s will be used by the Multicloud plugin to retrieve the associated cloud artifacts.
+ The 'oof_directives' is to convey oof’s input to multicloud.
+ The 'sdnc_directives' for SDNC input to MultiCloud.
+ The 'user_directives' is the parameter to convey input from VID portal to mutlicloud.
+ They are all about how to populate data to template parameters. 
+ The precedence of the three directives are user_directives and oof_directives the sdnc_directives.
 
 oof_directives:
 :::::::::::::::
