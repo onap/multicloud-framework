@@ -19,7 +19,9 @@ Currently HPA flavors are returned by OOF to SO and SO copies these flavors in
 the Heat template before sending the Heat template to Multicloud. In Casablanca
 instead of SO making changes in the Heat template the flavor information will be
 provided to Multicloud and Multicloud will pass this as parameters to HEAT
-command line.
+command line. In Dublin, instead of SO transferring the content of HEAT and HEAT_ENV
+to Mutlicloud, Mutlicloud will download these information/artifacts from SDC directly
+
 For further detailed design, please refer to https://wiki.onap.org/display/DW/SO+Casablanca+HPA+Design
 
 
@@ -93,30 +95,8 @@ Heat examples
         "flavor":"m1.heat"
      },
      "stack_name":"teststack",
-     "template":{
-        "heat_template_version":"2013-05-23",
-        "description":"Simple template to test heat commands",
-        "parameters":
-        {
-           "flavor":{
-              "default":"m1.tiny",
-              "type":"string"
-           }
-        },
-        "resources":{
-           "hello_world":{
-              "type":"OS::Nova::Server",
-              "properties":{
-                 "key_name":"heat_key",
-                 "flavor":{
-                    "get_param":"flavor"
-                 },
-                 "image":"40be8d1a-3eb9-40de-8abd-43237517384f",
-                 "user_data":"#!/bin/bash -xv\necho \"hello world\" &gt; /root/hello-world.txt\n"
-              }
-           }
-        }
-     },
+     "template":"/sdc/v1/catalog/services/HngwProtectedOam/1.0/artifacts/service-HngwProtectedOam-template.yml",
+     "environment":"/sdc/v1/catalog/services/HngwProtectedOam/1.0/artifacts/service-HngwProtectedOam-template.env"
      "timeout_mins":60
   }
 
