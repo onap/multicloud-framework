@@ -16,6 +16,11 @@
                 "version": "pike",
                 "extra_info_hint": "",
                 "provider_plugin": "multicloud-pike"
+            },
+            "starlingx": {
+                "version": "starlingx",
+                "extra_info_hint": "",
+                "provider_plugin": "multicloud-starlingx"
             }
         },
         "provider_plugin": "multicloud-ocata"
