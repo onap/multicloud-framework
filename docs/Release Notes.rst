@@ -7,6 +7,87 @@ Release Notes
 =============
 
 
+Version: 3.0.1 (Casablanca Maintenance Release)
+-----------------------------------------------
+
+:Release Date: January 31st, 2019
+
+
+**New Features**
+
+None
+
+**The MultiCloud services in this release consist of following components:**
+
+- MultiCloud Broker (version: 1.2.2)
+
+- MultiCloud Plugin for Wind River Titanium Cloud (version: 1.2.4)
+
+- MultiCloud Plugin for OpenStack Ocata (version: 1.2.4)
+
+- MultiCloud Plugin for OpenStack Pike (version: 1.2.4)
+
+- MultiCloud Plugin for VIO (version 1.2.2)
+
+- MultiCloud Plugin for Azure (version 1.2.2)
+
+
+**Bug Fixes**
+
+- `MULTICLOUD-456 <https://jira.onap.org/browse/MULTICLOUD-456>`_
+  Multicloud Infra_workload API performance issue with image version 1.2.3
+
+- `MULTICLOUD-431 <https://jira.onap.org/browse/MULTICLOUD-431>`_
+  Multicloud registration error with image version 1.2.2
+
+- `MULTICLOUD-423 <https://jira.onap.org/browse/MULTICLOUD-423>`_
+  multicloud DELETE without a stack-id still deletes a stack
+
+
+**Known Issues**
+
+- `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
+  OPENO images API: image creating API cannot handle large image file
+
+- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
+  OPENO servers API: keypair cannot be passed for nova instance creation
+
+- `MULTICLOUD-421 <https://jira.onap.org/browse/MULTICLOUD-421>`_
+  API request to multicloud with authorization header will be rejected
+
+
+**Security Notes**
+
+MULTICLOUD code has been formally scanned during build time using NexusIQ and
+all Critical vulnerabilities have been addressed, items that remain open have
+been assessed for risk and determined to be false positive.
+
+The MULTICLOUD open Critical security vulnerabilities and their risk
+assessment have been documented as part of the
+`Multi-VIM/Cloud <https://wiki.onap.org/pages/viewpage.action?pageId=45310604>`_.
+
+
+Quick Links:
+  - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
+
+  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+
+  - `Project Vulnerability Review Table for Multicloud Casablanca Maintenance Release <https://wiki.onap.org/pages/viewpage.action?pageId=45310604>`_
+
+**Upgrade Notes**
+
+None
+
+**Deprecation Notes**
+
+* The maintenance with regarding to MultiCloud plugin for OpenStack Newton
+  has been stopped from Casablanca Release.
+
+**Other**
+
+None
+
+
 Version: 3.0.0 (Casablanca Release)
 -----------------------------------
 
@@ -136,7 +217,7 @@ None
 
 **Deprecation Notes**
 
-* The maintainance with regarding to MultiCloud plugin for OpenStack Newton
+* The maintenance with regarding to MultiCloud plugin for OpenStack Newton
   has been stopped from Casablanca Release.
 
 **Other**
