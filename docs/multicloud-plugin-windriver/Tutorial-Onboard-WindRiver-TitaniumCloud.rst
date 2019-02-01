@@ -253,8 +253,7 @@ ESR will conduct all steps mentioned above with a single click.
 
 The url of the ESR GUI Portal is:
 
-..
- http://$ONAP_MSB_IP:$ONAP_MSB_PORT/iui/aai-esr-gui/extsys/vim/vimView.html
+.. [ESR VIM Portal] http://$ONAP_MSB_IP:$ONAP_MSB_PORT/iui/aai-esr-gui/extsys/vim/vimView.html
 
 .. image:: ../images/mc-windriver/esr-vim-register.png
     :alt: ESR VIM Registrer GUI Portal

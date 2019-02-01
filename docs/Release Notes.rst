@@ -34,14 +34,45 @@ None
 
 **Bug Fixes**
 
-- `MULTICLOUD-456 <https://jira.onap.org/browse/MULTICLOUD-456>`_
-  Multicloud Infra_workload API performance issue with image version 1.2.3
+- `MULTICLOUD-253 <https://jira.onap.org/browse/MULTICLOUD-253>`_
+  meta_data initialized with wrong type
+
+- `MULTICLOUD-386 <https://jira.onap.org/browse/MULTICLOUD-386>`_
+  Multicloud Fails with Keystone v2.0
+
+- `MULTICLOUD-390 <https://jira.onap.org/browse/MULTICLOUD-390>`_
+  Cloud userdata is not passed to openstack nova instance.
+
+- `MULTICLOUD-391 <https://jira.onap.org/browse/MULTICLOUD-391>`_
+  Remove non-standard disclaimer from license files
+
+- `MULTICLOUD-404 <https://jira.onap.org/browse/MULTICLOUD-404>`_
+  multicloud return value is inconsistent between plugin and broker
+
+- `MULTICLOUD-405 <https://jira.onap.org/browse/MULTICLOUD-405>`_
+  multicloud metadata format is incorrect
+
+- `MULTICLOUD-407 <https://jira.onap.org/browse/MULTICLOUD-407>`_
+  multicloud does not pass userdata to openstack
+
+- `MULTICLOUD-412 <https://jira.onap.org/browse/MULTICLOUD-412>`_
+  Discover snapshots get error
+
+- `MULTICLOUD-414 <https://jira.onap.org/browse/MULTICLOUD-414>`_
+  Fix reboot vm problem
+
+- `MULTICLOUD-415 <https://jira.onap.org/browse/MULTICLOUD-415>`_
+  multicloud ocata and pike cannot discover VIM resources
+
+- `MULTICLOUD-423 <https://jira.onap.org/browse/MULTICLOUD-423>`_
+  multicloud DELETE without a stack-id still deletes a stack
 
 - `MULTICLOUD-431 <https://jira.onap.org/browse/MULTICLOUD-431>`_
   Multicloud registration error with image version 1.2.2
 
-- `MULTICLOUD-423 <https://jira.onap.org/browse/MULTICLOUD-423>`_
-  multicloud DELETE without a stack-id still deletes a stack
+- `MULTICLOUD-456 <https://jira.onap.org/browse/MULTICLOUD-456>`_
+  Multicloud Infra_workload API performance issue with image version 1.2.3
+
 
 
 **Known Issues**
@@ -85,7 +116,9 @@ None
 
 **Other**
 
-None
+The latest release tag 1.2.4 for OpenStack plugins is not part of OOM chart in
+Casablanca Maintenance Release yet. Please update the OOM chart manually
+to upgrade the docker images with version tag 1.2.4 to fix bug: MULTICLOUD-456
 
 
 Version: 3.0.0 (Casablanca Release)
