@@ -58,6 +58,55 @@ broker receive a POST request on check_vim_capacity, it will request to each
 <vim_id>/capacity_check API, and return a list of VIMs with a true in response
 data.
 
+Format of "vim_id" complying to the functional requirement of
+"Consistent ID of a Cloud Region"
+
+::
+  {cloud-owner}/{cloud-region-id}
+
+Format of "VIM ID" complying to the functional requirement of
+"Consistent ID of a Cloud Region"
+
+::
+
+  {
+    "cloud-owner": string, //cloud owner name/ID
+    "cloud-region-id": string, //cloud region ID
+  }
+
+  Example: array of "VIM ID" looks like:
+
+  [
+   {"cloud-owner": "owner1", "cloud-region-id": "regionid1"},
+   {"cloud-owner": "owner2", "cloud-region-id": "regionid2"}
+  ]
+
+Format of "AZinfo"
+
+::
+
+  {
+    "cloud-owner": string, //cloud owner name/ID
+    "cloud-region-id": string, //cloud region ID
+    "availability-zone-name": string, //name of available zone
+    "vCPUTotal": int,  //number of total cores, optional field
+    "MemoryTotal": float,  //GB,total memory, optional field
+    "StorageTotal": int, //GB total storage, optional field
+    "vCPUAvail": int,  //number of available cores
+    "MemoryAvail": float,  //GB, availablesize of memory
+    "StorageAvail": int, //GB, available storage
+  }
+  }
+
+Format of "VIMinfo" which extend the "VIM ID" as below
+
+::
+
+  {
+    "cloud-owner": string, //cloud owner name/ID
+    "cloud-region-id": string, //cloud region ID
+    "AZs": array,  // list of AZinfo
+  }
 
 Input of check_vim_capacity will be
 
@@ -67,7 +116,7 @@ Input of check_vim_capacity will be
     "vCPU": int,  // number of cores
     "Memory": float,  // size of memory, GB
     "Storage": int, //GB
-    "VIMs": array  // VIMs OOF wish to check with
+    "VIMs": array, //list of "VIM ID" with which OOF wish to check
   }
 
 Output of check_vim_capacity will be
@@ -75,7 +124,7 @@ Output of check_vim_capacity will be
 ::
 
   {
-    "VIMs": array  // VIMs satisfy with this resource requirement
+    "VIMs": array, //list of VIMinfo
   }
 
 Input of <vim_id>/capacity_check will be
@@ -94,7 +143,8 @@ Output of <vim_id>/capacity_check will be
 ::
 
   {
-    "result": bool
+    "result": bool,
+    "AZs": array, //list of AZinfo, optional field
   }
 
 
