@@ -269,7 +269,8 @@ class APIv1InfraWorkload(BaseServer):
 
     def post(self, request, cloud_owner, cloud_region_id):
         vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
-        if len(request.FILES) != 0:
+        content_type = request.META.get('CONTENT_TYPE', 'application/json')
+        if content_type.startswith("multipart"):
             return self.__process_multipart(request, vimid)
         return self.send(vimid, request.get_full_path(), request.body, "POST",
                          headers=originHeaders(request))
