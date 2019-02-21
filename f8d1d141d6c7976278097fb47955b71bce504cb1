@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b40a4ff_7967773c",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1603
+      },
+      "writtenOn": "2019-02-21T23:08:50Z",
+      "side": 1,
+      "message": "Based on the addition of the vfmodule-model-ids, I think the generic intent is for multicloud to look up and gather the artifacts for an instantiation based on those IDs.  Therefore, the artifact arguments present in this \u0027template_data\u0027 section are redundant.  Instead of this change, I would say to just remove \u0027files\u0027, \u0027template\u0027, and \u0027environment\u0027 all together.",
+      "revId": "f8d1d141d6c7976278097fb47955b71bce504cb1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
