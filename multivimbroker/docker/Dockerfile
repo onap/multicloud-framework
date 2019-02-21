@@ -10,6 +10,8 @@ ENV AAI_PASSWORD "AAI"
 
 EXPOSE 9001
 
+RUN groupadd -r onap && useradd -r -g onap onap
+
 # COPY ./ /opt/multivimbroker/
 RUN apt-get update && \
     apt-get install -y unzip && \
@@ -17,7 +19,10 @@ RUN apt-get update && \
     wget -O multicloud-framework.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework.broker&a=multicloud-framework-broker&e=zip&v=1.2.3-SNAPSHOT" && \
     unzip -q -o -B multicloud-framework.zip && \
     rm -f multicloud-framework.zip && \
-    pip install -r /opt/multivimbroker/requirements.txt
+    pip install -r /opt/multivimbroker/requirements.txt && \
+    chown onap:onap /opt/windriver -R
+
+USER onap
 
 WORKDIR /opt/multivimbroker
 CMD /bin/sh -c /opt/multivimbroker/run.sh
