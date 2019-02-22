@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Bin Yang <bin.yang@windriver.com>
+Verified+1: Bin Yang <bin.yang@windriver.com>
+Code-Review+2: Ethan Lynn <ethanlynnl@vmware.com>
+Submitted-by: Ethan Lynn <ethanlynnl@vmware.com>
+Submitted-at: Fri, 22 Feb 2019 01:47:49 +0000
+Reviewed-on: https://gerrit.onap.org/r/78892
+Project: multicloud/framework
+Branch: refs/heads/master
