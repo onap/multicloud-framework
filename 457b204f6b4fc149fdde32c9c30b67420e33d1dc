@@ -52,6 +52,42 @@
       "revId": "457b204f6b4fc149fdde32c9c30b67420e33d1dc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08ca9ecb_1e4d2c20",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 2905
+      },
+      "writtenOn": "2019-02-27T02:38:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82c7c3da_56f286d1",
+      "revId": "457b204f6b4fc149fdde32c9c30b67420e33d1dc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb337293_c3e866bb",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 2905
+      },
+      "writtenOn": "2019-02-27T02:38:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aafeff08_c78ca182",
+      "revId": "457b204f6b4fc149fdde32c9c30b67420e33d1dc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
