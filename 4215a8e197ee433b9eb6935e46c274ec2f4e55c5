@@ -16,6 +16,24 @@
       "revId": "4215a8e197ee433b9eb6935e46c274ec2f4e55c5",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6b1f491d_499df26c",
+        "filename": "docs/specs/multicloud-SDC-Client-design.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 2905
+      },
+      "writtenOn": "2019-03-01T01:52:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a81a09d_4857ffb8",
+      "revId": "4215a8e197ee433b9eb6935e46c274ec2f4e55c5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
