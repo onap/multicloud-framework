@@ -1,0 +1,5 @@
+# for unit test
+django-nose>=1.4.0
+coverage==4.2
+mock==2.0.0
+unittest_xml_reporting==1.12.0
