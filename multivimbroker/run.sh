@@ -28,6 +28,7 @@ fi
 
 if [ "$WEB_FRAMEWORK" == "pecan" ]
 then
+    pip install -r multivimbroker/pecan-requirements.txt
     python multivimbroker/scripts/api.py
 else
     # nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
