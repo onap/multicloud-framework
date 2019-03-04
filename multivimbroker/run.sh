@@ -28,6 +28,9 @@ fi
 
 if [ "$WEB_FRAMEWORK" == "pecan" ]
 then
+    apt-get install -y gcc
+    pip install -r pecan-requirements.txt
+    apt-get remove -y gcc
     python multivimbroker/scripts/api.py
 else
     # nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
