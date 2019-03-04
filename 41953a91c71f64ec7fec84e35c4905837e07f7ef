@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f202d48c_122c13fb",
+        "filename": "multivimbroker/requirements.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 947
+      },
+      "writtenOn": "2019-03-04T15:33:07Z",
+      "side": 1,
+      "message": "If those dependencies has been moved to another files shouldn\u0027t be better to remove them from this file instead of comment them?",
+      "revId": "41953a91c71f64ec7fec84e35c4905837e07f7ef",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
