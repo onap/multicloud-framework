@@ -20,7 +20,7 @@ RUN apt-get update && \
     unzip -q -o -B multicloud-framework.zip && \
     rm -f multicloud-framework.zip && \
     pip install -r /opt/multivimbroker/requirements.txt && \
-    pip install -r /opt/multivimbroker/uwsgi-requirements.txt && \
+    pip install -r /opt/multivimbroker/pecan-requirements.txt && \
     apt-get remove -y wget unzip gcc && \
     chown onap:onap /opt/multivimbroker -R
 
