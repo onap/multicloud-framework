@@ -31,7 +31,11 @@ then
     python multivimbroker/scripts/api.py
 else
     # nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
-    nohup uwsgi --http :9001 -t 120 --module multivimbroker.wsgi --master --processes 4 &
+    if [ ${SSL_ENABLED} = "true" ]; then
+        nohup uwsgi --https :9001,multivimbroker/pub/ssl/cert/cert.crt,multivimbroker/pub/ssl/cert/cert.key -t 120 --module multivimbroker.wsgi --master --processes 4 &
+    else
+        nohup uwsgi --http :9001 -t 120 --module multivimbroker.wsgi --master --processes 4 &
+    fi
 
     while [ ! -f $logDir/multivimbroker.log ]; do
         sleep 1
