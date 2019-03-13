@@ -26,6 +26,37 @@ For further detailed design, please refer to https://wiki.onap.org/display/DW/SO
 Propose Change
 ==============
 
+Multi-Tenant Support
+--------------------
+
+Request Headers:
+>>>>>>>>>>>>>>>>
+
+To support multi-tenants over the same cloud region, all APIs defined below
+should support to accept the following optional headers which are used to
+specify a tenant other than the default one associated with the cloud region.
+
+::
+
+  "Tenant-ID"   : Tenant ID specified by API consumer, Optional
+  "Tenant-Name" : Tenant Name specified by API consumer, Optional
+
+
+In case both "Tenant-ID" and "Tenant-Name" are specified, "Tenant-ID" takes precedence.
+
+
+Example 1:
+::
+
+  "Tenant-Name: tenant1"
+
+Example 2:
+::
+
+  "Tenant-ID: fcca3cc49d5e42caae15459e27103efc"
+
+
+
 Add infrastructure workload
 ---------------------------
 
