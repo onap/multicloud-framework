@@ -41,6 +41,31 @@ location information and cloud-region record.
 ... [A&AI Complex Schema] https://gerrit.onap.org/r/gitweb?p=aai/aai-common.git;a=blob;f=aai-schema/src/main/resources/oxm/aai_oxm_v12.xml;h=e146c06ac675a1127ee11205c0ff2544e4d9a81d;hb=HEAD#l772
 
 
+Multi-Tenant Support
+--------------------
+
+Request Headers:
+>>>>>>>>>>>>>>>>
+
+To support multi-tenants over the same cloud region, all APIs defined below
+should support to accept the following optional headers which are used to
+specify a tenant other than the default one associated with the cloud region.
+
+::
+
+  "Project"   : Tenant/Project ID or Name specified by API consumer, Optional
+
+
+Example 1:
+::
+
+  "Project: tenant1"
+
+Example 2:
+::
+
+  "Project: fcca3cc49d5e42caae15459e27103efc"
+
 Available Resource Check
 ------------------------
 
