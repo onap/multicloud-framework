@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "513c96bc_69bd6859",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 399
+      },
+      "writtenOn": "2019-03-14T03:04:20Z",
+      "side": 1,
+      "message": "Well, this question actually for openstack plugin owners:\n\nHow do you plan to store this status?",
+      "range": {
+        "startLine": 298,
+        "startChar": 78,
+        "endLine": 298,
+        "endChar": 107
+      },
+      "revId": "4b6680fde7fccf7627035a032b80ebe90612aa12",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
