@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6475ba78_19ceaf52",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-03-15T02:41:43Z",
+      "side": 1,
+      "message": "Who provides user_directives info and who consumes this.",
+      "range": {
+        "startLine": 47,
+        "startChar": 5,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "b4ac0d29e6e49ce93ba5887863382535e65f4a78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
