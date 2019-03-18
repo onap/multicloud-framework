@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b19369a9_b8c4132c",
+        "filename": "docs/specs/multicloud-SDC-Client-design.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-03-18T07:28:35Z",
+      "side": 1,
+      "message": "change to base_template.yaml to align to example above",
+      "range": {
+        "startLine": 153,
+        "startChar": 4,
+        "endLine": 153,
+        "endChar": 19
+      },
+      "revId": "e5789b2aec57e254dc34c69d85e24921ffd9769b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e6ac4ca0_b10170a4",
+        "filename": "docs/specs/multicloud-SDC-Client-design.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-03-18T07:28:35Z",
+      "side": 1,
+      "message": "change to base_template.env to align to the example above",
+      "range": {
+        "startLine": 154,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 18
+      },
+      "revId": "e5789b2aec57e254dc34c69d85e24921ffd9769b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
