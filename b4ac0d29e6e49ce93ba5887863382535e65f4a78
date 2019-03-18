@@ -22,6 +22,30 @@
       "revId": "b4ac0d29e6e49ce93ba5887863382535e65f4a78",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5841441_b9ad33e7",
+        "filename": "docs/specs/multicloud_infra_workload.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-03-18T07:30:35Z",
+      "side": 1,
+      "message": "I suggest you put a short description for better understanding of this paramter, and also clarify the precedence between three directives: user_directives \u003e oof_directives \u003e sdnc_directives",
+      "parentUuid": "6475ba78_19ceaf52",
+      "range": {
+        "startLine": 47,
+        "startChar": 5,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "b4ac0d29e6e49ce93ba5887863382535e65f4a78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
