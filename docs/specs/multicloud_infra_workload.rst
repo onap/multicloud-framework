@@ -206,6 +206,51 @@ Response Body
         }
     }
 
+Update infrastructure workload information in AAI (i.e. Heatbridge)
+-------------------------------------------------------------------
+
+API URL: POST http://{msb IP}:{msb port}/api/multicloud/v1/{cloud-owner}/{cloud-region-id}/infra_workload/{workload-id}
+
+Request Body:
+>>>>>>>>>>>>>
+::
+
+  {
+     "generic-vnf-id":"<generic-vnf-id>",
+     "vf-module-id":"<vf-module-id>"
+  }
+
+Response:
+>>>>>>>>>
+
+Response Codes
+::::::::::::::
+Success
+.......
+
++--------------------+----------------------------------------------------------------------+
+| Code               | Reason                                                               |
++====================+======================================================================+
+| 202 - Accepted     | The request was accepted.                                            |
++--------------------+----------------------------------------------------------------------+
+
+Error
+.....
+
++--------------------+----------------------------------------------------------------------+
+| Code               | Reason                                                               |
++====================+======================================================================+
+| 400 - Bad Request  | Some content in the request was invalid.                             |
++--------------------+----------------------------------------------------------------------+
+| 401 - Unauthorized | User must authenticate before making a request.                      |
++--------------------+----------------------------------------------------------------------+
+| 409 - Conflict     | This operation conflicted with another operation on this resource.   |
++--------------------+----------------------------------------------------------------------+
+
+Response Body
+:::::::::::::
+
+
 Delete infrastructure workload
 ------------------------------
 
@@ -289,7 +334,7 @@ Response Body
     {
         "template_type":"<heat/tosca/etc.>",
         "workload_id": "<The ID of infrastructure workload resource>",
-        "workload_status":"CREATE_IN_PROCESS/CREATE_COMPLETE/DELETE_IN_PROCESS/etc"
+        "workload_status":"CREATE_IN_PROCESS/CREATE_COMPLETE/DELETE_IN_PROCESS/AAI_IN_PROGRESS/AAI_COMPLETE/etc"
     }
 
 Work Items
