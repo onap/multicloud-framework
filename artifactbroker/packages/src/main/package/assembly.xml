@@ -19,7 +19,7 @@
 -->
 
 <assembly>
-    <id>tarball</id>
+    <id>zip</id>
     <formats>
         <format>zip</format>
     </formats>
