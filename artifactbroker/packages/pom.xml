@@ -22,7 +22,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.onap.multicloud.framework.broker</groupId>
+        <groupId>org.onap.multicloud.framework</groupId>
         <artifactId>multicloud-framework-artifactbroker</artifactId>
         <version>1.3.0-SNAPSHOT</version>
     </parent>
@@ -33,11 +33,25 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.onap.multicloud.framework.broker</groupId>
+            <groupId>org.onap.multicloud.framework</groupId>
             <artifactId>multicloud-framework-artifactbroker-main</artifactId>
             <version>${project.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.onap.multicloud.framework</groupId>
+            <artifactId>multicloud-framework-artifactbroker-reception</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.onap.multicloud.framework</groupId>
+            <artifactId>multicloud-framework-artifactbroker-forwarding</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.onap.multicloud.framework</groupId>
+            <artifactId>multicloud-framework-artifactbroker-reception-plugins</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

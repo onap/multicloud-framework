@@ -22,7 +22,6 @@
         <relativePath />
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.onap.multicloud.framework.broker</groupId>
     <artifactId>multicloud-framework-artifactbroker</artifactId>
     <version>1.3.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -39,7 +38,11 @@
     </properties>
 
     <modules>
+        <module>model</module>
         <module>main</module>
+        <module>reception</module>
+        <module>forwarding</module>
+        <module>plugins</module>
         <module>packages</module>
     </modules>
     <dependencies>
