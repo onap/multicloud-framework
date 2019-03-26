@@ -18,35 +18,20 @@
   ============LICENSE_END=========================================================
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.onap.multicloud.framework</groupId>
         <artifactId>multicloud-framework-artifactbroker</artifactId>
         <version>1.3.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>multicloud-framework-artifactbroker-main</artifactId>
 
+    <artifactId>multicloud-framework-artifactbroker-plugins</artifactId>
+    
     <name>${project.artifactId}</name>
-    <description>The main module of Policy Distribution that handles startup, lifecycle management, and parameters.</description>
-
-    <build>
-        <resources>
-            <!-- Output the version of the distribution service -->
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/version.txt</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <excludes>
-                    <exclude>**/version.txt</exclude>
-                </excludes>
-            </resource>
-        </resources>
-    </build>
-
+    <description>The module of Policy Distribution that holds plugins for custom policy reception and forwarding.</description>
+    <packaging>pom</packaging>
+    
+    <modules>
+        <module>reception-plugins</module>
+    </modules>
 </project>

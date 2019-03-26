@@ -1,0 +1,26 @@
+{
+    "name" : "parameterConfig1",
+    "asdcAddress": "",
+    "messageBusAddress": [
+        "a.com",
+        "b.com",
+        "c.com"
+    ],
+    "user": "tbdsdc-1480",
+    "password": "tbdsdc-1480",
+    "pollingInterval":-1,
+    "pollingTimeout":-2,
+    "consumerId": "policy-id",
+    "artifactTypes": [
+        "TOSCA_CSAR", 
+        "HEAT"
+    ],
+    "consumerGroup": "policy-group",
+    "environmentName": "environmentName",
+    "keyStorePath": "null",
+    "keyStorePassword": "null",
+    "activeserverTlsAuth": false,
+    "isFilterInEmptyResources": true,
+    "isUseHttpsWithDmaap": false
+}
+
