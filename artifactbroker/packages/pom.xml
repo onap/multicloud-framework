@@ -37,7 +37,21 @@
             <artifactId>multicloud-framework-artifactbroker-main</artifactId>
             <version>${project.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.onap.multicloud.framework.broker</groupId>
+            <artifactId>multicloud-framework-artifactbroker-reception</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.onap.multicloud.framework.broker</groupId>
+            <artifactId>multicloud-framework-artifactbroker-forwarding</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.onap.multicloud.framework.broker</groupId>
+            <artifactId>multicloud-framework-artifactbroker-reception-plugins</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

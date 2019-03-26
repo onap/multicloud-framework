@@ -1,0 +1,27 @@
+{
+    "name" : "parameterConfig1",
+    "asdcAddress": "localhost",
+    "messageBusAddress": [
+        "a.com",
+        "b.com",
+        "c.com"
+    ],
+    "user": "policy",
+    "password": "policy",
+    "pollingInterval":20,
+    "pollingTimeout":30,
+    "retryDelay":30,
+    "consumerId": "policy-id",
+    "artifactTypes": [
+        "TOSCA_CSAR", 
+        "HEAT"
+    ],
+    "consumerGroup": "policy-group",
+    "environmentName": "TEST",
+    "keyStorePath": "null",
+    "keyStorePassword": "null",
+    "activeServerTlsAuth": false,
+    "isFilterInEmptyResources": true,
+    "isUseHttpsWithDmaap": false
+}
+
