@@ -181,7 +181,7 @@
                             </excludes>
                             <consoleOutput>true</consoleOutput>
                             <failOnViolation>true</failOnViolation>
-                            <violationSeverity>warning</violationSeverity>
+                            <violationSeverity>error</violationSeverity>
                         </configuration>
                     </execution>
                 </executions>
@@ -240,5 +240,4 @@
             </plugins>
         </pluginManagement>
     </build>
-</project>
 </project>
