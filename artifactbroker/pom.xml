@@ -12,9 +12,8 @@
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 -->
-<project 
-    xmlns="http://maven.apache.org/POM/4.0.0" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>org.onap.multicloud.framework</groupId>
         <artifactId>multicloud-framework</artifactId>
@@ -35,7 +34,6 @@
         <version.logback>1.2.3</version.logback>
         <policy.common.version>1.3.4</policy.common.version>
     </properties>
-
     <modules>
         <module>model</module>
         <module>main</module>
@@ -86,13 +84,11 @@
             <artifactId>capabilities</artifactId>
             <version>${policy.common.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.9.8</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
@@ -129,7 +125,6 @@
             <version>2.8.4</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -168,11 +163,7 @@
                         </goals>
                         <phase>process-sources</phase>
                         <configuration>
-                            <!-- Use Google Java Style Guide:
-                            https://github.com/checkstyle/checkstyle/blob/master/src/main/resources/google_checks.xml
-                            with minor changes -->
                             <configLocation>onap-checkstyle/onap-java-style.xml</configLocation>
-                            <!-- <sourceDirectory> is needed so that checkstyle ignores the generated sources directory -->
                             <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
                             <includeResources>true</includeResources>
                             <includeTestSourceDirectory>true</includeTestSourceDirectory>
@@ -181,7 +172,7 @@
                             </excludes>
                             <consoleOutput>true</consoleOutput>
                             <failOnViolation>true</failOnViolation>
-                            <violationSeverity>warning</violationSeverity>
+                            <violationSeverity>error</violationSeverity>
                         </configuration>
                     </execution>
                 </executions>
@@ -202,8 +193,6 @@
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>${jacoco.version}</version>
                     <configuration>
-                        <!-- Note: This exclusion list should match <sonar.exclusions> property
-                            above -->
                         <excludes>
                             <exclude>**/gen/**</exclude>
                             <exclude>**/generated-sources/**</exclude>
@@ -212,8 +201,6 @@
                         </excludes>
                     </configuration>
                     <executions>
-                        <!-- Prepares the property pointing to the JaCoCo runtime agent which
-                            is passed as VM argument when Maven the Surefire plugin is executed. -->
                         <execution>
                             <id>pre-unit-test</id>
                             <goals>
@@ -223,8 +210,6 @@
                                 <destFile>${sonar.jacoco.reportPath}</destFile>
                             </configuration>
                         </execution>
-                        <!-- Ensures that the code coverage report for unit tests is created
-                            after unit tests have been run. -->
                         <execution>
                             <id>post-unit-test</id>
                             <phase>test</phase>
@@ -240,5 +225,4 @@
             </plugins>
         </pluginManagement>
     </build>
-</project>
 </project>
