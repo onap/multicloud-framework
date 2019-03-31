@@ -22,14 +22,21 @@ package org.onap.policy.distribution.reception.handling.sdc;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Map;
 
 import org.onap.policy.common.logging.flexlogger.FlexLogger;
 import org.onap.policy.common.logging.flexlogger.Logger;
 import org.onap.policy.common.parameters.ParameterService;
+import org.onap.policy.distribution.model.CloudArtifact;
 import org.onap.policy.distribution.model.Csar;
+import org.onap.policy.distribution.model.GsonUtil;
+import org.onap.policy.distribution.model.VfModuelModel;
 import org.onap.policy.distribution.reception.decoding.PolicyDecodingException;
 import org.onap.policy.distribution.reception.handling.AbstractReceptionHandler;
 import org.onap.policy.distribution.reception.handling.sdc.SdcClientHandler.SdcClientOperationType;
@@ -41,6 +48,7 @@ import org.onap.sdc.api.consumer.IDistributionStatusMessage;
 import org.onap.sdc.api.consumer.INotificationCallback;
 import org.onap.sdc.api.notification.IArtifactInfo;
 import org.onap.sdc.api.notification.INotificationData;
+import org.onap.sdc.api.notification.IResourceInstance;
 import org.onap.sdc.api.results.IDistributionClientDownloadResult;
 import org.onap.sdc.api.results.IDistributionClientResult;
 import org.onap.sdc.impl.DistributionClientFactory;
@@ -87,7 +95,13 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
     public void activateCallback(final INotificationData notificationData) {
         LOGGER.debug("Receieved the notification from SDC with ID: " + notificationData.getDistributionID());
         changeSdcReceptionHandlerStatus(SdcReceptionHandlerStatus.BUSY);
-        processCsarServiceArtifacts(notificationData);
+        //Process only the resource artifacts in MC
+        for (IResourceInstance resource : notificationData.getResources()) {
+            // We process only VNF resource in MC
+            if ("VF".equals(resource.getResourceType())) {
+                this.processVfModulesArtifacts(notificationData,resource);
+            }
+        }
         changeSdcReceptionHandlerStatus(SdcReceptionHandlerStatus.IDLE);
         LOGGER.debug("Processed the notification from SDC with ID: " + notificationData.getDistributionID());
     }
@@ -185,31 +199,97 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
     }
 
     /**
-     * Method to process csar service artifacts from incoming SDC notification.
+     * Method to process VF MODULES_METADATA artifacts from incoming SDC notification.
+     *
+     * @param artifact the item needs to check if it has been stored in DBB or not
+     */
+    private boolean checkArtifactAlreadyStored(IArtifactInfo artifact) {
+        //TODO
+        return false;
+
+    }
+
+    /**
+     * Method to process VF MODULES_METADATA artifacts from incoming SDC notification.
      *
      * @param notificationData the notification from SDC
+     * @param resource every resource of the service from SDC
      */
-    public void processCsarServiceArtifacts(final INotificationData notificationData) {
+    public void processVfModulesArtifacts(final INotificationData notificationData, IResourceInstance resource) {
         boolean artifactsProcessedSuccessfully = true;
         DistributionStatisticsManager.updateTotalDistributionCount();
-        for (final IArtifactInfo artifact : notificationData.getServiceArtifacts()) {
-            try {
-                final IDistributionClientDownloadResult resultArtifact =
-                        downloadTheArtifact(artifact, notificationData);
-                final Path filePath = writeArtifactToFile(artifact, resultArtifact);
-                final Csar csarObject = new Csar(filePath.toString());
-                inputReceived(csarObject);
-                sendDistributionStatus(DistributionStatusType.DEPLOY, artifact.getArtifactURL(),
-                        notificationData.getDistributionID(), DistributionStatusEnum.DEPLOY_OK, null);
-                deleteArtifactFile(filePath);
-            } catch (final ArtifactDownloadException | PolicyDecodingException exp) {
-                LOGGER.error("Failed to process csar service artifacts ", exp);
-                artifactsProcessedSuccessfully = false;
-                sendDistributionStatus(DistributionStatusType.DEPLOY, artifact.getArtifactURL(),
+        List<String> relevantArtifactTypes = sdcConfig.getRelevantArtifactTypes();
+        Path path = Paths.get("/data");
+        List<VfModuelModel> vfModuelModels = null;
+        Map<String, String> artifactTypeMap = null; //key is UUID, value is type for k8s plugin
+        Map<String, IArtifactInfo> artifactMap = null;//key is UUID, value is artifact for shared folder
+        String vfArtifactData = null;
+
+        for (final IArtifactInfo artifact : resource.getArtifacts()) {
+            artifactTypeMap.put(artifact.getArtifactUUID(),artifact.getArtifactType());
+            artifactMap.put(artifact.getArtifactUUID(),artifact);
+
+             //extract the artifactlist and write them into MongoDB
+            if (artifact.getArtifactType().equals("VF_MODULES_METADATA")) {
+                try {
+                    final IDistributionClientDownloadResult resultArtifact =
+                            downloadTheArtifact(artifact,notificationData);
+                    vfArtifactData = new String(resultArtifact.getArtifactPayload());
+                    vfModuelModels= GsonUtil.parseJsonArrayWithGson(vfArtifactData,VfModuelModel.class);
+                } catch (final ArtifactDownloadException exp) {
+                    LOGGER.error("Failed to process csar service artifacts ", exp);
+                    artifactsProcessedSuccessfully = false;
+                    sendDistributionStatus(DistributionStatusType.DEPLOY, artifact.getArtifactURL(),
                         notificationData.getDistributionID(), DistributionStatusEnum.DEPLOY_ERROR,
                         "Failed to deploy the artifact due to: " + exp.getMessage());
+                }
             }
         }
+
+        //foreach(vf_module_metadata)
+        //  1. create a  dir like /data/UUID1
+        //  2. put the vfmodule-meta.json into it
+        //  3. put the service-meta.json into it
+        //  3. go through each aritfact uuid under artifact_list of vf_module and download
+        for (final VfModuelModel vfModule : vfModuelModels) {
+            try {
+                //create the new dir
+                Path temp = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID());
+                path = Files.createDirectory(temp);//create UUID path
+                //store the value to vfmodule-meta.json
+                String filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),"vfmodule-meta.json").toString();
+                writeFileByFileWriter(filePath, vfArtifactData);
+                //store the service level info to serivce-meta.json
+                filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),"service-meta.json").toString();
+                writeFileByFileWriter(filePath, notificationData.toString());
+            } catch (final IOException exp) {
+                LOGGER.error("Failed to create  directory artifact file", exp);
+            }
+
+            for(final String uuid : vfModule.getArtifacts()) {
+                try {
+                    IArtifactInfo artifact = artifactMap.get(uuid);
+                    final IDistributionClientDownloadResult resultArtifact = downloadTheArtifact(artifact, notificationData);
+                    writeArtifactToDir(artifact,resultArtifact,path);
+                } catch (final ArtifactDownloadException exp) {
+                    LOGGER.error("Failed to process csar service artifacts ", exp);
+                    artifactsProcessedSuccessfully = false;
+                    sendDistributionStatus(DistributionStatusType.DEPLOY, artifactMap.get(uuid).getArtifactURL(),
+                        notificationData.getDistributionID(), DistributionStatusEnum.DEPLOY_ERROR,
+                        "Failed to deploy the artifact due to: " + exp.getMessage());
+                }
+            }
+        }
+
+        //for subplug work
+        try {
+            final CloudArtifact cloudArtifact = new CloudArtifact(vfModuelModels, artifactTypeMap);
+            inputReceived(cloudArtifact);
+        } catch ( final PolicyDecodingException exp) {
+            LOGGER.error("Failed to process cloud  artifacts ", exp);
+            artifactsProcessedSuccessfully = false;
+        }
+
         if (artifactsProcessedSuccessfully) {
             DistributionStatisticsManager.updateDistributionSuccessCount();
             sendComponentDoneStatus(notificationData.getDistributionID(), DistributionStatusEnum.COMPONENT_DONE_OK,
@@ -246,6 +326,45 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         sendDistributionStatus(DistributionStatusType.DOWNLOAD, artifact.getArtifactURL(),
                 notificationData.getDistributionID(), DistributionStatusEnum.DOWNLOAD_OK, null);
         return downloadResult;
+    }
+
+    /**
+     * Method to write a string to a file
+     * @Param filePath the file's path
+     * @Param content the data to be writen
+     * @throws IOException if error happends
+     */
+    private static void writeFileByFileWriter(String filePath, String content) throws IOException {
+        File file = new File(filePath);
+        synchronized (file) {
+            FileWriter fw = new FileWriter(filePath);
+            fw.write(content);
+            fw.close();
+        }
+    }
+    /**
+     * Method to write the downloaded distribution artifact to local file system with specified dir.
+     *
+     * @param artifact the notification artifact
+     * @param resultArtifact the download result artifact
+     * @return the local path of written file
+     * @throws ArtifactDownloadException if error occurs while writing the artifact
+     */
+    private Path writeArtifactToDir(final IArtifactInfo artifact,
+            final IDistributionClientDownloadResult resultArtifact, Path path) throws ArtifactDownloadException {
+        try {
+            final byte[] payloadBytes = resultArtifact.getArtifactPayload();
+            //final File tempArtifactFile = File.createTempFile(artifact.getArtifactName(), ".csar");
+            File tempArtifactFile = new File(path.toString() + "/" + artifact.getArtifactName());
+            try (FileOutputStream fileOutputStream = new FileOutputStream(tempArtifactFile)) {
+                fileOutputStream.write(payloadBytes, 0, payloadBytes.length);
+                return tempArtifactFile.toPath();
+            }
+        } catch (final Exception exp) {
+            final String message = "Failed to write artifact to local repository";
+            LOGGER.error(message, exp);
+            throw new ArtifactDownloadException(message, exp);
+        }
     }
 
     /**
