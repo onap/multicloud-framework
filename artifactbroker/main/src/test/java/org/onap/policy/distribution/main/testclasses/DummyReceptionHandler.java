@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  *  Copyright (C) 2018 Ericsson. All rights reserved.
+ *  Copyright (C) 2019 Intel. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,29 +21,18 @@
 
 package org.onap.policy.distribution.main.testclasses;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import org.onap.policy.distribution.forwarding.ArtifactForwarder;
-import org.onap.policy.distribution.forwarding.ArtifactForwardingException;
-import org.onap.policy.distribution.model.PolicyInput;
+import org.onap.policy.distribution.reception.handling.AbstractReceptionHandler;
 
 /**
- * Class to create a dummy forwarder for test cases.
+ * Class to create a dummy reception handler for test cases.
  *
  * @author Ram Krishna Verma (ram.krishna.verma@ericsson.com)
  */
-public class DummyArtifactForwarder implements ArtifactForwarder {
-    private int numberOfPoliciesReceived = 0;
+public class DummyReceptionHandler extends AbstractReceptionHandler {
 
     @Override
-    public void forward(final PolicyInput policy) throws ArtifactForwardingException {
-        numberOfPoliciesReceived += 1;
-    }
-
-    public int getNumberOfPoliciesReceived() {
-        return numberOfPoliciesReceived;
-    }
+    public void initializeReception(final String parameterGroupName) {}
 
     @Override
-    public void configure(String parameterGroupName) {}
+    public void destroy() {}
 }

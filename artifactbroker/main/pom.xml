@@ -29,6 +29,14 @@
     <name>${project.artifactId}</name>
     <description>The main module of Policy Distribution that handles startup, lifecycle management, and parameters.</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.onap.multicloud.framework</groupId>
+            <artifactId>multicloud-framework-artifactbroker-reception</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <resources>
             <!-- Output the version of the distribution service -->

@@ -74,11 +74,10 @@ public abstract class AbstractReceptionHandler implements ReceptionHandler {
      */
     protected void inputReceived(final PolicyInput policyInput) throws PolicyDecodingException {
 
-        final Collection<IArtifactInfo> policies = new ArrayList<>();
 
         for (final ArtifactForwarder policyForwarder : pluginHandler.getArtifactForwarders()) {
             try {
-                policyForwarder.forward(policies);
+                policyForwarder.forward(policyInput);
             } catch (final ArtifactForwardingException policyForwardingException) {
                 LOGGER.error("Error when forwarding policies to " + policyForwarder, policyForwardingException);
             }

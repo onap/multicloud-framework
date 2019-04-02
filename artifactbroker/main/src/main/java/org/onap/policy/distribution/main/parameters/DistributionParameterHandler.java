@@ -30,6 +30,8 @@ import org.onap.policy.common.logging.flexlogger.Logger;
 import org.onap.policy.common.parameters.GroupValidationResult;
 import org.onap.policy.distribution.main.PolicyDistributionException;
 import org.onap.policy.distribution.main.startstop.DistributionCommandLineArguments;
+import org.onap.policy.distribution.reception.parameters.ReceptionHandlerConfigurationParameterGroup;
+import org.onap.policy.distribution.reception.parameters.ReceptionHandlerConfigurationParametersJsonAdapter;
 
 /**
  * This class handles reading, parsing and validating of policy distribution parameters from JSON files.
@@ -52,6 +54,10 @@ public class DistributionParameterHandler {
         try {
             // Read the parameters from JSON using Gson
             final Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(ArtifactForwarderConfigurationParameterGroup.class,
+                            new ArtifactForwarderConfigurationParametersJsonAdapter())
+                    .registerTypeAdapter(ReceptionHandlerConfigurationParameterGroup.class,
+                            new ReceptionHandlerConfigurationParametersJsonAdapter())
                     .create();
             distributionParameterGroup = gson.fromJson(new FileReader(arguments.getFullConfigurationFilePath()),
                     DistributionParameterGroup.class);

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import org.onap.policy.distribution.forwarding.ArtifactForwarder;
 import org.onap.policy.distribution.forwarding.ArtifactForwardingException;
-import org.onap.sdc.api.notification.IArtifactInfo;
+import org.onap.policy.distribution.model.PolicyInput;
 
 /**
  * Class to create a dummy forwarder for test cases in AbstractReceptionHandlerTest.
@@ -33,21 +33,16 @@ import org.onap.sdc.api.notification.IArtifactInfo;
  */
 public class DummyArtifactForwarder implements ArtifactForwarder {
     private int numberOfPoliciesReceived = 0;
-    private Collection<IArtifactInfo> policiesReceived = new ArrayList<>();
 
     @Override
-    public void forward(final Collection<IArtifactInfo> policies) throws ArtifactForwardingException {
-        numberOfPoliciesReceived += policies.size();
-        policiesReceived.addAll(policies);
+    public void forward(final PolicyInput policy) throws ArtifactForwardingException {
+        numberOfPoliciesReceived += 1;
     }
 
     public int getNumberOfPoliciesReceived() {
         return numberOfPoliciesReceived;
     }
 
-    public boolean receivedPolicy(final IArtifactInfo policy) {
-        return policiesReceived.contains(policy);
-    }
 
     @Override
     public void configure(String parameterGroupName) {}

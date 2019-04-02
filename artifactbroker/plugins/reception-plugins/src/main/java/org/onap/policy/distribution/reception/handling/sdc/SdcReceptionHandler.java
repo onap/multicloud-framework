@@ -36,7 +36,7 @@ import org.onap.policy.common.parameters.ParameterService;
 import org.onap.policy.distribution.model.CloudArtifact;
 import org.onap.policy.distribution.model.Csar;
 import org.onap.policy.distribution.model.GsonUtil;
-import org.onap.policy.distribution.model.VfModuelModel;
+import org.onap.policy.distribution.model.VfModuleModel;
 import org.onap.policy.distribution.reception.decoding.PolicyDecodingException;
 import org.onap.policy.distribution.reception.handling.AbstractReceptionHandler;
 import org.onap.policy.distribution.reception.handling.sdc.SdcClientHandler.SdcClientOperationType;
@@ -220,13 +220,11 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         DistributionStatisticsManager.updateTotalDistributionCount();
         List<String> relevantArtifactTypes = sdcConfig.getRelevantArtifactTypes();
         Path path = Paths.get("/data");
-        List<VfModuelModel> vfModuelModels = null;
-        Map<String, String> artifactTypeMap = null; //key is UUID, value is type for k8s plugin
+        List<VfModuleModel> vfModuleModels = null;
         Map<String, IArtifactInfo> artifactMap = null;//key is UUID, value is artifact for shared folder
         String vfArtifactData = null;
 
         for (final IArtifactInfo artifact : resource.getArtifacts()) {
-            artifactTypeMap.put(artifact.getArtifactUUID(),artifact.getArtifactType());
             artifactMap.put(artifact.getArtifactUUID(),artifact);
 
              //extract the artifactlist and write them into MongoDB
@@ -235,7 +233,7 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
                     final IDistributionClientDownloadResult resultArtifact =
                             downloadTheArtifact(artifact,notificationData);
                     vfArtifactData = new String(resultArtifact.getArtifactPayload());
-                    vfModuelModels= GsonUtil.parseJsonArrayWithGson(vfArtifactData,VfModuelModel.class);
+                    vfModuleModels= GsonUtil.parseJsonArrayWithGson(vfArtifactData,VfModuleModel.class);
                 } catch (final ArtifactDownloadException exp) {
                     LOGGER.error("Failed to process csar service artifacts ", exp);
                     artifactsProcessedSuccessfully = false;
@@ -251,7 +249,7 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         //  2. put the vfmodule-meta.json into it
         //  3. put the service-meta.json into it
         //  3. go through each aritfact uuid under artifact_list of vf_module and download
-        for (final VfModuelModel vfModule : vfModuelModels) {
+        for (final VfModuleModel vfModule : vfModuleModels) {
             try {
                 //create the new dir
                 Path temp = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID());
@@ -283,7 +281,7 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
 
         //for subplug work
         try {
-            final CloudArtifact cloudArtifact = new CloudArtifact(vfModuelModels, artifactTypeMap);
+            final CloudArtifact cloudArtifact = new CloudArtifact(vfModuleModels, artifactMap);
             inputReceived(cloudArtifact);
         } catch ( final PolicyDecodingException exp) {
             LOGGER.error("Failed to process cloud  artifacts ", exp);

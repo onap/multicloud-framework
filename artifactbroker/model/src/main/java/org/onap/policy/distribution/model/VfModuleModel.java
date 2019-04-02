@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  *  Copyright (C) 2018 Ericsson. All rights reserved.
+ *  Copyright (C) 2019 Intel. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +26,11 @@ import java.util.Map;
 
 
 /**
- * Represents a VfModuleModel that a {@link VfModuleModel} can be parsed.
+ * Represents a VfModuleModel that a {@link Policy} can be decoded from.
  */
 
-public class VfModuelModel {
+@SuppressWarnings("unchecked")
+public class VfModuleModel {
 
     private String vfModuleModelName;
     private String vfModuleModelInvariantUUID;
@@ -44,6 +46,10 @@ public class VfModuelModel {
         return vfModuleModelName;
     }
 
+    public String getVfModuleModelVersion() {
+        return vfModuleModelVersion;
+    }
+
     public String getVfModuleModelCustomizationUUID() {
         return vfModuleModelCustomizationUUID;
     }
@@ -55,7 +61,7 @@ public class VfModuelModel {
     public List<String> getArtifacts() {
         return artifacts;
     }
-
+    
     public Map<String, Object> getProperties() {
         return properties;
     }

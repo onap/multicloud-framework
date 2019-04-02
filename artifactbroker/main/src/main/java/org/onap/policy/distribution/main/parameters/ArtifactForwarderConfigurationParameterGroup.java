@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  *  Copyright (C) 2018 Ericsson. All rights reserved.
+ *  Copyright (C) 2019 Intel. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,42 +19,25 @@
  * ============LICENSE_END=========================================================
  */
 
-package org.onap.policy.distribution.model;
+package org.onap.policy.distribution.main.parameters;
 
-import java.util.List;
-import java.util.Map;
-
-import org.onap.sdc.api.notification.IArtifactInfo;
+import org.onap.policy.common.parameters.ParameterGroup;
 
 /**
- * Represents a CloudArtifact that a {@link Policy} can be decoded from.
+ * Base class of all {@link ParameterGroup} classes for configuration parameters for
+ * {@link ArtifactForwarder} classes.
  */
-public class CloudArtifact implements PolicyInput {
+public abstract class ArtifactForwarderConfigurationParameterGroup implements ParameterGroup {
 
-    List<VfModuleModel> vfModulePayload;
-    Map<String, IArtifactInfo> artifactMap;
+    private String name;
 
-    public CloudArtifact(List<VfModuleModel> vfModulePayload, Map<String, IArtifactInfo> artifactMap) {
-        this.vfModulePayload = vfModulePayload;
-        this.artifactMap = artifactMap;
+    @Override
+    public String getName() {
+        return name;
     }
 
-    /**
-     * Get the path to the TOSCA file.
-     *
-     * @return the path of the TOSCA file
-     */
-    public List<VfModuleModel> getVfModulePayload() {
-        return vfModulePayload;
-    }
-
-    /**
-     * Get the path to the TOSCA file.
-     *
-     * @return the path of the TOSCA file
-     */
-    public Map<String, IArtifactInfo> getArtifactTypeMap() {
-        return artifactMap;
+    public void setName(final String name) {
+        this.name = name;
     }
 
 }

@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  *  Copyright (C) 2018 Ericsson. All rights reserved.
+ *  Copyright (C) 2019 Intel. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,42 +19,31 @@
  * ============LICENSE_END=========================================================
  */
 
-package org.onap.policy.distribution.model;
+package org.onap.policy.distribution.main.testclasses;
 
-import java.util.List;
-import java.util.Map;
-
-import org.onap.sdc.api.notification.IArtifactInfo;
+import java.util.ArrayList;
+import java.util.Collection;
+import org.onap.policy.distribution.forwarding.ArtifactForwarder;
+import org.onap.policy.distribution.forwarding.ArtifactForwardingException;
+import org.onap.policy.distribution.model.PolicyInput;
 
 /**
- * Represents a CloudArtifact that a {@link Policy} can be decoded from.
+ * Class to create a dummy forwarder for test cases.
+ *
+ * @author Ram Krishna Verma (ram.krishna.verma@ericsson.com)
  */
-public class CloudArtifact implements PolicyInput {
+public class DummyArtifactForwarder implements ArtifactForwarder {
+    private int numberOfPoliciesReceived = 0;
 
-    List<VfModuleModel> vfModulePayload;
-    Map<String, IArtifactInfo> artifactMap;
-
-    public CloudArtifact(List<VfModuleModel> vfModulePayload, Map<String, IArtifactInfo> artifactMap) {
-        this.vfModulePayload = vfModulePayload;
-        this.artifactMap = artifactMap;
+    @Override
+    public void forward(final PolicyInput policy) throws ArtifactForwardingException {
+        numberOfPoliciesReceived += 1;
     }
 
-    /**
-     * Get the path to the TOSCA file.
-     *
-     * @return the path of the TOSCA file
-     */
-    public List<VfModuleModel> getVfModulePayload() {
-        return vfModulePayload;
+    public int getNumberOfPoliciesReceived() {
+        return numberOfPoliciesReceived;
     }
 
-    /**
-     * Get the path to the TOSCA file.
-     *
-     * @return the path of the TOSCA file
-     */
-    public Map<String, IArtifactInfo> getArtifactTypeMap() {
-        return artifactMap;
-    }
-
+    @Override
+    public void configure(String parameterGroupName) {}
 }

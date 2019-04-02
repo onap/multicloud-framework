@@ -1,0 +1,19 @@
+{
+    "name":"SDCDistributionGroup",
+    "restServerParameters":{
+        "host":"0.0.0.0",
+        "port":6969,
+        "userName":"healthcheck",
+        "password":"zb!XztG34"
+    },
+    "receptionHandlerConfigurationParameters":{
+        "dummyReceptionHandlerConfiguration":{
+            "parameterClassName":"org.onap.policy.distribution.main.testclasses.DummyReceptionHandlerParameterGroup",
+            "parameters":{
+                "myStringParameter": "stringValue",
+                "myIntegerParameter":20,
+                "myBooleanParameter": true
+            }
+        }
+    }
+}

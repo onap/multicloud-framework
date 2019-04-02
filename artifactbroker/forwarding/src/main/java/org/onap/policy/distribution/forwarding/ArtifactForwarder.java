@@ -22,6 +22,7 @@ package org.onap.policy.distribution.forwarding;
 
 import java.util.Collection;
 import org.onap.sdc.api.notification.IArtifactInfo;
+import org.onap.policy.distribution.model.PolicyInput;
 
 /**
  * Forwards polices.
@@ -49,6 +50,6 @@ public interface ArtifactForwarder {
      * @param policies the policies to forward
      * @throws ArtifactForwardingException if an error occurs when forwarding the given Artifact
      */
-    void forward(Collection<IArtifactInfo> artifacts) throws ArtifactForwardingException;
+    void forward(PolicyInput policyInput) throws ArtifactForwardingException;
 
 }
