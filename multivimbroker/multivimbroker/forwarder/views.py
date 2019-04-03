@@ -123,6 +123,8 @@ class CheckCapacity(BaseServer):
                 continue
             if not resp_body.get("result", False):
                 continue
+            azCapInfo = resp_body.get("AZs", [])
+            vim["AZs"] = azCapInfo
             ret['VIMs'].append(vim)
         return Response(data=ret, status=status.HTTP_200_OK)
 
@@ -233,6 +235,8 @@ class APIv1CheckCapacity(CheckCapacity):
                 continue
             if not resp_body.get("result", False):
                 continue
+            azCapInfo = resp_body.get("AZs", [])
+            vim["AZs"] = azCapInfo
             ret['VIMs'].append(vim)
         return Response(data=ret, status=status.HTTP_200_OK)
 
