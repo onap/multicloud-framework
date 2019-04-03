@@ -44,6 +44,14 @@ def originHeaders(request):
             headers[key[5:].replace('_', '-')] = value
         elif key in ('CONTENT_TYPE', 'CONTENT_LENGTH'):
             headers[key.replace('_', '-')] = value
+        elif key.lower() in ('project', 'project_id', 'project_name',
+                             'tenant', 'tenant_id', 'tenant_name'):
+            # support API to specify project other than the default one
+            headers[key] = value
+        # elif key.lower() in ('x-auth-token',
+        #                      'http_x_auth_token', 'x_auth_token'):
+        #     # pass the token to plugins
+        #     headers["X-Auth-Token"] = value
     return headers
 
 
