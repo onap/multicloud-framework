@@ -20,8 +20,8 @@
 
 package org.onap.policy.distribution.model;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.onap.sdc.api.notification.IArtifactInfo;
 
@@ -30,10 +30,10 @@ import org.onap.sdc.api.notification.IArtifactInfo;
  */
 public class CloudArtifact implements PolicyInput {
 
-    List<VfModuleModel> vfModulePayload;
-    Map<String, IArtifactInfo> artifactMap;
+    ArrayList<VfModuleModel> vfModulePayload;
+    HashMap<String, IArtifactInfo> artifactMap;
 
-    public CloudArtifact(List<VfModuleModel> vfModulePayload, Map<String, IArtifactInfo> artifactMap) {
+    public CloudArtifact(ArrayList<VfModuleModel> vfModulePayload, HashMap<String, IArtifactInfo> artifactMap) {
         this.vfModulePayload = vfModulePayload;
         this.artifactMap = artifactMap;
     }
@@ -43,7 +43,7 @@ public class CloudArtifact implements PolicyInput {
      *
      * @return the path of the TOSCA file
      */
-    public List<VfModuleModel> getVfModulePayload() {
+    public ArrayList<VfModuleModel> getVfModulePayload() {
         return vfModulePayload;
     }
 
@@ -52,7 +52,7 @@ public class CloudArtifact implements PolicyInput {
      *
      * @return the path of the TOSCA file
      */
-    public Map<String, IArtifactInfo> getArtifactTypeMap() {
+    public HashMap<String, IArtifactInfo> getArtifactTypeMap() {
         return artifactMap;
     }
 
