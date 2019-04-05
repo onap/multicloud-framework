@@ -18,29 +18,20 @@
  * ============LICENSE_END=========================================================
  */
 
-package org.onap.policy.distribution.model;
+package org.onap.policy.distribution.forwarding.xacml.pdp.testclasses;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.util.ArrayList;
+import org.onap.policy.distribution.reception.handling.AbstractReceptionHandler;
+
 /**
- * A GsonUtil created by a {@link GsonUtil}.
+ * Class to create a dummy reception handler for test cases.
+ *
+ * @author Ram Krishna Verma (ram.krishna.verma@ericsson.com)
  */
+public class DummyReceptionHandler extends AbstractReceptionHandler {
 
-public class GsonUtil {
-    // 将Json数据解析成相应的映射对象
-    public static <T> T parseJsonWithGson(String jsonData, Class<T> type) {
-        Gson gson = new Gson();
-        T result = gson.fromJson(jsonData, type);
-        return result;
-    }
+    @Override
+    public void initializeReception(final String parameterGroupName) {}
 
-    // 将Json数组解析成相应的映射对象列表
-    public static <T> ArrayList<T> parseJsonArrayWithGson(String jsonData,
-            Class<T> type) {
-        Gson gson = new Gson();
-        ArrayList<T> result = gson.fromJson(jsonData, new TypeToken<ArrayList<T>>() {}.getType());
-        return result;
-    }
+    @Override
+    public void destroy() {}
 }
-

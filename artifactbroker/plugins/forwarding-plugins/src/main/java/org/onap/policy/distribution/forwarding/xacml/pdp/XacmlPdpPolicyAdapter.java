@@ -5,42 +5,49 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
+ * 
  * SPDX-License-Identifier: Apache-2.0
  * ============LICENSE_END=========================================================
  */
 
-package org.onap.policy.distribution.model;
+package org.onap.policy.distribution.forwarding.xacml.pdp;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.util.ArrayList;
+import org.onap.policy.api.PolicyParameters;
+import org.onap.policy.api.PushPolicyParameters;
+import org.onap.policy.distribution.model.Policy;
+
 /**
- * A GsonUtil created by a {@link GsonUtil}.
+ * Adapts {@link Policy} objects to objects compatible with the XACML PDP API.
  */
+public interface XacmlPdpPolicyAdapter<T extends Policy> {
 
-public class GsonUtil {
-    // 将Json数据解析成相应的映射对象
-    public static <T> T parseJsonWithGson(String jsonData, Class<T> type) {
-        Gson gson = new Gson();
-        T result = gson.fromJson(jsonData, type);
-        return result;
-    }
+    /**
+     * Get the policy.
+     * 
+     * @return the policy
+     */
+    T getPolicy();
 
-    // 将Json数组解析成相应的映射对象列表
-    public static <T> ArrayList<T> parseJsonArrayWithGson(String jsonData,
-            Class<T> type) {
-        Gson gson = new Gson();
-        ArrayList<T> result = gson.fromJson(jsonData, new TypeToken<ArrayList<T>>() {}.getType());
-        return result;
-    }
+    /**
+     * Get as a {@link PolicyParameters} object.
+     * 
+     * @returna {@link PolicyParameters} object
+     */
+    PolicyParameters getAsPolicyParameters();
+
+    /**
+     * Get as a {@link PushPolicyParameters} object.
+     * 
+     * @returna {@link PushPolicyParameters} object
+     */
+    PushPolicyParameters getAsPushPolicyParameters(final String pdpGroups);
+
 }
-

@@ -33,5 +33,6 @@
     
     <modules>
         <module>reception-plugins</module>
+        <module>forwarding-plugins</module>
     </modules>
 </project>

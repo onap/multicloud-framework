@@ -27,8 +27,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 
 import org.onap.policy.common.logging.flexlogger.FlexLogger;
 import org.onap.policy.common.logging.flexlogger.Logger;
@@ -220,8 +221,8 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         DistributionStatisticsManager.updateTotalDistributionCount();
         List<String> relevantArtifactTypes = sdcConfig.getRelevantArtifactTypes();
         Path path = Paths.get("/data");
-        List<VfModuleModel> vfModuleModels = null;
-        Map<String, IArtifactInfo> artifactMap = null;//key is UUID, value is artifact for shared folder
+        ArrayList<VfModuleModel> vfModuleModels = new ArrayList<>();
+        HashMap<String, IArtifactInfo> artifactMap = new HashMap<>();//key is UUID, value is artifact for shared folder
         String vfArtifactData = null;
 
         for (final IArtifactInfo artifact : resource.getArtifacts()) {
