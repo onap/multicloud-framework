@@ -114,7 +114,8 @@ class CheckCapacity(BaseServer):
         for vim in body.get("VIMs", []):
             url = request.get_full_path().replace(
                 "check_vim_capacity", "%s/capacity_check" % vim)
-            resp = self.send(vim, url, json.dumps(newbody), "POST")
+            resp = self.send(vim, url, json.dumps(newbody), "POST",
+                             headers=originHeaders(request))
             if int(resp.status_code) != status.HTTP_200_OK:
                 continue
             try:
@@ -224,7 +225,8 @@ class APIv1CheckCapacity(CheckCapacity):
                 "check_vim_capacity", "%s/%s/capacity_check" %
                                       (cloud_owner, cloud_region_id))
             vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
-            resp = self.send(vimid, url, json.dumps(newbody), "POST")
+            resp = self.send(vimid, url, json.dumps(newbody), "POST",
+                             headers=originHeaders(request))
             if int(resp.status_code) != status.HTTP_200_OK:
                 continue
             try:

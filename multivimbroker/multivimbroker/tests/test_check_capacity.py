@@ -38,6 +38,7 @@ class CheckCapacityTest(unittest.TestCase):
         }"""
         req.get_full_path.return_value = ("http://msb.onap.org/api/multicloud"
                                           "/v0/check_vim_capacity")
+        req.META.items.return_value = [("Project","projectname1")]
         with mock.patch.object(self.view, "send") as send:
             plugin_resp = mock.Mock()
             plugin_resp.content = """{
@@ -64,6 +65,8 @@ class CheckCapacityTest(unittest.TestCase):
         }"""
         req.get_full_path.return_value = ("http://msb.onap.org/api/multicloud"
                                           "/v0/check_vim_capacity")
+        req.META.items.return_value = [("Project","projectname1")]
+
         with mock.patch.object(self.view, "send") as send:
             plugin_resp = mock.Mock()
             plugin_resp.content = """{
@@ -84,6 +87,7 @@ class CheckCapacityTest(unittest.TestCase):
         req.body = "hello world"
         req.get_full_path.return_value = ("http://msb.onap.org/api/multicloud"
                                           "/v0/check_vim_capacity")
+        req.META.items.return_value = [("Project","projectname1")]
         expect_body = {
             "error": ("Invalidate request body "
                       "No JSON object could be decoded.")
