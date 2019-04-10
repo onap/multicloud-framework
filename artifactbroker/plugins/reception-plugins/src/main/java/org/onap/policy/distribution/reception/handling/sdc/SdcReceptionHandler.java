@@ -28,8 +28,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
 
 import org.onap.policy.common.logging.flexlogger.FlexLogger;
 import org.onap.policy.common.logging.flexlogger.Logger;
@@ -228,13 +228,13 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         for (final IArtifactInfo artifact : resource.getArtifacts()) {
             artifactMap.put(artifact.getArtifactUUID(),artifact);
 
-             //extract the artifactlist and write them into MongoDB
+            //extract the artifactlist and write them into MongoDB
             if (artifact.getArtifactType().equals("VF_MODULES_METADATA")) {
                 try {
                     final IDistributionClientDownloadResult resultArtifact =
                             downloadTheArtifact(artifact,notificationData);
                     vfArtifactData = new String(resultArtifact.getArtifactPayload());
-                    vfModuleModels= GsonUtil.parseJsonArrayWithGson(vfArtifactData,VfModuleModel.class);
+                    vfModuleModels = GsonUtil.parseJsonArrayWithGson(vfArtifactData,VfModuleModel.class);
                 } catch (final ArtifactDownloadException exp) {
                     LOGGER.error("Failed to process csar service artifacts ", exp);
                     artifactsProcessedSuccessfully = false;
@@ -256,10 +256,12 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
                 Path temp = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID());
                 path = Files.createDirectory(temp);//create UUID path
                 //store the value to vfmodule-meta.json
-                String filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),"vfmodule-meta.json").toString();
+                String filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),
+                    "vfmodule-meta.json").toString();
                 writeFileByFileWriter(filePath, vfArtifactData);
                 //store the service level info to serivce-meta.json
-                filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),"service-meta.json").toString();
+                filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),
+                    "service-meta.json").toString();
                 writeFileByFileWriter(filePath, notificationData.toString());
             } catch (final IOException exp) {
                 LOGGER.error("Failed to create  directory artifact file", exp);
@@ -336,9 +338,13 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
     private static void writeFileByFileWriter(String filePath, String content) throws IOException {
         File file = new File(filePath);
         synchronized (file) {
-            FileWriter fw = new FileWriter(filePath);
-            fw.write(content);
-            fw.close();
+            try {
+                FileWriter fw = new FileWriter(filePath);
+                fw.write(content);
+                fw.close();
+            } catch (final IOException exp) {
+                LOGGER.error("Failed to write File by File Writer ", exp);
+            }
         }
     }
     /**
