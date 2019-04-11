@@ -20,6 +20,8 @@
 
 package org.onap.policy.distribution.forwarding.xacml.pdp.engine;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.argThat;
 import static org.mockito.Matchers.eq;
@@ -28,14 +30,11 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.IOException;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
@@ -49,18 +48,18 @@ import java.util.HashMap;
 import java.util.List;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Response;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpStatus;
+import org.apache.http.HttpVersion;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.message.BasicStatusLine;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import org.apache.http.HttpStatus;
-import org.apache.http.HttpVersion;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.message.BasicStatusLine;
 
 import org.onap.policy.common.endpoints.event.comm.bus.internal.BusTopicParams;
 import org.onap.policy.common.parameters.ParameterGroup;
@@ -68,9 +67,9 @@ import org.onap.policy.common.parameters.ParameterService;
 import org.onap.policy.distribution.forwarding.xacml.pdp.XacmlPdpArtifactForwarder;
 import org.onap.policy.distribution.forwarding.xacml.pdp.XacmlPdpArtifactForwarderParameterGroup.XacmlPdpArtifactForwarderParameterGroupBuilder;
 import org.onap.policy.distribution.main.PolicyDistributionException;
+import org.onap.policy.distribution.model.CloudArtifact;
 import org.onap.policy.distribution.model.GsonUtil;
 import org.onap.policy.distribution.model.Policy;
-import org.onap.policy.distribution.model.CloudArtifact;
 import org.onap.policy.distribution.model.VfModuleModel;
 
 import org.onap.sdc.api.notification.IArtifactInfo;
@@ -129,7 +128,7 @@ public class XacmlPdpArtifactForwarderTest {
             String data = new String(Files.readAllBytes(Paths.get("src/test/resource/modules.json")));
             Type type = new TypeToken<ArrayList<VfModuleModel>>() {}.getType();
             Gson gson = new Gson();
-            vfModuleModels= gson.fromJson(data, type);
+            vfModuleModels = gson.fromJson(data, type);
                 
             //vfModuleModels= GsonUtil.parseJsonArrayWithGson(data, VfModuleModel.class);
             assertEquals(4, vfModuleModels.size());
@@ -187,6 +186,7 @@ public class XacmlPdpArtifactForwarderTest {
         private IArtifactInfo generatedArtifact;
         private List<String> relatedArtifacts;
         private List<IArtifactInfo> relatedArtifactsInfo;
+
         ArtifactInfoImpl(){}
         
         private ArtifactInfoImpl(IArtifactInfo iArtifactInfo){
@@ -207,9 +207,9 @@ public class XacmlPdpArtifactForwarderTest {
         
         private List<String> fillRelatedArtifactsUUID(List<IArtifactInfo> relatedArtifactsInfo) {
             List<String> relatedArtifactsUUID = null;
-            if( relatedArtifactsInfo != null && !relatedArtifactsInfo.isEmpty()){
+            if ( relatedArtifactsInfo != null && !relatedArtifactsInfo.isEmpty()) {
                 relatedArtifactsUUID = new ArrayList<>();
-                for(IArtifactInfo curr: relatedArtifactsInfo){
+                for (IArtifactInfo curr: relatedArtifactsInfo) {
                     relatedArtifactsUUID.add(curr.getArtifactUUID());
                 }
             }

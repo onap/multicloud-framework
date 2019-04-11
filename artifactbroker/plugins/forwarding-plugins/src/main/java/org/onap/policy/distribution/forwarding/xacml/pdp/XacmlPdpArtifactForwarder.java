@@ -42,10 +42,10 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.FileEntity;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
 
 import org.onap.policy.common.logging.flexlogger.FlexLogger;
@@ -53,8 +53,8 @@ import org.onap.policy.common.logging.flexlogger.Logger;
 import org.onap.policy.common.parameters.ParameterService;
 import org.onap.policy.distribution.forwarding.ArtifactForwarder;
 import org.onap.policy.distribution.forwarding.xacml.pdp.adapters.XacmlPdpOptimizationPolicyAdapter;
-import org.onap.policy.distribution.model.PolicyInput;
 import org.onap.policy.distribution.model.CloudArtifact;
+import org.onap.policy.distribution.model.PolicyInput;
 import org.onap.policy.distribution.model.VfModuleModel;
 import org.onap.sdc.api.notification.IArtifactInfo;
 import org.springframework.http.HttpStatus;
@@ -145,8 +145,8 @@ public class XacmlPdpArtifactForwarder implements ArtifactForwarder {
         boolean found = false;
 
         for (String artifact: artifacts) {
-            if ( artifactMap.get(artifact) != null && 
-                artifactMap.get(artifact).getArtifactType().equals("CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT")) {
+            if ( artifactMap.get(artifact) != null 
+                && artifactMap.get(artifact).getArtifactType().equals("CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT")) {
                 cloudArtifact = artifactMap.get(artifact);
                 cloudUuid = cloudArtifact.getArtifactUUID();
                 found = true;
@@ -185,7 +185,7 @@ public class XacmlPdpArtifactForwarder implements ArtifactForwarder {
                 System.out.println("result2") ;
                 String result = EntityUtils.toString(closeableHttpResponse.getEntity());
                 System.out.println("result = {}" + result);
-                System.out.println("status  = {}"+ closeableHttpResponse.getStatusLine().getStatusCode());
+                System.out.println("status  = {}" + closeableHttpResponse.getStatusLine().getStatusCode());
                 if ( closeableHttpResponse.getStatusLine().getStatusCode() != 200 ) {
                     System.out.println("exception: ret= " + closeableHttpResponse.getStatusLine().getStatusCode());
                 } else {
