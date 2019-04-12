@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Copyright (c) 2017-2018 VMware, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,7 +31,7 @@ then
     python multivimbroker/scripts/api.py
 else
     # nohup python manage.py runserver 0.0.0.0:9001 2>&1 &
-    if [ ${SSL_ENABLED} = "true" ]; then
+    if [ "${SSL_ENABLED}" = "true" ]; then
         nohup uwsgi --https :9001,multivimbroker/pub/ssl/cert/cert.crt,multivimbroker/pub/ssl/cert/cert.key,HIGH -t 120 --module multivimbroker.wsgi --master --processes 4 &
     else
         nohup uwsgi --http :9001 -t 120 --module multivimbroker.wsgi --master --processes 4 &

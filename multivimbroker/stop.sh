@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Copyright (c) 2017 Wind River Systems, Inc.
 # Copyright (c) 2017-2018 VMware, Inc.
 #
