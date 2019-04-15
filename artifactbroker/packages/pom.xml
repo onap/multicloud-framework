@@ -52,6 +52,11 @@
             <artifactId>multicloud-framework-artifactbroker-reception-plugins</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.onap.multicloud.framework</groupId>
+            <artifactId>multicloud-framework-artifactbroker-forwarding-plugins</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
