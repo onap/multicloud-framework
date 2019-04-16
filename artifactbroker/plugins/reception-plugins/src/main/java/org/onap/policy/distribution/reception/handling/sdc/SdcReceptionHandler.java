@@ -338,10 +338,8 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
     private static void writeFileByFileWriter(String filePath, String content) throws IOException {
         File file = new File(filePath);
         synchronized (file) {
-            try {
-                FileWriter fw = new FileWriter(filePath);
+            try (FileWriter fw = new FileWriter(filePath)) {
                 fw.write(content);
-                fw.close();
             } catch (final IOException exp) {
                 LOGGER.error("Failed to write File by File Writer ", exp);
             }
