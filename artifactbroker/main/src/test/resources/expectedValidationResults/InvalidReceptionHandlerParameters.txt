@@ -1,0 +1,6 @@
+validation error(s) on parameters from "parameters/DistributionConfigParameters_InvalidReceptionHandlerParameters.json"
+parameter group "SDCDistributionGroup" type "org.onap.policy.distribution.main.parameters.DistributionParameterGroup" INVALID, parameter group has status INVALID
+  parameter group map "receptionHandlerParameters" INVALID, parameter group has status INVALID
+    parameter group "null_" type "org.onap.policy.distribution.reception.parameters.ReceptionHandlerParameters" INVALID, parameter group has status INVALID
+      field "receptionHandlerType" type "java.lang.String" value "" INVALID, must be a non-blank string
+      field "receptionHandlerClassName" type "java.lang.String" value "org.onap.policy.distribution.main.testclasses.InvalidSdcReceptionHandler" INVALID, reception handler class not found in classpath

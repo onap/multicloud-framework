@@ -7,6 +7,20 @@
         "password":"zb!XztG34"
     },
     "receptionHandlerParameters":{
+        "DummyReceptionHandler":{
+            "receptionHandlerType":"DummyReceptionHandler",
+            "receptionHandlerClassName":"org.onap.policy.distribution.main.testclasses.DummyReceptionHandler",
+            "receptionHandlerConfigurationName":"dummyReceptionHandlerConfiguration",
+            "pluginHandlerParameters":{
+                "artifactForwarders":{
+                    "DummyForwarder":{
+                        "forwarderType":"DummyForwarder",
+                        "forwarderClassName":"org.onap.policy.distribution.main.testclasses.DummyArtifactForwarder",
+                        "forwarderConfigurationParameters": "dummyConfiguration"
+                    }
+                }
+            }
+        }
     },
     "receptionHandlerConfigurationParameters":{
         "dummyReceptionHandlerConfiguration":{
@@ -20,7 +34,7 @@
     },
     "artifactForwarderConfigurationParameters":{
         "dummyConfiguration":{
-            "parameterClassName":"org.onap.policy.distribution.main.testclasses.DummyArtifactForwarderParameterGroup",
+            "parameterClassName":"",
             "parameters":{
                 "useHttps": false,
                 "hostname": "192.168.99.100",

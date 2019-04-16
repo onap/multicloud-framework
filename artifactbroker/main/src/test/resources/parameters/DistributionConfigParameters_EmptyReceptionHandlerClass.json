@@ -7,10 +7,24 @@
         "password":"zb!XztG34"
     },
     "receptionHandlerParameters":{
+        "DummyReceptionHandler":{
+            "receptionHandlerType":"",
+            "receptionHandlerClassName":"org.onap.policy.distribution.main.testclasses.InvalidSdcReceptionHandler",
+            "receptionHandlerConfigurationName":"dummyReceptionHandlerConfiguration",
+            "pluginHandlerParameters":{
+                "artifactForwarders":{
+                    "DummyForwarder":{
+                        "forwarderType":"DummyForwarder",
+                        "forwarderClassName":"org.onap.policy.distribution.main.testclasses.DummyArtifactForwarder",
+                        "forwarderConfigurationName": "dummyConfiguration"
+                    }
+                }
+            }
+        }
     },
     "receptionHandlerConfigurationParameters":{
         "dummyReceptionHandlerConfiguration":{
-            "parameterClassName":"org.onap.policy.distribution.main.testclasses.DummyReceptionHandlerParameterGroup",
+            "parameterClassName":"",
             "parameters":{
                 "myStringParameter": "stringValue",
                 "myIntegerParameter":20,

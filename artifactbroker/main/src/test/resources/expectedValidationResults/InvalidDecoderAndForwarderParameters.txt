@@ -1,0 +1,17 @@
+validation error(s) on parameters from "parameters/DistributionConfigParameters_InvalidDecoderAndForwarderParameters.json"
+parameter group "SDCDistributionGroup" type "org.onap.policy.distribution.main.parameters.DistributionParameterGroup" INVALID, parameter group has status INVALID
+  parameter group map "receptionHandlerParameters" INVALID, parameter group has status INVALID
+    parameter group "null_DummyReceptionHandler" type "org.onap.policy.distribution.reception.parameters.ReceptionHandlerParameters" INVALID, parameter group has status INVALID
+      parameter group "null_PluginHandler" type "org.onap.policy.distribution.reception.parameters.PluginHandlerParameters" INVALID, parameter group has status INVALID
+        parameter group map "policyDecoders" INVALID, parameter group has status INVALID
+          parameter group "" type "org.onap.policy.distribution.reception.parameters.PolicyDecoderParameters" INVALID, parameter group has status INVALID
+            field "decoderType" type "java.lang.String" value "" INVALID, must be a non-blank string
+            field "decoderClassName" type "java.lang.String" value "org.onap.policy.distribution.main.testclasses.PolicyDecoderApexPdpa" INVALID, policy decoder class not found in classpath
+          parameter group "DROOLS" type "org.onap.policy.distribution.reception.parameters.PolicyDecoderParameters" INVALID, parameter group has status INVALID
+            field "decoderClassName" type "java.lang.String" value "" INVALID, must be a non-blank string containing full class name of the decoder
+        parameter group map "policyForwarders" INVALID, parameter group has status INVALID
+          parameter group "" type "org.onap.policy.distribution.forwarding.parameters.PolicyForwarderParameters" INVALID, parameter group has status INVALID
+            field "forwarderType" type "java.lang.String" value "" INVALID, must be a non-blank string
+            field "forwarderClassName" type "java.lang.String" value "org.onap.policy.distribution.main.testclasses.PapStandalonePolicyForwarder" INVALID, policy forwarder class not found in classpath
+          parameter group "PAPEngineForwarder" type "org.onap.policy.distribution.forwarding.parameters.PolicyForwarderParameters" INVALID, parameter group has status INVALID
+            field "forwarderClassName" type "java.lang.String" value "" INVALID, must be a non-blank string containing full class name of the forwarder
