@@ -52,12 +52,10 @@ import org.onap.policy.common.logging.flexlogger.FlexLogger;
 import org.onap.policy.common.logging.flexlogger.Logger;
 import org.onap.policy.common.parameters.ParameterService;
 import org.onap.policy.distribution.forwarding.ArtifactForwarder;
-import org.onap.policy.distribution.forwarding.xacml.pdp.adapters.XacmlPdpOptimizationPolicyAdapter;
 import org.onap.policy.distribution.model.CloudArtifact;
 import org.onap.policy.distribution.model.PolicyInput;
 import org.onap.policy.distribution.model.VfModuleModel;
 import org.onap.sdc.api.notification.IArtifactInfo;
-import org.springframework.http.HttpStatus;
 
 
 /**
