@@ -1,0 +1,95 @@
+[
+  {
+    "vfModuleModelName": "Vfwnextgen..base_template..module-0",
+    "vfModuleModelInvariantUUID": "e40629e7-4fab-4ca3-b3ad-570763a32893",
+    "vfModuleModelVersion": "1",
+    "vfModuleModelUUID": "bff998ed-8322-4050-b1c0-181078ecbcd8",
+    "vfModuleModelCustomizationUUID": "4e00870e-87e2-4968-85ab-22d9c181b770",
+    "isBase": true,
+    "artifacts": [
+      "4d4a37ef-6a1f-4cb2-b3c9-b380a5940431",
+      "0a38b7ef-93b9-4d48-856d-efb56d53aab8"
+    ],
+    "properties": {
+      "min_vf_module_instances": "1",
+      "vf_module_label": "base_template",
+      "max_vf_module_instances": "1",
+      "vfc_list": "",
+      "vf_module_description": "",
+      "vf_module_type": "Base",
+      "availability_zone_count": "",
+      "volume_group": "false",
+      "initial_count": "1"
+    }
+  },
+  {
+    "vfModuleModelName": "Vfwnextgen..vsn..module-1",
+    "vfModuleModelInvariantUUID": "608cf695-83d9-4777-8d34-d4d76a5b5c19",
+    "vfModuleModelVersion": "1",
+    "vfModuleModelUUID": "8a5b6f0a-535d-4d86-ba6e-facf56302a39",
+    "vfModuleModelCustomizationUUID": "77320fa7-afa0-4e9c-b998-5a182c05ce0a",
+    "isBase": false,
+    "artifacts": [
+      "db75d79d-5e33-4e28-9a53-8d2c5d9df350",
+      "dd537ba7-a63a-4dff-8448-53b6bd450685"
+    ],
+    "properties": {
+      "min_vf_module_instances": "0",
+      "vf_module_label": "vsn",
+      "max_vf_module_instances": "",
+      "vfc_list": "",
+      "vf_module_description": "",
+      "vf_module_type": "Expansion",
+      "availability_zone_count": "",
+      "volume_group": "false",
+      "initial_count": "0"
+    }
+  },
+  {
+    "vfModuleModelName": "Vfwnextgen..vpg..module-2",
+    "vfModuleModelInvariantUUID": "4dd970d9-fc1c-4d06-bc29-c5eebc28a58c",
+    "vfModuleModelVersion": "1",
+    "vfModuleModelUUID": "8184982c-9706-4a4c-9d56-3d125772d55a",
+    "vfModuleModelCustomizationUUID": "ed4f1e52-17ab-458e-8b05-9620f97f2465",
+    "isBase": false,
+    "artifacts": [
+      "b57ab00a-b4c8-4732-9cad-06b341fc12bb",
+      "9753e2bc-8b85-4793-9591-5c65e82df6a4"
+    ],
+    "properties": {
+      "min_vf_module_instances": "0",
+      "vf_module_label": "vpg",
+      "max_vf_module_instances": "",
+      "vfc_list": "",
+      "vf_module_description": "",
+      "vf_module_type": "Expansion",
+      "availability_zone_count": "",
+      "volume_group": "false",
+      "initial_count": "0"
+    }
+  },
+  {
+    "vfModuleModelName": "Vfwnextgen..vfw..module-3",
+    "vfModuleModelInvariantUUID": "1b998683-0854-4bd1-bfab-345cccf1fc16",
+    "vfModuleModelVersion": "1",
+    "vfModuleModelUUID": "3a4a9712-9fab-4c20-9b82-f4ebbbf4437c",
+    "vfModuleModelCustomizationUUID": "1d177995-1861-4036-993c-37642d768694",
+    "isBase": false,
+    "artifacts": [
+      "450a0635-73ce-4394-ad7d-a3ab354b044c",
+      "7d7a9ab4-ef1d-4d3f-baa4-e9c1361a23ef"
+    ],
+    "properties": {
+      "min_vf_module_instances": "0",
+      "vf_module_label": "vfw",
+      "max_vf_module_instances": "",
+      "vfc_list": "",
+      "vf_module_description": "",
+      "vf_module_type": "Expansion",
+      "availability_zone_count": "",
+      "volume_group": "false",
+      "initial_count": "0"
+    }
+  }
+]
+
