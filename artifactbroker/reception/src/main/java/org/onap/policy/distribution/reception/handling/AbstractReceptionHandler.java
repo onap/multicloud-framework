@@ -53,6 +53,9 @@ public abstract class AbstractReceptionHandler implements ReceptionHandler {
         final ReceptionHandlerParameters receptionHandlerParameters = ParameterService.get(parameterGroupName);
         pluginHandler = new PluginHandler(receptionHandlerParameters.getPluginHandlerParameters().getName());
         initializeReception(receptionHandlerParameters.getReceptionHandlerConfigurationName());
+        LOGGER.debug("Policy distribution , parameterGroupName = " + parameterGroupName);
+        LOGGER.debug("Policy distribution , pluginhandler name = " + receptionHandlerParameters.getPluginHandlerParameters().getName());
+        LOGGER.debug("Policy distribution , recetipionhandler name = " + receptionHandlerParameters.getReceptionHandlerConfigurationName());
     }
 
     /**

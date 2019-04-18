@@ -29,7 +29,12 @@ import org.onap.policy.common.logging.flexlogger.Logger;
 import org.onap.policy.common.parameters.ParameterService;
 import org.onap.policy.distribution.main.PolicyDistributionException;
 import org.onap.policy.distribution.main.parameters.DistributionParameterGroup;
+import org.onap.policy.distribution.main.parameters.ArtifactForwarderConfigurationParameterGroup;
 import org.onap.policy.distribution.main.rest.DistributionRestServer;
+import org.onap.policy.distribution.reception.decoding.PluginInitializationException;
+import org.onap.policy.distribution.reception.handling.AbstractReceptionHandler;
+import org.onap.policy.distribution.reception.parameters.ReceptionHandlerConfigurationParameterGroup;
+import org.onap.policy.distribution.reception.parameters.ReceptionHandlerParameters;
 
 /**
  * This class wraps a distributor so that it can be activated as a complete service together with all its distribution
@@ -43,6 +48,7 @@ public class DistributionActivator {
     private final DistributionParameterGroup distributionParameterGroup;
 
     // The map of reception handlers initialized by this distribution activator
+    private final Map<String, AbstractReceptionHandler> receptionHandlersMap = new HashMap<>();
 
     private static boolean alive = false;
 
@@ -67,7 +73,21 @@ public class DistributionActivator {
         LOGGER.debug("Policy distribution starting as a service . . .");
         startDistributionRestServer();
         registerToParameterService(distributionParameterGroup);
-        DistributionActivator.setAlive(true);
+        for (final ReceptionHandlerParameters receptionHandlerParameters : distributionParameterGroup
+                .getReceptionHandlerParameters().values()) {
+            try {
+                final Class<AbstractReceptionHandler> receptionHandlerClass = (Class<AbstractReceptionHandler>) Class
+                        .forName(receptionHandlerParameters.getReceptionHandlerClassName());
+                final AbstractReceptionHandler receptionHandler = receptionHandlerClass.newInstance();
+                receptionHandler.initialize(receptionHandlerParameters.getName());
+                LOGGER.debug("Policy distribution , name = " + receptionHandlerParameters.getName());
+                receptionHandlersMap.put(receptionHandlerParameters.getName(), receptionHandler);
+                DistributionActivator.setAlive(true);
+            } catch (final ClassNotFoundException | InstantiationException | IllegalAccessException
+                    | PluginInitializationException exp) {
+                throw new PolicyDistributionException(exp.getMessage(), exp);
+            }
+        }
         LOGGER.debug("Policy distribution started as a service");
     }
 
@@ -92,6 +112,10 @@ public class DistributionActivator {
      */
     public void terminate() throws PolicyDistributionException {
         try {
+            for (final AbstractReceptionHandler handler : receptionHandlersMap.values()) {
+                handler.destroy();
+            }
+            receptionHandlersMap.clear();
             deregisterToParameterService(distributionParameterGroup);
             DistributionActivator.setAlive(false);
 
@@ -119,8 +143,25 @@ public class DistributionActivator {
      */
     public void registerToParameterService(final DistributionParameterGroup distributionParameterGroup) {
         ParameterService.register(distributionParameterGroup);
+        for (final ReceptionHandlerParameters params : distributionParameterGroup.getReceptionHandlerParameters()
+                .values()) {
+            params.setName(distributionParameterGroup.getName());
+            params.getPluginHandlerParameters().setName(distributionParameterGroup.getName());
+            ParameterService.register(params);
+            ParameterService.register(params.getPluginHandlerParameters());
+        }
         //@formatter:off
-        //@formatter:on
+        for (final Entry<String, ArtifactForwarderConfigurationParameterGroup> forwarderConfiguration
+                : distributionParameterGroup.getArtifactForwarderConfigurationParameters().entrySet()) {
+            forwarderConfiguration.getValue().setName(forwarderConfiguration.getKey());
+            ParameterService.register(forwarderConfiguration.getValue());
+        }
+        for (final Entry<String, ReceptionHandlerConfigurationParameterGroup> receptionHandlerConfiguration
+                : distributionParameterGroup.getReceptionHandlerConfigurationParameters().entrySet()) {
+            receptionHandlerConfiguration.getValue().setName(receptionHandlerConfiguration.getKey());
+            ParameterService.register(receptionHandlerConfiguration.getValue());
+        }
+        //@formatter:off
     }
 
     /**
@@ -130,6 +171,22 @@ public class DistributionActivator {
      */
     public void deregisterToParameterService(final DistributionParameterGroup distributionParameterGroup) {
         ParameterService.deregister(distributionParameterGroup.getName());
+        for (final ReceptionHandlerParameters params : distributionParameterGroup.getReceptionHandlerParameters()
+                .values()) {
+            ParameterService.deregister((params.getName()));
+            ParameterService.deregister((params.getPluginHandlerParameters().getName()));
+        }
+        //@formatter:off
+        for (final Entry<String, ArtifactForwarderConfigurationParameterGroup> forwarderConfiguration
+                : distributionParameterGroup.getArtifactForwarderConfigurationParameters().entrySet()) {
+            forwarderConfiguration.getValue().setName(forwarderConfiguration.getKey());
+            ParameterService.deregister(forwarderConfiguration.getKey());
+        }
+        for (final Entry<String, ReceptionHandlerConfigurationParameterGroup> receptionHandlerConfiguration
+                : distributionParameterGroup.getReceptionHandlerConfigurationParameters().entrySet()) {
+            receptionHandlerConfiguration.getValue().setName(receptionHandlerConfiguration.getKey());
+            ParameterService.deregister(receptionHandlerConfiguration.getKey());
+        }
         //@formatter:on
     }
 

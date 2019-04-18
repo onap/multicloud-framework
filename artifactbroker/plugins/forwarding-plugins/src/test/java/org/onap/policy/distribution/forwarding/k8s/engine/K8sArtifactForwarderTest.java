@@ -18,7 +18,7 @@
  * ============LICENSE_END=========================================================
  */
 
-package org.onap.policy.distribution.forwarding.xacml.pdp.engine;
+package org.onap.policy.distribution.forwarding.k8.engine;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -64,8 +64,8 @@ import org.junit.Test;
 import org.onap.policy.common.endpoints.event.comm.bus.internal.BusTopicParams;
 import org.onap.policy.common.parameters.ParameterGroup;
 import org.onap.policy.common.parameters.ParameterService;
-import org.onap.policy.distribution.forwarding.xacml.pdp.XacmlPdpArtifactForwarder;
-import org.onap.policy.distribution.forwarding.xacml.pdp.XacmlPdpArtifactForwarderParameterGroup.XacmlPdpArtifactForwarderParameterGroupBuilder;
+import org.onap.policy.distribution.forwarding.k8s.K8sArtifactForwarder;
+import org.onap.policy.distribution.forwarding.k8s.K8sArtifactForwarderParameterGroup.K8sArtifactForwarderParameterGroupBuilder;
 import org.onap.policy.distribution.main.PolicyDistributionException;
 import org.onap.policy.distribution.model.CloudArtifact;
 import org.onap.policy.distribution.model.GsonUtil;
@@ -74,7 +74,7 @@ import org.onap.policy.distribution.model.VfModuleModel;
 
 import org.onap.sdc.api.notification.IArtifactInfo;
 
-public class XacmlPdpArtifactForwarderTest {
+public class K8sArtifactForwarderTest {
 
     private static final BusTopicParams BUS_TOPIC_PARAMS = BusTopicParams.builder().useHttps(false).hostname("myHost")
             .port(1234).userName("myUser").password("myPassword").managed(true).build();
@@ -89,7 +89,7 @@ public class XacmlPdpArtifactForwarderTest {
      */
     @BeforeClass
     public static void setUp() {
-        ParameterGroup parameterGroup = new XacmlPdpArtifactForwarderParameterGroupBuilder()
+        ParameterGroup parameterGroup = new K8sArtifactForwarderParameterGroupBuilder()
                 .setUseHttps(BUS_TOPIC_PARAMS.isUseHttps()).setHostname(BUS_TOPIC_PARAMS.getHostname())
                 .setPort(BUS_TOPIC_PARAMS.getPort()).setUserName(BUS_TOPIC_PARAMS.getUserName())
                 .setPassword(BUS_TOPIC_PARAMS.getPassword()).setClientAuth(CLIENT_AUTH_VALUE)
@@ -117,7 +117,7 @@ public class XacmlPdpArtifactForwarderTest {
 
         when(httpClientMock.execute(anyObject())).thenReturn(response);
 
-        XacmlPdpArtifactForwarder forwarder = new XacmlPdpArtifactForwarder();
+        K8sArtifactForwarder forwarder = new K8sArtifactForwarder();
         forwarder.configure("xacmlPdpConfiguration");
 
 
