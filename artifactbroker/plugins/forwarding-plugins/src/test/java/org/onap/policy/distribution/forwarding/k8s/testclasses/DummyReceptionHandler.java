@@ -18,7 +18,7 @@
  * ============LICENSE_END=========================================================
  */
 
-package org.onap.policy.distribution.forwarding.xacml.pdp.testclasses;
+package org.onap.policy.distribution.forwarding.k8s.testclasses;
 
 import org.onap.policy.distribution.reception.handling.AbstractReceptionHandler;
 

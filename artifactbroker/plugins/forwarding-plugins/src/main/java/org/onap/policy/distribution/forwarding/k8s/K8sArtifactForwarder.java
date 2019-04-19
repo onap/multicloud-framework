@@ -18,7 +18,7 @@
  * ============LICENSE_END=========================================================
  */
 
-package org.onap.policy.distribution.forwarding.xacml.pdp;
+package org.onap.policy.distribution.forwarding.k8s;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -61,14 +61,14 @@ import org.onap.sdc.api.notification.IArtifactInfo;
 /**
  * Forwards policies to the XACML PDP.
  */
-public class XacmlPdpArtifactForwarder implements ArtifactForwarder {
+public class K8sArtifactForwarder implements ArtifactForwarder {
 
-    private static final Logger LOGGER = FlexLogger.getLogger(XacmlPdpArtifactForwarder.class);
+    private static final Logger LOGGER = FlexLogger.getLogger(K8sArtifactForwarder.class);
     private static final String BASE_PATH = "http://localhost:8081/v1/rb/definition";
     private static final String CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT = "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT";
     private Map<String, IArtifactInfo> artifactMap;
 
-    private XacmlPdpArtifactForwarderParameterGroup configurationParameters = null;
+    private K8sArtifactForwarderParameterGroup configurationParameters = null;
     
 
 

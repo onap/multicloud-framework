@@ -18,7 +18,7 @@
  * ============LICENSE_END=========================================================
  */
 
-package org.onap.policy.distribution.forwarding.xacml.pdp;
+package org.onap.policy.distribution.forwarding.k8s;
 
 import org.onap.policy.common.parameters.GroupValidationResult;
 import org.onap.policy.common.parameters.ValidationStatus;
@@ -26,10 +26,10 @@ import org.onap.policy.common.utils.validation.ParameterValidationUtils;
 import org.onap.policy.distribution.main.parameters.ArtifactForwarderConfigurationParameterGroup;
 
 /**
- * Holds the parameters for the{@link XacmlPdpArtifactForwarder}.
+ * Holds the parameters for the{@link K8sArtifactForwarder}.
  */
-public class XacmlPdpArtifactForwarderParameterGroup extends ArtifactForwarderConfigurationParameterGroup {
-    public static final String POLICY_FORWARDER_PLUGIN_CLASS = XacmlPdpArtifactForwarder.class.getCanonicalName();
+public class K8sArtifactForwarderParameterGroup extends ArtifactForwarderConfigurationParameterGroup {
+    public static final String POLICY_FORWARDER_PLUGIN_CLASS = K8sArtifactForwarder.class.getCanonicalName();
 
     private boolean useHttps;
     private String hostname;
@@ -45,7 +45,7 @@ public class XacmlPdpArtifactForwarderParameterGroup extends ArtifactForwarderCo
      *
      * @param builder the builder create the instance from
      */
-    private XacmlPdpArtifactForwarderParameterGroup(final XacmlPdpArtifactForwarderParameterGroupBuilder builder) {
+    private K8sArtifactForwarderParameterGroup(final K8sArtifactForwarderParameterGroupBuilder builder) {
         this.useHttps = builder.useHttps;
         this.hostname = builder.hostname;
         this.port = builder.port;
@@ -89,9 +89,9 @@ public class XacmlPdpArtifactForwarderParameterGroup extends ArtifactForwarderCo
     }
 
     /**
-     * Builder for XacmlPdpArtifactForwarderParameterGroup.
+     * Builder for K8sArtifactForwarderParameterGroup.
      */
-    public static class XacmlPdpArtifactForwarderParameterGroupBuilder {
+    public static class K8sArtifactForwarderParameterGroupBuilder {
         private boolean useHttps = false;
         private String hostname;
         private int port;
@@ -101,42 +101,42 @@ public class XacmlPdpArtifactForwarderParameterGroup extends ArtifactForwarderCo
         private boolean isManaged = true;
         private String pdpGroup;
 
-        public XacmlPdpArtifactForwarderParameterGroupBuilder setUseHttps(final boolean useHttps) {
+        public K8sArtifactForwarderParameterGroupBuilder setUseHttps(final boolean useHttps) {
             this.useHttps = useHttps;
             return this;
         }
 
-        public XacmlPdpArtifactForwarderParameterGroupBuilder setHostname(final String hostname) {
+        public K8sArtifactForwarderParameterGroupBuilder setHostname(final String hostname) {
             this.hostname = hostname;
             return this;
         }
 
-        public XacmlPdpArtifactForwarderParameterGroupBuilder setPort(final int port) {
+        public K8sArtifactForwarderParameterGroupBuilder setPort(final int port) {
             this.port = port;
             return this;
         }
 
-        public XacmlPdpArtifactForwarderParameterGroupBuilder setUserName(final String userName) {
+        public K8sArtifactForwarderParameterGroupBuilder setUserName(final String userName) {
             this.userName = userName;
             return this;
         }
 
-        public XacmlPdpArtifactForwarderParameterGroupBuilder setPassword(final String password) {
+        public K8sArtifactForwarderParameterGroupBuilder setPassword(final String password) {
             this.password = password;
             return this;
         }
 
-        public XacmlPdpArtifactForwarderParameterGroupBuilder setClientAuth(final String clientAuth) {
+        public K8sArtifactForwarderParameterGroupBuilder setClientAuth(final String clientAuth) {
             this.clientAuth = clientAuth;
             return this;
         }
 
-        public XacmlPdpArtifactForwarderParameterGroupBuilder setIsManaged(final boolean isManaged) {
+        public K8sArtifactForwarderParameterGroupBuilder setIsManaged(final boolean isManaged) {
             this.isManaged = isManaged;
             return this;
         }
 
-        public XacmlPdpArtifactForwarderParameterGroupBuilder setPdpGroup(final String pdpGroup) {
+        public K8sArtifactForwarderParameterGroupBuilder setPdpGroup(final String pdpGroup) {
             this.pdpGroup = pdpGroup;
             return this;
         }
@@ -144,8 +144,8 @@ public class XacmlPdpArtifactForwarderParameterGroup extends ArtifactForwarderCo
         /**
          * Creates a new XacmlPapServletArtifactForwarderParameterGroup instance.
          */
-        public XacmlPdpArtifactForwarderParameterGroup build() {
-            return new XacmlPdpArtifactForwarderParameterGroup(this);
+        public K8sArtifactForwarderParameterGroup build() {
+            return new K8sArtifactForwarderParameterGroup(this);
         }
     }
 
