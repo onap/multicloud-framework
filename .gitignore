@@ -1,12 +1,21 @@
-.project
+
+## IDE Specific Files ##
+org.eclipse.core.resources.prefs
 .classpath
-.vscode
-.settings/
+.project
+.settings
+.idea
+.externalToolBuilders
 .checkstyle
+maven-eclipse.xml
+workspace
+
+.vscode
 target/
 logs/*.log
 *.pyc
 *.swp
+
 
 # Test related files
 multivimbroker/.coverage
