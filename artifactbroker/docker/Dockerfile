@@ -25,7 +25,7 @@ RUN mkdir -p ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS} ${ARTIFACT_HOME}/etc
     chown  -R onap:onap ${ARTIFACT_HOME} ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS}
 
 WORKDIR ${ARTIFACT_DISTRIBUTION_HOME}
-RUN wget -O multicloud-framework-artifactbroker-package-1.3.1-SNAPSHOT.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=autorelease-121669&g=org.onap.multicloud.framework&a=multicloud-framework-artifactbroker-package&v=1.3.0&e=zip" && \
+RUN wget -O multicloud-framework-artifactbroker-package-1.3.1-SNAPSHOT.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework&a=multicloud-framework-artifactbroker-package&e=zip&v=1.3.1-SNAPSHOT" && \
     unzip -q -o -B multicloud-framework-artifactbroker-package-1.3.1-SNAPSHOT.zip && \
     rm -f multicloud-framework-artifactbroker-package-1.3.1-SNAPSHOT.zip
 COPY artifact-dist.sh  bin/.

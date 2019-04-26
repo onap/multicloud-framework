@@ -69,11 +69,10 @@
                     <descriptors>
                         <descriptor>src/main/package/assembly.xml</descriptor>
                     </descriptors>
-                    <finalName>${project.artifactId}-${project.version}</finalName>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>generate-complete-tar</id>
+                        <id>make-assembly</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
