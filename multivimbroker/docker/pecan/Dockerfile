@@ -16,7 +16,7 @@ RUN groupadd -r onap && useradd -r -g onap onap
 RUN apt-get update && \
     apt-get install -y wget unzip gcc && \
     cd /opt/ && \
-    wget -O multicloud-framework.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework.broker&a=multicloud-framework-broker&e=zip&v=1.3.0-SNAPSHOT" && \
+    wget -O multicloud-framework.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework.broker&a=multicloud-framework-broker&e=zip&v=1.3.1-SNAPSHOT" && \
     unzip -q -o -B multicloud-framework.zip && \
     rm -f multicloud-framework.zip && \
     pip install -r /opt/multivimbroker/requirements.txt && \
