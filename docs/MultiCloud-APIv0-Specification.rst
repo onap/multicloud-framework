@@ -6,6 +6,11 @@
 MultiCloud API v0 Specification
 ================================
 
+API in json swagger
+===================
+
+":download:`MultiCloud Broker API v0 <https://wiki.onap.org/download/attachments/25435675/multicloud.broker.v0.swagger.json?version=1&modificationDate=1557892177024&api=v2>`"
+
 API Catalog
 ===========
 
