@@ -2361,25 +2361,41 @@ Description            Instantiate infrastructure workload
 14.1.1. **Request**
 >>>>>>>>>>>>>>>>>>>
 
-================ ========= ============ ======== ==================================
+================ ========= ============ ======== ================================================
 Parameter        Qualifier Cardinality  Content    Description
-================ ========= ============ ======== ==================================
-generic-vnf-id       O         1        string          generif VNF ID to search AAI object
-vf-module-id         O         1        string          vf module id  to search AAI object
-oof_directives       O         1        Object          oof directives to update template_data
-sdnc_directives      O         1        Object          sdnc directives to update template_data
-template_type        M         1        string          template type with which the MultiCloud plugin inteprates template_data
-                                                            "heat",etc.
-template_data        M         1        Object          workload template data to instantiate workload onto VIM/Cloud instance
-================ ========= ============ ======== ==================================
+================ ========= ============ ======== ================================================
+generic-vnf-id       O         1        string    generif VNF ID to search AAI object
+vf-module-id         O         1        string    vf module id  to search AAI object
+user_directives      O         1        Object    user directives to update template_data
+                                                   This directives take 1st precedence
+                                                   over the other directives
+oof_directives       O         1        Object    oof directives to update template_data
+                                                   This directives take 2nd precedence
+sdnc_directives      O         1        Object    sdnc directives to update template_data
+                                                   This directives take 3rd precedence
+template_type        M         1        string    template type with which the
+                                                   MultiCloud plugin inteprates template_data
+                                                   "heat",etc.
+template_data        M         1        Object    workload template data to
+                                                   instantiate workload onto VIM/Cloud instance
+================ ========= ============ ======== ================================================
+
+================================= ========= ============ ======== ======================================
+vf-module-model-customization-id       O         1        string    uuid which is used to retrieve VNF
+
+================================= ========= ============ ======== ======================================
 
 ::
 
   {
-     "generic-vnf-id":"vnf-id-111111",
-     "vf-module-id":"vf-module-id-2222222",
+     "generic-vnf-id": "2115b07a-0c45-46ab-929a-0e98764a6ff3",
+     "vf-module-id": "86d30674-e096-4957-8ec0-7e0aef68868c",
+     "vf-module-model-invariant-id": "aa83cd86-a6f2-4b97-90d4-46bd7cd8748b",
+     "vf-module-model-version-id": "9e4386fb-8cdb-45b8-9b01-ae37bc0ba452",
+     "vf-module-model-customization-id": "a9e47763-adb7-4689-8dad-f5b780bf1af4",
      "oof_directives":{},
      "sdnc_directives":{},
+     "user_directives":{},
      "template_type":"heat",
      "template_data":{{
          "files":{  },
@@ -2388,30 +2404,7 @@ template_data        M         1        Object          workload template data t
             "flavor":"m1.heat"
          },
          "stack_name":"teststack",
-         "template":{
-            "heat_template_version":"2013-05-23",
-            "description":"Simple template to test heat commands",
-            "parameters":
-            {
-               "flavor":{
-                  "default":"m1.tiny",
-                  "type":"string"
-               }
-            },
-            "resources":{
-               "hello_world":{
-                  "type":"OS::Nova::Server",
-                  "properties":{
-                     "key_name":"heat_key",
-                     "flavor":{
-                        "get_param":"flavor"
-                     },
-                     "image":"40be8d1a-3eb9-40de-8abd-43237517384f",
-                     "user_data":"#!/bin/bash -xv\necho \"hello world\" &gt; /root/hello-world.txt\n"
-                  }
-               }
-            }
-         },
+         "template":"<escaped template file content>",
          "timeout_mins":60
      }
   }
@@ -2419,14 +2412,21 @@ template_data        M         1        Object          workload template data t
 14.1.2. **Response**
 >>>>>>>>>>>>>>>>>>>>
 
-================== ========= ============ ======== ==================================
+================== ========= ============ ======== ==============================================================
 Parameter          Qualifier Cardinality  Content    Description
-================== ========= ============ ======== ==================================
-template_type          M         1        string          template type with which the MultiCloud plugin inteprates template_data
-                                                            "heat",etc.
-workload_id            M         1        string          The ID of infrastructure workload resource
-template_response      M         1        Object          response from VIM/Cloud instance which is instantiating workload
-================== ========= ============ ======== ==================================
+================== ========= ============ ======== ==============================================================
+template_type          M         1        string    template type with which the MultiCloud
+                                                     plugin inteprates template_data "heat",etc.
+workload_id            M         1        string    The ID of infrastructure workload resource
+template_response      O         1        Object    response from VIM/Cloud instance
+                                                     which is instantiating workload
+workload_status        M         1        string    progress of workload instantiating process:
+                                                     "CREATE_IN_PROGRESS","CREATE_COMPLETE","CREATE_FAILED"
+================== ========= ============ ======== ==============================================================
+
+====================== ========= ============ ======== ==============================================================
+workload_status_reason      M         1        Object    stack object which is instantiated
+====================== ========= ============ ======== ==============================================================
 
 
 201: Created
@@ -2442,19 +2442,18 @@ template_response      M         1        Object          response from VIM/Clou
 ::
 
     {
-        "template_type":"heat",
-        "workload_id": "1234567890abcd"
-        "template_response":
-        {
-            "stack": {
-            "id": "1234567890abcd",
-            "links": [
-                {
-                     "href": "",
-                     "rel": "self"
-                }
-            ]
-        }
+      "template_type": "HEAT",
+      "workload_status_reason": {
+        "id": "dca67f9d-37c1-4863-b5e0-0e3d3c53196e",
+        "links": [
+          {
+            "href": "http://msb-iag.onap:80/api/multicloud-titaniumcloud/v1/CloudOwner/ONAP-POD-01-Rail-06/orchestration/v1/709ba629fe194f8699b12f9d6ffd86a0/stacks/vlb_vfm_ewm_1/dca67f9d-37c1-4863-b5e0-0e3d3c53196e",
+            "rel": "self"
+          }
+        ]
+      },
+      "workload_status": "CREATE_IN_PROGRESS",
+      "workload_id": "dca67f9d-37c1-4863-b5e0-0e3d3c53196e"
     }
 
 
@@ -2479,17 +2478,20 @@ NA
 14.2.2. **Response**
 >>>>>>>>>>>>>>>>>>>>
 
-================== ========= ============ ======== ==================================
+================== ========= ============ ======== ==============================================================
 Parameter          Qualifier Cardinality  Content    Description
-================== ========= ============ ======== ==================================
-template_type          M         1        string          template type with which the MultiCloud plugin inteprates template_data
-                                                            "heat",etc.
-workload_id            M         1        string          The ID of infrastructure workload resource
-workload_status        M         1        string          Status of infrastructure workload:
-                                                              DELETE_IN_PROGRESS, CREATE_COMPLETE, CREATE_FAILED
-                                                              DELETE_IN_PROGRESS, DELETE_COMPLETE, DELETE_FAILED
-                                                              UPDATE_IN_PROGRESS, UPDATE_COMPLETE, UPDATE_FAILED
-================== ========= ============ ======== ==================================
+================== ========= ============ ======== ==============================================================
+template_type          M         1        string    Workload Template type e.g. "heat",etc.
+workload_id            M         1        string    The ID of infrastructure workload resource
+workload_status        M         1        string    progress of workload operation process:
+                                                     CREATE_IN_PROGRESS, CREATE_COMPLETE, CREATE_FAILED
+                                                     DELETE_IN_PROGRESS, DELETE_COMPLETE, DELETE_FAILED
+                                                     UPDATE_IN_PROGRESS, UPDATE_COMPLETE, UPDATE_FAILED
+================== ========= ============ ======== ==============================================================
+
+====================== ========= ============ ======== ==============================================================
+workload_status_reason      M         1        Object    stack object which is instantiated
+====================== ========= ============ ======== ==============================================================
 
 
 200: OK
@@ -2505,9 +2507,18 @@ workload_status        M         1        string          Status of infrastructu
 ::
 
     {
-        "template_type":"heat",
-        "workload_id": "1234567890abcd",
-        "workload_status":"CREATE_IN_PROCESS"
+      "template_type": "HEAT",
+      "workload_status_reason": {
+        "id": "dca67f9d-37c1-4863-b5e0-0e3d3c53196e",
+        "links": [
+          {
+            "href": "http://msb-iag.onap:80/api/multicloud-titaniumcloud/v1/CloudOwner/ONAP-POD-01-Rail-06/orchestration/v1/709ba629fe194f8699b12f9d6ffd86a0/stacks/vlb_vfm_ewm_1/dca67f9d-37c1-4863-b5e0-0e3d3c53196e",
+            "rel": "self"
+          }
+        ]
+      },
+      "workload_status": "CREATE_IN_PROGRESS",
+      "workload_id": "dca67f9d-37c1-4863-b5e0-0e3d3c53196e"
     }
 
 
@@ -2532,8 +2543,20 @@ NA
 14.3.2. **Response**
 >>>>>>>>>>>>>>>>>>>>
 
-NA
+================== ========= ============ ======== ================================================
+Parameter          Qualifier Cardinality  Content    Description
+================== ========= ============ ======== ================================================
+template_type          M         1        string    Workload Template type e.g. "heat",etc.
+workload_id            M         1        string    The ID of infrastructure workload resource
+workload_status        M         1        string    progress of workload operation process:
+                                                     DELETE_IN_PROGRESS, DELETE_COMPLETE, DELETE_FAILED
+================== ========= ============ ======== ================================================
 
+====================== ========= ============ ======== ==============================================================
+workload_status_reason      M         1        Object    stack object which is instantiated
+====================== ========= ============ ======== ==============================================================
+
+202: Accepted
 
 204: No Content, The server has fulfilled the request by deleting the resource.
 
@@ -2544,6 +2567,80 @@ NA
 404: Not Found
 
 500: Internal Server Error
+
+::
+
+    {
+      "template_type": "HEAT",
+      "workload_status_reason": {
+        "id": "dca67f9d-37c1-4863-b5e0-0e3d3c53196e",
+        "links": [
+          {
+            "href": "http://msb-iag.onap:80/api/multicloud-titaniumcloud/v1/CloudOwner/ONAP-POD-01-Rail-06/orchestration/v1/709ba629fe194f8699b12f9d6ffd86a0/stacks/vlb_vfm_ewm_1/dca67f9d-37c1-4863-b5e0-0e3d3c53196e",
+            "rel": "self"
+          }
+        ]
+      },
+      "workload_status": "DELETE_IN_PROGRESS",
+      "workload_id": "dca67f9d-37c1-4863-b5e0-0e3d3c53196e"
+    }
+
+
+
+14.4. **Update infrastructure workload into AAI Inventory**
+------------------------------------------------------------
+
+===================== =========================================================
+IF Definition          Description
+===================== =========================================================
+URI                    msb.onap.org:80/api/multicloud/v1/{cloud-owner}/{cloud-region-id}/infra_workload/{workload-id}
+Operation              POST
+Direction              SO-> MULTICLOUD
+Description            Update infrastructure workload into AAI
+===================== =========================================================
+
+
+14.4.1. **Request**
+>>>>>>>>>>>>>>>>>>>
+
+NA
+
+14.4.2. **Response**
+>>>>>>>>>>>>>>>>>>>>
+
+================== ========= ============ ======== ================================================
+Parameter          Qualifier Cardinality  Content    Description
+================== ========= ============ ======== ================================================
+template_type          M         1        string    Workload Template type e.g. "heat",etc.
+workload_id            M         1        string    The ID of infrastructure workload resource
+workload_status        M         1        string    progress of workload operation process:
+                                                     UPDATE_IN_PROGRESS, UPDATE_COMPLETE, UPDATE_FAILED
+================== ========= ============ ======== ================================================
+
+====================== ========= ============ ======== ==============================================================
+workload_status_reason      M         1        Object    stack object which is instantiated
+====================== ========= ============ ======== ==============================================================
+
+
+202: Accepted
+
+400: Bad Request
+
+401: Unauthorized
+
+404: Not Found
+
+500: Internal Server Error
+
+::
+
+    {
+      "template_type": "HEAT",
+      "workload_status_reason": {
+      },
+      "workload_status": "UPDATE_IN_PROGRESS",
+      "workload_id": "dca67f9d-37c1-4863-b5e0-0e3d3c53196e"
+    }
 
 
 15. **Proxied OpenStack APIs**
