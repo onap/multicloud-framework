@@ -16,7 +16,7 @@ RUN addgroup -S onap && adduser -S -G onap onap
 RUN apk update && \
     apk add uwsgi wget unzip gcc make libc-dev libffi-dev openssl-dev && \
     cd /opt/ && \
-    wget -O multicloud-framework.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework&a=multicloud-framework-broker&e=zip&v=1.3.2-SNAPSHOT" && \
+    wget -O multicloud-framework.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework&a=multicloud-framework-broker&e=zip&v=1.3.3-SNAPSHOT" && \
     unzip -q -o -B multicloud-framework.zip && \
     rm -f multicloud-framework.zip && \
     pip install -r /opt/multivimbroker/requirements.txt && \
