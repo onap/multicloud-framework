@@ -20,16 +20,20 @@
 
 package org.onap.policy.distribution.reception.handling.sdc;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.lang.reflect.Type;
 
 import org.onap.policy.common.logging.flexlogger.FlexLogger;
 import org.onap.policy.common.logging.flexlogger.Logger;
@@ -218,12 +222,14 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
      */
     public void processVfModulesArtifacts(final INotificationData notificationData, IResourceInstance resource) {
         boolean artifactsProcessedSuccessfully = true;
+        LOGGER.debug("start process VF MODULES_METADATA: " );
         DistributionStatisticsManager.updateTotalDistributionCount();
         List<String> relevantArtifactTypes = sdcConfig.getRelevantArtifactTypes();
         Path path = Paths.get("/data");
         ArrayList<VfModuleModel> vfModuleModels = new ArrayList<>();
         HashMap<String, IArtifactInfo> artifactMap = new HashMap<>();//key is UUID, value is artifact for shared folder
         String vfArtifactData = null;
+        IArtifactInfo vfModuleMetaDataArtifact = null;
 
         for (final IArtifactInfo artifact : resource.getArtifacts()) {
             artifactMap.put(artifact.getArtifactUUID(),artifact);
@@ -233,10 +239,16 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
                 try {
                     final IDistributionClientDownloadResult resultArtifact =
                             downloadTheArtifact(artifact,notificationData);
-                    vfArtifactData = new String(resultArtifact.getArtifactPayload());
-                    vfModuleModels = GsonUtil.parseJsonArrayWithGson(vfArtifactData,VfModuleModel.class);
-                } catch (final ArtifactDownloadException exp) {
-                    LOGGER.error("Failed to process csar service artifacts ", exp);
+                    if (resultArtifact != null) {
+                        vfArtifactData = new String(resultArtifact.getArtifactPayload(),"UTF-8");
+                        LOGGER.debug("VF_MODULE_ARTIFACT: " + new String(resultArtifact.getArtifactPayload(),"UTF-8"));
+                    }
+                    Type listType = new TypeToken<ArrayList<VfModuleModel>>(){}.getType();
+                    vfModuleModels = new Gson().fromJson(vfArtifactData,listType);
+                    LOGGER.debug("pass to process VF_MODULES_METADATA artifacts ");
+                    vfModuleMetaDataArtifact = artifact;
+                } catch (final ArtifactDownloadException | UnsupportedEncodingException exp) {
+                    LOGGER.error("Failed to process csar VF_MODULES_METADATA artifacts ", exp);
                     artifactsProcessedSuccessfully = false;
                     sendDistributionStatus(DistributionStatusType.DEPLOY, artifact.getArtifactURL(),
                         notificationData.getDistributionID(), DistributionStatusEnum.DEPLOY_ERROR,
@@ -263,17 +275,19 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
                 filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),
                     "service-meta.json").toString();
                 writeFileByFileWriter(filePath, notificationData.toString());
+                LOGGER.debug("pass to create  directory artifact file");
             } catch (final IOException exp) {
                 LOGGER.error("Failed to create  directory artifact file", exp);
             }
 
-            for(final String uuid : vfModule.getArtifacts()) {
+            for (final String uuid : vfModule.getArtifacts()) {
                 try {
                     IArtifactInfo artifact = artifactMap.get(uuid);
                     final IDistributionClientDownloadResult resultArtifact = downloadTheArtifact(artifact, notificationData);
                     writeArtifactToDir(artifact,resultArtifact,path);
+                    LOGGER.debug("pass to write Artifact to dir  ");
                 } catch (final ArtifactDownloadException exp) {
-                    LOGGER.error("Failed to process csar service artifacts ", exp);
+                    LOGGER.error("Failed to write artifact to dir ", exp);
                     artifactsProcessedSuccessfully = false;
                     sendDistributionStatus(DistributionStatusType.DEPLOY, artifactMap.get(uuid).getArtifactURL(),
                         notificationData.getDistributionID(), DistributionStatusEnum.DEPLOY_ERROR,
@@ -286,6 +300,7 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         try {
             final CloudArtifact cloudArtifact = new CloudArtifact(vfModuleModels, artifactMap);
             inputReceived(cloudArtifact);
+            LOGGER.debug("pass to process cloud  artifacts ");
         } catch ( final PolicyDecodingException exp) {
             LOGGER.error("Failed to process cloud  artifacts ", exp);
             artifactsProcessedSuccessfully = false;
@@ -295,11 +310,20 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
             DistributionStatisticsManager.updateDistributionSuccessCount();
             sendComponentDoneStatus(notificationData.getDistributionID(), DistributionStatusEnum.COMPONENT_DONE_OK,
                     null);
+            if (vfModuleMetaDataArtifact != null) {
+                LOGGER.debug("one vfModuleMetaDataArtifact found" );
+                sendDistributionStatus(DistributionStatusType.DEPLOY, vfModuleMetaDataArtifact.getArtifactURL(),
+                        notificationData.getDistributionID(), DistributionStatusEnum.DEPLOY_OK, null);
+            } else {
+                LOGGER.debug("no vfModuleMetaDataArtifact found" );
+            }
+
         } else {
             DistributionStatisticsManager.updateDistributionFailureCount();
             sendComponentDoneStatus(notificationData.getDistributionID(), DistributionStatusEnum.COMPONENT_DONE_ERROR,
                     "Failed to process the artifact");
         }
+        LOGGER.debug("end process VF MODULES_METADATA: " );
     }
 
     /**
