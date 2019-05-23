@@ -25,9 +25,9 @@ RUN mkdir -p ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS} ${ARTIFACT_HOME}/etc
     chown  -R onap:onap ${ARTIFACT_HOME} ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS}
 
 WORKDIR ${ARTIFACT_DISTRIBUTION_HOME}
-RUN wget -O multicloud-framework-artifactbroker-package-1.3.2-SNAPSHOT.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework&a=multicloud-framework-artifactbroker-package&e=zip&v=1.3.2-SNAPSHOT" && \
-    unzip -q -o -B multicloud-framework-artifactbroker-package-1.3.2-SNAPSHOT.zip && \
-    rm -f multicloud-framework-artifactbroker-package-1.3.2-SNAPSHOT.zip
+RUN wget -O multicloud-framework-artifactbroker-package-1.3.3-SNAPSHOT.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=snapshots&g=org.onap.multicloud.framework&a=multicloud-framework-artifactbroker-package&e=zip&v=1.3.3-SNAPSHOT" && \
+    unzip -q -o -B multicloud-framework-artifactbroker-package-1.3.3-SNAPSHOT.zip && \
+    rm -f multicloud-framework-artifactbroker-package-1.3.3-SNAPSHOT.zip
 COPY artifact-dist.sh  bin/.
 #RUN tar xvfz /packages/policy-distribution.tar.gz --directory ${ARTIFACT_DISTRIBUTION_HOME}
 #RUN rm /packages/policy-distribution.tar.gz
