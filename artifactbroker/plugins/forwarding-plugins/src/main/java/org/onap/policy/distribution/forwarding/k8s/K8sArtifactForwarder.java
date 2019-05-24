@@ -64,7 +64,7 @@ import org.onap.sdc.api.notification.IArtifactInfo;
 public class K8sArtifactForwarder implements ArtifactForwarder {
 
     private static final Logger LOGGER = FlexLogger.getLogger(K8sArtifactForwarder.class);
-    private static final String BASE_PATH = "http://localhost:8081/v1/rb/definition";
+    private static final String BASE_PATH = "http://localhost:9015/v1/rb/definition";
     private static final String CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT = "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT";
     private Map<String, IArtifactInfo> artifactMap;
 
@@ -184,10 +184,12 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
                 String result = EntityUtils.toString(closeableHttpResponse.getEntity());
                 System.out.println("result = {}" + result);
                 System.out.println("status  = {}" + closeableHttpResponse.getStatusLine().getStatusCode());
-                if ( closeableHttpResponse.getStatusLine().getStatusCode() != 200 ) {
-                    System.out.println("exception: ret= " + closeableHttpResponse.getStatusLine().getStatusCode());
-                } else {
+                int status = closeableHttpResponse.getStatusLine().getStatusCode();
+                // [200, 300] means pass
+                if ( (status >=200) && (status <= 300) ) {
                     ret = true;
+                } else {
+                    System.out.println("exception: ret= " + status);
                 }
 
                 closeableHttpResponse.close();
