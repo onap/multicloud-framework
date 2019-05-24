@@ -274,7 +274,9 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
                 //store the service level info to serivce-meta.json
                 filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),
                     "service-meta.json").toString();
-                writeFileByFileWriter(filePath, notificationData.toString());
+                try(FileWriter writer = new FileWriter(filePath)){
+                    new Gson().toJson(resource, writer);
+                }
                 LOGGER.debug("pass to create  directory artifact file");
             } catch (final IOException exp) {
                 LOGGER.error("Failed to create  directory artifact file", exp);
