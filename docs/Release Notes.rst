@@ -6,6 +6,290 @@
 Release Notes
 =============
 
+Version: 4.0.0 (Dublin Release)
+-----------------------------------
+
+:Release Date: 2019-06-10
+
+**New Features**
+
+* Upgraded the Generic API to offload Infrastructure's workload LCM from SO to
+  MutliCloud
+* Upgraded the Capacity Check API to support F-GPS for OOF
+* Enhanced the security by enabling secured communication and run as
+  non-root user
+* Enhanced the multicloud NBI to support multi-tenant by new header field
+* Minimized docker image footprint by rebasing images to Alpine
+* Refactored and enhance the MultiCloud OpenStack VES agent service to a
+  standalone service as multicloud-fcaps
+* Updated the plugin for Wind River Titanium Cloud to realize the enhanced
+  the Generic API
+* Updated the plugin for kubernetes cloud region
+* Added artifactbroker as a SDC client to retrieve VNF artifacts for Multicloud
+  plugins services
+* Added plugin for StarlingX
+* Added plugin for ThinkCloud
+
+
+**The MultiCloud services consists of following components:**
+
+**MultiCloud Broker (version: 1.3.3)**
+
+* Extended infra_workload API for better integration of SO and MultiCloud
+* Extended check_vim_capacity API to check capacity at AZ level
+* Added optional header field "Project" to support multi-tenants
+* Added plugin type for k8s and starlingx
+* Run as non-root user
+
+
+**MultiCloud ArtifactBroker (version: 1.3.3)**
+
+* Added artifactbroker service to retrieve VNF artifacts from SDC
+* Deployed as a sidecar for MultiCloud Plugin services
+* Run as non-root user
+
+
+**MultiCloud FCAPS (version: 1.3.4)**
+
+* Common service to support relay FCAPS data from OpenStack
+* Rebased image to alpine in favor of Docker image footprint
+* Enable HTTPS endpoints to realize secured communication requirement
+* Run as non-root user
+
+
+**MultiCloud Plugin for Wind River Titanium Cloud (version: 1.3.4)**
+
+* Enhanced the infra_workload to realize the extended API requirements
+* Enhanced the capacity_check API to check the capacity on AZ level
+* Enhanced the API handler to accept new request Header "Project"
+* Refactored the helper codes into separated thread.
+* Rebased image to alpine in favor of Docker image footprint
+* Enable HTTPS endpoints to realize secured communication requirement
+* Move the vesagent functionality to MultiCloud FCAPS module
+* Run as non-root user
+
+**MultiCloud Plugin for StarlingX (version: 1.3.4)**
+
+* Align to MultiCloud Plugin for Wind River
+* Run as non-root user
+
+
+**MultiCloud Plugin for OpenStack versions (version: 1.3.4)**
+
+* Support OpenStack Ocata, Pike
+* Rebased image to alpine in favor of Docker image footprint
+* Enable HTTPS endpoints to realize secured communication requirement
+* Run as non-root user
+
+**MultiCloud Plugin for VIO (version 1.3.2)**
+
+* TBD
+* Run as non-root user
+
+
+**MultiCloud Plugin for Azure (version 1.2.4)**
+
+* Rebased image to alpine in favor of Docker image footprint
+* Run as non-root user
+
+**MultiCloud Plugin for Kubernetes (version: 0.4.0)**
+
+* TBD
+
+
+**Bug Fixes**
+
+- `MULTICLOUD-605 <https://jira.onap.org/browse/MULTICLOUD-605>`_
+  MultiCloud Plugin: Robot Heat Bridge fails to Multicloud due to the
+  keystone client in Init Bridge is not getting the identity url
+  back from MultiCloud.
+
+- `MULTICLOUD-657 <https://jira.onap.org/browse/MULTICLOUD-657>`_
+  MultiCloud WindRiver: VF-C cannot enumerate tenants list with API v1
+
+- `MULTICLOUD-651 <https://jira.onap.org/browse/MULTICLOUD-651>`_
+  MultiCloud artifactbroker: artifactbroker does not compose appropriate
+  meta files for MultiCloud plugins
+
+- `MULTICLOUD-653 <https://jira.onap.org/browse/MULTICLOUD-653>`_
+  MultiCloud k8s: vFw Helm charts installs ok but not traffic seen on sink
+
+- `MULTICLOUD-656 <https://jira.onap.org/browse/MULTICLOUD-656>`_
+  MultiCloud WindRiver: MultiCloud WindRiver plugin cannot load VF Module
+  artifacts which are fed by artifactbroker
+
+- `MULTICLOUD-633 <https://jira.onap.org/browse/MULTICLOUD-633>`_
+  MultiCloud Doc: Update the infra_workload API to reflect enhancement
+  in Dublin
+
+- `MULTICLOUD-584 <https://jira.onap.org/browse/MULTICLOUD-584>`_
+  MultiCloud FCAPS: Multicloud-fcaps fails health check with 502
+
+- `MULTICLOUD-627 <https://jira.onap.org/browse/MULTICLOUD-627>`_
+  MultiCloud Azure: multicloud-azure docker image cannot boot up
+  after rebasing to alpine
+
+- `MULTICLOUD-611 <https://jira.onap.org/browse/MULTICLOUD-611>`_
+  MultiCloud WindRiver: 500 resturn code for some infra_workload API calls
+
+- `MULTICLOUD-603 <https://jira.onap.org/browse/MULTICLOUD-603>`_
+  MultiCloud WindRiver: Error returns while querying workload-id after
+  workload create
+
+- `MULTICLOUD-588 <https://jira.onap.org/browse/MULTICLOUD-588>`_
+  MultiCloud Broker: broker fails to boot up after rebasing to alpine
+
+- `MULTICLOUD-477 <https://jira.onap.org/browse/MULTICLOUD-477>`_
+  MultiCloud OpenStack: service URL definitions interfere with each other
+
+- `MULTICLOUD-476 <https://jira.onap.org/browse/MULTICLOUD-476>`_
+  MultiCloud Broker: POST fails on v1 interface
+
+- `MULTICLOUD-478 <https://jira.onap.org/browse/MULTICLOUD-478>`_
+  MultiCloud OpenStack: Handling of mapping from v3 keystone to v2 keystone
+  is faulty
+
+- `MULTICLOUD-479 <https://jira.onap.org/browse/MULTICLOUD-479>`_
+  MultiCloud WindRiver: heatbridge_update not working correctly
+
+- `MULTICLOUD-645 <https://jira.onap.org/browse/MULTICLOUD-645>`_
+  MultiCloud k8s: Multicloud-k8s to SO responses don't match
+
+- `MULTICLOUD-283 <https://jira.onap.org/browse/MULTICLOUD-283>`_
+  MultiCloud Doc: API documentation : POST tokens is missing
+
+- `MULTICLOUD-585 <https://jira.onap.org/browse/MULTICLOUD-585>`_
+  MultiCloud k8s: CustomResourceDefinitions are not getting created
+
+- `MULTICLOUD-595 <https://jira.onap.org/browse/MULTICLOUD-595>`_
+  MultiCloud WindRiver: unexpected exception during registration without privilege
+
+- `MULTICLOUD-582 <https://jira.onap.org/browse/MULTICLOUD-582>`_
+  MultiCloud k8s: Fix error in CSIT setup.sh
+
+- `MULTICLOUD-575 <https://jira.onap.org/browse/MULTICLOUD-575>`_
+  MultiCloud k8s: k8s docker build is broken
+
+- `MULTICLOUD-462 <https://jira.onap.org/browse/MULTICLOUD-462>`_
+  MultiCloud k8s: Namespace should be created by k8splugin before resources
+  are created in kubernetes
+
+- `MULTICLOUD-483 <https://jira.onap.org/browse/MULTICLOUD-483>`_
+  MultiCloud StarlingX: Starling-X healthcheck test is FAIL
+
+- `MULTICLOUD-562 <https://jira.onap.org/browse/MULTICLOUD-562>`_
+  MultiCloud k8s: Fix multicloud-k8s csit
+
+- `MULTICLOUD-558 <https://jira.onap.org/browse/MULTICLOUD-558>`_
+  MultiCloud k8s: Make profile keys explicit
+
+- `MULTICLOUD-552 <https://jira.onap.org/browse/MULTICLOUD-552>`_
+  MultiCloud OpenStack: HPA passthrough discovery is not right
+
+- `MULTICLOUD-525 <https://jira.onap.org/browse/MULTICLOUD-525>`_
+  MultiCloud k8s: chart name should not be mandatory
+
+- `MULTICLOUD-439 <https://jira.onap.org/browse/MULTICLOUD-439>`_
+  MultiCloud k8s: reflect.deepequal does not work in tests
+
+- `MULTICLOUD-440 <https://jira.onap.org/browse/MULTICLOUD-440>`_
+  MultiCloud k8s: Refactor definition_test code
+
+- `MULTICLOUD-438 <https://jira.onap.org/browse/MULTICLOUD-438>`_
+  MultiCloud k8s: definition upload calls db create in wrong order
+
+- `MULTICLOUD-435 <https://jira.onap.org/browse/MULTICLOUD-435>`_
+  MultiCloud k8s: Delete should not error out if there is no document found
+
+- `MULTICLOUD-619 <https://jira.onap.org/browse/MULTICLOUD-619>`_
+  MultiCloud k8s: System wide environment variables not sourced by default
+  for tests
+
+- `MULTICLOUD-607 <https://jira.onap.org/browse/MULTICLOUD-607>`_
+  MultiCloud k8s: Wrong logic for pip installation/upgrade
+
+- `MULTICLOUD-610 <https://jira.onap.org/browse/MULTICLOUD-610>`_
+  MultiCloud k8s: kud installation fails with old golang version
+
+- `MULTICLOUD-620 <https://jira.onap.org/browse/MULTICLOUD-620>`_
+  MultiCloud k8s: aio.sh is not rerunnable
+
+- `MULTICLOUD-643 <https://jira.onap.org/browse/MULTICLOUD-643>`_
+  MultiCloud artifactbroker: gson parse issue for the list of VF_MODULE_ARTIFACT
+
+- `MULTICLOUD-620 <https://jira.onap.org/browse/MULTICLOUD-620>`_
+  MultiCloud k8s: aio.sh is not rerunnable
+
+- `MULTICLOUD-620 <https://jira.onap.org/browse/MULTICLOUD-620>`_
+  MultiCloud k8s: aio.sh is not rerunnable
+
+**Known Issues**
+
+- `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
+  MultiCloud OpenStack: image creating API cannot handle large image file
+
+- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
+  MultiCloud OpenStack: keypair cannot be passed for nova instance creation
+
+- `MULTICLOUD-421 <https://jira.onap.org/browse/MULTICLOUD-421>`_
+  MultiCloud OpenStack: API request to multicloud with authorization header will be rejected
+
+- `MULTICLOUD-644 <https://jira.onap.org/browse/MULTICLOUD-644>`_
+  MultiCloud k8s: KUD - Go version is not correct
+
+- `MULTICLOUD-663 <https://jira.onap.org/browse/MULTICLOUD-663>`_
+  MultiCloud k8s: Multus error when the namesapace is not default
+
+- `MULTICLOUD-614 <https://jira.onap.org/browse/MULTICLOUD-614>`_
+  MultiCloud k8s: Create KubeConfigDir if it does not exist
+
+- `MULTICLOUD-662 <https://jira.onap.org/browse/MULTICLOUD-662>`_
+  MultiCloud k8s: Add Find/Get method to get instance for a particular profile
+
+- `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
+  MultiCloud k8s: OVN Installation issues
+
+- `MULTICLOUD-574 <https://jira.onap.org/browse/MULTICLOUD-574>`_
+  MultiCloud k8s: Use defferedrestmapper instead of the normal one
+
+- `MULTICLOUD-601 <https://jira.onap.org/browse/MULTICLOUD-601>`_
+  MultiCloud k8s: move to sigs yaml from ghodss
+
+- `MULTICLOUD-602 <https://jira.onap.org/browse/MULTICLOUD-602>`_
+  MultiCloud WindRiver: Error when registering a cloud after deleting it
+
+
+**Security Notes**
+
+MULTICLOUD code has been formally scanned during build time using NexusIQ and
+all Critical vulnerabilities have been addressed, items that remain open have
+been assessed for risk and determined to be false positive.
+
+The MULTICLOUD open Critical security vulnerabilities and their risk
+assessment have been documented as part of the
+`project <https://wiki.onap.org/pages/viewpage.action?pageId=64004594>`_.
+
+
+Quick Links:
+  - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
+
+  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+
+  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=64004594>`_
+
+**Upgrade Notes**
+
+None
+
+**Deprecation Notes**
+
+* The maintenance with regarding to MultiCloud plugin for OpenStack Newton
+  has been stopped from Casablanca Release.
+
+**Other**
+
+None
+
 
 Version: 3.0.1 (Casablanca Maintenance Release)
 -----------------------------------------------
