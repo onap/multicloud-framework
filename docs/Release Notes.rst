@@ -389,6 +389,9 @@ None
 
 *Fixed Security Issues*
 
+- `OJSI-130 <https://jira.onap.org/browse/OJSI-130>`_
+  In default deployment MULTICLOUD (multicloud-azure) exposes HTTP port 30261 outside of cluster.
+
 *Known Security Issues*
 
 *Known Vulnerabilities in Used Modules*
