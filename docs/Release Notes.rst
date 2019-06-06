@@ -273,6 +273,33 @@ Version: 4.0.0 (Dublin Release)
 
 **Security Notes**
 
+*Fixed Security Issues*
+
+- `OJSI-130 <https://jira.onap.org/browse/OJSI-130>`_
+  In default deployment MULTICLOUD (multicloud-azure) exposes HTTP port 30261 outside of cluster.
+
+- `OJSI-148 <https://jira.onap.org/browse/OJSI-148>`_
+  In default deployment MULTICLOUD (multicloud) exposes HTTP port 30291 outside of cluster.
+
+- `OJSI-150 <https://jira.onap.org/browse/OJSI-150>`_
+  In default deployment MULTICLOUD (multicloud-ocata) exposes HTTP port 30293 outside of cluster.
+
+- `OJSI-151 <https://jira.onap.org/browse/OJSI-151>`_
+  In default deployment MULTICLOUD (multicloud-windriver) exposes HTTP port 30294 outside of cluster.
+
+- `OJSI-153 <https://jira.onap.org/browse/OJSI-153>`_
+  In default deployment MULTICLOUD (multicloud-pike) exposes HTTP port 30296 outside of cluster.
+
+- `OJSI-149 <https://jira.onap.org/browse/OJSI-149>`_
+  In default deployment MULTICLOUD (multicloud-vio) exposes HTTP port 30292 outside of cluster.
+
+
+*Known Security Issues*
+
+
+*Known Vulnerabilities in Used Modules*
+
+
 MULTICLOUD code has been formally scanned during build time using NexusIQ and
 all Critical vulnerabilities have been addressed, items that remain open have
 been assessed for risk and determined to be false positive.
@@ -389,6 +416,9 @@ None
 
 *Fixed Security Issues*
 
+
+*Known Security Issues*
+
 - `OJSI-130 <https://jira.onap.org/browse/OJSI-130>`_
   In default deployment MULTICLOUD (multicloud-azure) exposes HTTP port 30261 outside of cluster.
 
@@ -404,9 +434,12 @@ None
 - `OJSI-153 <https://jira.onap.org/browse/OJSI-153>`_
   In default deployment MULTICLOUD (multicloud-pike) exposes HTTP port 30296 outside of cluster.
 
-*Known Security Issues*
+- `OJSI-149 <https://jira.onap.org/browse/OJSI-149>`_
+  In default deployment MULTICLOUD (multicloud-vio) exposes HTTP port 30292 outside of cluster.
+
 
 *Known Vulnerabilities in Used Modules*
+
 
 MULTICLOUD code has been formally scanned during build time using NexusIQ and
 all Critical vulnerabilities have been addressed, items that remain open have
