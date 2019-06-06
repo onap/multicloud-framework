@@ -387,6 +387,12 @@ None
 
 **Security Notes**
 
+*Fixed Security Issues*
+
+*Known Security Issues*
+
+*Known Vulnerabilities in Used Modules*
+
 MULTICLOUD code has been formally scanned during build time using NexusIQ and
 all Critical vulnerabilities have been addressed, items that remain open have
 been assessed for risk and determined to be false positive.
