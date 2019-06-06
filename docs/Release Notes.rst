@@ -397,6 +397,9 @@ None
 - `OJSI-151 <https://jira.onap.org/browse/OJSI-151>`_
   In default deployment MULTICLOUD (multicloud-windriver) exposes HTTP port 30294 outside of cluster.
 
+- `OJSI-153 <https://jira.onap.org/browse/OJSI-153>`_
+  In default deployment MULTICLOUD (multicloud-pike) exposes HTTP port 30296 outside of cluster.
+
 *Known Security Issues*
 
 *Known Vulnerabilities in Used Modules*
