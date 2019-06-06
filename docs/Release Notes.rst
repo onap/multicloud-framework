@@ -406,6 +406,9 @@ None
 
 *Known Security Issues*
 
+- `OJSI-149 <https://jira.onap.org/browse/OJSI-149>`_
+  In default deployment MULTICLOUD (multicloud-vio) exposes HTTP port 30292 outside of cluster.
+
 *Known Vulnerabilities in Used Modules*
 
 MULTICLOUD code has been formally scanned during build time using NexusIQ and
