@@ -69,19 +69,19 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
     private Map<String, IArtifactInfo> artifactMap;
 
     private K8sArtifactForwarderParameterGroup configurationParameters = null;
-    
+
 
 
     @Override
     public void forward(PolicyInput  policyInput) {
         if (policyInput instanceof CloudArtifact) {
-            System.out.println("get a CloudArtifact !");  
+            System.out.println("get a CloudArtifact !");
             CloudArtifact cloudArtifact = (CloudArtifact) policyInput;
             artifactMap = cloudArtifact.getArtifactTypeMap();
-            System.out.println("the artifactMap = " + artifactMap);  
+            System.out.println("the artifactMap = " + artifactMap);
             ArrayList<VfModuleModel> vfModuleModels = cloudArtifact.getVfModulePayload();
-            System.out.println("the size of vfModule = " + vfModuleModels.size());  
-                   
+            System.out.println("the size of vfModule = " + vfModuleModels.size());
+
             for (VfModuleModel vfModule : vfModuleModels) {
                 forwardAndUpload(vfModule);
             }
@@ -92,7 +92,7 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
     }
 
     private void forwardAndUpload(VfModuleModel vfModule) {
-        
+
         System.out.println("before create type !");
         boolean definitionCreated = createDefinition(vfModule);
         System.out.println(" after create type !");
@@ -130,8 +130,8 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
     }
 
     private boolean uploadArtifact(VfModuleModel vfModule) {
-        String url = BASE_PATH + "/" + vfModule.getVfModuleModelName() + "/" 
-            + vfModule.getVfModuleModelVersion() + "/content"; 
+        String url = BASE_PATH + "/" + vfModule.getVfModuleModelName() + "/"
+            + vfModule.getVfModuleModelVersion() + "/content";
         HttpPost httpPost = new HttpPost(url);
         httpPost.addHeader("content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
@@ -143,7 +143,7 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
         boolean found = false;
 
         for (String artifact: artifacts) {
-            if ( artifactMap.get(artifact) != null 
+            if ( artifactMap.get(artifact) != null
                 && artifactMap.get(artifact).getArtifactType().equals("CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT")) {
                 cloudArtifact = artifactMap.get(artifact);
                 cloudUuid = cloudArtifact.getArtifactUUID();
@@ -151,17 +151,17 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
                 break;
             }
         }
-        
+
         if ( found == false ) {
             System.out.println(" meets error , no CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT type found ");
             return false;
         }
-        String cloudArtifactPath = "/data/" + vfModule.getVfModuleModelCustomizationUUID() 
+        String cloudArtifactPath = "/data/" + vfModule.getVfModuleModelCustomizationUUID()
             + "/" + cloudArtifact.getArtifactName();
         File file = new File(cloudArtifactPath);
         FileEntity entity = new FileEntity(file);
         httpPost.setEntity(entity);
-        
+
         return invokeHttpPost("uploading", httpPost);
     }
 
@@ -172,15 +172,15 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
     }
 
     protected static boolean invokeHttpPost(String action, HttpPost httpPost)  {
-        System.out.println("httpPost begin!");
+        System.out.println("httpPost URI: " + httpPost);
         boolean ret = false;
 
         String errorMsg;
         label1: {
             try ( CloseableHttpClient httpClient = HttpClients.createDefault() ) {
-                System.out.println("result1") ;
+                System.out.println("Execute Post Body: " + EntityUtils.toString(httpPost.getEntity()));
                 CloseableHttpResponse closeableHttpResponse = httpClient.execute(httpPost);
-                System.out.println("result2") ;
+                System.out.println("result2");
                 String result = EntityUtils.toString(closeableHttpResponse.getEntity());
                 System.out.println("result = {}" + result);
                 System.out.println("status  = {}" + closeableHttpResponse.getStatusLine().getStatusCode());
@@ -194,9 +194,9 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
 
                 closeableHttpResponse.close();
                 break label1;
-            } catch (IOException var) {
-                errorMsg = action + ":httpPostWithJSON connect faild";
-                System.out.println("exception: POST_CONNECT_FAILD : {}" + errorMsg);
+            } catch (IOException exp) {
+                errorMsg = action + " :invokeHttpPost failed with: " + exp.getMessage();
+                System.out.println("exception: POST FAILED : {}" + errorMsg);
             }
         }
 
