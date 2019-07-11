@@ -8,9 +8,9 @@
                 "provider_plugin": "multicloud-titaniumcloud"
             },
             "ocata": {
-                "version": "ocata",
+                "version": "pike",
                 "extra_info_hint": "",
-                "provider_plugin": "multicloud-ocata"
+                "provider_plugin": "multicloud-pike"
             },
             "pike": {
                 "version": "pike",
@@ -23,7 +23,7 @@
                 "provider_plugin": "multicloud-starlingx"
             }
         },
-        "provider_plugin": "multicloud-ocata"
+        "provider_plugin": "multicloud-pike"
     },
     "vmware": {
         "vim_type": "vmware",
