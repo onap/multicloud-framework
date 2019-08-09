@@ -14,11 +14,11 @@ ONAP MultiCloud project aims to mediate most interactions (if not all of them)
 between ONAP and any underlying VIM or Cloud to:
 
 * enable ONAP to deploy and run on multiple infrastructure environments
-* provide a Cloud Mediation Layer supporting multiple infrastructures and
-  network backends so as to effectively prevents vendor lock-in
+* provide a Cloud Mediation Layer, supporting multiple infrastructures and
+  network backends to effectively prevent vendor lock-in
 * decouples the evolution of ONAP platform from the evolution of underlying
   cloud infrastructure, and minimizes the impact on the deployed ONAP while
-  upgrading the underlying cloud infrastructures independently
+  upgrading the underlying cloud infrastructure independently
 
 Besides that, ONAP MultiCloud project enables
 
