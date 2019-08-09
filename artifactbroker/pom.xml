@@ -267,21 +267,21 @@
                                         <exec executable="docker">
                                            <arg value="build"/>
                                            <arg value="-t"/>
-                                           <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${project.version}"/>
+                                           <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework-artifactbroker:${project.version}"/>
                                            <arg value="docker_target"/>
                                         </exec>
                                         <exec executable="docker">
                                             <arg value="tag"/>
-                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${project.version}"/>
-                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:latest"/>
+                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework-artifactbroker:${project.version}"/>
+                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework-artifactbroker:latest"/>
                                         </exec>
                                         <exec executable="docker">
                                             <arg value="push"/>
-                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${project.version}"/>
+                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework-artifactbroker:${project.version}"/>
                                         </exec>
                                         <exec executable="docker">
                                             <arg value="push"/>
-                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:latest"/>
+                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework-artifactbroker:latest"/>
                                         </exec>
                                     </target>
                                 </configuration>
