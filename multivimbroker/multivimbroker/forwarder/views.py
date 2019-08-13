@@ -18,8 +18,8 @@ import json
 import re
 import tempfile
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from poster.encode import multipart_encode
-from poster.streaminghttp import register_openers
+#from poster.encode import multipart_encode
+#from poster.streaminghttp import register_openers
 
 from rest_framework.views import APIView
 from rest_framework.views import Response
@@ -291,7 +291,12 @@ class APIv1InfraWorkload(BaseServer):
 
     def __process_multipart(self, request, vimid):
         try:
-            register_openers()
+            # API is depreciated due to poster not available in py3
+            # register_openers()
+            return Response(
+                data={'error':'multipart API is not supported yet'},
+                status=status.HTTP_400_BAD_REQUEST)
+
             dataDict = dict(request.data.iterlists())
             params = {}
             for key in dataDict.keys():
@@ -314,10 +319,10 @@ class APIv1InfraWorkload(BaseServer):
             resp = self.send(vimid, request.path, datagen, "POST",
                              headers=headers, multipart=True)
         finally:
-            for key in params:
+            for key in params or {}:
                 refobj = params[key]
                 if type(refobj) is not unicode:
                     if refobj.closed is False:
-                        print refobj.close()
+                        print (refobj.close())
                     os.remove(refobj.name)
         return resp
