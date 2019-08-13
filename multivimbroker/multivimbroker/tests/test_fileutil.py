@@ -31,7 +31,7 @@ class TestFileutil(unittest.TestCase):
         new_path = "/tmp/test"
         mock_exists.return_value = False
         fileutil.make_dirs(new_path)
-        mock_mkdir.assert_called_once_with(new_path, 0777)
+        mock_mkdir.assert_called_once_with(new_path, 0o777)
 
     @mock.patch.object(os.path, "exists")
     @mock.patch("shutil.rmtree")
@@ -51,13 +51,13 @@ class TestFileutil(unittest.TestCase):
         mock_rmtree.assert_called_once_with(new_path)
 
     @mock.patch.object(fileutil, "make_dirs")
-    @mock.patch("urllib2.urlopen")
+    @mock.patch("urllib.request.urlopen")
     def test_download_file_from_http_success(self, mock_urlopen, mock_mkdir):
         url = "http://www.example.org/test.dat"
         local_dir = "/tmp/"
         file_name = "test.dat"
         mock_req = mock.Mock()
-        mock_req.read.return_value = "hello world"
+        mock_req.read.return_value = "hello world".encode()
         mock_urlopen.return_value = mock_req
         m = mock.mock_open()
         expect_ret = (True, "/tmp/test.dat")
@@ -66,13 +66,13 @@ class TestFileutil(unittest.TestCase):
             self.assertEqual(expect_ret, ret)
 
     @mock.patch.object(fileutil, "make_dirs")
-    @mock.patch("urllib2.urlopen")
+    @mock.patch("urllib.request.urlopen")
     def test_download_file_from_http_fail(self, mock_urlopen, mock_mkdir):
         url = "http://www.example.org/test.dat"
         local_dir = "/tmp/"
         file_name = "test.dat"
         mock_req = mock.Mock()
-        mock_req.read.return_value = "hello world"
+        mock_req.read.return_value = "hello world".encode()
         mock_urlopen.side_effect = [Exception("fake exception")]
         expect_ret = (False, "/tmp/test.dat")
         ret = fileutil.download_file_from_http(url, local_dir, file_name)
