@@ -18,8 +18,8 @@ import json
 import re
 import tempfile
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from poster.encode import multipart_encode
-from poster.streaminghttp import register_openers
+# from poster.encode import multipart_encode
+# from poster.streaminghttp import register_openers
 
 from rest_framework.views import APIView
 from rest_framework.views import Response
@@ -290,34 +290,39 @@ class APIv1InfraWorkload(BaseServer):
                          "DELETE", headers=originHeaders(request))
 
     def __process_multipart(self, request, vimid):
-        try:
-            register_openers()
-            dataDict = dict(request.data.iterlists())
-            params = {}
-            for key in dataDict.keys():
-                dataObj = dataDict[key][0]
-                if isinstance(dataObj, InMemoryUploadedFile):
-                    f = tempfile.NamedTemporaryFile(prefix="django_",
-                                                    suffix=dataObj._name,
-                                                    delete=False)
-                    f.write(dataObj.file.read())
-                    f.seek(dataObj.file.tell(), 0)
-                    dataObj.file.close()
-                    params[key] = open(f.name, 'rb')
-                else:
-                    params[key] = dataObj
-            datagen, headers = multipart_encode(params)
-            regex = re.compile('^HTTP_')
-            for key, value in request.META.iteritems():
-                if key.startswith("HTTP_"):
-                    headers[regex.sub('', key).replace('_', '-')] = value
-            resp = self.send(vimid, request.path, datagen, "POST",
-                             headers=headers, multipart=True)
-        finally:
-            for key in params:
-                refobj = params[key]
-                if type(refobj) is not unicode:
-                    if refobj.closed is False:
-                        print refobj.close()
-                    os.remove(refobj.name)
-        return resp
+        return Response(
+            data={'error':'multipart API is not supported yet'},
+            status=status.HTTP_400_BAD_REQUEST)
+        # try:
+            # API is depreciated due to poster not available in py3
+
+            # register_openers()
+            # dataDict = dict(request.data.iterlists())
+            # params = {}
+            # for key in dataDict.keys():
+            #    dataObj = dataDict[key][0]
+            #    if isinstance(dataObj, InMemoryUploadedFile):
+            #        f = tempfile.NamedTemporaryFile(prefix="django_",
+            #                                        suffix=dataObj._name,
+            #                                        delete=False)
+            #        f.write(dataObj.file.read())
+            #        f.seek(dataObj.file.tell(), 0)
+            #        dataObj.file.close()
+            #        params[key] = open(f.name, 'rb')
+            #    else:
+            #        params[key] = dataObj
+            # datagen, headers = multipart_encode(params)
+            # regex = re.compile('^HTTP_')
+            # for key, value in request.META.iteritems():
+            #    if key.startswith("HTTP_"):
+            #        headers[regex.sub('', key).replace('_', '-')] = value
+            # resp = self.send(vimid, request.path, datagen, "POST",
+            #                 headers=headers, multipart=True)
+        # finally:
+            # for key in params or {}:
+            #    refobj = params[key]
+            #    if type(refobj) is not unicode:
+            #        if refobj.closed is False:
+            #            print (refobj.close())
+            #        os.remove(refobj.name)
+        # return resp

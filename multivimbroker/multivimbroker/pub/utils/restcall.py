@@ -13,9 +13,13 @@
 import sys
 import traceback
 import logging
-import urllib2
+# import urllib2
+import urllib.request
+import urllib.parse
+import urllib.error
 import uuid
 import httplib2
+import base64
 
 from multivimbroker.pub.config.config import AAI_SCHEMA_VERSION
 from multivimbroker.pub.config.config import AAI_SERVICE_URL
@@ -46,14 +50,13 @@ def call_multipart_req(base_url, user, passwd, auth_type, resource, method,
     try:
         full_url = combine_url(base_url, resource)
         logger.debug("request=%s)" % full_url)
-        requestObj = urllib2.Request(full_url, content,
-                                     headers)
-        resp = urllib2.urlopen(requestObj)
+        requestObj = urllib.request.Request(full_url, content, headers)
+        resp = urllib.request.urlopen(requestObj)
         if resp.code in status_ok_list:
             ret = [0, resp.read(), resp.code, resp]
         else:
             ret = [1, resp.read(), resp.code, resp]
-    except urllib2.URLError as err:
+    except urllib.error.URLError as err:
         ret = [2, str(err), 500, resp]
     except Exception:
         logger.error(traceback.format_exc())
@@ -81,7 +84,8 @@ def call_req(base_url, user, passwd, auth_type, resource, method,
 
         if user:
             headers['Authorization'] = 'Basic ' + \
-                ('%s:%s' % (user, passwd)).encode("base64")
+                base64.b64encode(('%s:%s' % (user, passwd)).encode()).decode()
+#                ('%s:%s' % (user, passwd)).encode("base64")
         ca_certs = None
         for retry_times in range(3):
             http = httplib2.Http(
@@ -94,8 +98,7 @@ def call_req(base_url, user, passwd, auth_type, resource, method,
                 resp, resp_content = http.request(
                     full_url, method=method.upper(),
                     body=content, headers=headers)
-                resp_status, resp_body = resp['status'], resp_content.decode(
-                    'UTF-8')
+                resp_status, resp_body = resp['status'], resp_content
 
                 if resp_status in status_ok_list:
                     ret = [0, resp_body, resp_status, resp]
@@ -109,7 +112,7 @@ def call_req(base_url, user, passwd, auth_type, resource, method,
                            full_url, resp_status, resp]
                     continue
                 raise ex
-    except urllib2.URLError as err:
+    except urllib.error.URLError as err:
         ret = [2, str(err), resp_status, resp]
     except Exception:
         logger.error(traceback.format_exc())
