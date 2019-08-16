@@ -12,7 +12,7 @@ EXPOSE 9001
 
 RUN addgroup -S onap && adduser -S -G onap onap
 
-COPY ./multicloud-framework-broker-1.4.0-SNAPSHOT.zip /opt/multicloud-framework.zip
+COPY ./multicloud-framework-broker-*.zip /opt/multicloud-framework.zip
 RUN apk update && \
     apk add uwsgi wget unzip gcc make libc-dev libffi-dev openssl-dev && \
     cd /opt/ && \
