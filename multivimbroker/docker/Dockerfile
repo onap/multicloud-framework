@@ -1,4 +1,4 @@
-FROM python:2-alpine
+FROM python:3-alpine
 
 ENV MSB_ADDR "127.0.0.1"
 ENV MSB_PORT "80"
@@ -12,15 +12,14 @@ EXPOSE 9001
 
 RUN addgroup -S onap && adduser -S -G onap onap
 
-# COPY ./ /opt/multivimbroker/
+COPY ./multicloud-framework-broker-1.4.0-SNAPSHOT.zip /opt/multicloud-framework.zip
 RUN apk update && \
     apk add uwsgi wget unzip gcc make libc-dev libffi-dev openssl-dev && \
     cd /opt/ && \
-    wget -O multicloud-framework.zip "https://nexus.onap.org/service/local/artifact/maven/redirect?r=staging&g=org.onap.multicloud.framework&a=multicloud-framework-broker&e=zip&v=1.4.0" && \
     unzip -q -o -B multicloud-framework.zip && \
     rm -f multicloud-framework.zip && \
-    pip install -r /opt/multivimbroker/requirements.txt && \
-    pip install -r /opt/multivimbroker/uwsgi-requirements.txt && \
+    pip3 install -r /opt/multivimbroker/requirements.txt && \
+    pip3 install -r /opt/multivimbroker/uwsgi-requirements.txt && \
     apk del wget unzip gcc make libc-dev libffi-dev openssl-dev && \
     mkdir -p /var/log/onap/multicloud/multivimbroker && \
     chown onap:onap /var/log/onap -R && \
