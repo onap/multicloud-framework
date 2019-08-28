@@ -39,7 +39,7 @@ def getHeadersKeys(response):
 # trim out 'HTTP_' prefix part and replace "_" wiht "-".
 def originHeaders(request):
     headers = {}
-    for key, value in request.META.items():
+    for key, value in list(request.META.items()):
         if key.startswith('HTTP_') and key != 'HTTP_HOST':
             headers[key[5:].replace('_', '-')] = value
         elif key in ('CONTENT_TYPE', 'CONTENT_LENGTH'):
@@ -82,7 +82,7 @@ def getVIMTypes():
     with open(json_file, "r") as f:
         plugins = json.load(f)
     ret = []
-    for k, v in plugins.items():
+    for k, v in list(plugins.items()):
         item = {}
         item["vim_type"] = v.get("vim_type")
         item["versions"] = [k for k in v.get('versions', {})]
