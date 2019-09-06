@@ -25,9 +25,9 @@ RUN mkdir -p ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS} ${ARTIFACT_HOME}/etc
     chown  -R onap:onap ${ARTIFACT_HOME} ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS}
 
 WORKDIR ${ARTIFACT_DISTRIBUTION_HOME}
-COPY ./multicloud-framework-artifactbroker-*.zip /opt/multicloud-framework-artifactbroker.zip && \
-    unzip -q -o -B multicloud-framework-artifactbroker-package-1.4.0-SNAPSHOT.zip && \
-    rm -f multicloud-framework-artifactbroker-package-1.4.0-SNAPSHOT.zip
+COPY ./multicloud-framework-artifactbroker-*.zip multicloud-framework-artifactbroker.zip
+RUN unzip -q -o -B multicloud-framework-artifactbroker.zip && \
+    rm -f multicloud-framework-artifactbroker.zip
 COPY artifact-dist.sh  bin/.
 #RUN tar xvfz /packages/policy-distribution.tar.gz --directory ${ARTIFACT_DISTRIBUTION_HOME}
 #RUN rm /packages/policy-distribution.tar.gz

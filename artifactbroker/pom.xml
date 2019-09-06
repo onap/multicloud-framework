@@ -255,7 +255,7 @@
                                             <filtering>true</filtering>
                                         </resource>
                                         <resource>
-                                            <directory>${project.basedir}/target</directory>
+                                            <directory>${project.basedir}/packages/target</directory>
                                             <filtering>true</filtering>
                                             <includes>
                                                  <include>*.zip</include>
