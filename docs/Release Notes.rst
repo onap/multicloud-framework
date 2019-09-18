@@ -6,6 +6,153 @@
 Release Notes
 =============
 
+Version: 5.0.1 (El Alto Release)
+-----------------------------------
+
+:Release Date: 2019-09-30
+
+**New Features**
+
+* Rebase to Python 3
+
+
+**The MultiCloud services consists of following components:**
+
+**MultiCloud Broker (version: 1.4.1)**
+
+* Rebase to Python 3
+* Update django version to 2.2.3
+
+
+**MultiCloud ArtifactBroker (version: 1.4.1)**
+
+* None
+
+
+**MultiCloud FCAPS (version: 1.4.1)**
+
+* Rebase to Python 3
+* Update django version to 2.2.3
+
+
+**MultiCloud Plugin for Wind River Titanium Cloud (version: 1.4.1)**
+
+* Rebase to Python 3
+* Update django version to 2.2.3
+
+**MultiCloud Plugin for StarlingX (version: 1.4.1)**
+
+* Rebase to Python 3
+* Update django version to 2.2.3
+
+
+**MultiCloud Plugin for OpenStack versions (version: 1.3.4)**
+
+* Rebase to Python 3 for pike plugin
+* Update django version to 2.2.3
+
+**MultiCloud Plugin for VIO (version 1.4.1)**
+
+* Rebase to Python 3
+* Update django version
+
+
+**MultiCloud Plugin for Azure (version 1.2.4)**
+
+* None
+
+**MultiCloud Plugin for Kubernetes (version: 0.5.0)**
+
+* TBD
+
+
+**Bug Fixes**
+
+
+- `MULTICLOUD-644 <https://jira.onap.org/browse/MULTICLOUD-644>`_
+  MultiCloud k8s: KUD - Go version is not correct
+
+- `MULTICLOUD-663 <https://jira.onap.org/browse/MULTICLOUD-663>`_
+  MultiCloud k8s: Multus error when the namesapace is not default
+
+- `MULTICLOUD-614 <https://jira.onap.org/browse/MULTICLOUD-614>`_
+  MultiCloud k8s: Create KubeConfigDir if it does not exist
+
+- `MULTICLOUD-662 <https://jira.onap.org/browse/MULTICLOUD-662>`_
+  MultiCloud k8s: Add Find/Get method to get instance for a particular profile
+
+- `MULTICLOUD-574 <https://jira.onap.org/browse/MULTICLOUD-574>`_
+  MultiCloud k8s: Use defferedrestmapper instead of the normal one
+
+
+**Known Issues**
+
+- `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
+  MultiCloud OpenStack: image creating API cannot handle large image file
+
+- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
+  MultiCloud OpenStack: keypair cannot be passed for nova instance creation
+
+- `MULTICLOUD-421 <https://jira.onap.org/browse/MULTICLOUD-421>`_
+  MultiCloud OpenStack: API request to multicloud with authorization header will be rejected
+
+- `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
+  MultiCloud k8s: OVN Installation issues
+
+- `MULTICLOUD-601 <https://jira.onap.org/browse/MULTICLOUD-601>`_
+  MultiCloud k8s: move to sigs yaml from ghodss
+
+- `MULTICLOUD-602 <https://jira.onap.org/browse/MULTICLOUD-602>`_
+  MultiCloud WindRiver: Error when registering a cloud after deleting it
+
+
+**Security Notes**
+
+*Fixed Security Issues*
+
+
+*Known Security Issues*
+
+
+*Known Vulnerabilities in Used Modules*
+
+
+MULTICLOUD code has been formally scanned during build time using NexusIQ and
+all Critical vulnerabilities have been addressed, items that remain open have
+been assessed for risk and determined to be false positive.
+
+The MULTICLOUD open Critical security vulnerabilities and their risk
+assessment have been documented as part of the
+`project <https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_.
+
+
+Quick Links:
+  - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
+
+  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+
+  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_
+
+  - `Multicloud K8s Plugin Service APIs <https://wiki.onap.org/display/DW/MultiCloud+K8s-Plugin-service+API's>`_
+
+**Upgrade Notes**
+
+None
+
+**Deprecation Notes**
+
+* The maintenance with regarding to MultiCloud plugin for OpenStack Newton
+  has been stopped from Casablanca Release.
+* The maintenance with regarding to MultiCloud plugin for OpenStack Ocata
+  has been stopped from El Alto Release.
+* The maintenance with regarding to MultiCloud plugin for OpenStack Lenovo
+  has been stopped from El Alto Release.
+
+**Other**
+
+None
+
+
 Version: 4.0.0 (Dublin Release)
 -----------------------------------
 
