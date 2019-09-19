@@ -133,28 +133,7 @@ Heat examples
      },
      "stack_name":"teststack",
      "template":{
-        "heat_template_version":"2013-05-23",
-        "description":"Simple template to test heat commands",
-        "parameters":
-        {
-           "flavor":{
-              "default":"m1.tiny",
-              "type":"string"
-           }
-        },
-        "resources":{
-           "hello_world":{
-              "type":"OS::Nova::Server",
-              "properties":{
-                 "key_name":"heat_key",
-                 "flavor":{
-                    "get_param":"flavor"
-                 },
-                 "image":"40be8d1a-3eb9-40de-8abd-43237517384f",
-                 "user_data":"#!/bin/bash -xv\necho \"hello world\" &gt; /root/hello-world.txt\n"
-              }
-           }
-        }
+        "\nheat_template_version: '2013-05-23'\ndescription: Simple template to test heat commands\nparameters:\n  flavor: {default: m1.tiny, type: string}\nresources:\n  hello_world:\n    type: OS::Nova::Server\n    properties:\n      key_name: heat_key\n      flavor: {get_param: flavor}\n      image: 40be8d1a-3eb9-40de-8abd-43237517384f\n      user_data: |\n        #!/bin/bash -xv\n        echo "hello world" &gt; /root/hello-world.txt"
      },
      "timeout_mins":60
   }
