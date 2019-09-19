@@ -64,3 +64,4 @@ MultiCloud Specifications
    specs/multicloud-cloud-region-id
    specs/multicloud-heat-aai-bridge
    specs/multicloud-multi-region
+   specs/multicloud-SDC-Client-design
