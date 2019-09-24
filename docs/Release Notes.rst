@@ -63,8 +63,10 @@ Version: 5.0.1 (El Alto Release)
 
 **MultiCloud Plugin for Kubernetes (version: 0.5.0)**
 
-* TBD
-
+* Add support for Network Operator
+* Update Kubespray and Kube version in KuD
+* Use Multus DaemonSet for installing Multus in KuD
+* Use NFD DaemonSet to integrate Node Feature discovery in KuD
 
 **Bug Fixes**
 
@@ -72,8 +74,20 @@ Version: 5.0.1 (El Alto Release)
 - `MULTICLOUD-644 <https://jira.onap.org/browse/MULTICLOUD-644>`_
   MultiCloud k8s: KUD - Go version is not correct
 
+- `MULTICLOUD-684 <https://jira.onap.org/browse/MULTICLOUD-684>`_
+  MultiCloud k8s: KUD - OVN Network Operator
+
 - `MULTICLOUD-663 <https://jira.onap.org/browse/MULTICLOUD-663>`_
   MultiCloud k8s: Multus error when the namesapace is not default
+
+- `MULTICLOUD-681 <https://jira.onap.org/browse/MULTICLOUD-681>`_
+  MultiCloud k8s: Use Multus DaemonSet for installing Multus in KuD
+
+- `MULTICLOUD-772 <https://jira.onap.org/browse/MULTICLOUD-772>`_
+  MultiCloud k8s: Update the version of Kubespray in KUD
+
+- `MULTICLOUD-797 <https://jira.onap.org/browse/MULTICLOUD-797>`_
+  MultiCloud k8s: Use NFD DaemonSet for integrating Node Feature discovery in KuD
 
 - `MULTICLOUD-614 <https://jira.onap.org/browse/MULTICLOUD-614>`_
   MultiCloud k8s: Create KubeConfigDir if it does not exist
@@ -83,6 +97,9 @@ Version: 5.0.1 (El Alto Release)
 
 - `MULTICLOUD-574 <https://jira.onap.org/browse/MULTICLOUD-574>`_
   MultiCloud k8s: Use defferedrestmapper instead of the normal one
+
+- `MULTICLOUD-557 <https://jira.onap.org/browse/MULTICLOUD-557>`_
+  MultiCloud k8s: Kubernetes kind plugins should implement an interface
 
 
 **Known Issues**
