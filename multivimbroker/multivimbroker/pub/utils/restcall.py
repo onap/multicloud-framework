@@ -20,6 +20,7 @@ import urllib.error
 import uuid
 import httplib2
 import base64
+import codecs
 
 from multivimbroker.pub.config.config import AAI_SCHEMA_VERSION
 from multivimbroker.pub.config.config import AAI_SERVICE_URL
@@ -98,7 +99,8 @@ def call_req(base_url, user, passwd, auth_type, resource, method,
                 resp, resp_content = http.request(
                     full_url, method=method.upper(),
                     body=content, headers=headers)
-                resp_status, resp_body = resp['status'], resp_content
+                resp_status, resp_body = resp['status'], codecs.decode(
+                    resp_content, 'UTF-8') if resp_content else None
 
                 if resp_status in status_ok_list:
                     ret = [0, resp_body, resp_status, resp]

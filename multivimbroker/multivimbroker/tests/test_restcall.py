@@ -60,7 +60,7 @@ class TestRestCall(unittest.TestCase):
             "status": "200"
         }
         resp_content = "hello"
-        mock_req.return_value = mock_resp, resp_content
+        mock_req.return_value = mock_resp, resp_content.encode("utf-8")
         expect_ret = [0, resp_content, "200", mock_resp]
         ret = restcall.call_req("http://onap.org/", "user", "pass",
                                 restcall.rest_no_auth, "vim", "GET")
