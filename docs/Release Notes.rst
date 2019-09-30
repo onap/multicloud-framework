@@ -18,13 +18,13 @@ Version: 5.0.1 (El Alto Release)
 
 **The MultiCloud services consists of following components:**
 
-**MultiCloud Broker (version: 1.4.1)**
+**MultiCloud Broker (version: 1.4.2)**
 
 * Rebase to Python 3
 * Update django version to 2.2.3
 
 
-**MultiCloud ArtifactBroker (version: 1.4.1)**
+**MultiCloud ArtifactBroker (version: 1.4.2)**
 
 * None
 
@@ -101,6 +101,8 @@ Version: 5.0.1 (El Alto Release)
 - `MULTICLOUD-557 <https://jira.onap.org/browse/MULTICLOUD-557>`_
   MultiCloud k8s: Kubernetes kind plugins should implement an interface
 
+- `MULTICLOUD-835 <https://jira.onap.org/browse/MULTICLOUD-835>`_
+  MultiCloud Framework: Cannot Register cloud region with multicloud via REST
 
 **Known Issues**
 
