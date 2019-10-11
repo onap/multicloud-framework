@@ -9,7 +9,7 @@ Release Notes
 Version: 5.0.1 (El Alto Release)
 -----------------------------------
 
-:Release Date: 2019-09-30
+:Release Date: 2019-10-24
 
 **New Features**
 
