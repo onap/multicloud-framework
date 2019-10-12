@@ -124,6 +124,8 @@ Version: 5.0.1 (El Alto Release)
 - `MULTICLOUD-602 <https://jira.onap.org/browse/MULTICLOUD-602>`_
   MultiCloud WindRiver: Error when registering a cloud after deleting it
 
+- `MULTICLOUD-846 <https://jira.onap.org/browse/MULTICLOUD-846>`_
+  MultiCloud Pike: Query stack by infra_workload API returns false status
 
 **Security Notes**
 
