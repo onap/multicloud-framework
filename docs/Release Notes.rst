@@ -127,6 +127,9 @@ Version: 5.0.1 (El Alto Release)
 - `MULTICLOUD-846 <https://jira.onap.org/browse/MULTICLOUD-846>`_
   MultiCloud Pike: Query stack by infra_workload API returns false status
 
+- `MULTICLOUD-866 <https://jira.onap.org/browse/MULTICLOUD-866>`_
+  MultiCloud StarlingX: so openstack adapter not working with starlingx
+
 **Security Notes**
 
 *Fixed Security Issues*
