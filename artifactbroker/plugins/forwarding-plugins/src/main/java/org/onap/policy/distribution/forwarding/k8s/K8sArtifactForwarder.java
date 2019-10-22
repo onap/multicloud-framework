@@ -138,24 +138,50 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
         List<String> artifacts = vfModule.getArtifacts();
         System.out.println("artifacts = " + artifacts);
 
-        String cloudUuid = null;
+        String vfNamePrefix = vfModule.getVfModuleModelName().toLowerCase();
+        if ( vfNamePrefix.indexOf("..") > 0 ) {
+            vfNamePrefix = vfNamePrefix.substring(vfNamePrefix.indexOf("..") + 2);
+            if ( vfNamePrefix.indexOf("..") > 0 )
+                vfNamePrefix = vfNamePrefix.substring(0, vfNamePrefix.indexOf("..")) + "_";
+            else
+                vfNamePrefix = "";
+        } else
+            vfNamePrefix = "";
+
         IArtifactInfo cloudArtifact = null;
+        IArtifactInfo firstCloudArtifact = null;
+        int cloudArtifactCount = 0;
         boolean found = false;
 
         for (String artifact: artifacts) {
             if ( artifactMap.get(artifact) != null
                 && artifactMap.get(artifact).getArtifactType().equals("CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT")) {
-                cloudArtifact = artifactMap.get(artifact);
-                cloudUuid = cloudArtifact.getArtifactUUID();
-                found = true;
-                break;
+                if ( cloudArtifactCount == 0 )
+                    firstCloudArtifact = artifactMap.get(artifact);
+                cloudArtifactCount++;
+                IArtifactInfo tmpArtifact = artifactMap.get(artifact);
+                if ( tmpArtifact.getArtifactName().toLowerCase().startsWith(vfNamePrefix) ) {
+                    cloudArtifact = tmpArtifact;
+                    found = true;
+                    break;
+                }
             }
         }
 
-        if ( found == false ) {
-            System.out.println(" meets error , no CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT type found ");
-            return false;
+        if ( found == false  ) {
+            if ( firstCloudArtifact == null ) {
+                System.out.println(" meets error , no CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT type found ");
+                return false;
+            } else {
+                if ( cloudArtifactCount == 1 || vfNamePrefix == "" ) {
+                    cloudArtifact = firstCloudArtifact;
+                } else {
+                    System.out.println(" meets error , CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT artifacts mismatch ");
+                    return false;
+                }
+            }
         }
+
         String cloudArtifactPath = "/data/" + vfModule.getVfModuleModelCustomizationUUID()
             + "/" + cloudArtifact.getArtifactName();
         File file = new File(cloudArtifactPath);
