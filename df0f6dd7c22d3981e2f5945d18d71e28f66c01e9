@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4205bbba_d0666f34",
+        "filename": "artifactbroker/plugins/forwarding-plugins/src/main/java/org/onap/policy/distribution/forwarding/k8s/K8sArtifactForwarder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1603
+      },
+      "writtenOn": "2019-10-23T16:27:50Z",
+      "side": 1,
+      "message": "are there known situations where the vfmodulemodel name will be such that the vfNamePrefix ends up getting set to \"\" ?  Or, is this code here \u0027just in case\u0027 ?",
+      "revId": "df0f6dd7c22d3981e2f5945d18d71e28f66c01e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
