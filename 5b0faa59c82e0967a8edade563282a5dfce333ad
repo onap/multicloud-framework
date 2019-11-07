@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ccff36e4_c4148446",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-07T06:51:08Z",
+      "side": 1,
+      "message": "Will this be a off-the-shelf component? Or will it be developed from scratch? where is the repo for host the source code?\nPlease elaborate how to deploy such agent?",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd78f967_b5990125",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-07T06:51:08Z",
+      "side": 1,
+      "message": "can you elaborate how k8s scheduler \"gives\" HPA Placement Plugin hardware features? if \"k8s scheduler\" and \"HPA Placement Plugin\" are two separated entity, how does \"k8s scheduler\" know where to reach to \"HPA Placement Plugin\"?  Think about the case the k8s cluster locates at edge site, while k8s plugin locates in ONAP in central cloud.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 68
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35e2cd7f_19b0f69e",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-07T06:51:08Z",
+      "side": 1,
+      "message": "the wiki at https://wiki.onap.org/display/DW/Extending+HPA+for+K8S mentioned ESR could be used to registry k8s cluster, why CLI is involved here? can the existing ESR registration process fulfill the requirement of register a k8s cluster for HPA discovery?",
+      "range": {
+        "startLine": 33,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f9d2e2b_ced6d70c",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-07T06:51:08Z",
+      "side": 1,
+      "message": "can you elaborate what the tenant stands for for a k8s cluster ? data model below mentions flavor, but not tenant yet.",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab915092_bbe31004",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-07T06:51:08Z",
+      "side": 1,
+      "message": "where is the source of fact w.r.t. ram/vcpus in a flavor for k8s cluster?",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 73
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7387a4d_1f6cbc8d",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-07T06:51:08Z",
+      "side": 1,
+      "message": "the error code does not align to the reason, request with invalid content belongs to a client error, not server error.",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 71
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "323dc691_cd811464",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-07T06:51:08Z",
+      "side": 1,
+      "message": "the same issue mentioned above",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 72
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
