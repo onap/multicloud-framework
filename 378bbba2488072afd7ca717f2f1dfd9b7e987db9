@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f81a5fb9_48eb3442",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-08T07:03:34Z",
+      "side": 1,
+      "message": "can you elaborate what you mean by \"make it into a plugin\"? \nWhat is the overall workflow?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 71
+      },
+      "revId": "378bbba2488072afd7ca717f2f1dfd9b7e987db9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
