@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7442fc81_c645b726",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-12T01:55:44Z",
+      "side": 1,
+      "message": "K8s registration agent is waiting for developing by Marcus. The component will gather features and cluster info from Node feature discovery and k8s cluster.",
+      "parentUuid": "ccff36e4_c4148446",
+      "range": {
+        "startLine": 25,
+        "startChar": 3,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd78f967_b5990125",
         "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
         "patchSetId": 1
@@ -71,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "38408226_6e287310",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-12T01:55:44Z",
+      "side": 1,
+      "message": "ESR call registration flow was the original plan. However we abandoned that, due to the fact that ESR appears to be end of life. ZTE is no longer providing resources to maintain it and so it will likely be deprecated. The covering plan is to create a CLI command that duplicates the register calls to Multicloud plugin. This will allow a cluster to register itself automatically to the K8s scheduler and then all that is needed is a call from ONAP (in this case CLI) to register the cluster to AAI as a cloud/tenant and set of flavors.",
+      "parentUuid": "35e2cd7f_19b0f69e",
+      "range": {
+        "startLine": 33,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7f9d2e2b_ced6d70c",
         "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
         "patchSetId": 1
@@ -82,6 +130,30 @@
       "writtenOn": "2019-11-07T06:51:08Z",
       "side": 1,
       "message": "can you elaborate what the tenant stands for for a k8s cluster ? data model below mentions flavor, but not tenant yet.",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7660dc0b_c2c57b5a",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-12T01:55:44Z",
+      "side": 1,
+      "message": "tenant is k8s cluster",
+      "parentUuid": "7f9d2e2b_ced6d70c",
       "range": {
         "startLine": 37,
         "startChar": 44,
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "da70623b_0f6964ff",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-12T01:55:44Z",
+      "side": 1,
+      "message": "no source, just default. because we just use it to compare with OOF get cluster info. then we can use HPA placement plugin to locate which node should be deployed according to \"nodeSelectd\" which located in *.yaml file.",
+      "parentUuid": "ab915092_bbe31004",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 73
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7387a4d_1f6cbc8d",
         "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
         "patchSetId": 1
@@ -140,6 +236,30 @@
     },
     {
       "key": {
+        "uuid": "f7b4c864_3ef2024a",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-12T01:55:44Z",
+      "side": 1,
+      "message": "Yes, I will change it.",
+      "parentUuid": "e7387a4d_1f6cbc8d",
+      "range": {
+        "startLine": 141,
+        "startChar": 2,
+        "endLine": 141,
+        "endChar": 71
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "323dc691_cd811464",
         "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
         "patchSetId": 1
@@ -151,6 +271,30 @@
       "writtenOn": "2019-11-07T06:51:08Z",
       "side": 1,
       "message": "the same issue mentioned above",
+      "range": {
+        "startLine": 183,
+        "startChar": 2,
+        "endLine": 183,
+        "endChar": 72
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a587262_2091ea04",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-12T01:55:44Z",
+      "side": 1,
+      "message": "Yes, I will change it.",
+      "parentUuid": "323dc691_cd811464",
       "range": {
         "startLine": 183,
         "startChar": 2,
