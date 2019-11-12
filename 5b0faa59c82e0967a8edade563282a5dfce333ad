@@ -166,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "029b2016_56adccc1",
+        "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1603
+      },
+      "writtenOn": "2019-11-12T18:33:07Z",
+      "side": 1,
+      "message": "some background - in Dublin/Elalto, we have to manually add a tenant object in AAI after we\u0027ve registered the k8s cloud region.  At minimum, the process being described here will at least add one default tenant object representing the cluster.  There is also work to create a multi-tenant capability for the k8s cloud regions, so this will cover that as it becomes available.",
+      "parentUuid": "7660dc0b_c2c57b5a",
+      "range": {
+        "startLine": 37,
+        "startChar": 44,
+        "endLine": 37,
+        "endChar": 50
+      },
+      "revId": "5b0faa59c82e0967a8edade563282a5dfce333ad",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ab915092_bbe31004",
         "filename": "docs/specs/multicloud4k8s-hpa-discovery.rst",
         "patchSetId": 1
