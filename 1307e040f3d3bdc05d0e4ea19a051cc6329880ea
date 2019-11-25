@@ -1,0 +1,303 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d081dbfb_0beabbfa",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "existing",
+      "range": {
+        "startLine": 12,
+        "startChar": 39,
+        "endLine": 12,
+        "endChar": 49
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c09893f4_b91d945c",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "As we discussed, this will still be the case even with this HPA Discovery driver code ... You may re-phrase the value of this feature",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f45dc44e_10167cc6",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "drivers in golang (or golang binding drivers)",
+      "range": {
+        "startLine": 31,
+        "startChar": 54,
+        "endLine": 31,
+        "endChar": 69
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53bd1b79_8f9f3400",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "develop drivers in python language (or python-binding drivers)",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab12c29_7b478eb3",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "upstream drivers",
+      "range": {
+        "startLine": 35,
+        "startChar": 42,
+        "endLine": 35,
+        "endChar": 71
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a990582_47a1eccd",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "multicloud-openstack repo",
+      "range": {
+        "startLine": 36,
+        "startChar": 65,
+        "endLine": 36,
+        "endChar": 81
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82bda1f3_826f5c88",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "upstreams",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6144f414_e2fa16b3",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "He/she will also need package the driver and push to pip repo for distribution.",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 63
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17e65df1_0a3b3176",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "In case that vendor doesn\u0027t upstream the driver, he/she could maintain the driver in local repo as well.",
+      "range": {
+        "startLine": 37,
+        "startChar": 65,
+        "endLine": 40,
+        "endChar": 22
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "828715a7_79b9fdd1",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "Dockerfile (Example)",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94914baa_ffe64809",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "this has to be changed to pip command",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 43
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35314a6c_b53d789a",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "To integrate with multicloud openstack plugin",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 10
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "803e51b0_8f67fb4c",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2019-11-25T03:49:18Z",
+      "side": 1,
+      "message": "To integrate with multicloud openstack plugin",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 10
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
