@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2865bb78_19790b40",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d081dbfb_0beabbfa",
+      "range": {
+        "startLine": 12,
+        "startChar": 39,
+        "endLine": 12,
+        "endChar": 49
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c09893f4_b91d945c",
         "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
         "patchSetId": 2
@@ -94,6 +118,54 @@
     },
     {
       "key": {
+        "uuid": "13806258_c598b0ad",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "53bd1b79_8f9f3400",
+      "range": {
+        "startLine": 31,
+        "startChar": 11,
+        "endLine": 31,
+        "endChar": 34
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27aca043_53404f00",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f45dc44e_10167cc6",
+      "range": {
+        "startLine": 31,
+        "startChar": 54,
+        "endLine": 31,
+        "endChar": 69
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fab12c29_7b478eb3",
         "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
         "patchSetId": 2
@@ -114,6 +186,30 @@
       "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc137107_8385cda7",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fab12c29_7b478eb3",
+      "range": {
+        "startLine": 35,
+        "startChar": 42,
+        "endLine": 35,
+        "endChar": 71
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +259,54 @@
     },
     {
       "key": {
+        "uuid": "915634d2_dca596f4",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8a990582_47a1eccd",
+      "range": {
+        "startLine": 36,
+        "startChar": 65,
+        "endLine": 36,
+        "endChar": 81
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6f05e646_54efc618",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "82bda1f3_826f5c88",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 6
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6144f414_e2fa16b3",
         "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
         "patchSetId": 2
@@ -183,6 +327,30 @@
       "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a5872a6_6a171b8f",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6144f414_e2fa16b3",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 63
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "c76320ad_2e5b03fc",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "17e65df1_0a3b3176",
+      "range": {
+        "startLine": 37,
+        "startChar": 65,
+        "endLine": 40,
+        "endChar": 22
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "828715a7_79b9fdd1",
         "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
         "patchSetId": 2
@@ -229,6 +421,30 @@
       "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77364f8b_c661a2e2",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "828715a7_79b9fdd1",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +471,30 @@
     },
     {
       "key": {
+        "uuid": "958bbfd5_2fe667f0",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94914baa_ffe64809",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 43
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35314a6c_b53d789a",
         "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
         "patchSetId": 2
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "da422ba6_3222fdc2",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "35314a6c_b53d789a",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 10
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "803e51b0_8f67fb4c",
         "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
         "patchSetId": 2
@@ -298,6 +562,30 @@
       "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b74688cb_bab5ed2b",
+        "filename": "docs/multicloud-hpa-discovery-pluggable.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 2363
+      },
+      "writtenOn": "2019-11-29T02:02:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "803e51b0_8f67fb4c",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 10
+      },
+      "revId": "1307e040f3d3bdc05d0e4ea19a051cc6329880ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
