@@ -11,3 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 # Micro service of broker for multiple VIM instance drivers.
+
+Changelog: 
+
+2019-12-11: Depreciate api_v2 module since it is not maintained any more
