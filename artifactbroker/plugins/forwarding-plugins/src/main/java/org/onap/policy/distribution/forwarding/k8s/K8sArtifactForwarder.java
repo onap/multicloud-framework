@@ -111,8 +111,8 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
                 .create();
 
             Map<String, Object> map = new LinkedHashMap<String, Object>();
-            map.put("rb-name", vfModule.getVfModuleModelName());
-            map.put("rb-version", vfModule.getVfModuleModelVersion());
+            map.put("rb-name", vfModule.getVfModuleModelInvariantUUID());
+            map.put("rb-version", vfModule.getVfModuleModelUUID());
             map.put("descritpion",vfModule.getVfModuleModelDescription());
             Map<String, String> labelMap = new LinkedHashMap<String, String>();
             labelMap.put("vnf_customization_uuid",vfModule.getVfModuleModelCustomizationUUID());

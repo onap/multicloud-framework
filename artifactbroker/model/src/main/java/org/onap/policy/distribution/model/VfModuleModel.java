@@ -50,6 +50,14 @@ public class VfModuleModel {
         return vfModuleModelVersion;
     }
 
+    public String getVfModuleModelInvariantUUID() {
+        return vfModuleModelInvariantUUID;
+    }
+
+    public String getVfModuleModelUUID() {
+        return vfModuleModelUUID;
+    }
+
     public String getVfModuleModelCustomizationUUID() {
         return vfModuleModelCustomizationUUID;
     }
