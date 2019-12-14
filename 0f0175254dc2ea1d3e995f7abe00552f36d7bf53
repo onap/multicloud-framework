@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8000a36b_60931f45",
+        "filename": "artifactbroker/plugins/forwarding-plugins/src/main/java/org/onap/policy/distribution/forwarding/k8s/K8sArtifactForwarder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 3957
+      },
+      "writtenOn": "2019-12-14T07:57:46Z",
+      "side": 1,
+      "message": "I\u0027m a bit confused (as I don\u0027t know vf-module concept and relation of different parameters there) for these parameters since in the design (power point) and in commit message is mentioned \n\"vfmodule model invariant id\" and \"vfmodule model version id\"/\"vfmodule model version\".\n\nBut in this code it\u0027s \"vfmodule model invariant uuid\" and \"vfmodule model uuid\"?\n\n\nAre following names a different concept or just synonyms:\nvfmodule model invariant id\nvfmodule model invariant uuid\n\nand same for version:\nvfmodule model version id\nvfmodule model version\nvfmodule model uuid",
+      "revId": "0f0175254dc2ea1d3e995f7abe00552f36d7bf53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
