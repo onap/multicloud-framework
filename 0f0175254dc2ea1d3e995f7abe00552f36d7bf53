@@ -74,6 +74,30 @@
       "revId": "0f0175254dc2ea1d3e995f7abe00552f36d7bf53",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "69d9f5cd_88548a5f",
+        "filename": "artifactbroker/plugins/forwarding-plugins/src/main/java/org/onap/policy/distribution/forwarding/k8s/K8sArtifactForwarder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1603
+      },
+      "writtenOn": "2019-12-16T18:43:25Z",
+      "side": 1,
+      "message": "the naming - especially across components - is confusing.  I believe this is coded per my intent as described in the ppt slides.  I\u0027ll send an email with a detailed illustration of how these model id values are named and used across the components (from sdc to SO)",
+      "parentUuid": "f5695d02_289e8bda",
+      "range": {
+        "startLine": 115,
+        "startChar": 35,
+        "endLine": 115,
+        "endChar": 65
+      },
+      "revId": "0f0175254dc2ea1d3e995f7abe00552f36d7bf53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
