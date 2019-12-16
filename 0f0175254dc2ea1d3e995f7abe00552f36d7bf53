@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7262027d_d2ef1dbd",
+        "filename": "artifactbroker/model/src/main/java/org/onap/policy/distribution/model/VfModuleModel.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 2701
+      },
+      "writtenOn": "2019-12-16T08:45:57Z",
+      "side": 1,
+      "message": "It is not necessary",
+      "revId": "0f0175254dc2ea1d3e995f7abe00552f36d7bf53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8000a36b_60931f45",
         "filename": "artifactbroker/plugins/forwarding-plugins/src/main/java/org/onap/policy/distribution/forwarding/k8s/K8sArtifactForwarder.java",
         "patchSetId": 1
@@ -16,6 +33,47 @@
       "revId": "0f0175254dc2ea1d3e995f7abe00552f36d7bf53",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "520390f4_af1d2a31",
+        "filename": "artifactbroker/plugins/forwarding-plugins/src/main/java/org/onap/policy/distribution/forwarding/k8s/K8sArtifactForwarder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 2701
+      },
+      "writtenOn": "2019-12-16T08:45:57Z",
+      "side": 1,
+      "message": "there should be version of model - not its uuid in the second line.  The original names are like I was asking to use in the CDS. Example can be found in here artifactbroker/plugins/forwarding-plugins/src/test/resource/modules.json",
+      "parentUuid": "8000a36b_60931f45",
+      "revId": "0f0175254dc2ea1d3e995f7abe00552f36d7bf53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f5695d02_289e8bda",
+        "filename": "artifactbroker/plugins/forwarding-plugins/src/main/java/org/onap/policy/distribution/forwarding/k8s/K8sArtifactForwarder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 2701
+      },
+      "writtenOn": "2019-12-16T08:45:57Z",
+      "side": 1,
+      "message": "following our discussions it should be version of model. So there is no need of change in this line. Let\u0027s keep getVfModuleModelVersion() here",
+      "range": {
+        "startLine": 115,
+        "startChar": 35,
+        "endLine": 115,
+        "endChar": 65
+      },
+      "revId": "0f0175254dc2ea1d3e995f7abe00552f36d7bf53",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
