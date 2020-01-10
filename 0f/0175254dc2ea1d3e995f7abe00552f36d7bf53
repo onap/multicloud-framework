@@ -1,0 +1,11 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Lukasz Rajewski <lukasz.rajewski@orange.com>
+Code-Review+2: Xiaohua Zhang <xiaohua.zhang@windriver.com>
+Code-Review+2: Bin Yang <bin.yang@windriver.com>
+Code-Review+1: Liang Ding <liang.ding@intel.com>
+Code-Review+1: Samuli Silvius <s.silvius@partner.samsung.com>
+Submitted-by: Ritu Sood <Ritu.Sood@intel.com>
+Submitted-at: Fri, 10 Jan 2020 19:45:55 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/multicloud/framework/+/99631
+Project: multicloud/framework
+Branch: refs/heads/master
