@@ -72,6 +72,11 @@ class Registry(BaseServer):
         return self.send(vimid, request.get_full_path(), request.body, "POST",
                          headers=originHeaders(request))
 
+    def get(self, request, vimid):
+        return self.send(vimid, request.get_full_path(), request.body, "GET",
+                         headers=originHeaders(request))
+
+
 
 class UnRegistry(BaseServer):
 
