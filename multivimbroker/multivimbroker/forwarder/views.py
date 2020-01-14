@@ -72,6 +72,11 @@ class Registry(BaseServer):
         return self.send(vimid, request.get_full_path(), request.body, "POST",
                          headers=originHeaders(request))
 
+    def get(self, request, vimid):
+
+        return self.send(vimid, request.get_full_path(), request.body, "GET",
+                         headers=originHeaders(request))
+
 
 class UnRegistry(BaseServer):
 
@@ -176,6 +181,10 @@ class APIv1Identity(Identity):
 
 
 class APIv1Registry(Registry):
+
+    def get(self, request, cloud_owner, cloud_region_id):
+        vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
+        return super(APIv1Registry, self).get(request, vimid)
 
     def post(self, request, cloud_owner, cloud_region_id):
         vimid = extsys.encode_vim_id(cloud_owner, cloud_region_id)
