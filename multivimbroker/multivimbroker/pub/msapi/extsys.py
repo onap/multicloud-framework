@@ -12,6 +12,7 @@
 
 import json
 import logging
+import re
 
 from multivimbroker.pub.exceptions import VimBrokerException
 from multivimbroker.pub.utils import restcall
@@ -46,10 +47,9 @@ def encode_vim_id(cloud_owner, cloud_region_id):
 
 
 def decode_vim_id(vim_id):
-    # m = re.search(r'^([0-9a-zA-Z-]+)_([0-9a-zA-Z_-]+)$', vim_id)
-    # cloud_owner, cloud_region_id = m.group(1), m.group(2)
-    return split_vim_to_owner_region(vim_id)
-
+    m = re.search(r'^([0-9a-zA-Z-]+)_([0-9a-zA-Z_-]+)$', vim_id)
+    cloud_owner, cloud_region_id = m.group(1), m.group(2)
+    return cloud_owner, cloud_region_id
 
 def split_vim_to_owner_region(vim_id):
     split_vim = vim_id.split('_')
@@ -65,7 +65,7 @@ def get_vim_by_id(vim_id):
             "version": "4.0",
             "vimId": vim_id
         }
-    cloud_owner, cloud_region = split_vim_to_owner_region(vim_id)
+    cloud_owner, cloud_region = decode_vim_id(vim_id)
     ret = restcall.get_res_from_aai("/cloud-infrastructure/cloud-regions/"
                                     "cloud-region/%s/%s" % (
                                         cloud_owner, cloud_region))
