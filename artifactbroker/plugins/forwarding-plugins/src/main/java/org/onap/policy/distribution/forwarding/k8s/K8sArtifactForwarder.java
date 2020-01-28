@@ -130,8 +130,8 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
     }
 
     private boolean uploadArtifact(VfModuleModel vfModule) {
-        String url = BASE_PATH + "/" + vfModule.getVfModuleModelName() + "/"
-            + vfModule.getVfModuleModelVersion() + "/content";
+        String url = BASE_PATH + "/" + vfModule.getVfModuleModelInvariantUUID() + "/"
+            + vfModule.getVfModuleModelUUID() + "/content";
         HttpPost httpPost = new HttpPost(url);
         httpPost.addHeader("content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
