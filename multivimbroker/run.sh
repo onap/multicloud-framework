@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+sed -i "s/MSB_SERVICE_PROTOCOL =.*/MSB_SERVICE_PROTOCOL = \"${MSB_PROTO}\"/g" multivimbroker/pub/config/config.py
 sed -i "s/MSB_SERVICE_IP =.*/MSB_SERVICE_IP = \"${MSB_ADDR}\"/g" multivimbroker/pub/config/config.py
 sed -i "s/MSB_SERVICE_PORT =.*/MSB_SERVICE_PORT = \"${MSB_PORT}\"/g" multivimbroker/pub/config/config.py
 sed -i "s/AAI_ADDR =.*/AAI_ADDR = \"${AAI_ADDR}\"/g" multivimbroker/pub/config/config.py
