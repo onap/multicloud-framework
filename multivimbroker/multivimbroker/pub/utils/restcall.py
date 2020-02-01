@@ -26,7 +26,7 @@ from multivimbroker.pub.config.config import AAI_SCHEMA_VERSION
 from multivimbroker.pub.config.config import AAI_SERVICE_URL
 from multivimbroker.pub.config.config import AAI_USERNAME
 from multivimbroker.pub.config.config import AAI_PASSWORD
-from multivimbroker.pub.config.config import MSB_SERVICE_IP, MSB_SERVICE_PORT
+from multivimbroker.pub.config.config import MSB_SERVICE_PROTOCOL, MSB_SERVICE_IP, MSB_SERVICE_PORT
 
 rest_no_auth, rest_oneway_auth, rest_bothway_auth = 0, 1, 2
 HTTP_200_OK, HTTP_201_CREATED = '200', '201'
@@ -130,13 +130,13 @@ def call_req(base_url, user, passwd, auth_type, resource, method,
 
 
 def req_by_msb(resource, method, content='', headers=None):
-    base_url = "http://%s:%s/" % (MSB_SERVICE_IP, MSB_SERVICE_PORT)
+    base_url = "%s://%s:%s/" % (MSB_SERVICE_PROTOCOL, MSB_SERVICE_IP, MSB_SERVICE_PORT)
     return call_req(base_url, "", "",
                     rest_no_auth, resource, method, content, headers)
 
 
 def req_by_msb_multipart(resource, method, content, headers=None):
-    base_url = "http://%s:%s/" % (MSB_SERVICE_IP, MSB_SERVICE_PORT)
+    base_url = "%s://%s:%s/" % (MSB_SERVICE_PROTOCOL, MSB_SERVICE_IP, MSB_SERVICE_PORT)
     return call_multipart_req(base_url, "", "",
                               rest_no_auth, resource, method, content, headers)
 

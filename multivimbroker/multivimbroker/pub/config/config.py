@@ -13,6 +13,7 @@
 import os
 
 # [MSB]
+MSB_SERVICE_PROTOCOL = 'https'
 MSB_SERVICE_IP = 'msb.onap.org'
 MSB_SERVICE_PORT = '10080'
 

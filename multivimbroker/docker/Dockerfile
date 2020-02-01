@@ -1,5 +1,6 @@
 FROM python:3.7-alpine
 
+ENV MSB_PROTO "https"
 ENV MSB_ADDR "127.0.0.1"
 ENV MSB_PORT "80"
 ENV AAI_ADDR "aai.api.simpledemo.openecomp.org"
