@@ -6,6 +6,173 @@
 Release Notes
 =============
 
+
+Version: 6.0.0 (Frankfurt Release)
+-----------------------------------
+
+:Release Date: 2020-May-07
+
+**New Features**
+
+* Enables CNF orchestration to StarlingX 3.0
+* Enables CNF orchestration to WRCP 19.12
+* Decouple OpenStack HPA discovery logic from OpenStack Plugins
+
+
+**The MultiCloud services consists of following components:**
+
+**MultiCloud Broker (version: 1.5.2)**
+
+* Fix bugs
+
+
+**MultiCloud ArtifactBroker (version: 1.5.2)**
+
+* None
+
+
+**MultiCloud FCAPS (version: 1.4.1)**
+
+* None
+
+
+**MultiCloud Plugin for Wind River Titanium Cloud (version: 1.5.5)**
+
+* Enables CNF orchestration to WRCP 19.12
+
+
+**MultiCloud Plugin for StarlingX (version: 1.5.5)**
+
+* Enables CNF orchestration to StarlingX 3.0
+
+
+**MultiCloud Plugin for OpenStack versions (version: 1.5.5)**
+
+* Pike: Decouple OpenStack HPA discovery logic from OpenStack Plugins
+
+
+**MultiCloud Plugin for VIO (version 1.4.1)**
+
+* None
+
+
+**MultiCloud Plugin for Azure (version 1.2.4)**
+
+* None
+
+
+**MultiCloud Plugin for Kubernetes (version: 0.5.0)**
+
+* TBD
+
+
+**Bug Fixes**
+
+- `MULTICLOUD-602 <https://jira.onap.org/browse/MULTICLOUD-602>`_
+  MultiCloud WindRiver: Error when registering a cloud after deleting it
+
+- `MULTICLOUD-846 <https://jira.onap.org/browse/MULTICLOUD-846>`_
+  MultiCloud Pike: Query stack by infra_workload API returns false status
+
+- `MULTICLOUD-857 <https://jira.onap.org/browse/MULTICLOUD-857>`_
+  multicloud azure plugin failed to build due to incompatible with py3
+
+- `MULTICLOUD-866 <https://jira.onap.org/browse/MULTICLOUD-866>`_
+  MultiCloud StarlingX: so openstack adapter not working with starlingx
+
+- `MULTICLOUD-869 <https://jira.onap.org/browse/MULTICLOUD-869>`_
+  Wrong distribution of K8s definitions with many vf-modules
+
+- `MULTICLOUD-968 <https://jira.onap.org/browse/MULTICLOUD-968>`_
+  the cloud region failed to be registered at second time
+
+- `MULTICLOUD-970 <https://jira.onap.org/browse/MULTICLOUD-970>`_
+  parsing of Region name is incorrect
+
+- `MULTICLOUD-1004 <https://jira.onap.org/browse/MULTICLOUD-1004>`_
+  KUD Multi Vagrant 18.04 issue
+
+- `MULTICLOUD-1020 <https://jira.onap.org/browse/MULTICLOUD-1020>`_
+  hpa docker failure
+
+- `MULTICLOUD-1025 <https://jira.onap.org/browse/MULTICLOUD-1025>`_
+  Handle non-typical tar file inside k8splugin properly
+
+- `MULTICLOUD-1028 <https://jira.onap.org/browse/MULTICLOUD-1028>`_
+  hpa capabilities is not define
+
+- `MULTICLOUD-1036 <https://jira.onap.org/browse/MULTICLOUD-1036>`_
+  Correct multicloud artifact broker configuration for Frankfurt
+
+- `MULTICLOUD-1039 <https://jira.onap.org/browse/MULTICLOUD-1039>`_
+  cloud region unregistry API failed to clean related cache entries
+
+
+**Known Issues**
+
+- `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
+  MultiCloud OpenStack: image creating API cannot handle large image file
+
+- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
+  MultiCloud OpenStack: keypair cannot be passed for nova instance creation
+
+- `MULTICLOUD-421 <https://jira.onap.org/browse/MULTICLOUD-421>`_
+  MultiCloud OpenStack: API request to multicloud with authorization header will be rejected
+
+- `MULTICLOUD-601 <https://jira.onap.org/browse/MULTICLOUD-601>`_
+  MultiCloud k8s: move to sigs yaml from ghodss
+
+- `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
+  MultiCloud k8s: OVN Installation issues
+
+
+**Security Notes**
+
+*Fixed Security Issues*
+
+
+*Known Security Issues*
+
+
+*Known Vulnerabilities in Used Modules*
+
+
+MULTICLOUD code has been formally scanned during build time using NexusIQ and
+all Critical vulnerabilities have been addressed, items that remain open have
+been assessed for risk and determined to be false positive.
+
+The MULTICLOUD open Critical security vulnerabilities and their risk
+assessment have been documented as part of the
+`project <https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_.
+
+
+Quick Links:
+  - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
+
+  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+
+  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_
+
+  - `Multicloud K8s Plugin Service APIs <https://wiki.onap.org/display/DW/MultiCloud+K8s-Plugin-service+API's>`_
+
+**Upgrade Notes**
+
+None
+
+**Deprecation Notes**
+
+* The maintenance with regarding to MultiCloud plugin for OpenStack Newton
+  has been stopped from Casablanca Release.
+* The maintenance with regarding to MultiCloud plugin for OpenStack Ocata
+  has been stopped from El Alto Release.
+* The maintenance with regarding to MultiCloud plugin for OpenStack Lenovo
+  has been stopped from El Alto Release.
+
+**Other**
+
+None
+
+
 Version: 5.0.1 (El Alto Release)
 -----------------------------------
 
