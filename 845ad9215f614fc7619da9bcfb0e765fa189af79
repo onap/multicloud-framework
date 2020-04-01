@@ -22,6 +22,30 @@
       "revId": "845ad9215f614fc7619da9bcfb0e765fa189af79",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ddcb06d_47aea5d3",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5550
+      },
+      "writtenOn": "2020-04-01T13:21:21Z",
+      "side": 1,
+      "message": "As answered on email, I think it should be 0.6.0, but no such image is yet released in nexus. I\u0027ll update this version here, but @Ritu - please help with answering version/image question",
+      "parentUuid": "b931c056_ce080697",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 53
+      },
+      "revId": "845ad9215f614fc7619da9bcfb0e765fa189af79",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
