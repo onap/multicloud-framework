@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b931c056_ce080697",
+        "filename": "docs/Release Notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2020-04-01T00:43:37Z",
+      "side": 1,
+      "message": "Is this version correct?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 53
+      },
+      "revId": "845ad9215f614fc7619da9bcfb0e765fa189af79",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
