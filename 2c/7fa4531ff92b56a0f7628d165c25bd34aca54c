@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Ritu Sood <Ritu.Sood@intel.com>
+Code-Review+2: Bin Yang <bin.yang@windriver.com>
+Code-Review+2: Xiaohua Zhang <xiaohua.zhang@windriver.com>
+Submitted-by: Xiaohua Zhang <xiaohua.zhang@windriver.com>
+Submitted-at: Thu, 02 Apr 2020 10:10:38 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/multicloud/framework/+/104459
+Project: multicloud/framework
+Branch: refs/heads/master
