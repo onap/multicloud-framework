@@ -1,6 +1,7 @@
 ..
  This work is licensed under a Creative Commons Attribution 4.0
  International License.
+.. _MultiCloud-Administrator-Guide:
 
 ===================================
 ONAP MultiCloud Administrator Guide
