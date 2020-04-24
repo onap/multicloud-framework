@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  *  Copyright (C) 2018 Ericsson. All rights reserved.
+ *  Copyright (C) 2020 Orange. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -135,9 +136,6 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
         HttpPost httpPost = new HttpPost(url);
         httpPost.addHeader("content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
-        List<String> artifacts = vfModule.getArtifacts();
-        System.out.println("artifacts = " + artifacts);
-
         String vfNamePrefix = vfModule.getVfModuleModelName().toLowerCase();
         if ( vfNamePrefix.indexOf("..") > 0 ) {
             vfNamePrefix = vfNamePrefix.substring(vfNamePrefix.indexOf("..") + 2);
@@ -153,7 +151,7 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
         int cloudArtifactCount = 0;
         boolean found = false;
 
-        for (String artifact: artifacts) {
+        for (String artifact: artifactMap.keySet()) {
             if ( artifactMap.get(artifact) != null
                 && artifactMap.get(artifact).getArtifactType().equals("CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT")) {
                 if ( cloudArtifactCount == 0 )
