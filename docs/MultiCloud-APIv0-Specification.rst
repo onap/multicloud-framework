@@ -9,7 +9,7 @@ MultiCloud API v0 Specification
 API in json swagger
 ===================
 
-":download:`MultiCloud Broker API v0 <https://wiki.onap.org/download/attachments/25435675/multicloud.broker.v0.swagger.json?version=1&modificationDate=1557892177024&api=v2>`"
+`MultiCloud Broker API v0 <https://wiki.onap.org/download/attachments/25435675/multicloud.broker.v0.swagger.json?version=1&modificationDate=1557892177024&api=v2>`__
 
 API Catalog
 ===========
@@ -2657,14 +2657,14 @@ NA
 400: failed
 
 13.2. **Get registry status**
--------------------------
+------------------------------
 
 +---------------------+----------------------------------------------------------------------------------------------+
 | **IF Definition**   | **Description**                                                                              |
 +=====================+==============================================================================================+
 | URI                 | http://msb.onap.org:80/api/multicloud/v0/{cloud-owner}_{cloud-region}/registry               |
 +---------------------+----------------------------------------------------------------------------------------------+
-| Operation           | GET                                                                                         |
+| Operation           | GET                                                                                          |
 +---------------------+----------------------------------------------------------------------------------------------+
 | Direction           | ESR-> MULTICLOUD                                                                             |
 +---------------------+----------------------------------------------------------------------------------------------+

@@ -65,4 +65,4 @@ On-board the Titanium Cloud instance
 
 Now you can onboard this Titanium Cloud instance, make sure the multicloud registration process is triggered.
 
-See :ref:`Tutorial: Onboard instance of Wind River Titanium Cloud <multicloud>`
+See `Tutorial: Onboard instance of Wind River Titanium Cloud`
