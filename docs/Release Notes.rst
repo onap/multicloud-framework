@@ -147,7 +147,8 @@ been assessed for risk and determined to be false positive.
 
 The MULTICLOUD open Critical security vulnerabilities and their risk
 assessment have been documented as part of the
-`project <https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_.
+`project
+<https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_.
 
 
 Quick Links:
@@ -648,7 +649,7 @@ been assessed for risk and determined to be false positive.
 
 The MULTICLOUD open Critical security vulnerabilities and their risk
 assessment have been documented as part of the
-`project <https://wiki.onap.org/pages/viewpage.action?pageId=64004594>`_.
+`project <https://wiki.onap.org/pages/viewpage.action?pageId=64004594>`__.
 
 
 Quick Links:
@@ -656,9 +657,9 @@ Quick Links:
 
   - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
 
-  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=64004594>`_
+  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=64004594>`__
 
-  - `Multicloud K8s Plugin Service APIs <https://wiki.onap.org/display/DW/MultiCloud+K8s-Plugin-service+API's>`_
+  - `Multicloud K8s Plugin Service APIs <https://wiki.onap.org/display/DW/MultiCloud+K8s-Plugin-service+API's>`__
 
 **Upgrade Notes**
 
@@ -927,16 +928,16 @@ all Critical vulnerabilities have been addressed, items that remain open have
 been assessed for risk and determined to be false positive.
 
 The MULTICLOUD open Critical security vulnerabilities and their risk
-assessment have been documented as part of the
-`project <https://wiki.onap.org/pages/viewpage.action?pageId=43386067>`_.
+assessment have been documented as part of the `project
+<https://wiki.onap.org/pages/viewpage.action?pageId=43386067>`__.
 
 
 Quick Links:
   - `MULTICLOUD project page <https://wiki.onap.org/pages/viewpage.action?pageId=6592841>`_
 
-  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
+  - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`__
 
-  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=43386067>`_
+  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=43386067>`__
 
 **Upgrade Notes**
 
