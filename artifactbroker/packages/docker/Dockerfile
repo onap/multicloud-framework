@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM adoptopenjdk/openjdk11:jre-11.0.8_10-alpine
 
 ARG HTTP_PROXY=${HTTP_PROXY}
 ARG HTTPS_PROXY=${HTTPS_PROXY}
@@ -16,7 +16,7 @@ ENV ARTIFACT_DISTRIBUTION_HOME=${ARTIFACT_HOME}/distribution
 EXPOSE 9014
 
 RUN apk add --no-cache --update busybox-extras bash nss procps coreutils findutils grep zip unzip \
-                                curl wget openssh openjdk8 maven jq httpie py-pip
+                                curl wget openssh maven jq httpie py-pip
 
 RUN addgroup -S onap && \
     adduser -S --shell /bin/bash -G onap onap
