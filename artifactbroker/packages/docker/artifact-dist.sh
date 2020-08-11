@@ -19,7 +19,7 @@
 # ============LICENSE_END=========================================================
 #
 
-JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk/
+JAVA_HOME=/opt/java/openjdk
 ARTIFACT_DISTRIBUTION_HOME=/opt/app/distribution
 KEYSTORE="${ARTIFACT_HOME}/etc/ssl/policy-keystore"
 KEYSTORE_PASSWD="Pol1cy_0nap"
