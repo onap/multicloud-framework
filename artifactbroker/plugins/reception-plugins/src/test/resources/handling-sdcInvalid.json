@@ -13,7 +13,8 @@
     "consumerId": "policy-id",
     "artifactTypes": [
         "TOSCA_CSAR", 
-        "HEAT"
+        "HEAT",
+        "HELM"
     ],
     "consumerGroup": "policy-group",
     "environmentName": "environmentName",

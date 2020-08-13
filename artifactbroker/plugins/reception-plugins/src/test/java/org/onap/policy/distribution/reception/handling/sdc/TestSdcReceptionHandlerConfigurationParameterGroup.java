@@ -55,7 +55,7 @@ public class TestSdcReceptionHandlerConfigurationParameterGroup {
         assertTrue(validationResult.isValid());
         final SdcConfiguration config = new SdcConfiguration(configParameters);
         assertEquals(Arrays.asList("a.com", "b.com", "c.com"), config.getMsgBusAddress());
-        assertEquals(Arrays.asList("TOSCA_CSAR", "HEAT"), config.getRelevantArtifactTypes());
+        assertEquals(Arrays.asList("TOSCA_CSAR", "HEAT", "HELM"), config.getRelevantArtifactTypes());
         assertEquals("localhost", config.getAsdcAddress());
         assertEquals("policy", config.getUser());
         assertEquals("policy", config.getPassword());

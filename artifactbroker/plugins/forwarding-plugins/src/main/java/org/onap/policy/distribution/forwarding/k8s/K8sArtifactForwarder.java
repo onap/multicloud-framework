@@ -66,6 +66,7 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
     private static final Logger LOGGER = FlexLogger.getLogger(K8sArtifactForwarder.class);
     private static final String BASE_PATH = "http://localhost:9015/v1/rb/definition";
     private static final String CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT = "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT";
+    private static final String HELM_ARTIFACT = "HELM";
     private Map<String, IArtifactInfo> artifactMap;
 
     private K8sArtifactForwarderParameterGroup configurationParameters = null;
@@ -154,23 +155,35 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
         boolean found = false;
 
         for (String artifact: artifacts) {
-            if ( artifactMap.get(artifact) != null
-                && artifactMap.get(artifact).getArtifactType().equals("CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT")) {
-                if ( cloudArtifactCount == 0 )
-                    firstCloudArtifact = artifactMap.get(artifact);
-                cloudArtifactCount++;
-                IArtifactInfo tmpArtifact = artifactMap.get(artifact);
-                if ( tmpArtifact.getArtifactName().toLowerCase().startsWith(vfNamePrefix) ) {
-                    cloudArtifact = tmpArtifact;
-                    found = true;
-                    break;
-                }
+            if (artifactMap.get(artifact) != null
+                    && artifactMap.get(artifact).getArtifactType().equals(HELM_ARTIFACT)) {
+                firstCloudArtifact = artifactMap.get(artifact);
+                cloudArtifact = firstCloudArtifact;
+                cloudArtifactCount = 1;
+                found = true;
+                break;
             }
         }
 
+        if ( found == false  )
+            for (String artifact: artifacts) {
+                if ( artifactMap.get(artifact) != null
+                    && artifactMap.get(artifact).getArtifactType().equals(CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT)) {
+                    if ( cloudArtifactCount == 0 )
+                        firstCloudArtifact = artifactMap.get(artifact);
+                    cloudArtifactCount++;
+                    IArtifactInfo tmpArtifact = artifactMap.get(artifact);
+                    if ( tmpArtifact.getArtifactName().toLowerCase().startsWith(vfNamePrefix) ) {
+                        cloudArtifact = tmpArtifact;
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
         if ( found == false  ) {
             if ( firstCloudArtifact == null ) {
-                System.out.println(" meets error , no CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT type found ");
+                System.out.println(" meets error , no CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT or HELM type found ");
                 return false;
             } else {
                 if ( cloudArtifactCount == 1 || vfNamePrefix == "" ) {

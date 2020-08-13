@@ -40,7 +40,8 @@
                     "TOSCA_CSAR",
                     "HEAT",
                     "HEAT_ENV",
-                    "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT"
+                    "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT",
+                    "HELM"
                 ],
                 "consumerGroup": "policy-group",
                 "environmentName": "AUTO",
