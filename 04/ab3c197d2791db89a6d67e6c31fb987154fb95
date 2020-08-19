@@ -1,0 +1,9 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Seshu Kumar M <seshu.kumar.m@huawei.com>
+Code-Review+1: Konrad Banka <k.banka@samsung.com>
+Code-Review+2: Bin Yang <bin.yang@windriver.com>
+Submitted-by: Bin Yang <bin.yang@windriver.com>
+Submitted-at: Wed, 19 Aug 2020 13:12:00 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/multicloud/framework/+/111233
+Project: multicloud/framework
+Branch: refs/heads/master
