@@ -27,16 +27,16 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import java.lang.reflect.Type;
-import org.slf4j.ext.XLogger;
-import org.slf4j.ext.XLoggerFactory;
+
+import org.onap.policy.common.logging.flexlogger.FlexLogger;
+import org.onap.policy.common.logging.flexlogger.Logger;
 
 /**
  * This class deserialises policy forwarder parameters from JSON.
  */
 public class ArtifactForwarderConfigurationParametersJsonAdapter
         implements JsonDeserializer<ArtifactForwarderConfigurationParameterGroup> {
-    private static final XLogger LOGGER =
-            XLoggerFactory.getXLogger(ArtifactForwarderConfigurationParametersJsonAdapter.class);
+    private static final Logger LOGGER = FlexLogger.getLogger(ArtifactForwarderConfigurationParametersJsonAdapter.class);
 
     private static final String PARAMETER_CLASS_NAME = "parameterClassName";
     private static final String Artifact_FORWARDER_PARAMETERS = "parameters";
