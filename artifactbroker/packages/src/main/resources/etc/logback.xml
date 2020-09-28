@@ -242,6 +242,7 @@
   
   
   <root level="INFO">
+        <appender-ref ref="STDOUT" />
         <appender-ref ref="asyncEELFDebug" />
         <appender-ref ref="asyncEELFError" />
   </root>
