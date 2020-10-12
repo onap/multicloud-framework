@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Sylvain Desbureaux <sylvain.desbureaux@orange.com>
+Code-Review+2: Bin Yang <bin.yang@windriver.com>
+Submitted-by: Bin Yang <bin.yang@windriver.com>
+Submitted-at: Mon, 12 Oct 2020 02:56:55 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/multicloud/framework/+/113251
+Project: multicloud/framework
+Branch: refs/heads/master
