@@ -10,7 +10,7 @@ Release Notes
 
 
 Version: 7.0.0 (Guilin Release)
------------------------------------
+-------------------------------
 
 :Release Date: 2020-Nov-19
 
