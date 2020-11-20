@@ -26,7 +26,7 @@ MultiCloud Release Notes
 .. toctree::
    :maxdepth: 2
 
-   Release Notes
+   release-notes
 
 
 MultiCloud Deployment
