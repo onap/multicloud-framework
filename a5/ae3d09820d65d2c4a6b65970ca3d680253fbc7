@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+2: Bin Yang <bin.yang@windriver.com>
+Code-Review+2: Xiaohua Zhang <xiaohua.zhang@windriver.com>
+Submitted-by: Xiaohua Zhang <xiaohua.zhang@windriver.com>
+Submitted-at: Fri, 20 Nov 2020 10:36:33 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/multicloud/framework/+/115093
+Project: multicloud/framework
+Branch: refs/heads/guilin
