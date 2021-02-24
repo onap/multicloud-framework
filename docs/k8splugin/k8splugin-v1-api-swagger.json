@@ -1,0 +1,951 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "K8s Plugin v1 API for ONAP Honolulu release",
+    "version": "0.8.0",
+    "title": "K8s Plugin v1 API",
+    "contact": {
+      "email": "ritu.sood@intel.com"
+    }
+  },
+  "host": "multicloud-k8s:9015",
+  "basePath": "/v1",
+  "tags": [
+    {
+      "name": "definition",
+      "description": "RB Definition management"
+    },
+    {
+      "name": "profile",
+      "description": "RB Definition profile management"
+    },
+    {
+      "name": "instance",
+      "description": "RB Instance management"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/rb/definition": {
+      "post": {
+        "tags": [
+          "definition"
+        ],
+        "summary": "Add a new RB Definition",
+        "description": "",
+        "operationId": "addRbDefinition",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "RB Definition object to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RbDefinition"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RbDefinition"
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "definition"
+        ],
+        "summary": "Get all RB Definitions",
+        "description": "Multiple RB Definitions",
+        "operationId": "getRbDefinitions",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RbDefinition"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/rb/definition/{rbName}": {
+      "get": {
+        "tags": [
+          "definition"
+        ],
+        "summary": "Get all RB Definitions of specified name",
+        "description": "Multiple RB Definitions",
+        "operationId": "getRbDefinitionsByName",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RbDefinition"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "definition"
+        ],
+        "summary": "Deletes RB Definitions of specified RB Name",
+        "description": "",
+        "operationId": "deleteRbDefinitionsByRbName",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "RB Definition not found"
+          }
+        }
+      }
+    },
+    "/rb/definition/{rbName}/{rbVersion}": {
+      "get": {
+        "tags": [
+          "definition"
+        ],
+        "summary": "Get RB Definition by Name and Version",
+        "description": "Returns a single RB Definition object",
+        "operationId": "getRbDefinitionByRbName",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rbVersion",
+            "in": "path",
+            "description": "Version of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/RbDefinition"
+            }
+          },
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "RB Definition not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "definition"
+        ],
+        "summary": "Deletes RB Definition",
+        "description": "",
+        "operationId": "deleteRbDefinitionByRbNameAndRbVersion",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rbVersion",
+            "in": "path",
+            "description": "Version of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "RB Definition not found"
+          }
+        }
+      }
+    },
+    "/rb/definition/{rbName}/{rbVersion}/content": {
+      "post": {
+        "tags": [
+          "definition"
+        ],
+        "summary": "Uploads Helm package associated with RB Definition",
+        "description": "",
+        "operationId": "uploadRbDefnitionContent",
+        "consumes": [
+          "application/gzip"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rbVersion",
+            "in": "path",
+            "description": "Version of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/rb/definition/{rbName}/{rbVersion}/profile": {
+      "post": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "Add a new profile for RB Definition",
+        "description": "",
+        "operationId": "addProfileForDefinition",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rbVersion",
+            "in": "path",
+            "description": "Version of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "RB Profile object to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RbProfile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RbProfile"
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "Get all RB Profiles for RB Definition",
+        "description": "Multiple RB Definitions",
+        "operationId": "getProfilesforRbDefinitions",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rbVersion",
+            "in": "path",
+            "description": "Version of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RbProfile"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/rb/definition/{rbName}/{rbVersion}/profile/{profileName}": {
+      "get": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "Get RB Profile by Name",
+        "description": "Returns a single RB Profile object",
+        "operationId": "getRbProfileForRbDefinition",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rbVersion",
+            "in": "path",
+            "description": "Version of the RB Definition to return",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "profileName",
+            "in": "path",
+            "description": "Name of the RB profile",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/RbProfile"
+            }
+          },
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "RB Profile not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "Deletes RB Profile",
+        "description": "",
+        "operationId": "deleteRbProfileForRbDefinition",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rbVersion",
+            "in": "path",
+            "description": "Version of the RB Definition",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "profileName",
+            "in": "path",
+            "description": "Name of the RB profile",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "RB Definition of RB profile not found"
+          }
+        }
+      }
+    },
+    "/rb/definition/{rbName}/{rbVersion}/profile/{profileName}/content": {
+      "post": {
+        "tags": [
+          "profile"
+        ],
+        "summary": "Uploads tgz package associated with RB Profile",
+        "description": "",
+        "operationId": "uploadRbProfileContent",
+        "consumes": [
+          "application/gzip"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "rbName",
+            "in": "path",
+            "description": "Name of the RB Definition",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "rbVersion",
+            "in": "path",
+            "description": "Version of the RB Definition",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "profileName",
+            "in": "path",
+            "description": "Name of the RB profile",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/instance": {
+      "post": {
+        "tags": [
+          "instance"
+        ],
+        "summary": "Create new RB Instance",
+        "description": "",
+        "operationId": "createRbInstance",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "RB Instance properties to create",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RbInstanceRequest"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "instance"
+        ],
+        "summary": "Get all RB Instances",
+        "description": "Multiple RB Instances",
+        "operationId": "getRbInstances",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RbInstance"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/instance/{instanceId}": {
+      "get": {
+        "tags": [
+          "instance"
+        ],
+        "summary": "Get RB Instance by ID",
+        "description": "Returns a single RB Instance object",
+        "operationId": "getRbInstanceById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "instanceId",
+            "in": "path",
+            "description": "ID of the instance",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/RbInstance"
+            }
+          },
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "RB Definition not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "instance"
+        ],
+        "summary": "Deletes RB Instance",
+        "description": "",
+        "operationId": "deleteRbInstanceById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "instanceId",
+            "in": "path",
+            "description": "ID of the instance",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "Rb Instance not found"
+          }
+        }
+      }
+    },
+    "/instance/{instanceId}/status": {
+      "get": {
+        "tags": [
+          "instance"
+        ],
+        "summary": "Get RB Instance Status",
+        "description": "Returns status of a single RB Instance object",
+        "operationId": "getRbInstanceStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "instanceId",
+            "in": "path",
+            "description": "ID of the instance",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/RbInstanceStatus"
+            }
+          },
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "RB Instance not found"
+          }
+        }
+      }
+    },
+    "/instance/{instanceId}/query": {
+      "get": {
+        "tags": [
+          "instance"
+        ],
+        "summary": "Get filtered out RB Instance status",
+        "description": "Returns filtered status of a single RB Instance object",
+        "operationId": "queryRbInstanceStatus",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "instanceId",
+            "in": "path",
+            "description": "ID of the instance",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "ApiVersion",
+            "type": "string",
+            "description": "Resource ApiVersion like 'apps/v1'",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "Kind",
+            "type": "string",
+            "description": "Resource Kind like 'Deployment'",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "Name",
+            "type": "string",
+            "description": "Name of Resource like 'my-pod-1'",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "Labels",
+            "type": "string",
+            "description": "One or many pairs of label name/value data for filtering Resources like 'app=test,version=prod'",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/RbInstanceStatus"
+            }
+          },
+          "400": {
+            "description": "Invalid identifiers supplied"
+          },
+          "404": {
+            "description": "RB Instance not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RbDefinition": {
+      "type": "object",
+      "properties": {
+        "rb-name": {
+          "type": "string"
+        },
+        "rb-version": {
+          "type": "string"
+        },
+        "chart-name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "example": {
+        "rb-name": "test",
+        "rb-version": "v1",
+        "chart-name": "nginx",
+        "description": "nginx definition",
+        "labels": [
+          "some label"
+        ]
+      }
+    },
+    "RbProfile": {
+      "type": "object",
+      "properties": {
+        "rb-name": {
+          "type": "string"
+        },
+        "rb-version": {
+          "type": "string"
+        },
+        "profile-name": {
+          "type": "string"
+        },
+        "release-name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "kubernetes-version": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "rb-name": "test",
+        "rb-version": "v1",
+        "profile-name": "p1",
+        "release-name": "r1",
+        "namespace": "default",
+        "kubernetes-version": "12.0.1"
+      }
+    },
+    "RbInstance": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "release-name": {
+          "type": "string"
+        },
+        "namespace": {
+          "type": "string"
+        },
+        "request": {
+          "$ref": "#/definitions/RbInstanceRequest"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RbInstanceResource"
+          }
+        }
+      }
+    },
+    "RbInstanceStatus": {
+      "type": "object",
+      "properties": {
+        "ready": {
+          "type": "boolean"
+        },
+        "request": {
+          "$ref": "#/definitions/RbInstanceRequest"
+        },
+        "resourcesCount": {
+          "type": "integer"
+        },
+        "resourcesStatus": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RbInstanceResourceStatus"
+          }
+        }
+      }
+    },
+    "RbInstanceResource": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "GVK": {
+          "$ref": "#/definitions/GVK"
+        }
+      },
+      "example": {
+        "GVK": {
+          "Group": "apps",
+          "Kind": "Deployment",
+          "Version": "v1"
+        },
+        "Name": "test-dep"
+      }
+    },
+    "RbInstanceResourceStatus": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "GVK": {
+          "$ref": "#/definitions/GVK"
+        },
+        "status": {
+          "type": "object"
+        }
+      },
+      "example": {
+        "GVK": {
+          "Group": "apps",
+          "Kind": "Deployment",
+          "Version": "v1"
+        },
+        "Name": "test-dep"
+      }
+    },
+    "GVK": {
+      "type": "object",
+      "properties": {
+        "Group": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "Kind": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "Group": "apps",
+        "Version": "v1",
+        "Kind": "Deployment"
+      }
+    },
+    "RbInstanceRequest": {
+      "type": "object",
+      "properties": {
+        "rb-name": {
+          "type": "string"
+        },
+        "rb-version": {
+          "type": "string"
+        },
+        "profile-name": {
+          "type": "string"
+        },
+        "release-name": {
+          "type": "string"
+        },
+        "cloud-region": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "object"
+        },
+        "override-values": {
+          "type": "object"
+        }
+      },
+      "example": {
+        "cloud-region": "kus",
+        "profile-name": "p1",
+        "release-name": "release-x",
+        "rb-name": "test",
+        "rb-version": "v1",
+        "override-parameters": {
+          "optionalDictOfParameters": "andTheirValues, like",
+          "global.name": "dummy-name"
+        },
+        "labels": {
+          "optionalLabelForInternalK8spluginInstancesMetadata": "dummy-value"
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "string"
+    }
+  },
+  "externalDocs": {
+    "description": "K8s Plugin v1 API - ONAP wiki",
+    "url": "https://wiki.onap.org/display/DW/MultiCloud+K8s-Plugin-service+API"
+  }
+}
