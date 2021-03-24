@@ -11,14 +11,12 @@ MultiCloud Release Notes
 Abstract
 ========
 
-This document provides the release notes for the ``guilin`` release.
+This document provides the release notes for the ``honolulu`` release.
 
 Summary
 =======
 
-MultiCloud Project enhances artifactbroker to support CNF orchestration with
-artifact format of helm charts (without wrapping in a dummy heat template)
-
+This release introduces new features into k8s plugin that enhance Day configuration support for k8s resources and brings features for monitoring of CNF health. 
 
 Release Data
 ============
@@ -33,10 +31,9 @@ Release Data
 |                           | onap/multicloud-openstack-windriver:1.5.5       |
 |                           | onap/multicloud-openstack-fcaps:1.5.5           |
 |                           | onap/multicloud-openstack-pike:1.5.5            |
-|                           | onap/multicloud-azure:1.2.4                     |
-|                           | onap/multicloud-k8s:0.7.0                       |
+|                           | onap/multicloud-k8s:0.8.0                       |
 +---------------------------+-------------------------------------------------+
-| **Release designation**   | Guilin 7.0.0                                    |
+| **Release designation**   | honolulu 8.0.0                                  |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
 
@@ -44,20 +41,21 @@ Release Data
 New features
 ------------
 
-Enables CNF orchestration with artifact format of helm charts
+New features in k8s Plugin:
+- Refined Configuration API allows for flexible modification of the CNF configuration. Configuration API allows to create, modify and delete k8s resource templates and it allows their parameterization base on dedicated or inherited from the CNF instance input parameters.
+
+- Query API allows for the gathering of the filtered out the status of CNF what can be helpful to get precise information for particular resources belonging to the CNF. Query API produces results in the same format as Status API that offers the full set of information about CNF status.
+
+- HealthCheck API allows for the execution of dedicated healthcheck jobs (similar to helm test operation) that can verify on demand the current status of the CNF. The API can be used also to retrieved the results of healthcheck job execution, which can be extended with Status/Query API
 
 **Bug fixes**
 
-- `MULTICLOUD-1195 <https://jira.onap.org/browse/MULTICLOUD-1195>`_
-  Multicloud used wrong MSB URL
+N/A
   
 **Known Issues**
 
 - `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
   MultiCloud OpenStack: image creating API cannot handle large image file
-
-- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
-  MultiCloud OpenStack: keypair cannot be passed for nova instance creation
 
 - `MULTICLOUD-421 <https://jira.onap.org/browse/MULTICLOUD-421>`_
   MultiCloud OpenStack: API request to multicloud with authorization header will be rejected
@@ -67,6 +65,27 @@ Enables CNF orchestration with artifact format of helm charts
 
 - `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
   MultiCloud k8s: OVN Installation issues
+
+- `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
+  MultiCloud k8s: OVN Installation issues
+
+- `MULTICLOUD-1269 <https://jira.onap.org/browse/MULTICLOUD-1269>`_
+  MultiCloud k8s: K8s Plugins keeps failed RB Instance
+
+- `MULTICLOUD-1295 <https://jira.onap.org/browse/MULTICLOUD-1295>`_
+  MultiCloud k8s: Bug in Multicloud K8S Plugin Detemplating
+
+- `MULTICLOUD-1307 <https://jira.onap.org/browse/MULTICLOUD-1307>`_
+  MultiCloud k8s: Query API issues
+
+- `MULTICLOUD-1308 <https://jira.onap.org/browse/MULTICLOUD-1308>`_
+  MultiCloud k8s: Healthcheck API Exception
+
+- `MULTICLOUD-1311 <https://jira.onap.org/browse/MULTICLOUD-1311>`_
+  MultiCloud k8s: Creation of Config from CDS fails
+
+- `MULTICLOUD-1312 <https://jira.onap.org/browse/MULTICLOUD-1312>`_
+  MultiCloud k8s: Query API returns 500 instead of 404
 
 
 Deliverables
