@@ -11,13 +11,12 @@ MultiCloud Release Notes
 Abstract
 ========
 
-This document provides the release notes for the ``guilin`` release.
+This document provides the release notes for the ``honolulu`` release.
 
 Summary
 =======
 
-MultiCloud Project enhances artifactbroker to support CNF orchestration with
-artifact format of helm charts (without wrapping in a dummy heat template)
+TBD
 
 
 Release Data
@@ -33,10 +32,9 @@ Release Data
 |                           | onap/multicloud-openstack-windriver:1.5.5       |
 |                           | onap/multicloud-openstack-fcaps:1.5.5           |
 |                           | onap/multicloud-openstack-pike:1.5.5            |
-|                           | onap/multicloud-azure:1.2.4                     |
-|                           | onap/multicloud-k8s:0.7.0                       |
+|                           | onap/multicloud-k8s:0.8.0                       |
 +---------------------------+-------------------------------------------------+
-| **Release designation**   | Guilin 7.0.0                                    |
+| **Release designation**   | honolulu 8.0.0                                  |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
 
@@ -44,20 +42,16 @@ Release Data
 New features
 ------------
 
-Enables CNF orchestration with artifact format of helm charts
+Enables multicloud-k8s plugin TBD
 
 **Bug fixes**
 
-- `MULTICLOUD-1195 <https://jira.onap.org/browse/MULTICLOUD-1195>`_
-  Multicloud used wrong MSB URL
+N/A
   
 **Known Issues**
 
 - `MULTICLOUD-359 <https://jira.onap.org/browse/MULTICLOUD-359>`_
   MultiCloud OpenStack: image creating API cannot handle large image file
-
-- `MULTICLOUD-389 <https://jira.onap.org/browse/MULTICLOUD-389>`_
-  MultiCloud OpenStack: keypair cannot be passed for nova instance creation
 
 - `MULTICLOUD-421 <https://jira.onap.org/browse/MULTICLOUD-421>`_
   MultiCloud OpenStack: API request to multicloud with authorization header will be rejected
