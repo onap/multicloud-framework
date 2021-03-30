@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "a7ebd65f_4caefa09",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2021-03-30T07:55:41Z",
+      "side": 1,
+      "message": "yes, we should, I hope someone from multicloud-k8s plugin team could help here.",
+      "parentUuid": "e7cbd2df_9f3d9337",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 3
+      },
+      "revId": "70dc99648ed120f79e82e95be61defe773e144f5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "828b01a2_85faafe7",
         "filename": "docs/release-notes.rst",
         "patchSetId": 3
@@ -119,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "e28f3a07_00d9aee5",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2021-03-30T07:55:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e6796525_791c8775",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 2
+      },
+      "revId": "70dc99648ed120f79e82e95be61defe773e144f5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92b68fd7_adf7499f",
         "filename": "docs/release-notes.rst",
         "patchSetId": 3
@@ -139,6 +187,30 @@
       "revId": "70dc99648ed120f79e82e95be61defe773e144f5",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87857110_cbc04f56",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2021-03-30T07:55:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "92b68fd7_adf7499f",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 0
+      },
+      "revId": "70dc99648ed120f79e82e95be61defe773e144f5",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
