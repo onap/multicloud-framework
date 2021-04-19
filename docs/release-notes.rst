@@ -33,8 +33,12 @@ Release Data
 |                           | onap/multicloud-openstack-windriver:1.5.5       |
 |                           | onap/multicloud-openstack-fcaps:1.5.5           |
 |                           | onap/multicloud-openstack-pike:1.5.5            |
+<<<<<<< HEAD   (adacf4 K8s Plugin v1 API Specification)
 |                           | onap/multicloud-azure:1.2.4                     |
 |                           | onap/multicloud-k8s:0.7.0                       |
+=======
+|                           | onap/multicloud-k8s:0.8.1                       |
+>>>>>>> CHANGE (33d495 Update release note for honolulu k8splugin)
 +---------------------------+-------------------------------------------------+
 | **Release designation**   | Guilin 7.0.0                                    |
 |                           |                                                 |
@@ -45,6 +49,8 @@ New features
 ------------
 
 Enables CNF orchestration with artifact format of helm charts
+
+All new the features of k8splugin are explained and showcased as a part of `vFW CNF Use Case <https://docs.onap.org/projects/onap-integration/en/honolulu/docs_vFW_CNF_CDS.html>` and in the k8s API documentation.
 
 **Bug fixes**
 
@@ -68,6 +74,26 @@ Enables CNF orchestration with artifact format of helm charts
 - `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
   MultiCloud k8s: OVN Installation issues
 
+<<<<<<< HEAD   (adacf4 K8s Plugin v1 API Specification)
+=======
+- `MULTICLOUD-1269 <https://jira.onap.org/browse/MULTICLOUD-1269>`_
+  MultiCloud k8s: K8s Plugins keeps failed RB Instance
+
+- `MULTICLOUD-1295 <https://jira.onap.org/browse/MULTICLOUD-1295>`_
+  MultiCloud k8s: Bug in Multicloud K8S Plugin Detemplating
+
+- `MULTICLOUD-1312 <https://jira.onap.org/browse/MULTICLOUD-1312>`_
+  MultiCloud k8s: Query API returns 500 instead of 404
+
+- `MULTICLOUD-1329 <https://jira.onap.org/browse/MULTICLOUD-1329>`_
+  MultiCloud k8s: Redundant data in MongoDB created
+
+- `MULTICLOUD-1330 <https://jira.onap.org/browse/MULTICLOUD-1330>`_
+  MultiCloud k8s: Consul operation interface problems
+
+- `MULTICLOUD-1331 <https://jira.onap.org/browse/MULTICLOUD-1331>`_
+  MultiCloud k8s: Instance status update failure
+>>>>>>> CHANGE (33d495 Update release note for honolulu k8splugin)
 
 Deliverables
 ------------
