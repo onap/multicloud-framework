@@ -31,7 +31,7 @@ Release Data
 |                           | onap/multicloud-openstack-windriver:1.5.5       |
 |                           | onap/multicloud-openstack-fcaps:1.5.5           |
 |                           | onap/multicloud-openstack-pike:1.5.5            |
-|                           | onap/multicloud-k8s:0.8.0                       |
+|                           | onap/multicloud-k8s:0.8.1                       |
 +---------------------------+-------------------------------------------------+
 | **Release designation**   | honolulu 8.0.0                                  |
 |                           |                                                 |
@@ -47,6 +47,8 @@ New features in k8s Plugin:
 - Query API allows for the gathering of the filtered out the status of CNF what can be helpful to get precise information for particular resources belonging to the CNF. Query API produces results in the same format as Status API that offers the full set of information about CNF status.
 
 - HealthCheck API allows for the execution of dedicated healthcheck jobs (similar to helm test operation) that can verify on demand the current status of the CNF. The API can be used also to retrieved the results of healthcheck job execution, which can be extended with Status/Query API
+
+All new the features of k8splugin are explained and showcased as a part of `vFW CNF Use Case <https://docs.onap.org/projects/onap-integration/en/honolulu/docs_vFW_CNF_CDS.html>` and in the k8s API documentation.
 
 **Bug fixes**
 
@@ -66,27 +68,23 @@ N/A
 - `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
   MultiCloud k8s: OVN Installation issues
 
-- `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
-  MultiCloud k8s: OVN Installation issues
-
 - `MULTICLOUD-1269 <https://jira.onap.org/browse/MULTICLOUD-1269>`_
   MultiCloud k8s: K8s Plugins keeps failed RB Instance
 
 - `MULTICLOUD-1295 <https://jira.onap.org/browse/MULTICLOUD-1295>`_
   MultiCloud k8s: Bug in Multicloud K8S Plugin Detemplating
 
-- `MULTICLOUD-1307 <https://jira.onap.org/browse/MULTICLOUD-1307>`_
-  MultiCloud k8s: Query API issues
-
-- `MULTICLOUD-1308 <https://jira.onap.org/browse/MULTICLOUD-1308>`_
-  MultiCloud k8s: Healthcheck API Exception
-
-- `MULTICLOUD-1311 <https://jira.onap.org/browse/MULTICLOUD-1311>`_
-  MultiCloud k8s: Creation of Config from CDS fails
-
 - `MULTICLOUD-1312 <https://jira.onap.org/browse/MULTICLOUD-1312>`_
   MultiCloud k8s: Query API returns 500 instead of 404
 
+- `MULTICLOUD-1329 <https://jira.onap.org/browse/MULTICLOUD-1329>`_
+  MultiCloud k8s: Redundant data in MongoDB created
+
+- `MULTICLOUD-1330 <https://jira.onap.org/browse/MULTICLOUD-1330>`_
+  MultiCloud k8s: Consul operation interface problems
+
+- `MULTICLOUD-1331 <https://jira.onap.org/browse/MULTICLOUD-1331>`_
+  MultiCloud k8s: Instance status update failure
 
 Deliverables
 ------------
