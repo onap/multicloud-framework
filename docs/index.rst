@@ -19,6 +19,7 @@ MultiCloud API
 
    MultiCloud-APIv0-Specification
    MultiCloud-APIv1-Specification
+   MultiCloud-K8sPlugin-APIv1-Specification
 
 
 MultiCloud Release Notes
