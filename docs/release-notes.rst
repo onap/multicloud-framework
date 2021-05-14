@@ -16,7 +16,7 @@ This document provides the release notes for the ``honolulu`` release.
 Summary
 =======
 
-This release introduces new features into k8s plugin that enhance Day 2 configuration support for k8s resources and brings features for monitoring of CNF health. 
+This release introduces new features into k8s plugin that enhance Day 2 configuration support for k8s resources and brings features for monitoring of CNF health.
 
 Release Data
 ============
@@ -31,7 +31,7 @@ Release Data
 |                           | onap/multicloud-openstack-windriver:1.5.5       |
 |                           | onap/multicloud-openstack-fcaps:1.5.5           |
 |                           | onap/multicloud-openstack-pike:1.5.5            |
-|                           | onap/multicloud-k8s:0.8.1                       |
+|                           | onap/multicloud-k8s:0.8.2                       |
 +---------------------------+-------------------------------------------------+
 | **Release designation**   | honolulu 8.0.0                                  |
 |                           |                                                 |
@@ -52,7 +52,14 @@ All new the features of k8splugin are explained and showcased as a part of `vFW 
 
 **Bug fixes**
 
-N/A
+- `MULTICLOUD-1295 <https://jira.onap.org/browse/MULTICLOUD-1295>`_
+  MultiCloud k8s: Bug in Multicloud K8S Plugin Detemplating
+
+- `MULTICLOUD-1338 <https://jira.onap.org/browse/MULTICLOUD-1338>`_
+  MultiCloud k8s: Foreground delete policy prevents deletion of the pods
+
+- `MULTICLOUD-1348 <https://jira.onap.org/browse/MULTICLOUD-1348>`_
+  MultiCloud k8s: Regression in Multicloud-k8s
 
 **Known Issues**
 
@@ -70,9 +77,6 @@ N/A
 
 - `MULTICLOUD-1269 <https://jira.onap.org/browse/MULTICLOUD-1269>`_
   MultiCloud k8s: K8s Plugins keeps failed RB Instance
-
-- `MULTICLOUD-1295 <https://jira.onap.org/browse/MULTICLOUD-1295>`_
-  MultiCloud k8s: Bug in Multicloud K8S Plugin Detemplating
 
 - `MULTICLOUD-1312 <https://jira.onap.org/browse/MULTICLOUD-1312>`_
   MultiCloud k8s: Query API returns 500 instead of 404
@@ -105,10 +109,8 @@ System Limitations
 
 N/A
 
-
 Known Vulnerabilities
 ---------------------
-
 
 MULTICLOUD code has been formally scanned during build time using NexusIQ and
 all Critical vulnerabilities have been addressed, items that remain open have
@@ -119,12 +121,10 @@ assessment have been documented as part of the
 `project
 <https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_.
 
-
 Workarounds
 -----------
 
 N/A
-
 
 Security Notes
 --------------
