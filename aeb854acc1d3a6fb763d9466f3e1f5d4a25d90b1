@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "286bd4bb_69fb77fb",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2021-05-19T07:39:12Z",
+      "side": 1,
+      "message": "trailing space",
+      "revId": "aeb854acc1d3a6fb763d9466f3e1f5d4a25d90b1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
