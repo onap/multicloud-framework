@@ -97,6 +97,30 @@
       "revId": "aeb854acc1d3a6fb763d9466f3e1f5d4a25d90b1",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "780be9fc_e16bd59d",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2021-05-25T14:04:06Z",
+      "side": 1,
+      "message": "I think it is fine\nOOM has the list of the versions corresponding to the release, maintenance release,...",
+      "parentUuid": "3ac25abe_03250f78",
+      "range": {
+        "startLine": 36,
+        "startChar": 30,
+        "endLine": 36,
+        "endChar": 45
+      },
+      "revId": "aeb854acc1d3a6fb763d9466f3e1f5d4a25d90b1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "995edf39_834ee8a8",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2021-05-25T14:04:06Z",
+      "side": 0,
+      "message": "maintenance still missing here, no?",
+      "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
