@@ -34,6 +34,24 @@
       "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da2a9c30_57bc4e94",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2021-05-26T14:10:53Z",
+      "side": 0,
+      "message": "I do not think it is possible...you cannot move the OOM tags of an already released versions.\nyou can provide fixes as part of the branch or in a maintenance release but you cannot change an existing release, can you?\n\nFor multicloud participating to the maintenance release does not mean much..it is just indicating to take the 0.8.2 to OOM + update the doc (this patch)",
+      "parentUuid": "cbbad1f9_0a096a3b",
+      "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
