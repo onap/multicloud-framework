@@ -70,6 +70,24 @@
       "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a96767e0_1fa809ca",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1215
+      },
+      "writtenOn": "2021-05-27T13:57:04Z",
+      "side": 0,
+      "message": "my understanding (but I am not the release manager)\nyou submitted the 0.8.2 in master then in OOM honolulu branch\nso you automatically participate to the maintenance release\n\nYou updated the release note indicating the change of version\nso for me, once this patch merged, it is OK.\nMaybe I would have indicated the history (that can be retrieve through git history anyway)\n\n************************\nMultiCloud Release Notes\n************************\n\u003cno change - honolulu release note\u003e\n\n+\n\nHonolulu Maintenance Release\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nRelease Data\n------------\n+---------------------------+-------------------------------------------------+\n| **Project**               | MultiCloud                                      |\n|                           |                                                 |\n+---------------------------+-------------------------------------------------+\n| **Docker images**         | onap/multicloud-framework:1.6.0                 |\n|                           | onap/multicloud-framework-artifactbroker:1.6.0  |\n|                           | onap/multicloud-openstack-starlingx:1.5.5       |\n|                           | onap/multicloud-openstack-windriver:1.5.5       |\n|                           | onap/multicloud-openstack-fcaps:1.5.5           |\n|                           | onap/multicloud-openstack-pike:1.5.5            |\n|                           | **onap/multicloud-k8s:0.8.2**                   |\n+---------------------------+-------------------------------------------------+\n| **Release designation**   | honolulu 8.1.0                                  |\n|                           |                                                 |\n+---------------------------+-------------------------------------------------+\n\nBug Fixes\n---------\n- `MULTICLOUD-1295 \u003chttps://jira.onap.org/browse/MULTICLOUD-1295\u003e`_\n  MultiCloud k8s: Bug in Multicloud K8S Plugin Detemplating\n- `MULTICLOUD-1338 \u003chttps://jira.onap.org/browse/MULTICLOUD-1338\u003e`_\n  MultiCloud k8s: Foreground delete policy prevents deletion of the pods\n- `MULTICLOUD-1348 \u003chttps://jira.onap.org/browse/MULTICLOUD-1348\u003e`_\n  MultiCloud k8s: Regression in Multicloud-k8s",
+      "parentUuid": "2bd60c86_db0436aa",
+      "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
