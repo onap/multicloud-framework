@@ -52,6 +52,24 @@
       "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bd60c86_db0436aa",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2021-05-27T07:41:12Z",
+      "side": 0,
+      "message": "If I understand the situation correctly, \"take the 0.8.2 to OOM\" is already done, and update the doc is what we are working on now (I guess we need to increase the release version with this patch), what else we need to do to participate to the maintenance release? Thanks",
+      "parentUuid": "da2a9c30_57bc4e94",
+      "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
