@@ -88,6 +88,24 @@
       "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "081cf4f2_8486580a",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1889
+      },
+      "writtenOn": "2021-05-28T05:31:03Z",
+      "side": 0,
+      "message": "Thanks for the clarification\n\n@Konrad,  Please update the release note with the suggestion from Morgan. Thanks",
+      "parentUuid": "a96767e0_1fa809ca",
+      "revId": "d8356b94d8455419c35e331584cd5becc2497e84",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
