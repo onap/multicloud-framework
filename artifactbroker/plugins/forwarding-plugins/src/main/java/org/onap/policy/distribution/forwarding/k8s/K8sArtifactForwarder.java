@@ -113,10 +113,11 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
 
             Map<String, Object> map = new LinkedHashMap<String, Object>();
             map.put("rb-name", vfModule.getVfModuleModelInvariantUUID());
-            map.put("rb-version", vfModule.getVfModuleModelUUID());
+            map.put("rb-version", vfModule.getVfModuleModelCustomizationUUID());
             map.put("descritpion",vfModule.getVfModuleModelDescription());
             Map<String, String> labelMap = new LinkedHashMap<String, String>();
-            labelMap.put("vnf_customization_uuid",vfModule.getVfModuleModelCustomizationUUID());
+            labelMap.put("vf_module_model_uuid",vfModule.getVfModuleModelUUID());
+            labelMap.put("vf_module_model_name",vfModule.getVfModuleModelName());
             map.put("labels", labelMap);
             String json = gson.toJson(map);
 
@@ -132,7 +133,7 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
 
     private boolean uploadArtifact(VfModuleModel vfModule) {
         String url = BASE_PATH + "/" + vfModule.getVfModuleModelInvariantUUID() + "/"
-            + vfModule.getVfModuleModelUUID() + "/content";
+            + vfModule.getVfModuleModelCustomizationUUID() + "/content";
         HttpPost httpPost = new HttpPost(url);
         httpPost.addHeader("content-type", "application/x-www-form-urlencoded;charset=utf-8");
 
