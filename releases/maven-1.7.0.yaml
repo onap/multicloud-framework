@@ -1,0 +1,4 @@
+distribution_type: 'maven'
+version: '1.7.0'
+project: 'multicloud-framework'
+log_dir: 'multicloud-framework-maven-stage-master/832/'
