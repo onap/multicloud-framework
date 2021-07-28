@@ -1,0 +1,10 @@
+distribution_type: 'container'
+container_release_tag: '1.7.0'
+project: 'multicloud-framework'
+log_dir: 'multicloud-framework-maven-docker-stage-master/757/'
+ref: 169c89e0c403dad3e3e538ae92b46f12971aa20a
+containers:
+    - name: 'multicloud/framework'
+      version: '1.7.0'
+    - name: 'multicloud/framework-artifactbroker'
+      version: '1.7.0'
