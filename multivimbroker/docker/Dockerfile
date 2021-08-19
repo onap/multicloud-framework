@@ -1,4 +1,4 @@
-FROM python:3.7-alpine
+FROM python:3.8-alpine
 
 ENV MSB_PROTO "http"
 ENV MSB_ADDR "127.0.0.1"
