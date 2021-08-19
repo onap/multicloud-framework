@@ -12,6 +12,7 @@
 
 import os
 import sys
+import platform
 import yaml
 from logging import config as log_config
 
@@ -80,13 +81,47 @@ TIME_ZONE = 'UTC'
 
 STATIC_URL = '/static/'
 
+if platform.system() == 'Windows' or 'test' in sys.argv:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+        'formatters': {
+            'standard': {
+                'format': '%(asctime)s:[%(name)s]:[%(filename)s]-[%(lineno)d] [%(levelname)s]:%(message)s',
+            },
+        },
+        'filters': {
+        },
+        'handlers': {
+            'file_handler': {
+                'level': 'DEBUG',
+                'class': 'logging.handlers.RotatingFileHandler',
+                'filename': os.path.join(BASE_DIR, 'logs/test.log'),
+                'formatter': 'standard',
+                'maxBytes': 1024 * 1024 * 50,
+                'backupCount': 5,
+            },
+        },
 
-LOGGING_CONFIG = None
-# yaml configuration of logging
-LOGGING_FILE = os.path.join(BASE_DIR, 'multivimbroker/pub/config/log.yml')
-with open(file=LOGGING_FILE, mode='r', encoding="utf-8")as file:
-    logging_yaml = yaml.load(stream=file, Loader=yaml.FullLoader)
-log_config.dictConfig(config=logging_yaml)
+        'loggers': {
+            'common': {
+                'handlers': ['file_handler'],
+                'level': 'DEBUG',
+                'propagate': False
+            },
+        }
+    }
+else:
+    log_path = "/var/log/onap/multicloud/multivimbroker"
+    if not os.path.exists(log_path):
+        os.makedirs(log_path)
+
+    LOGGING_CONFIG = None
+    # yaml configuration of logging
+    LOGGING_FILE = os.path.join(BASE_DIR, 'multivimbroker/pub/config/log.yml')
+    with open(file=LOGGING_FILE, mode='r', encoding="utf-8")as file:
+        logging_yaml = yaml.load(stream=file, Loader=yaml.FullLoader)
+    log_config.dictConfig(config=logging_yaml)
 
 if 'test' in sys.argv:
     from multivimbroker.pub.config import config
