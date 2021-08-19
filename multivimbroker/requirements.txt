@@ -26,8 +26,7 @@ httplib2==0.13.0
 # mock==2.0.0
 # unittest_xml_reporting==1.12.0
 
-# for onap logging
-onappylog>=1.0.9
+PyYAML==5.3.1
 
 # for pecan framework
 # pecan>=1.2.1
