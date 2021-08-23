@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # ============LICENSE_START=======================================================
 #  Copyright (C) 2018 Ericsson. All rights reserved.
