@@ -1,6 +1,6 @@
 # rest framework
-Django==2.2.3
-djangorestframework==3.9.3
+Django==3.2.7
+djangorestframework==3.12.4
 
 # multipart support
 # poster==0.8.1
@@ -13,7 +13,7 @@ djangorestframework==3.9.3
 # django-redis-cache==0.13.1
 
 # for call rest api
-httplib2==0.13.0
+httplib2==0.19.1
 
 # for call openstack api
 # python-keystoneclient==3.6.0
@@ -26,7 +26,7 @@ httplib2==0.13.0
 # mock==2.0.0
 # unittest_xml_reporting==1.12.0
 
-PyYAML==5.3.1
+PyYAML==5.4.1
 
 # for pecan framework
 # pecan>=1.2.1
