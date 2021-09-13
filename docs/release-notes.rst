@@ -11,13 +11,12 @@ MultiCloud Release Notes
 Abstract
 ========
 
-This document provides the release notes for the ``honolulu`` maintenance release.
+This document provides the release notes for the ``istanbul`` release.
 
 Summary
 =======
 
-This release introduces new features into k8s plugin that enhance Day 2 configuration support for k8s resources and brings features for monitoring of CNF health.
-Maintenance Release provided additional changes compared to Honolulu release in k8splugin (see Bug fixes and Docker images sections).
+tbd
 
 Release Data
 ============
@@ -26,15 +25,15 @@ Release Data
 | **Project**               | MultiCloud                                      |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
-| **Docker images**         | onap/multicloud-framework:1.6.0                 |
-|                           | onap/multicloud-framework-artifactbroker:1.6.0  |
-|                           | onap/multicloud-openstack-starlingx:1.5.5       |
-|                           | onap/multicloud-openstack-windriver:1.5.5       |
-|                           | onap/multicloud-openstack-fcaps:1.5.5           |
-|                           | onap/multicloud-openstack-pike:1.5.5            |
-|                           | **onap/multicloud-k8s:0.8.2**                   |
+| **Docker images**         | onap/multicloud-framework:1.7.1                 |
+|                           | onap/multicloud-framework-artifactbroker:1.7.1  |
+|                           | onap/multicloud-openstack-starlingx:1.5.6       |
+|                           | onap/multicloud-openstack-windriver:1.5.6       |
+|                           | onap/multicloud-openstack-fcaps:1.5.6           |
+|                           | onap/multicloud-openstack-pike:1.5.6            |
+|                           | onap/multicloud-k8s:0.9.1                       |
 +---------------------------+-------------------------------------------------+
-| **Release designation**   | honolulu 8.1.0                                  |
+| **Release designation**   | istanbul                                        |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
 
@@ -42,25 +41,33 @@ Release Data
 New features
 ------------
 
-New features in k8s Plugin:
-- Refined Configuration API allows for flexible modification of the CNF configuration. Configuration API allows to create, modify and delete k8s resource templates and it allows their parameterization base on dedicated or inherited from the CNF instance input parameters.
+New features in k8s Plugin related with CNF support implemented by *REQ-627*:
 
-- Query API allows for the gathering of the filtered out the status of CNF what can be helpful to get precise information for particular resources belonging to the CNF. Query API produces results in the same format as Status API that offers the full set of information about CNF status.
+- Implement Query API on the main level to let reading the k8s resources for specified cluster and namespace but not related with particular Instance
+- Implement pre- and post-install/delete hooks
+- Modify Instance API POST Response to include hook information
+- Update Ready flag in Status API to indicate the real status of the Instance
+- Update Status API and Instance API GET to return hook information but only when additional query param is specified
 
-- HealthCheck API allows for the execution of dedicated healthcheck jobs (similar to helm test operation) that can verify on demand the current status of the CNF. The API can be used also to retrieved the results of healthcheck job execution, which can be extended with Status/Query API
-
-All new the features of k8splugin are explained and showcased as a part of `vFW CNF Use Case <https://docs.onap.org/projects/onap-integration/en/honolulu/docs_vFW_CNF_CDS.html>` and in the k8s API documentation.
+- `<https://jira.onap.org/browse/MULTICLOUD-1345>`_
+- `<https://jira.onap.org/browse/REQ-627>`_
 
 **Bug fixes**
 
-- `MULTICLOUD-1295 <https://jira.onap.org/browse/MULTICLOUD-1295>`_
-  MultiCloud k8s: Bug in Multicloud K8S Plugin Detemplating
+- `MULTICLOUD-1269 <https://jira.onap.org/browse/MULTICLOUD-1269>`_
+  MultiCloud k8s: K8s Plugins keeps failed RB Instance
+
+- `MULTICLOUD-1334 <https://jira.onap.org/browse/MULTICLOUD-1334>`_
+  MultiCloud framework: WUpdate or Remove Java 8
 
 - `MULTICLOUD-1338 <https://jira.onap.org/browse/MULTICLOUD-1338>`_
-  MultiCloud k8s: Foreground delete policy prevents deletion of the pods
+  MultiCloud k8s: WForeground delete policy prevents deletion of the pods
 
-- `MULTICLOUD-1348 <https://jira.onap.org/browse/MULTICLOUD-1348>`_
-  MultiCloud k8s: Regression in Multicloud-k8s
+- `MULTICLOUD-1377 <https://jira.onap.org/browse/MULTICLOUD-1377>`_
+  MultiCloud k8s: WWrong parameter used for creation of rb-definition-version
+
+- `MULTICLOUD-1379 <https://jira.onap.org/browse/MULTICLOUD-1379>`_
+  MultiCloud k8s: Wrong release name for config instance
 
 **Known Issues**
 
@@ -72,12 +79,6 @@ All new the features of k8splugin are explained and showcased as a part of `vFW 
 
 - `MULTICLOUD-601 <https://jira.onap.org/browse/MULTICLOUD-601>`_
   MultiCloud k8s: move to sigs yaml from ghodss
-
-- `MULTICLOUD-661 <https://jira.onap.org/browse/MULTICLOUD-661>`_
-  MultiCloud k8s: OVN Installation issues
-
-- `MULTICLOUD-1269 <https://jira.onap.org/browse/MULTICLOUD-1269>`_
-  MultiCloud k8s: K8s Plugins keeps failed RB Instance
 
 - `MULTICLOUD-1312 <https://jira.onap.org/browse/MULTICLOUD-1312>`_
   MultiCloud k8s: Query API returns 500 instead of 404
@@ -120,7 +121,7 @@ been assessed for risk and determined to be false positive.
 The MULTICLOUD open Critical security vulnerabilities and their risk
 assessment have been documented as part of the
 `project
-<https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_.
+<https://wiki.onap.org/display/SV/Istanbul+Multicloud>`_.
 
 Workarounds
 -----------
@@ -132,11 +133,26 @@ Security Notes
 
 **Fixed Security Issues**
 
-N/A
+CVE issue pertained to multicloud-openstack components reported
+by https://wiki.onap.org/display/SV/Istanbul+Multicloud
+has been fixed by upgrading dependencies
+
+CVE issue pertained to multicloud-framework components reported
+by https://wiki.onap.org/display/SV/Istanbul+Multicloud
+has been fixed by upgrading dependencies
 
 **Known Security Issues**
 
-N/A
+
+Fixing of CVE issue pertained to multicloud-framework-artifactbroker components
+reported by https://wiki.onap.org/display/SV/Istanbul+Multicloud
+is an ongoing effort
+
+
+Fixing of CVE issue pertained to multicloud-openstack-vmware components
+reported by https://wiki.onap.org/display/SV/Istanbul+Multicloud
+will not be fixed due to lack of commitment from community
+
 
 Test Results
 ============
@@ -146,7 +162,7 @@ N/A
 References
 ==========
 
-For more information on the ONAP ``guilin`` release, please see:
+For more information on the ONAP ``istanbul`` release, please see:
 
 #. `ONAP Home Page`_
 #. `ONAP Documentation`_
@@ -167,6 +183,6 @@ Quick Links
 
   - `Passing Badge information for MULTICLOUD <https://bestpractices.coreinfrastructure.org/en/projects/1706>`_
 
-  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/pages/viewpage.action?pageId=68541501>`_
+  - `Project Vulnerability Review Table for Multicloud <https://wiki.onap.org/display/SV/Istanbul+Multicloud>`_
 
   - `Multicloud K8s Plugin Service APIs <https://wiki.onap.org/display/DW/MultiCloud+K8s-Plugin-service+API's>`_
