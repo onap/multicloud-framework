@@ -34,7 +34,7 @@ Release Data
 |                           | onap/multicloud-openstack-pike:1.5.5            |
 |                           | **onap/multicloud-k8s:0.8.2**                   |
 +---------------------------+-------------------------------------------------+
-| **Release designation**   | honolulu 8.1.0                                  |
+| **Release designation**   | honolulu 8.0.1                                  |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
 
