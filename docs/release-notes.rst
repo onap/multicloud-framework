@@ -31,7 +31,7 @@ Release Data
 |                           | onap/multicloud-openstack-windriver:1.5.6       |
 |                           | onap/multicloud-openstack-fcaps:1.5.6           |
 |                           | onap/multicloud-openstack-pike:1.5.6            |
-|                           | onap/multicloud-k8s:0.9.1                       |
+|                           | onap/multicloud-k8s:0.9.3                       |
 +---------------------------+-------------------------------------------------+
 | **Release designation**   | istanbul                                        |
 |                           |                                                 |
@@ -74,6 +74,12 @@ New features in k8s Plugin related with CNF support implemented by *REQ-627*:
 
 - `MULTICLOUD-1398 <https://jira.onap.org/browse/MULTICLOUD-1398>`_
   MultiCloud k8s: K8s Resource Delete order the same like for installation
+
+- `MULTICLOUD-1409 <https://jira.onap.org/browse/MULTICLOUD-1409>`_
+  MultiCloud k8s: Query API for Instance returns resources that do not belong to Instance
+
+- `MULTICLOUD-1414 <https://jira.onap.org/browse/MULTICLOUD-1414>`_
+  MultiCloud k8s: Config API takes values only from Config create request
 
 **Known Issues**
 
