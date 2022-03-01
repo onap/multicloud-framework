@@ -15,13 +15,14 @@ RUN addgroup -S onap && adduser -S -G onap onap
 
 COPY ./multicloud-framework-broker-*.zip /opt/multicloud-framework.zip
 RUN apk update && \
-    apk add uwsgi wget unzip gcc make libc-dev libffi-dev openssl-dev && \
+    apk add --no-cache uwsgi && \
+    apk add --no-cache --virtual .build-deps wget unzip gcc make libc-dev libffi-dev openssl-dev && \
     cd /opt/ && \
     unzip -q -o -B multicloud-framework.zip && \
     rm -f multicloud-framework.zip && \
     pip3 install -r /opt/multivimbroker/requirements.txt && \
     pip3 install -r /opt/multivimbroker/uwsgi-requirements.txt && \
-    apk del wget unzip gcc make libc-dev libffi-dev openssl-dev && \
+    apk del --no-network .build-deps && \
     mkdir -p /var/log/onap/multicloud/multivimbroker && \
     chown onap:onap /var/log/onap -R && \
     chown onap:onap /opt/multivimbroker -R
