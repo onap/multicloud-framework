@@ -1,4 +1,5 @@
-FROM python:3.8-alpine
+#FROM python:3.8-alpine
+FROM nexus3.onap.org:10001/onap/integration-python:9.1.0
 
 ENV MSB_PROTO "http"
 ENV MSB_ADDR "127.0.0.1"
@@ -11,7 +12,8 @@ ENV AAI_PASSWORD "AAI"
 
 EXPOSE 9001
 
-RUN addgroup -S onap && adduser -S -G onap onap
+# RUN addgroup -S onap && adduser -S -G onap onap
+USER root
 
 COPY ./multicloud-framework-broker-*.zip /opt/multicloud-framework.zip
 RUN apk update && \
