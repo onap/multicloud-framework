@@ -16,6 +16,21 @@ This document provides the release notes for the ``istanbul`` release.
 Summary
 =======
 
+
+Version: 9.0.1
+--------------
+
+The ``istanbul`` maintenance release addresses some vulnerabilities mainly
+for the log4j dependencies.
+
+- Updated the direct dependency log4j libraries to 2.14.1
+- Please note log4j is still on older versions in a transitive dependencies for
+  * onap/multicloud-framework-artifactbroker:1.7.2
+
+
+Version: 9.0.0
+--------------
+
 This release introduces new features in k8splugin, including many bug-fixes bringing better compatibility with Helm 3.5 specification.
 
 Release Data
