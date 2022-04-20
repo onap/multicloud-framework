@@ -11,27 +11,18 @@ MultiCloud Release Notes
 Abstract
 ========
 
-This document provides the release notes for the ``istanbul`` release.
+This document provides the release notes for the ``jakarta`` release.
 
 Summary
 =======
 
 
-Version: 9.0.1
+Version: 10.0.0
 --------------
 
-The ``istanbul`` maintenance release addresses some vulnerabilities mainly
-for the log4j dependencies.
+The ``jakarta`` release introduces following enhancements in k8splugin.
 
-- Updated the direct dependency log4j libraries to 2.14.1
-- Please note log4j is still on older versions in a transitive dependencies for
-  * onap/multicloud-framework-artifactbroker:1.7.2
-
-
-Version: 9.0.0
---------------
-
-This release introduces new features in k8splugin, including many bug-fixes bringing better compatibility with Helm 3.5 specification.
+- TBD
 
 Release Data
 ============
@@ -40,15 +31,15 @@ Release Data
 | **Project**               | MultiCloud                                      |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
-| **Docker images**         | onap/multicloud-framework:1.7.1                 |
-|                           | onap/multicloud-framework-artifactbroker:1.7.1  |
-|                           | onap/multicloud-openstack-starlingx:1.5.6       |
-|                           | onap/multicloud-openstack-windriver:1.5.6       |
-|                           | onap/multicloud-openstack-fcaps:1.5.6           |
-|                           | onap/multicloud-openstack-pike:1.5.6            |
+| **Docker images**         | onap/multicloud-framework:1.7.3                 |
+|                           | onap/multicloud-framework-artifactbroker:1.7.3  |
+|                           | onap/multicloud-openstack-starlingx:1.5.7       |
+|                           | onap/multicloud-openstack-windriver:1.5.7       |
+|                           | onap/multicloud-openstack-fcaps:1.5.7           |
+|                           | onap/multicloud-openstack-pike:1.5.7            |
 |                           | onap/multicloud-k8s:0.9.3                       |
 +---------------------------+-------------------------------------------------+
-| **Release designation**   | istanbul                                        |
+| **Release designation**   | jakarta                                         |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
 
@@ -56,13 +47,9 @@ Release Data
 New features
 ------------
 
-New features in k8s Plugin related with CNF support implemented by *REQ-627*:
+New features in k8s Plugin related with CNF support implemented by *REQ-?*:
 
-- Implement Query API on the main level to let reading the k8s resources for specified cluster and namespace but not related with particular Instance
-- Implement pre- and post-install/delete hooks
-- Modify Instance API POST Response to include hook information
-- Update Ready flag in Status API to indicate the real status of the Instance
-- Update Status API and Instance API GET to return hook information but only when additional query param is specified
+- TBD
 
 - `<https://jira.onap.org/browse/MULTICLOUD-1345>`_
 - `<https://jira.onap.org/browse/REQ-627>`_
@@ -189,7 +176,7 @@ N/A
 References
 ==========
 
-For more information on the ONAP ``istanbul`` release, please see:
+For more information on the ONAP ``jakarta`` release, please see:
 
 #. `ONAP Home Page`_
 #. `ONAP Documentation`_
