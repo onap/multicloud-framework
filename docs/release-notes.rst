@@ -11,27 +11,20 @@ MultiCloud Release Notes
 Abstract
 ========
 
-This document provides the release notes for the ``istanbul`` release.
+This document provides the release notes for the ``jakarta`` release.
 
 Summary
 =======
 
 
-Version: 9.0.1
+Version: 10.0.0
 --------------
 
-The ``istanbul`` maintenance release addresses some vulnerabilities mainly
-for the log4j dependencies.
+The ``jakarta`` release introduces following enhancements in k8splugin.
 
-- Updated the direct dependency log4j libraries to 2.14.1
-- Please note log4j is still on older versions in a transitive dependencies for
-  * onap/multicloud-framework-artifactbroker:1.7.2
-
-
-Version: 9.0.0
---------------
-
-This release introduces new features in k8splugin, including many bug-fixes bringing better compatibility with Helm 3.5 specification.
+- Better Configuration API support including rollback, improved deletion of the configuration with or without removal of the configuration resources in the cluster.
+- Creation of the configuration template without a dedicated helm chart which allows for easy update of the override values by configuration API without a need to duplicate the configuration template helm chart from the main helm chart. The configuration template (Helm chart) is taken from the main definition.
+- Instance upgrade endpoint that allows upgrading existing CNF instance. We can change the definition (Helm chart), and override values of even the cluster in which the instance is deployed which in consequence allows the realization of the migration procedure.
 
 Release Data
 ============
@@ -40,15 +33,15 @@ Release Data
 | **Project**               | MultiCloud                                      |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
-| **Docker images**         | onap/multicloud-framework:1.7.1                 |
-|                           | onap/multicloud-framework-artifactbroker:1.7.1  |
-|                           | onap/multicloud-openstack-starlingx:1.5.6       |
-|                           | onap/multicloud-openstack-windriver:1.5.6       |
-|                           | onap/multicloud-openstack-fcaps:1.5.6           |
-|                           | onap/multicloud-openstack-pike:1.5.6            |
-|                           | onap/multicloud-k8s:0.9.3                       |
+| **Docker images**         | onap/multicloud-framework:1.7.3                 |
+|                           | onap/multicloud-framework-artifactbroker:1.7.3  |
+|                           | onap/multicloud-openstack-starlingx:1.5.7       |
+|                           | onap/multicloud-openstack-windriver:1.5.7       |
+|                           | onap/multicloud-openstack-fcaps:1.5.7           |
+|                           | onap/multicloud-openstack-pike:1.5.7            |
+|                           | onap/multicloud-k8s:0.10.1                      |
 +---------------------------+-------------------------------------------------+
-| **Release designation**   | istanbul                                        |
+| **Release designation**   | jakarta                                         |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
 
@@ -56,45 +49,21 @@ Release Data
 New features
 ------------
 
-New features in k8s Plugin related with CNF support implemented by *REQ-627*:
+New features in k8s Plugin related with CNF support implemented by:
 
-- Implement Query API on the main level to let reading the k8s resources for specified cluster and namespace but not related with particular Instance
-- Implement pre- and post-install/delete hooks
-- Modify Instance API POST Response to include hook information
-- Update Ready flag in Status API to indicate the real status of the Instance
-- Update Status API and Instance API GET to return hook information but only when additional query param is specified
-
-- `<https://jira.onap.org/browse/MULTICLOUD-1345>`_
-- `<https://jira.onap.org/browse/REQ-627>`_
+- `<https://jira.onap.org/browse/MULTICLOUD-1386>`_
+- `<https://jira.onap.org/browse/REQ-890>`_
 
 **Bug fixes**
 
-- `MULTICLOUD-1269 <https://jira.onap.org/browse/MULTICLOUD-1269>`_
-  MultiCloud k8s: K8s Plugins keeps failed RB Instance
+- `MULTICLOUD-1468 <https://jira.onap.org/browse/MULTICLOUD-1468>`_
+  MultiCloud k8s: Etcd connection is not validated on k8splugin start
 
-- `MULTICLOUD-1332 <https://jira.onap.org/browse/MULTICLOUD-1332>`_
-  MultiCloud k8s: k8s resource from configuration are not being deleted with instance
+- `MULTICLOUD-1446 <https://jira.onap.org/browse/MULTICLOUD-1446>`_
+  Multicloud k8s: Multicloud K8S Plugin does not delete namespace during the SO delete CNF instance macro flow
 
-- `MULTICLOUD-1334 <https://jira.onap.org/browse/MULTICLOUD-1334>`_
-  MultiCloud framework: Update or Remove Java 8
-
-- `MULTICLOUD-1338 <https://jira.onap.org/browse/MULTICLOUD-1338>`_
-  MultiCloud k8s: Foreground delete policy prevents deletion of the pods
-
-- `MULTICLOUD-1377 <https://jira.onap.org/browse/MULTICLOUD-1377>`_
-  MultiCloud k8s: Wrong parameter used for creation of rb-definition-version
-
-- `MULTICLOUD-1397 <https://jira.onap.org/browse/MULTICLOUD-1397>`_
-  MultiCloud k8s: CRD installation problem
-
-- `MULTICLOUD-1398 <https://jira.onap.org/browse/MULTICLOUD-1398>`_
-  MultiCloud k8s: K8s Resource Delete order the same like for installation
-
-- `MULTICLOUD-1409 <https://jira.onap.org/browse/MULTICLOUD-1409>`_
-  MultiCloud k8s: Query API for Instance returns resources that do not belong to Instance
-
-- `MULTICLOUD-1414 <https://jira.onap.org/browse/MULTICLOUD-1414>`_
-  MultiCloud k8s: Config API takes values only from Config create request
+- `MULTICLOUD-1443 <https://jira.onap.org/browse/MULTICLOUD-1443>`_
+  Multicloud k8s: Fix log4j cve
 
 **Known Issues**
 
@@ -118,6 +87,9 @@ New features in k8s Plugin related with CNF support implemented by *REQ-627*:
 
 - `MULTICLOUD-1331 <https://jira.onap.org/browse/MULTICLOUD-1331>`_
   MultiCloud k8s: Instance status update failure
+
+- `MULTICLOUD-1459 <https://jira.onap.org/browse/MULTICLOUD-1331>`_
+  MultiCloud k8s: Multicloud-k8s dockers contain GPLv3
 
 Deliverables
 ------------
@@ -189,7 +161,7 @@ N/A
 References
 ==========
 
-For more information on the ONAP ``istanbul`` release, please see:
+For more information on the ONAP ``jakarta`` release, please see:
 
 #. `ONAP Home Page`_
 #. `ONAP Documentation`_
