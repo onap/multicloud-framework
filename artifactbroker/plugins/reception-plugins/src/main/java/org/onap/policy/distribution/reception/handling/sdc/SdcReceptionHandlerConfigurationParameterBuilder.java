@@ -32,6 +32,7 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     private boolean activeserverTlsAuth;
     private boolean filterinEmptyResources;
     private boolean useHttpsWithDmaap;
+    private boolean useHttpsWithSDC;
     private int pollingTimeout;
     private int pollingInterval;
     private String user;
@@ -42,6 +43,10 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     private String environmentName;
     private String keystorePath;
     private String keystorePassword;
+    private int httpsproxyPort;
+    private int httpproxyPort;
+    private String httpsproxyHost;
+    private String httpproxyHost;
     private List<String> messageBusAddress;
     private List<String> artifactTypes;
     private int retryDelay;
@@ -236,6 +241,15 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     }
 
     /**
+     * Returns the isUseHttpsWithSDC flag of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
+     *
+     * @return the isUseHttpsWithSDC
+     */
+    public Boolean getIsUseHttpsWithSDC() {
+        return useHttpsWithSDC;
+    }
+
+    /**
      * Returns the polling interval of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
      *
      * @return the pollingInterval
@@ -351,7 +365,38 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     public int getRetryDelay() {
         return retryDelay;
     }
-
+    /**
+     * Returns the https proxy port of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
+     *
+     * @return the httpsproxyPort
+     */
+    public int getHttpsProxyPort() {
+        return httpsproxyPort;
+    }
+    /**
+     * Returns the https proxy host of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
+     *
+     * @return the httpsproxyHost
+     */
+    public String getHttpsProxyHost() {
+        return httpsproxyHost;
+    }
+        /**
+     * Returns the http proxy port of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
+     *
+     * @return the httpproxyPort
+     */
+    public int getHttpProxyPort() {
+        return httpproxyPort;
+    }
+    /**
+     * Returns the http proxy host of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
+     *
+     * @return the httpsproxyHost
+     */
+    public String getHttpProxyHost() {
+        return httpproxyHost;
+    }
 }
 
 

@@ -114,4 +114,24 @@ public class SdcConfiguration implements IConfiguration {
     public Boolean isUseHttpsWithDmaap() {
         return configParameters.isUseHttpsWithDmaap();
     }
+
+    @Override
+    public int getHttpsProxyPort() {
+        return configParameters.getHttpsProxyPort();
+    }
+
+    @Override
+    public String getHttpsProxyHost() {
+        return configParameters.getHttpsProxyHost();
+    }
+
+    @Override
+    public String getHttpProxyHost() {
+        return configParameters.getHttpProxyHost();
+    }
+
+    @Override
+    public int getHttpProxyPort() {
+        return configParameters.getHttpProxyPort();
+    }
 }
