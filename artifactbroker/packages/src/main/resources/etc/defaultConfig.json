@@ -49,7 +49,12 @@
                 "keystorePassword": "null",
                 "activeserverTlsAuth": false,
                 "isFilterinEmptyResources": true,
-                "isUseHttpsWithDmaap": false
+                "isUseHttpsWithDmaap": false,
+                "isUseHttpsWithSDC": true,
+                "httpsproxyHost": "null",
+                "httpproxyHost": "null",
+                "httpsproxyPort": 8181,
+                "httpproxyPort": 8080
 	        }
         }
     },

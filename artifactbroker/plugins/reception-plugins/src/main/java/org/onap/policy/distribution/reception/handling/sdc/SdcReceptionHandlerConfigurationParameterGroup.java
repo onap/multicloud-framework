@@ -40,6 +40,10 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
     private int pollingInterval;
     private int pollingTimeout;
     private int retryDelay;
+    private int httpsProxyPort;
+    private int httpProxyPort;
+    private String httpsProxyHost;
+    private String httpProxyHost;
     private String consumerId;
     private List<String> artifactTypes;
     private String consumerGroup;
@@ -49,6 +53,7 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
     private boolean activeServerTlsAuth;
     private boolean isFilterInEmptyResources;
     private boolean isUseHttpsWithDmaap;
+    private boolean isUseHttpsWithSDC;
 
     /**
      * The constructor for instantiating {@link SdcReceptionHandlerConfigurationParameterGroup} class.
@@ -64,6 +69,10 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
         pollingInterval = builder.getPollingInterval();
         pollingTimeout = builder.getPollingTimeout();
         retryDelay = builder.getRetryDelay();
+        httpsProxyPort = builder.getHttpsProxyPort();
+        httpsProxyHost = builder.getHttpsProxyHost();
+        httpProxyPort = builder.getHttpProxyPort();
+        httpProxyHost = builder.getHttpProxyHost();
         consumerId = builder.getConsumerId();
         artifactTypes = builder.getArtifactTypes();
         consumerGroup = builder.getConsumerGroup();
@@ -73,6 +82,7 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
         activeServerTlsAuth = builder.isActiveserverTlsAuth();
         isFilterInEmptyResources = builder.isFilterinEmptyResources();
         isUseHttpsWithDmaap = builder.getIsUseHttpsWithDmaap();
+        isUseHttpsWithSDC = builder.getIsUseHttpsWithSDC();
 
     }
 
@@ -138,6 +148,26 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
 
     public boolean isUseHttpsWithDmaap() {
         return isUseHttpsWithDmaap;
+    }
+
+    public boolean isUseHttpsWithSDC() {
+        return isUseHttpsWithSDC;
+    }
+
+    public int getHttpsProxyPort() {
+        return httpsProxyPort;
+    }
+
+    public String getHttpsProxyHost() {
+        return httpsProxyHost;
+    }
+
+    public int getHttpProxyPort() {
+        return httpProxyPort;
+    }
+
+    public String getHttpProxyHost() {
+        return httpProxyHost;
     }
 
     /**
