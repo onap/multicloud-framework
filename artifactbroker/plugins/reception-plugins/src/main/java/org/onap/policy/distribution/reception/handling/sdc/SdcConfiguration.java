@@ -116,6 +116,11 @@ public class SdcConfiguration implements IConfiguration {
     }
 
     @Override
+    public Boolean isUseHttpsWithSDC() {
+        return configParameters.isUseHttpsWithSDC();
+    }
+
+    @Override
     public int getHttpsProxyPort() {
         return configParameters.getHttpsProxyPort();
     }
