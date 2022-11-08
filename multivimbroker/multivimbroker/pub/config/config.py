@@ -24,7 +24,8 @@ MSB_SERVICE_PORT = '10080'
 # [A&AI]
 AAI_ADDR = "aai.api.simpledemo.openecomp.org"
 AAI_PORT = "8443"
-AAI_SERVICE_URL = 'https://%s:%s/aai' % (AAI_ADDR, AAI_PORT)
+AAI_PROTOCOL = "https"
+AAI_SERVICE_URL = '%s://%s:%s/aai' % (AAI_PROTOCOL, AAI_ADDR, AAI_PORT)
 AAI_SCHEMA_VERSION = "v13"
 AAI_USERNAME = 'AAI'
 AAI_PASSWORD = 'AAI'

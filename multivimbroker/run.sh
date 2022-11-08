@@ -21,6 +21,7 @@ sed -i "s/AAI_PORT =.*/AAI_PORT = \"${AAI_PORT}\"/g" multivimbroker/pub/config/c
 sed -i "s/AAI_SCHEMA_VERSION =.*/AAI_SCHEMA_VERSION = \"${AAI_SCHEMA_VERSION}\"/g" multivimbroker/pub/config/config.py
 sed -i "s/AAI_USERNAME =.*/AAI_USERNAME = \"${AAI_USERNAME}\"/g" multivimbroker/pub/config/config.py
 sed -i "s/AAI_PASSWORD =.*/AAI_PASSWORD = \"${AAI_PASSWORD}\"/g" multivimbroker/pub/config/config.py
+sed -i "s/AAI_PROTOCOL =.*/AAI_PROTOCOL = \"${AAI_PROTOCOL}\"/g" multivimbroker/pub/config/config.py
 
 logDir="/var/log/onap/multicloud/multivimbroker"
 if [ ! -x  $logDir  ]; then
