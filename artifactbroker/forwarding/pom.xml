@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.onap.multicloud.framework</groupId>
         <artifactId>multicloud-framework-artifactbroker</artifactId>
-        <version>1.8.2-SNAPSHOT</version>
+        <version>1.9.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>multicloud-framework-artifactbroker-forwarding</artifactId>
@@ -39,13 +39,6 @@
         <dependency>
             <groupId>org.onap.sdc.sdc-distribution-client</groupId>
             <artifactId>sdc-distribution-client</artifactId>
-            <version>1.4.5</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-          </exclusions>
         </dependency>
     </dependencies>
 </project>

@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.onap.multicloud.framework</groupId>
     <artifactId>multicloud-framework-artifactbroker</artifactId>
-    <version>1.8.2-SNAPSHOT</version>
+    <version>1.9.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>multicloud-framework-artifactbroker</name>
     <description>artifact  broker</description>
@@ -38,6 +38,7 @@
         <sonar.coverage.jacoco.xmlReportPaths>
             ${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
+        <sdc-dist-client-version>2.0.0</sdc-dist-client-version>
     </properties>
     <modules>
         <module>model</module>
@@ -47,6 +48,21 @@
         <module>plugins</module>
         <module>packages</module>
     </modules>
+    <dependencyManagement>
+        <dependencies>
+        <dependency>
+            <groupId>org.onap.sdc.sdc-distribution-client</groupId>
+            <artifactId>sdc-distribution-client</artifactId>
+            <version>${sdc-dist-client-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

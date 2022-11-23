@@ -17,7 +17,7 @@ cd ${DOCKER_BUILD_DIR}
 
 BUILD_ARGS="--no-cache"
 ORG="onap"
-VERSION="1.8.2-SNAPSHOT"
+VERSION="1.9.0-SNAPSHOT"
 STAGING_VERSION="1.8.2-STAGING"
 PROJECT="multicloud"
 IMAGE="framework-artifactbroker"

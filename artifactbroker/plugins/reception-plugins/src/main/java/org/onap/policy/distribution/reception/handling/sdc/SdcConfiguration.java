@@ -41,13 +41,8 @@ public class SdcConfiguration implements IConfiguration {
     }
 
     @Override
-    public String getAsdcAddress() {
-        return configParameters.getAsdcAddress();
-    }
-
-    @Override
-    public List<String> getMsgBusAddress() {
-        return configParameters.getMessageBusAddress();
+    public String getSdcAddress() {
+        return configParameters.getSdcAddress();
     }
 
     @Override
@@ -108,11 +103,6 @@ public class SdcConfiguration implements IConfiguration {
     @Override
     public boolean isFilterInEmptyResources() {
         return configParameters.isFilterInEmptyResources();
-    }
-
-    @Override
-    public Boolean isUseHttpsWithDmaap() {
-        return configParameters.isUseHttpsWithDmaap();
     }
 
     @Override

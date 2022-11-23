@@ -33,27 +33,25 @@ import org.onap.policy.distribution.reception.parameters.ReceptionHandlerConfigu
  */
 public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHandlerConfigurationParameterGroup {
 
-    private String asdcAddress;
-    private List<String> messageBusAddress;
-    private String user;
-    private String password;
-    private int pollingInterval;
-    private int pollingTimeout;
-    private int retryDelay;
-    private int httpsProxyPort;
-    private int httpProxyPort;
-    private String httpsProxyHost;
-    private String httpProxyHost;
-    private String consumerId;
-    private List<String> artifactTypes;
-    private String consumerGroup;
-    private String environmentName;
-    private String keyStorePath;
-    private String keyStorePassword;
-    private boolean activeServerTlsAuth;
-    private boolean isFilterInEmptyResources;
-    private boolean isUseHttpsWithDmaap;
-    private boolean isUseHttpsWithSDC;
+    private final String sdcAddress;
+    private final String user;
+    private final String password;
+    private final int pollingInterval;
+    private final int pollingTimeout;
+    private final int retryDelay;
+    private final int httpsProxyPort;
+    private final int httpProxyPort;
+    private final String httpsProxyHost;
+    private final String httpProxyHost;
+    private final String consumerId;
+    private final List<String> artifactTypes;
+    private final String consumerGroup;
+    private final String environmentName;
+    private final String keyStorePath;
+    private final String keyStorePassword;
+    private final boolean activeServerTlsAuth;
+    private final boolean isFilterInEmptyResources;
+    private final boolean isUseHttpsWithSDC;
 
     /**
      * The constructor for instantiating {@link SdcReceptionHandlerConfigurationParameterGroup} class.
@@ -62,8 +60,7 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
      */
     public SdcReceptionHandlerConfigurationParameterGroup(
             final SdcReceptionHandlerConfigurationParameterBuilder builder) {
-        asdcAddress = builder.getAsdcAddress();
-        messageBusAddress = builder.getMessageBusAddress();
+        sdcAddress = builder.getSdcAddress();
         user = builder.getUser();
         password = builder.getPassword();
         pollingInterval = builder.getPollingInterval();
@@ -81,17 +78,12 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
         keyStorePassword = builder.getKeystorePassword();
         activeServerTlsAuth = builder.isActiveserverTlsAuth();
         isFilterInEmptyResources = builder.isFilterinEmptyResources();
-        isUseHttpsWithDmaap = builder.getIsUseHttpsWithDmaap();
         isUseHttpsWithSDC = builder.getIsUseHttpsWithSDC();
 
     }
 
-    public String getAsdcAddress() {
-        return asdcAddress;
-    }
-
-    public List<String> getMessageBusAddress() {
-        return messageBusAddress;
+    public String getSdcAddress() {
+        return sdcAddress;
     }
 
     public String getUser() {
@@ -146,10 +138,6 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
         return isFilterInEmptyResources;
     }
 
-    public boolean isUseHttpsWithDmaap() {
-        return isUseHttpsWithDmaap;
-    }
-
     public boolean isUseHttpsWithSDC() {
         return isUseHttpsWithSDC;
     }
@@ -176,7 +164,7 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
     @Override
     public GroupValidationResult validate() {
         final GroupValidationResult validationResult = new GroupValidationResult(this);
-        validateStringElement(validationResult, asdcAddress, "asdcAddress");
+        validateStringElement(validationResult, sdcAddress, "sdcAddress");
         validateStringElement(validationResult, user, "user");
         validateStringElement(validationResult, consumerId, "consumerId");
         validateStringElement(validationResult, consumerGroup, "consumerGroup");
@@ -185,7 +173,6 @@ public class SdcReceptionHandlerConfigurationParameterGroup extends ReceptionHan
         validateIntElement(validationResult, pollingInterval, "pollingInterval");
         validateIntElement(validationResult, pollingTimeout, "pollingTimeout");
         validateIntElement(validationResult, retryDelay, "retryDelay");
-        validateStringListElement(validationResult, messageBusAddress, "messageBusAddress");
         validateStringListElement(validationResult, artifactTypes, "artifactTypes");
         return validationResult;
     }

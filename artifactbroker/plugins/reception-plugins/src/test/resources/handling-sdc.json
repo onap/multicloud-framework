@@ -1,11 +1,6 @@
 {
     "name" : "parameterConfig1",
-    "asdcAddress": "localhost",
-    "messageBusAddress": [
-        "a.com",
-        "b.com",
-        "c.com"
-    ],
+    "sdcAddress": "localhost",
     "user": "policy",
     "password": "policy",
     "pollingInterval":20,
@@ -22,7 +17,6 @@
     "keyStorePath": "null",
     "keyStorePassword": "null",
     "activeServerTlsAuth": false,
-    "isFilterInEmptyResources": true,
-    "isUseHttpsWithDmaap": false
+    "isFilterInEmptyResources": true
 }
 
