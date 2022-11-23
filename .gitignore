@@ -15,7 +15,8 @@ target/
 logs/*.log
 *.pyc
 *.swp
-
+*_target/
+*.orig
 
 # Test related files
 multivimbroker/.coverage

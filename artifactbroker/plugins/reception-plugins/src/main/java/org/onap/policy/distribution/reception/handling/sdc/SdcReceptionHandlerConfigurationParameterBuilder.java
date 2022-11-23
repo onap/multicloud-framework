@@ -31,7 +31,6 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
 
     private boolean activeserverTlsAuth;
     private boolean filterinEmptyResources;
-    private boolean useHttpsWithDmaap;
     private boolean useHttpsWithSDC;
     private int pollingTimeout;
     private int pollingInterval;
@@ -39,7 +38,7 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     private String password;
     private String consumerId;
     private String consumerGroup;
-    private String asdcAddress;
+    private String sdcAddress;
     private String environmentName;
     private String keystorePath;
     private String keystorePassword;
@@ -47,7 +46,6 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     private int httpproxyPort;
     private String httpsproxyHost;
     private String httpproxyHost;
-    private List<String> messageBusAddress;
     private List<String> artifactTypes;
     private int retryDelay;
 
@@ -73,16 +71,6 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     }
 
     /**
-     * Set useHttpsWithDmaap to this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
-     *
-     * @param useHttpsWithDmaap the useHttpsWithDmaap
-     */
-    public SdcReceptionHandlerConfigurationParameterBuilder setUseHttpsWithDmaap(final Boolean useHttpsWithDmaap) {
-        this.useHttpsWithDmaap = useHttpsWithDmaap;
-        return this;
-    }
-
-    /**
      * Set pollingInterval to this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
      *
      * @param pollingInterval the pollingInterval
@@ -103,12 +91,12 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     }
 
     /**
-     * Set asdcAddress to this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
+     * Set sdcAddress to this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
      *
-     * @param asdcAddress the asdcAddress
+     * @param sdcAddress the sdcAddress
      */
-    public SdcReceptionHandlerConfigurationParameterBuilder setAsdcAddress(final String asdcAddress) {
-        this.asdcAddress = asdcAddress;
+    public SdcReceptionHandlerConfigurationParameterBuilder setSdcAddress(final String sdcAddress) {
+        this.sdcAddress = sdcAddress;
         return this;
     }
 
@@ -183,16 +171,6 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     }
 
     /**
-     * Set messageBusAddress to this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
-     *
-     * @param messageBusAddress the messageBusAddress
-     */
-    public SdcReceptionHandlerConfigurationParameterBuilder setMessageBusAddress(final List<String> messageBusAddress) {
-        this.messageBusAddress = messageBusAddress;
-        return this;
-    }
-
-    /**
      * Set artifactTypes to this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
      *
      * @param artifactTypes the artifactTypes
@@ -232,15 +210,6 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     }
 
     /**
-     * Returns the isUseHttpsWithDmaap flag of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
-     *
-     * @return the isUseHttpsWithDmaap
-     */
-    public Boolean getIsUseHttpsWithDmaap() {
-        return useHttpsWithDmaap;
-    }
-
-    /**
      * Returns the isUseHttpsWithSDC flag of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
      *
      * @return the isUseHttpsWithSDC
@@ -270,10 +239,10 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
     /**
      * Returns the asdc address of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
      *
-     * @return the asdcAddress
+     * @return the sdcAddress
      */
-    public String getAsdcAddress() {
-        return asdcAddress;
+    public String getSdcAddress() {
+        return sdcAddress;
     }
 
     /**
@@ -337,15 +306,6 @@ public class SdcReceptionHandlerConfigurationParameterBuilder {
      */
     public String getKeystorePassword() {
         return keystorePassword;
-    }
-
-    /**
-     * Returns the message bus address of this {@link SdcReceptionHandlerConfigurationParameterBuilder} instance.
-     *
-     * @return the messageBusAddress
-     */
-    public List<String> getMessageBusAddress() {
-        return messageBusAddress;
     }
 
     /**

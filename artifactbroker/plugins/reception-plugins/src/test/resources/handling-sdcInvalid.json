@@ -1,11 +1,6 @@
 {
     "name" : "parameterConfig1",
-    "asdcAddress": "",
-    "messageBusAddress": [
-        "a.com",
-        "b.com",
-        "c.com"
-    ],
+    "sdcAddress": "",
     "user": "tbdsdc-1480",
     "password": "tbdsdc-1480",
     "pollingInterval":-1,
@@ -21,7 +16,6 @@
     "keyStorePath": "null",
     "keyStorePassword": "null",
     "activeserverTlsAuth": false,
-    "isFilterInEmptyResources": true,
-    "isUseHttpsWithDmaap": false
+    "isFilterInEmptyResources": true
 }
 
