@@ -17,14 +17,11 @@ Summary
 =======
 
 
-Version: 10.0.0
+Version: 11.0.0
 --------------
 
-The ``jakarta`` release introduces following enhancements in k8splugin.
+There are no updates to the Multicloud project for the Kohn release
 
-- Better Configuration API support including rollback, improved deletion of the configuration with or without removal of the configuration resources in the cluster.
-- Creation of the configuration template without a dedicated helm chart which allows for easy update of the override values by configuration API without a need to duplicate the configuration template helm chart from the main helm chart. The configuration template (Helm chart) is taken from the main definition.
-- Instance upgrade endpoint that allows upgrading existing CNF instance. We can change the definition (Helm chart), and override values of even the cluster in which the instance is deployed which in consequence allows the realization of the migration procedure.
 
 Release Data
 ============
@@ -33,15 +30,15 @@ Release Data
 | **Project**               | MultiCloud                                      |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
-| **Docker images**         | onap/multicloud-framework:1.7.3                 |
-|                           | onap/multicloud-framework-artifactbroker:1.7.3  |
+| **Docker images**         | onap/multicloud-framework:1.9.0                 |
+|                           | onap/multicloud-framework-artifactbroker:1.9.0  |
 |                           | onap/multicloud-openstack-starlingx:1.5.7       |
 |                           | onap/multicloud-openstack-windriver:1.5.7       |
 |                           | onap/multicloud-openstack-fcaps:1.5.7           |
 |                           | onap/multicloud-openstack-pike:1.5.7            |
 |                           | onap/multicloud-k8s:0.10.1                      |
 +---------------------------+-------------------------------------------------+
-| **Release designation**   | jakarta                                         |
+| **Release designation**   | kohn                                            |
 |                           |                                                 |
 +---------------------------+-------------------------------------------------+
 
@@ -49,21 +46,11 @@ Release Data
 New features
 ------------
 
-New features in k8s Plugin related with CNF support implemented by:
-
-- `<https://jira.onap.org/browse/MULTICLOUD-1386>`_
-- `<https://jira.onap.org/browse/REQ-890>`_
+N/A
 
 **Bug fixes**
 
-- `MULTICLOUD-1468 <https://jira.onap.org/browse/MULTICLOUD-1468>`_
-  MultiCloud k8s: Etcd connection is not validated on k8splugin start
-
-- `MULTICLOUD-1446 <https://jira.onap.org/browse/MULTICLOUD-1446>`_
-  Multicloud k8s: Multicloud K8S Plugin does not delete namespace during the SO delete CNF instance macro flow
-
-- `MULTICLOUD-1443 <https://jira.onap.org/browse/MULTICLOUD-1443>`_
-  Multicloud k8s: Fix log4j cve
+N/A
 
 **Known Issues**
 
@@ -161,7 +148,7 @@ N/A
 References
 ==========
 
-For more information on the ONAP ``jakarta`` release, please see:
+For more information on the ONAP ``kohn`` release, please see:
 
 #. `ONAP Home Page`_
 #. `ONAP Documentation`_
