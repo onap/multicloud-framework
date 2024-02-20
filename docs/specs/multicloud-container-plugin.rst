@@ -294,7 +294,7 @@ Request Body:
   ================== ========== ======= ========================================
 
 There are several constraints/assumptions on cloudOwner and
-cloudRegionId. `cloud-region`_ . For k8s, cloudRegionId is (ab)used to
+cloudRegionId. For k8s, cloudRegionId is (ab)used to
 specify k8s cluster instance. ONAP admin has to assign unique id for
 cloudRegionId as id for k8s cluster instance.
 
@@ -582,9 +582,9 @@ kubernetes
 
 .. _issue23: https://github.com/kubernetes/kubeadm/issues/23
 
-misc
-----
-.. _cloud-region: How to add a new cloud region and some thoughts https://wiki.onap.org/download/attachments/25429038/HowToAddNewCloudRegionAndThoughts.pdf
+.. misc
+.. ----
+.. .. _cloud-region: How to add a new cloud region and some thoughts https://wiki.onap.org/download/attachments/25429038/HowToAddNewCloudRegionAndThoughts.pdf
 
 
 Contributors
