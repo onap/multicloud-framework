@@ -2,6 +2,8 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright (c) 2019 Intel, Inc.
 
+:orphan:
+
 =================================================
 MultiCloud for k8s HPA Discovery And Registration
 =================================================
