@@ -37,7 +37,7 @@ Proposed framework
 
 SDC Reception Handler<----> Reception Handler<-->Artifact Management<---->Plugin Handler<---->multicloudPost
 refer to `SDC Service Architecture
-<https://wiki.onap.org/display/DW/Policy+Platform+-+SDC+Service+Distribution+Software+Architecture>`_
+<https://wiki.onap.org/display/DW/SDC+Service+Software+Architecture>`_
 
 Proposed alternative Solutions
 ==========================================================
