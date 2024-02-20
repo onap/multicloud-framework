@@ -294,7 +294,7 @@ Request Body:
   ================== ========== ======= ========================================
 
 There are several constraints/assumptions on cloudOwner and
-cloudRegionId. `cloud-region`_ . For k8s, cloudRegionId is (ab)used to
+cloudRegionId. For k8s, cloudRegionId is (ab)used to
 specify k8s cluster instance. ONAP admin has to assign unique id for
 cloudRegionId as id for k8s cluster instance.
 
@@ -571,9 +571,9 @@ Past presentations/proposals
 
 ONAP components
 ---------------
-.. _ESR: Extenral System Register https://wiki.onap.org/pages/viewpage.action?pageId=11930343#A&AI:ExternalSystemOperationAPIDefinition-VIM
+.. _"ESR: External System Register" https://wiki.onap.org/pages/viewpage.action?pageId=11930343#A&AI:ExternalSystemOperationAPIDefinition-VIM
 .. _AAI: Active and Available Inventory https://wiki.onap.org/display/DW/Active+and+Available+Inventory+Project
-.. _OOM: ONAP Operations Manager https://wiki.onap.org/display/DW/ONAP+Operations+Manager+Project
+.. _"OOM: ONAP Operations Manager" https://wiki.onap.org/display/DW/ONAP+Operations+Manager+Project
 .. _ONAPREST: RESTful API Design Specification https://wiki.onap.org/display/DW/RESTful+API+Design+Specification
 
 kubernetes
@@ -582,9 +582,9 @@ kubernetes
 
 .. _issue23: https://github.com/kubernetes/kubeadm/issues/23
 
-misc
-----
-.. _cloud-region: How to add a new cloud region and some thoughts https://wiki.onap.org/download/attachments/25429038/HowToAddNewCloudRegionAndThoughts.pdf
+.. misc
+.. ----
+.. .. _cloud-region: How to add a new cloud region and some thoughts https://wiki.onap.org/download/attachments/25429038/HowToAddNewCloudRegionAndThoughts.pdf
 
 
 Contributors

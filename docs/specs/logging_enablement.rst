@@ -19,12 +19,12 @@ Problem Description
 
 So far the logging of multi-vim is not able to support customer configuration,
 handler context specific logging like
-MDC[MDC_Document]_, also it dose't propagate transaction-ID in REST headers
+MDC `MDC_Document`_ , also it dose't propagate transaction-ID in REST headers
 which is critical to tracing request.
 There are 4 python containers in oom project need to configure filebeat
 container for shipping logs.
 
-.. [MDC_Document] https://wiki.onap.org/display/DW/ONAP+Application+Logging+Guidelines+v1.1#ONAPApplicationLoggingGuidelinesv1.1-MDCs
+.. _MDC_Document: https://wiki.onap.org/display/DW/ONAP+Application+Logging+Guidelines+v1.1#ONAPApplicationLoggingGuidelinesv1.1-MDCs
 
 In addition the current logging is very difficult to understand behavior
 and performance.
@@ -38,13 +38,13 @@ The proposed change will include three parts.
 Filebeat container
 ------------------
 
-Logging architecture[Log_Architecture]_ use Filebeat collects logs from
+Logging architecture `Log_Architecture`_ use Filebeat collects logs from
 multi-vim containers and ships them to the
 centralized logging stack. To enable this feature it need to add Filebeat
 container in multi-vim pod that was
 deployed by OOM, as well Yaml file will be used to configure Filebeat.
 
-.. [Log_Architecture] https://wiki.onap.org/display/DW/Logging+Architecture
+.. _Log_Architecture: https://wiki.onap.org/display/DW/Logging+Architecture
 
 Tracing ID
 ----------

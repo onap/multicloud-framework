@@ -2,6 +2,8 @@
 .. http://creativecommons.org/licenses/by/4.0
 .. Copyright (c) 2017-2018 VMware, Inc.
 
+:orphan:
+
 ==================================
 MultiCloud HPA Discovery Pluggable
 ==================================
