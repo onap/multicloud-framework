@@ -53,4 +53,7 @@ def setup(app):
 
 linkcheck_ignore = [
   r'http://localhost:\d+/'
+  r'http://1.2.3.4:\d+/'
+  r'https://stackoverflow.com/\*./'
+  r'https://wiki.onap.org/\*./'
 ]
