@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c3b556_ce6101db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 481
+      },
+      "writtenOn": "2024-02-23T02:22:12Z",
+      "side": 1,
+      "message": "This change does seem to have some real RTD issues \nhttps://github.com/onap/.github/actions/runs/8001430151/job/21852635509\n\nWe need to fix these so that RTD is not blocked",
+      "revId": "4b7c50e58cbbc8c47e3439a393f76d442d86da74",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a"
+    }
+  ]
+}
