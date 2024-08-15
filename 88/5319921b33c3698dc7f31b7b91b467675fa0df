@@ -1,0 +1,8 @@
+Verified+1: ONAP Required GHA <releng+onap.required.gha@linuxfoundation.org>
+Code-Review+2: Xiaohua Zhang <zhangxiaohua@chinamobile.com>
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Submitted-by: Thomas Kulik <thomas.kulik@telekom.de>
+Submitted-at: Thu, 15 Aug 2024 07:52:09 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/multicloud/framework/+/138728
+Project: multicloud/framework
+Branch: refs/heads/master
