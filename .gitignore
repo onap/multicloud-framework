@@ -26,3 +26,4 @@ multivimbroker/test-reports/
 
 # Docs related
 docs/html
+*.log
