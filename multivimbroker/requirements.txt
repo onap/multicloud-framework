@@ -26,7 +26,7 @@ httplib2==0.19.1
 # mock==2.0.0
 # unittest_xml_reporting==1.12.0
 
-PyYAML==5.4.1
+PyYAML==5.3.1
 
 # for pecan framework
 # pecan>=1.2.1
@@ -37,4 +37,3 @@ PyYAML==5.4.1
 
 # uwsgi for parallel processing
 # uwsgi
-
