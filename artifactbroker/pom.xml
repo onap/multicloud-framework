@@ -22,7 +22,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.onap.multicloud.framework</groupId>
     <artifactId>multicloud-framework-artifactbroker</artifactId>
-    <version>1.9.2-SNAPSHOT</version>
+    <version>1.9.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>multicloud-framework-artifactbroker</name>
     <description>artifact broker</description>
@@ -31,8 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <nexusproxy>https://nexus.onap.org</nexusproxy>
-        <policy.common.version>1.3.4</policy.common.version>
-        <policy.engine.version>1.3.5</policy.engine.version>
+        <policy.common.version>1.5.2</policy.common.version>
         <logback.version>1.5.18</logback.version>
         <jackson.version>2.18.3</jackson.version>
         <gson.version>2.8.9</gson.version>
