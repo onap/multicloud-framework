@@ -109,6 +109,10 @@
                     <groupId>org.powermock</groupId>
                     <artifactId>powermock-module-junit4</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.powermock</groupId>
+                    <artifactId>powermock-api-mockito</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
