@@ -1,4 +1,4 @@
-FROM nexus3.onap.org:10001/onap/integration-java11:9.0.0
+FROM eclipse-temurin:11-jre-alpine
 
 ARG HTTP_PROXY=${HTTP_PROXY}
 ARG HTTPS_PROXY=${HTTPS_PROXY}
@@ -17,7 +17,8 @@ USER root
 
 EXPOSE 9014
 
-RUN apk add --no-cache mlocate zip unzip jq procps \
+RUN adduser -G onap -D onap && \
+    apk add --no-cache mlocate zip unzip jq procps \
                        curl openssh
 
 RUN mkdir -p ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS} ${ARTIFACT_HOME}/etc/ssl && \
