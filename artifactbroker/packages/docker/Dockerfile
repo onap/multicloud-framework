@@ -17,7 +17,8 @@ USER root
 
 EXPOSE 9014
 
-RUN adduser -G onap -D onap && \
+RUN addgroup onap && \
+    adduser -G onap -D onap && \
     apk add --no-cache mlocate zip unzip jq procps \
                        curl openssh
 
