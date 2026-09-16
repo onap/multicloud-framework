@@ -119,8 +119,13 @@ jobs:
       - name: 'Allow replication'
         run: sleep 10s
 
-  sonatype-lifecycle:
-    name: 'Sonatype Lifecycle/CLM -> Nexus IQ'
+  # artifactbroker is the Java half of the repository. multivimbroker is
+  # Python and is scanned separately below, because building the two
+  # together is what the aggregate scan did and it cannot succeed: the
+  # Python module binds sonar.sh to the Maven test phase and that script
+  # needs virtualenv, which the runner does not carry.
+  artifactbroker:
+    name: 'Sonatype Lifecycle/CLM -> artifactbroker'
     needs: clear-vote
     if: >-
       always()
@@ -131,6 +136,15 @@ jobs:
     # yamllint disable-line rule:line-length
     uses: lfreleng-actions/security-workflows/.github/workflows/sonatype-lifecycle.yaml@bdcf7d8d599788e3eb70e2d761c9f6abd49c06e5  # v0.7.0
     with:
+      # Set explicitly. Left unset the lane derives <owner>-<name> for
+      # both jobs, so they would share one application and stage and
+      # overwrite each other. These two ids are the applications the
+      # Jenkins jobs report to, so their history and waivers carry over.
+      application_id: 'onap-multicloud-framework-artifactbroker'
+      # path_prefix scopes the build; scan_targets scopes the scan. Only
+      # the Go path derives the latter from the former.
+      path_prefix: 'artifactbroker'
+      scan_targets: 'artifactbroker'
       # Build before scanning: Nexus IQ identifies far more components
       # from the packaged output than from source alone. Neither the
       # tests nor the container image affect the dependency set, so both
@@ -147,9 +161,6 @@ jobs:
       # Maven pulls from artifact CDNs that are impractical to enumerate
       # in the allow-list, and the build shares this job with the scan.
       build_permit_egress_traffic: true
-      # application_id is left unset: the lane derives <owner>-<name>,
-      # giving onap-multicloud-framework.
-      #
       # Gerrit-aware checkout. Blank for schedule/push and for a manual
       # GERRIT_DISABLED run, so the lane does a normal checkout.
       # yamllint disable-line rule:line-length
@@ -166,12 +177,42 @@ jobs:
       # dependencies, never deploys.
       maven_global_settings: ${{ vars.MVN_GLOBAL_SETTINGS }}
 
+  multivimbroker:
+    name: 'Sonatype Lifecycle/CLM -> multivimbroker'
+    needs: clear-vote
+    if: >-
+      always()
+      && (needs.clear-vote.result == 'success'
+          || needs.clear-vote.result == 'skipped')
+    permissions:
+      contents: read
+    # yamllint disable-line rule:line-length
+    uses: lfreleng-actions/security-workflows/.github/workflows/sonatype-lifecycle.yaml@5882f138dd24fcd6cb4ebc8bb3a68cee45a437a6  # v0.3.0
+    with:
+      application_id: 'onap-multicloud-framework-multivimbroker'
+      scan_targets: 'multivimbroker'
+      # No build. The module carries a pom, but it is Python: the pom
+      # only shells out to tox, and the dependency set lives in
+      # requirements.txt, which the scanner reads directly. Building it
+      # would add nothing and is what breaks the aggregate scan.
+      build_type: 'none'
+      # Gerrit-aware checkout. Blank for schedule/push and for a manual
+      # GERRIT_DISABLED run, so the lane does a normal checkout.
+      # yamllint disable-line rule:line-length
+      gerrit_refspec: ${{ github.event_name == 'workflow_dispatch' && !inputs.GERRIT_DISABLED && inputs.GERRIT_REFSPEC || '' }}
+      # yamllint disable-line rule:line-length
+      gerrit_project: ${{ github.event_name == 'workflow_dispatch' && !inputs.GERRIT_DISABLED && inputs.GERRIT_PROJECT || '' }}
+      # yamllint disable-line rule:line-length
+      gerrit_branch: ${{ github.event_name == 'workflow_dispatch' && !inputs.GERRIT_DISABLED && inputs.GERRIT_BRANCH || '' }}
+    secrets:
+      nexus_iq_password: ${{ secrets.NEXUS_IQ_PASSWORD }}
+
   # Report the overall conclusion back to Gerrit as a Verified vote.
   vote:
     name: 'Report Status to Gerrit'
     # yamllint disable-line rule:line-length
     if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.GERRIT_DISABLED != true }}
-    needs: [clear-vote, sonatype-lifecycle]
+    needs: [clear-vote, artifactbroker, multivimbroker]
     runs-on: ubuntu-latest
     permissions:
       contents: read
