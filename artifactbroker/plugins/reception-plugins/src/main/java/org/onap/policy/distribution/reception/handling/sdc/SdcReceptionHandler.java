@@ -100,12 +100,23 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
     public void activateCallback(final INotificationData notificationData) {
         LOGGER.debug("Receieved the notification from SDC with ID: " + notificationData.getDistributionID());
         changeSdcReceptionHandlerStatus(SdcReceptionHandlerStatus.BUSY);
+        DistributionStatisticsManager.updateTotalDistributionCount();
+        boolean artifactsProcessedSuccessfully = true;
         //Process only the resource artifacts in MC
         for (IResourceInstance resource : notificationData.getResources()) {
             // We process only VNF resource in MC
             if ("VF".equals(resource.getResourceType())) {
-                this.processVfModulesArtifacts(notificationData,resource);
+                artifactsProcessedSuccessfully &= this.processVfModulesArtifacts(notificationData, resource);
             }
+        }
+        if (artifactsProcessedSuccessfully) {
+            DistributionStatisticsManager.updateDistributionSuccessCount();
+            sendComponentDoneStatus(notificationData.getDistributionID(), DistributionStatusEnum.COMPONENT_DONE_OK,
+                    null);
+        } else {
+            DistributionStatisticsManager.updateDistributionFailureCount();
+            sendComponentDoneStatus(notificationData.getDistributionID(), DistributionStatusEnum.COMPONENT_DONE_ERROR,
+                    "Failed to process the artifact");
         }
         changeSdcReceptionHandlerStatus(SdcReceptionHandlerStatus.IDLE);
         LOGGER.debug("Processed the notification from SDC with ID: " + notificationData.getDistributionID());
@@ -219,11 +230,11 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
      *
      * @param notificationData the notification from SDC
      * @param resource every resource of the service from SDC
+     * @return true if all artifacts of the resource were processed successfully
      */
-    public void processVfModulesArtifacts(final INotificationData notificationData, IResourceInstance resource) {
+    public boolean processVfModulesArtifacts(final INotificationData notificationData, IResourceInstance resource) {
         boolean artifactsProcessedSuccessfully = true;
         LOGGER.debug("start process VF MODULES_METADATA: " );
-        DistributionStatisticsManager.updateTotalDistributionCount();
         List<String> relevantArtifactTypes = sdcConfig.getRelevantArtifactTypes();
         Path path = Paths.get("/data");
         ArrayList<VfModuleModel> vfModuleModels = new ArrayList<>();
@@ -309,9 +320,6 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         }
 
         if (artifactsProcessedSuccessfully) {
-            DistributionStatisticsManager.updateDistributionSuccessCount();
-            sendComponentDoneStatus(notificationData.getDistributionID(), DistributionStatusEnum.COMPONENT_DONE_OK,
-                    null);
             if (vfModuleMetaDataArtifact != null) {
                 LOGGER.debug("one vfModuleMetaDataArtifact found" );
                 sendDistributionStatus(DistributionStatusType.DEPLOY, vfModuleMetaDataArtifact.getArtifactURL(),
@@ -319,13 +327,9 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
             } else {
                 LOGGER.debug("no vfModuleMetaDataArtifact found" );
             }
-
-        } else {
-            DistributionStatisticsManager.updateDistributionFailureCount();
-            sendComponentDoneStatus(notificationData.getDistributionID(), DistributionStatusEnum.COMPONENT_DONE_ERROR,
-                    "Failed to process the artifact");
         }
         LOGGER.debug("end process VF MODULES_METADATA: " );
+        return artifactsProcessedSuccessfully;
     }
 
     /**
