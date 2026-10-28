@@ -21,6 +21,8 @@
 package org.onap.policy.distribution.reception.handling.sdc;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import com.google.gson.GsonBuilder;
 import java.io.FileReader;
@@ -28,6 +30,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -35,9 +39,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
+import org.onap.policy.distribution.forwarding.ArtifactForwardingException;
 import org.onap.policy.distribution.model.PolicyInput;
-import org.onap.policy.distribution.reception.decoding.PolicyDecodingException;
 import org.onap.sdc.api.IDistributionClient;
 import org.onap.sdc.api.consumer.IComponentDoneStatusMessage;
 import org.onap.sdc.api.consumer.IDistributionStatusMessage;
@@ -51,17 +57,29 @@ import org.onap.sdc.utils.DistributionActionResultEnum;
 public class TestSdcReceptionHandler {
 
     private static final String DISTRIBUTION_ID = "dist-1";
+    private static final String ONE_VF_MODULE = "[{\"vfModuleModelName\": \"vf..base..module-0\","
+            + " \"vfModuleModelCustomizationUUID\": \"cust-1\", \"artifacts\": [\"chart.tgz\"]}]";
+    private static final String ONE_VF_MODULE_WITHOUT_ARTIFACTS = "[{\"vfModuleModelName\": \"vf..base..module-0\","
+            + " \"vfModuleModelCustomizationUUID\": \"cust-1\", \"artifacts\": []}]";
+
+    @Rule
+    public TemporaryFolder dataDirectory = new TemporaryFolder();
 
     private final List<String> sentStatuses = new ArrayList<>();
     private final Map<String, IDistributionClientDownloadResult> downloads = new HashMap<>();
     private SdcReceptionHandler handler;
+    private ArtifactForwardingException forwardingFailure;
+    private boolean forwarded;
 
     @Before
     public void setUp() throws Exception {
         handler = new SdcReceptionHandler() {
             @Override
-            protected void inputReceived(final PolicyInput policyInput) throws PolicyDecodingException {
-                // no artifact forwarders are configured in this test
+            protected void inputReceived(final PolicyInput policyInput) throws ArtifactForwardingException {
+                forwarded = true;
+                if (forwardingFailure != null) {
+                    throw forwardingFailure;
+                }
             }
         };
         final SdcReceptionHandlerConfigurationParameterGroup parameters = new GsonBuilder().create().fromJson(
@@ -69,6 +87,7 @@ public class TestSdcReceptionHandler {
                 SdcReceptionHandlerConfigurationParameterGroup.class);
         setField("sdcConfig", new SdcConfiguration(parameters));
         setField("distributionClient", recordingClient());
+        setField("dataDirectory", dataDirectory.getRoot().toPath());
     }
 
     @Test
@@ -100,6 +119,49 @@ public class TestSdcReceptionHandler {
                 "COMPONENT_DONE_ERROR"), sentStatuses);
     }
 
+    @Test
+    public void forwardingFailureIsReportedAsDeployError() {
+        final IArtifactInfo vfModulesMetadata = artifact("vf-modules-metadata.json", "VF_MODULES_METADATA");
+        downloads.put(vfModulesMetadata.getArtifactName(), downloadResult(DistributionActionResultEnum.SUCCESS));
+        forwardingFailure = new ArtifactForwardingException("k8s plugin rejected the definition");
+
+        handler.activateCallback(notification(resource("VF", vfModulesMetadata)));
+
+        assertEquals(Arrays.asList("DOWNLOAD_OK vf-modules-metadata.json", "DEPLOY_ERROR vf-modules-metadata.json",
+                "COMPONENT_DONE_ERROR"), sentStatuses);
+    }
+
+    @Test
+    public void redistributionWritesArtifactsIntoExistingModuleDirectory() throws Exception {
+        final IArtifactInfo vfModulesMetadata = artifact("vf-modules-metadata.json", "VF_MODULES_METADATA");
+        final IArtifactInfo chart = artifact("chart.tgz", "HELM");
+        downloads.put(vfModulesMetadata.getArtifactName(),
+                downloadResult(DistributionActionResultEnum.SUCCESS, ONE_VF_MODULE));
+        downloads.put(chart.getArtifactName(), downloadResult(DistributionActionResultEnum.SUCCESS, "chart"));
+        dataDirectory.newFolder("cust-1");
+
+        handler.activateCallback(notification(resource("VF", vfModulesMetadata, chart)));
+
+        assertTrue(Files.exists(dataDirectory.getRoot().toPath().resolve("cust-1").resolve("chart.tgz")));
+        assertEquals(Arrays.asList("DOWNLOAD_OK vf-modules-metadata.json", "DOWNLOAD_OK chart.tgz",
+                "DEPLOY_OK vf-modules-metadata.json", "COMPONENT_DONE_OK"), sentStatuses);
+    }
+
+    @Test
+    public void moduleDirectoryThatCannotBeCreatedFailsTheVf() throws Exception {
+        final IArtifactInfo vfModulesMetadata = artifact("vf-modules-metadata.json", "VF_MODULES_METADATA");
+        downloads.put(vfModulesMetadata.getArtifactName(),
+                downloadResult(DistributionActionResultEnum.SUCCESS, ONE_VF_MODULE_WITHOUT_ARTIFACTS));
+        final Path notADirectory = dataDirectory.newFile("not-a-directory").toPath();
+        setField("dataDirectory", notADirectory);
+
+        handler.activateCallback(notification(resource("VF", vfModulesMetadata)));
+
+        assertFalse(forwarded);
+        assertEquals(Arrays.asList("DOWNLOAD_OK vf-modules-metadata.json", "DEPLOY_ERROR vf-modules-metadata.json",
+                "COMPONENT_DONE_ERROR"), sentStatuses);
+    }
+
     private void setField(final String name, final Object value) throws ReflectiveOperationException {
         final Field field = SdcReceptionHandler.class.getDeclaredField(name);
         field.setAccessible(true);
@@ -128,12 +190,17 @@ public class TestSdcReceptionHandler {
     }
 
     private static IDistributionClientDownloadResult downloadResult(final DistributionActionResultEnum result) {
+        return downloadResult(result, "[]");
+    }
+
+    private static IDistributionClientDownloadResult downloadResult(final DistributionActionResultEnum result,
+            final String payload) {
         return proxy(IDistributionClientDownloadResult.class, (method, args) -> {
             switch (method) {
                 case "getDistributionActionResult":
                     return result;
                 case "getArtifactPayload":
-                    return "[]".getBytes(StandardCharsets.UTF_8);
+                    return payload.getBytes(StandardCharsets.UTF_8);
                 default:
                     return null;
             }
@@ -156,16 +223,67 @@ public class TestSdcReceptionHandler {
     }
 
     private static IResourceInstance resource(final String type, final IArtifactInfo... artifacts) {
-        return proxy(IResourceInstance.class, (method, args) -> {
-            switch (method) {
-                case "getResourceType":
-                    return type;
-                case "getArtifacts":
-                    return Arrays.asList(artifacts);
-                default:
-                    return null;
-            }
-        });
+        return new Resource(type, Arrays.asList(artifacts));
+    }
+
+    private static class Resource implements IResourceInstance {
+        private final String resourceType;
+        private final transient List<IArtifactInfo> artifacts;
+
+        Resource(final String resourceType, final List<IArtifactInfo> artifacts) {
+            this.resourceType = resourceType;
+            this.artifacts = artifacts;
+        }
+
+        @Override
+        public String getResourceType() {
+            return resourceType;
+        }
+
+        @Override
+        public List<IArtifactInfo> getArtifacts() {
+            return artifacts;
+        }
+
+        @Override
+        public String getResourceInstanceName() {
+            return null;
+        }
+
+        @Override
+        public String getResourceName() {
+            return null;
+        }
+
+        @Override
+        public String getResourceVersion() {
+            return null;
+        }
+
+        @Override
+        public String getResourceUUID() {
+            return null;
+        }
+
+        @Override
+        public String getResourceInvariantUUID() {
+            return null;
+        }
+
+        @Override
+        public String getResourceCustomizationUUID() {
+            return null;
+        }
+
+        @Override
+        public String getCategory() {
+            return null;
+        }
+
+        @Override
+        public String getSubcategory() {
+            return null;
+        }
     }
 
     private static INotificationData notification(final IResourceInstance... resources) {

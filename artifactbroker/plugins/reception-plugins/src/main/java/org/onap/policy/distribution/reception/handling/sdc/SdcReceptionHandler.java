@@ -38,11 +38,11 @@ import java.lang.reflect.Type;
 import org.onap.policy.common.logging.flexlogger.FlexLogger;
 import org.onap.policy.common.logging.flexlogger.Logger;
 import org.onap.policy.common.parameters.ParameterService;
+import org.onap.policy.distribution.forwarding.ArtifactForwardingException;
 import org.onap.policy.distribution.model.CloudArtifact;
 import org.onap.policy.distribution.model.Csar;
 import org.onap.policy.distribution.model.GsonUtil;
 import org.onap.policy.distribution.model.VfModuleModel;
-import org.onap.policy.distribution.reception.decoding.PolicyDecodingException;
 import org.onap.policy.distribution.reception.handling.AbstractReceptionHandler;
 import org.onap.policy.distribution.reception.handling.sdc.SdcClientHandler.SdcClientOperationType;
 import org.onap.policy.distribution.reception.handling.sdc.exceptions.ArtifactDownloadException;
@@ -74,6 +74,7 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
     private volatile int nbOfNotificationsOngoing = 0;
     private int retryDelay;
     private SdcClientHandler sdcClientHandler;
+    private Path dataDirectory = Paths.get("/data");
 
     private enum DistributionStatusType {
         DOWNLOAD, DEPLOY
@@ -236,7 +237,6 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         boolean artifactsProcessedSuccessfully = true;
         LOGGER.debug("start process VF MODULES_METADATA: " );
         List<String> relevantArtifactTypes = sdcConfig.getRelevantArtifactTypes();
-        Path path = Paths.get("/data");
         ArrayList<VfModuleModel> vfModuleModels = new ArrayList<>();
         HashMap<String, IArtifactInfo> artifactMap = new HashMap<>();//key is UUID, value is artifact for shared folder
         String vfArtifactData = null;
@@ -274,30 +274,29 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
         //  3. put the service-meta.json into it
         //  3. go through each aritfact uuid under artifact_list of vf_module and download
         for (final VfModuleModel vfModule : vfModuleModels) {
+            final Path moduleDirectory = dataDirectory.resolve(vfModule.getVfModuleModelCustomizationUUID());
             try {
-                //create the new dir
-                Path temp = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID());
-                path = Files.createDirectory(temp);//create UUID path
-                //store the value to vfmodule-meta.json
-                String filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),
-                    "vfmodule-meta.json").toString();
-                writeFileByFileWriter(filePath, vfArtifactData);
-                //store the service level info to serivce-meta.json
-                filePath = Paths.get("/data",vfModule.getVfModuleModelCustomizationUUID(),
-                    "service-meta.json").toString();
-                try(FileWriter writer = new FileWriter(filePath)){
+                Files.createDirectories(moduleDirectory);
+                writeFileByFileWriter(moduleDirectory.resolve("vfmodule-meta.json").toString(), vfArtifactData);
+                try (FileWriter writer = new FileWriter(moduleDirectory.resolve("service-meta.json").toFile())) {
                     new Gson().toJson(resource, writer);
                 }
                 LOGGER.debug("pass to create  directory artifact file");
             } catch (final IOException exp) {
-                LOGGER.error("Failed to create  directory artifact file", exp);
+                LOGGER.error("Failed to create the directory of VF module " + vfModule.getVfModuleModelName(), exp);
+                artifactsProcessedSuccessfully = false;
+                sendDistributionStatus(DistributionStatusType.DEPLOY, vfModuleMetaDataArtifact.getArtifactURL(),
+                    notificationData.getDistributionID(), DistributionStatusEnum.DEPLOY_ERROR,
+                    "Failed to create the directory of VF module " + vfModule.getVfModuleModelName() + " due to: "
+                        + exp.getMessage());
+                continue;
             }
 
             for (final String uuid : vfModule.getArtifacts()) {
                 try {
                     IArtifactInfo artifact = artifactMap.get(uuid);
                     final IDistributionClientDownloadResult resultArtifact = downloadTheArtifact(artifact, notificationData);
-                    writeArtifactToDir(artifact,resultArtifact,path);
+                    writeArtifactToDir(artifact,resultArtifact,moduleDirectory);
                     LOGGER.debug("pass to write Artifact to dir  ");
                 } catch (final ArtifactDownloadException exp) {
                     LOGGER.error("Failed to write artifact to dir ", exp);
@@ -309,14 +308,19 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
             }
         }
 
-        //for subplug work
-        try {
-            final CloudArtifact cloudArtifact = new CloudArtifact(vfModuleModels, artifactMap);
-            inputReceived(cloudArtifact);
-            LOGGER.debug("pass to process cloud  artifacts ");
-        } catch ( final PolicyDecodingException exp) {
-            LOGGER.error("Failed to process cloud  artifacts ", exp);
-            artifactsProcessedSuccessfully = false;
+        if (artifactsProcessedSuccessfully) {
+            try {
+                inputReceived(new CloudArtifact(vfModuleModels, artifactMap));
+                LOGGER.debug("pass to process cloud  artifacts ");
+            } catch (final ArtifactForwardingException exp) {
+                LOGGER.error("Failed to process cloud  artifacts ", exp);
+                artifactsProcessedSuccessfully = false;
+                if (vfModuleMetaDataArtifact != null) {
+                    sendDistributionStatus(DistributionStatusType.DEPLOY, vfModuleMetaDataArtifact.getArtifactURL(),
+                        notificationData.getDistributionID(), DistributionStatusEnum.DEPLOY_ERROR,
+                        "Failed to forward the artifacts due to: " + exp.getMessage());
+                }
+            }
         }
 
         if (artifactsProcessedSuccessfully) {
@@ -366,13 +370,8 @@ public class SdcReceptionHandler extends AbstractReceptionHandler implements INo
      * @throws IOException if error happends
      */
     private static void writeFileByFileWriter(String filePath, String content) throws IOException {
-        File file = new File(filePath);
-        synchronized (file) {
-            try (FileWriter fw = new FileWriter(filePath)) {
-                fw.write(content);
-            } catch (final IOException exp) {
-                LOGGER.error("Failed to write File by File Writer ", exp);
-            }
+        try (FileWriter fw = new FileWriter(filePath)) {
+            fw.write(content);
         }
     }
     /**

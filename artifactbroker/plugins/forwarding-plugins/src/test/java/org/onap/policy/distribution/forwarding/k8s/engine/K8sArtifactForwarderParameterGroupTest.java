@@ -21,9 +21,9 @@
 package org.onap.policy.distribution.forwarding.k8s.engine;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import com.google.gson.Gson;
 import org.junit.Test;
 import org.onap.policy.common.parameters.ValidationStatus;
 import org.onap.policy.distribution.forwarding.k8s.K8sArtifactForwarderParameterGroup;
@@ -33,27 +33,20 @@ public class K8sArtifactForwarderParameterGroupTest {
 
     @Test
     public void testBuilderAndGetters() {
-        K8sArtifactForwarderParameterGroupBuilder builder =
-                new K8sArtifactForwarderParameterGroupBuilder();
-        K8sArtifactForwarderParameterGroup configurationParameters =
-                builder.setUseHttps(true).setHostname("10.10.10.10").setPort(1234).setUserName("myUser")
-                        .setPassword("myPassword").setClientAuth("myClientAuth").setIsManaged(false).build();
+        final K8sArtifactForwarderParameterGroup configurationParameters = new K8sArtifactForwarderParameterGroupBuilder()
+                .setUseHttps(true).setHostname("10.10.10.10").setPort(1234).build();
+        configurationParameters.setName("myConfiguration");
 
         assertTrue(configurationParameters.isUseHttps());
         assertEquals("10.10.10.10", configurationParameters.getHostname());
         assertEquals(1234, configurationParameters.getPort());
-        assertEquals("myUser", configurationParameters.getUserName());
-        assertEquals("myPassword", configurationParameters.getPassword());
-        assertEquals("myClientAuth", configurationParameters.getClientAuth());
-        assertFalse(configurationParameters.isManaged());
+        assertEquals(ValidationStatus.CLEAN, configurationParameters.validate().getStatus());
     }
 
     @Test
     public void testInvalidHostName() {
-        K8sArtifactForwarderParameterGroupBuilder builder =
-                new K8sArtifactForwarderParameterGroupBuilder();
-        K8sArtifactForwarderParameterGroup configurationParameters = builder.setUseHttps(true).setHostname("")
-                .setPort(1234).setUserName("myUser").setPassword("myPassword").setIsManaged(false).build();
+        final K8sArtifactForwarderParameterGroup configurationParameters = new K8sArtifactForwarderParameterGroupBuilder()
+                .setHostname("").setPort(1234).build();
         configurationParameters.setName("myConfiguration");
 
         assertEquals(ValidationStatus.INVALID, configurationParameters.validate().getStatus());
@@ -61,38 +54,23 @@ public class K8sArtifactForwarderParameterGroupTest {
 
     @Test
     public void testInvalidPort() {
-        K8sArtifactForwarderParameterGroupBuilder builder =
-                new K8sArtifactForwarderParameterGroupBuilder();
-        K8sArtifactForwarderParameterGroup configurationParameters =
-                builder.setUseHttps(true).setHostname("10.10.10.10").setPort(-1234).setUserName("myUser")
-                        .setPassword("myPassword").setIsManaged(false).build();
+        final K8sArtifactForwarderParameterGroup configurationParameters = new K8sArtifactForwarderParameterGroupBuilder()
+                .setHostname("10.10.10.10").setPort(-1234).build();
         configurationParameters.setName("myConfiguration");
 
         assertEquals(ValidationStatus.INVALID, configurationParameters.validate().getStatus());
     }
 
     @Test
-    public void testInvalidUserName() {
-        K8sArtifactForwarderParameterGroupBuilder builder =
-                new K8sArtifactForwarderParameterGroupBuilder();
-        K8sArtifactForwarderParameterGroup configurationParameters =
-                builder.setUseHttps(true).setHostname("10.10.10.10").setPort(1234).setUserName("")
-                        .setPassword("myPassword").setIsManaged(false).build();
+    public void testConfigurationWithPdpFieldsIsStillAccepted() {
+        final K8sArtifactForwarderParameterGroup configurationParameters = new Gson().fromJson("{\"useHttps\": false,"
+                + " \"hostname\": \"localhost\", \"port\": 9015, \"userName\": \"testpdp\", \"password\": \"alpha123\","
+                + " \"clientAuth\": \"cHl0aG9uOnRlc3Q=\", \"isManaged\": true, \"pdpGroup\": \"default\"}",
+                K8sArtifactForwarderParameterGroup.class);
         configurationParameters.setName("myConfiguration");
 
-        assertEquals(ValidationStatus.INVALID, configurationParameters.validate().getStatus());
+        assertEquals("localhost", configurationParameters.getHostname());
+        assertEquals(9015, configurationParameters.getPort());
+        assertEquals(ValidationStatus.CLEAN, configurationParameters.validate().getStatus());
     }
-
-    @Test
-    public void testInvalidPassword() {
-        K8sArtifactForwarderParameterGroupBuilder builder =
-                new K8sArtifactForwarderParameterGroupBuilder();
-        K8sArtifactForwarderParameterGroup configurationParameters =
-                builder.setUseHttps(true).setHostname("10.10.10.10").setPort(1234).setUserName("myUser").setPassword("")
-                        .setIsManaged(false).build();
-        configurationParameters.setName("myConfiguration");
-
-        assertEquals(ValidationStatus.INVALID, configurationParameters.validate().getStatus());
-    }
-
 }

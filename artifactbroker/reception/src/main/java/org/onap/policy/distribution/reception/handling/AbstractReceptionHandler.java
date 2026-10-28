@@ -30,7 +30,6 @@ import org.onap.policy.distribution.forwarding.ArtifactForwarder;
 import org.onap.policy.distribution.forwarding.ArtifactForwardingException;
 import org.onap.policy.distribution.model.PolicyInput;
 import org.onap.policy.distribution.reception.decoding.PluginInitializationException;
-import org.onap.policy.distribution.reception.decoding.PolicyDecodingException;
 import org.onap.policy.distribution.reception.parameters.ReceptionHandlerParameters;
 
 import org.onap.sdc.api.notification.IArtifactInfo;
@@ -73,17 +72,11 @@ public abstract class AbstractReceptionHandler implements ReceptionHandler {
      * handler.
      *
      * @param policyInput the input that has been received
-     * @throws PolicyDecodingException if an error occurs in decoding a policy from the received input
+     * @throws ArtifactForwardingException if a forwarder fails to forward the input
      */
-    protected void inputReceived(final PolicyInput policyInput) throws PolicyDecodingException {
-
-
+    protected void inputReceived(final PolicyInput policyInput) throws ArtifactForwardingException {
         for (final ArtifactForwarder policyForwarder : pluginHandler.getArtifactForwarders()) {
-            try {
-                policyForwarder.forward(policyInput);
-            } catch (final ArtifactForwardingException policyForwardingException) {
-                LOGGER.error("Error when forwarding policies to " + policyForwarder, policyForwardingException);
-            }
+            policyForwarder.forward(policyInput);
         }
     }
 

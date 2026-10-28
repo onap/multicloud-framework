@@ -34,11 +34,6 @@ public class K8sArtifactForwarderParameterGroup extends ArtifactForwarderConfigu
     private boolean useHttps;
     private String hostname;
     private int port;
-    private String userName;
-    private String password;
-    private String clientAuth;
-    private boolean isManaged;
-    private String pdpGroup;
 
     /**
      * Construct an instance.
@@ -49,11 +44,6 @@ public class K8sArtifactForwarderParameterGroup extends ArtifactForwarderConfigu
         this.useHttps = builder.useHttps;
         this.hostname = builder.hostname;
         this.port = builder.port;
-        this.userName = builder.userName;
-        this.password = builder.password;
-        this.clientAuth = builder.clientAuth;
-        this.isManaged = builder.isManaged;
-        this.pdpGroup = builder.pdpGroup;
     }
 
     public boolean isUseHttps() {
@@ -68,26 +58,6 @@ public class K8sArtifactForwarderParameterGroup extends ArtifactForwarderConfigu
         return port;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getClientAuth() {
-        return clientAuth;
-    }
-
-    public boolean isManaged() {
-        return isManaged;
-    }
-
-    public String getPdpGroup() {
-        return pdpGroup;
-    }
-
     /**
      * Builder for K8sArtifactForwarderParameterGroup.
      */
@@ -95,11 +65,6 @@ public class K8sArtifactForwarderParameterGroup extends ArtifactForwarderConfigu
         private boolean useHttps = false;
         private String hostname;
         private int port;
-        private String userName;
-        private String password;
-        private String clientAuth;
-        private boolean isManaged = true;
-        private String pdpGroup;
 
         public K8sArtifactForwarderParameterGroupBuilder setUseHttps(final boolean useHttps) {
             this.useHttps = useHttps;
@@ -116,33 +81,8 @@ public class K8sArtifactForwarderParameterGroup extends ArtifactForwarderConfigu
             return this;
         }
 
-        public K8sArtifactForwarderParameterGroupBuilder setUserName(final String userName) {
-            this.userName = userName;
-            return this;
-        }
-
-        public K8sArtifactForwarderParameterGroupBuilder setPassword(final String password) {
-            this.password = password;
-            return this;
-        }
-
-        public K8sArtifactForwarderParameterGroupBuilder setClientAuth(final String clientAuth) {
-            this.clientAuth = clientAuth;
-            return this;
-        }
-
-        public K8sArtifactForwarderParameterGroupBuilder setIsManaged(final boolean isManaged) {
-            this.isManaged = isManaged;
-            return this;
-        }
-
-        public K8sArtifactForwarderParameterGroupBuilder setPdpGroup(final String pdpGroup) {
-            this.pdpGroup = pdpGroup;
-            return this;
-        }
-
         /**
-         * Creates a new XacmlPapServletArtifactForwarderParameterGroup instance.
+         * Creates a new K8sArtifactForwarderParameterGroup instance.
          */
         public K8sArtifactForwarderParameterGroup build() {
             return new K8sArtifactForwarderParameterGroup(this);
@@ -158,22 +98,6 @@ public class K8sArtifactForwarderParameterGroup extends ArtifactForwarderConfigu
         }
         if (!ParameterValidationUtils.validateIntParameter(port)) {
             validationResult.setResult("port", ValidationStatus.INVALID, "must be a positive integer containing port");
-        }
-        if (!ParameterValidationUtils.validateStringParameter(userName)) {
-            validationResult.setResult("userName", ValidationStatus.INVALID,
-                    "must be a non-blank string containing userName");
-        }
-        if (!ParameterValidationUtils.validateStringParameter(password)) {
-            validationResult.setResult("password", ValidationStatus.INVALID,
-                    "must be a non-blank string containing password");
-        }
-        if (!ParameterValidationUtils.validateStringParameter(clientAuth)) {
-            validationResult.setResult("clientAuth", ValidationStatus.INVALID,
-                    "must be a non-blank string containing clientAuth");
-        }
-        if (!ParameterValidationUtils.validateStringParameter(pdpGroup)) {
-            validationResult.setResult("pdpGroup", ValidationStatus.INVALID,
-                    "must be a non-blank string containing pdpGroup");
         }
         return validationResult;
     }
