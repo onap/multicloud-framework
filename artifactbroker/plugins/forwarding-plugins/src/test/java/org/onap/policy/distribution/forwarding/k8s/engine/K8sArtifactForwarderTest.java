@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  *  Copyright (C) 2018 Ericsson. All rights reserved.
+ *  Modifications Copyright (C) 2026 Deutsche Telekom AG. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,6 +62,13 @@ public class K8sArtifactForwarderTest {
     private static final String DEFINITION_PATH = "/v1/rb/definition";
     private static final String MODULE_PATH = DEFINITION_PATH + "/invariant-1/cust-1";
     private static final String ONE_VF_MODULE = "[{\"vfModuleModelName\": \"vf..base..module-0\","
+            + " \"vfModuleModelInvariantUUID\": \"invariant-1\", \"vfModuleModelCustomizationUUID\": \"cust-1\","
+            + " \"artifacts\": [\"chart-uuid\"]}]";
+    private static final String HEAT_AND_HELM_VF_MODULES = "["
+            + "{\"vfModuleModelName\": \"vf..base_template_dummy_ignore..module-0\","
+            + " \"vfModuleModelInvariantUUID\": \"invariant-0\", \"vfModuleModelCustomizationUUID\": \"cust-0\","
+            + " \"artifacts\": [\"heat-uuid\"]},"
+            + " {\"vfModuleModelName\": \"vf..base..module-1\","
             + " \"vfModuleModelInvariantUUID\": \"invariant-1\", \"vfModuleModelCustomizationUUID\": \"cust-1\","
             + " \"artifacts\": [\"chart-uuid\"]}]";
 
@@ -155,8 +163,35 @@ public class K8sArtifactForwarderTest {
     }
 
     @Test
-    public void moduleWithoutChartFailsTheForwarding() {
-        assertForwardingFails(cloudArtifact(artifact("base.yaml", "HEAT")));
+    public void moduleWithoutChartIsSkipped() throws Exception {
+        forwarder.forward(cloudArtifact(artifact("base.yaml", "HEAT")));
+
+        assertTrue(requests.isEmpty());
+    }
+
+    @Test
+    public void heatModuleNextToHelmModuleOnlyForwardsTheChart() throws Exception {
+        final ArrayList<VfModuleModel> vfModules = new Gson().fromJson(HEAT_AND_HELM_VF_MODULES,
+                new TypeToken<ArrayList<VfModuleModel>>() {}.getType());
+        final HashMap<String, IArtifactInfo> artifacts = new HashMap<>();
+        artifacts.put("heat-uuid", artifact("base_template_dummy_ignore.yaml", "HEAT"));
+        artifacts.put("chart-uuid", artifact("chart.tgz", "HELM"));
+
+        forwarder.forward(new CloudArtifact(vfModules, artifacts));
+
+        assertEquals(Arrays.asList("GET " + MODULE_PATH, "POST " + MODULE_PATH + "/content"), requests);
+    }
+
+    @Test
+    public void unmatchedCloudArtifactFailsTheForwarding() {
+        final ArrayList<VfModuleModel> vfModules =
+                new Gson().fromJson(ONE_VF_MODULE, new TypeToken<ArrayList<VfModuleModel>>() {}.getType());
+        vfModules.get(0).getArtifacts().add("other-uuid");
+        final HashMap<String, IArtifactInfo> artifacts = new HashMap<>();
+        artifacts.put("chart-uuid", artifact("first.tgz", "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT"));
+        artifacts.put("other-uuid", artifact("second.tgz", "CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT"));
+
+        assertForwardingFails(new CloudArtifact(vfModules, artifacts));
         assertTrue(requests.isEmpty());
     }
 

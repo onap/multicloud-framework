@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  *  Copyright (C) 2018 Ericsson. All rights reserved.
+ *  Modifications Copyright (C) 2026 Deutsche Telekom AG. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -94,6 +95,11 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
     private void forwardAndUpload(final VfModuleModel vfModule, final Map<String, IArtifactInfo> artifactMap)
             throws ArtifactForwardingException {
         final IArtifactInfo chart = selectChart(vfModule, artifactMap);
+        if (chart == null) {
+            LOGGER.debug("Skipping VF module " + vfModule.getVfModuleModelName() + ", it has no "
+                    + CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT + " or " + HELM_ARTIFACT + " artifact");
+            return;
+        }
         final String moduleUrl = definitionUrl + "/" + vfModule.getVfModuleModelInvariantUUID() + "/"
                 + vfModule.getVfModuleModelCustomizationUUID();
         if (definitionExists(moduleUrl)) {
@@ -140,11 +146,7 @@ public class K8sArtifactForwarder implements ArtifactForwarder {
             }
         }
 
-        if (firstCloudArtifact == null) {
-            throw new ArtifactForwardingException("no " + CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT + " or " + HELM_ARTIFACT
-                    + " artifact found");
-        }
-        if (cloudArtifactCount == 1 || vfNamePrefix.isEmpty()) {
+        if (firstCloudArtifact == null || cloudArtifactCount == 1 || vfNamePrefix.isEmpty()) {
             return firstCloudArtifact;
         }
         throw new ArtifactForwardingException("no " + CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT + " artifact matches "
