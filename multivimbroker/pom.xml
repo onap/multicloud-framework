@@ -115,8 +115,24 @@
     <profiles>
         <profile>
             <id>docker</id>
+            <properties>
+                <maven.build.timestamp.format>yyyyMMdd'T'HHmmss'Z'</maven.build.timestamp.format>
+            </properties>
             <build>
                 <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>3.6.0</version>
+                        <executions>
+                            <execution>
+                                <id>parse-version</id>
+                                <goals>
+                                    <goal>parse-version</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-resources-plugin</artifactId>
@@ -161,24 +177,27 @@
                                 <inherited>false</inherited>
                                 <configuration>
                                     <target>
-                                        <exec executable="docker">
-                                           <arg value="build"/>
-                                           <arg value="-t"/>
-                                           <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${project.version}"/>
-                                           <arg value="docker_target"/>
-                                        </exec>
-                                        <exec executable="docker">
-                                            <arg value="tag"/>
-                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${project.version}"/>
+                                        <exec executable="docker" failonerror="true">
+                                            <arg value="build"/>
+                                            <arg value="-t"/>
                                             <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:latest"/>
+                                            <arg value="-t"/>
+                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-STAGING-latest"/>
+                                            <arg value="-t"/>
+                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-STAGING-${maven.build.timestamp}"/>
+                                            <arg value="docker_target"/>
                                         </exec>
-                                        <exec executable="docker">
-                                            <arg value="push"/>
-                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${project.version}"/>
-                                        </exec>
-                                        <exec executable="docker">
+                                        <exec executable="docker" failonerror="true">
                                             <arg value="push"/>
                                             <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:latest"/>
+                                        </exec>
+                                        <exec executable="docker" failonerror="true">
+                                            <arg value="push"/>
+                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-STAGING-latest"/>
+                                        </exec>
+                                        <exec executable="docker" failonerror="true">
+                                            <arg value="push"/>
+                                            <arg value="${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework:${parsedVersion.majorVersion}.${parsedVersion.minorVersion}-STAGING-${maven.build.timestamp}"/>
                                         </exec>
                                     </target>
                                 </configuration>
