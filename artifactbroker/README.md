@@ -1,13 +1,24 @@
-# Copyright (c) 2017 Wind River Systems, Inc.
-# Copyright (c) 2017-2018 VMware, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at:
-#       http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# multicloud-framework-artifactbroker
 
-# Micro service of broker for multiple VIM instance drivers.
+Spring Boot service that runs as a sidecar of the multicloud k8s plugin. It consumes SDC
+distributions with the SDC distribution client and, for every VF module listed in a VF's
+`VF_MODULES_METADATA`, registers the module's Helm chart (`HELM`, else a matching
+`CLOUD_TECHNOLOGY_SPECIFIC_ARTIFACT`) with the k8s plugin as resource-bundle definition
+`<vf-module invariant UUID>/<vf-module customization UUID>`.
+
+## Build
+
+    mvn clean verify            # tests
+    mvn clean install -P docker # also builds and pushes ${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework-artifactbroker
+
+## Configuration
+
+`artifactbroker.*` properties (see `ArtifactBrokerProperties`), typically from a mounted
+`/opt/app/artifactbroker/config/application.yaml`. The Kafka credentials come from the
+`SASL_JAAS_CONFIG` environment variable, read by the SDC distribution client.
+
+## Endpoints (port 9014)
+
+- `/actuator/health/liveness`, `/actuator/health/readiness` — probes; readiness does not depend on SDC
+- `/actuator/health` — includes `sdcConnection`
+- `/actuator/prometheus` — `artifactbroker_distributions_total`, `artifactbroker_downloads_total`
