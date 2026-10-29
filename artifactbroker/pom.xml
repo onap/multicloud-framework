@@ -41,6 +41,9 @@
             ${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml
         </sonar.coverage.jacoco.xmlReportPaths>
         <sdc-dist-client-version>2.0.0</sdc-dist-client-version>
+        <jacoco.version>0.8.12</jacoco.version>
+        <lombok.version>1.18.34</lombok.version>
+        <openpojo.version>0.9.1</openpojo.version>
     </properties>
     <modules>
         <module>model</module>
@@ -77,6 +80,16 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.openpojo</groupId>
+            <artifactId>openpojo</artifactId>
+            <version>${openpojo.version}</version>
         </dependency>
         </dependencies>
     </dependencyManagement>
