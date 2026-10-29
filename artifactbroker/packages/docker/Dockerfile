@@ -3,12 +3,10 @@ FROM eclipse-temurin:11-jre-alpine
 ARG HTTP_PROXY=${HTTP_PROXY}
 ARG HTTPS_PROXY=${HTTPS_PROXY}
 ARG BUILD_VERSION=${BUILD_VERSION}
-ARG ARTIFACT_LOGS=/var/log/onap
 
 ENV http_proxy $HTTP_PROXY
 ENV https_proxy $HTTPS_PROXY
 ENV BUILD_VERSION ${BUILD_VERSION}
-ENV ARTIFACT_LOGS ${ARTIFACT_LOGS}
 
 ENV ARTIFACT_HOME=/opt/app/
 ENV ARTIFACT_DISTRIBUTION_HOME=${ARTIFACT_HOME}/distribution
@@ -22,8 +20,8 @@ RUN addgroup onap && \
     apk add --no-cache mlocate zip unzip jq procps \
                        curl openssh
 
-RUN mkdir -p ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS} ${ARTIFACT_HOME}/etc/ssl && \
-    chown  -R onap:onap ${ARTIFACT_HOME} ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_LOGS}
+RUN mkdir -p ${ARTIFACT_DISTRIBUTION_HOME} ${ARTIFACT_HOME}/etc/ssl && \
+    chown  -R onap:onap ${ARTIFACT_HOME} ${ARTIFACT_DISTRIBUTION_HOME}
 
 WORKDIR ${ARTIFACT_DISTRIBUTION_HOME}
 COPY ./multicloud-framework-artifactbroker-*.zip multicloud-framework-artifactbroker.zip

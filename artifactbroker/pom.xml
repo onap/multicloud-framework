@@ -2,6 +2,7 @@
 <!--
  Copyright (c) 2017 Wind River Systems, Inc.
  Copyright (c) 2017-2018 VMware, Inc.
+ Modifications Copyright (C) 2026 Deutsche Telekom AG. All rights reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -66,6 +67,16 @@
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>2.25.1</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
         </dependencies>
     </dependencyManagement>
