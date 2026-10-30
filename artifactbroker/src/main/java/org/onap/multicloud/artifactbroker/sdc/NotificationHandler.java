@@ -19,6 +19,8 @@
 package org.onap.multicloud.artifactbroker.sdc;
 
 import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.observation.Observation;
+import io.micrometer.observation.ObservationRegistry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -54,18 +56,27 @@ public class NotificationHandler implements INotificationCallback {
     private final K8sPluginClient k8sPluginClient;
     private final JsonMapper jsonMapper;
     private final MeterRegistry meterRegistry;
+    private final ObservationRegistry observationRegistry;
 
     public NotificationHandler(IDistributionClient client, StatusReporter statusReporter,
-            K8sPluginClient k8sPluginClient, JsonMapper jsonMapper, MeterRegistry meterRegistry) {
+            K8sPluginClient k8sPluginClient, JsonMapper jsonMapper, MeterRegistry meterRegistry,
+            ObservationRegistry observationRegistry) {
         this.client = client;
         this.statusReporter = statusReporter;
         this.k8sPluginClient = k8sPluginClient;
         this.jsonMapper = jsonMapper;
         this.meterRegistry = meterRegistry;
+        this.observationRegistry = observationRegistry;
     }
 
     @Override
     public void activateCallback(INotificationData notification) {
+        Observation.createNotStarted("artifactbroker.distribution", observationRegistry)
+                .highCardinalityKeyValue("distribution.id", notification.getDistributionID())
+                .observe(() -> processDistribution(notification));
+    }
+
+    private void processDistribution(INotificationData notification) {
         String distributionId = notification.getDistributionID();
         LOG.info("Received distribution {}", distributionId);
         List<String> failedVfs = new ArrayList<>();
@@ -176,7 +187,11 @@ public class NotificationHandler implements INotificationCallback {
     }
 
     private byte[] download(String distributionId, IArtifactInfo artifact) throws ArtifactProcessingException {
-        IDistributionClientDownloadResult result = client.download(artifact);
+        IDistributionClientDownloadResult result = Observation
+                .createNotStarted("artifactbroker.download", observationRegistry)
+                .lowCardinalityKeyValue("artifact.type", artifact.getArtifactType())
+                .highCardinalityKeyValue("artifact.name", artifact.getArtifactName())
+                .observe(() -> client.download(artifact));
         if (result.getDistributionActionResult() != DistributionActionResultEnum.SUCCESS) {
             meterRegistry.counter("artifactbroker.downloads", "result", "failure").increment();
             String reason = "Failed to download " + artifact.getArtifactName() + ": "
