@@ -25,8 +25,21 @@ fails, with `distribution_id`, `artifact_name`/`artifact_uuid`, `rb_name`/`rb_ve
 `/opt/app/artifactbroker/config/application.yaml`. The Kafka credentials come from the
 `SASL_JAAS_CONFIG` environment variable, read by the SDC distribution client.
 
+Tracing (OpenTelemetry, OTLP over gRPC) is off by default. The variables match OOM's
+`global.tracing` (`enabled`, `sampling.probability`, `collector.baseUrl`, `collector.port.otlpGrpc`):
+
+- `TRACING_ENABLED` — `true` exports spans, propagated as W3C `traceparent` (default `false`)
+- `TRACING_SAMPLING_PROBABILITY` — share of distributions traced (default `1.0`)
+- `COLLECTOR_HOST`, `COLLECTOR_PORT` — OTLP gRPC collector the spans go to
+  (default `http://jaeger-collector.istio-config`, `4317`)
+
+Each SDC distribution is one trace (`artifactbroker.distribution`), with a span per artifact download
+(`artifactbroker.download`) and per k8s plugin request. Requests to `/actuator/**` (probes, Prometheus scrapes) are not
+traced, and therefore have no `http_server_requests` metric either.
+
 ## Endpoints (port 9014)
 
 - `/actuator/health/liveness`, `/actuator/health/readiness` — probes; readiness does not depend on SDC
 - `/actuator/health` — includes `sdcConnection`
-- `/actuator/prometheus` — `artifactbroker_distributions_total`, `artifactbroker_downloads_total`
+- `/actuator/prometheus` — `artifactbroker_distributions_total`, `artifactbroker_downloads_total` and the
+  `artifactbroker_distribution_seconds`, `artifactbroker_download_seconds` timers

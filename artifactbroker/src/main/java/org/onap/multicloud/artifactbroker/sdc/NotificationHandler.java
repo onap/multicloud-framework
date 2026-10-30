@@ -19,6 +19,8 @@
 package org.onap.multicloud.artifactbroker.sdc;
 
 import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.observation.Observation;
+import io.micrometer.observation.ObservationRegistry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,18 +57,27 @@ public class NotificationHandler implements INotificationCallback {
     private final K8sPluginClient k8sPluginClient;
     private final JsonMapper jsonMapper;
     private final MeterRegistry meterRegistry;
+    private final ObservationRegistry observationRegistry;
 
     public NotificationHandler(IDistributionClient client, StatusReporter statusReporter,
-            K8sPluginClient k8sPluginClient, JsonMapper jsonMapper, MeterRegistry meterRegistry) {
+            K8sPluginClient k8sPluginClient, JsonMapper jsonMapper, MeterRegistry meterRegistry,
+            ObservationRegistry observationRegistry) {
         this.client = client;
         this.statusReporter = statusReporter;
         this.k8sPluginClient = k8sPluginClient;
         this.jsonMapper = jsonMapper;
         this.meterRegistry = meterRegistry;
+        this.observationRegistry = observationRegistry;
     }
 
     @Override
     public void activateCallback(INotificationData notification) {
+        Observation.createNotStarted("artifactbroker.distribution", observationRegistry)
+                .highCardinalityKeyValue("distribution.id", notification.getDistributionID())
+                .observe(() -> processDistribution(notification));
+    }
+
+    private void processDistribution(INotificationData notification) {
         String distributionId = notification.getDistributionID();
         try (MDC.MDCCloseable ignored = MDC.putCloseable(LogFields.DISTRIBUTION_ID, distributionId)) {
             process(distributionId, notification);
@@ -187,7 +198,10 @@ public class NotificationHandler implements INotificationCallback {
         long start = System.nanoTime();
         IDistributionClientDownloadResult result;
         try {
-            result = client.download(artifact);
+            result = Observation.createNotStarted("artifactbroker.download", observationRegistry)
+                    .lowCardinalityKeyValue("artifact.type", artifact.getArtifactType())
+                    .highCardinalityKeyValue("artifact.name", artifact.getArtifactName())
+                    .observe(() -> client.download(artifact));
         } catch (RuntimeException e) {
             LogFields.artifact(LOG.atError(), artifact).addKeyValue("duration_ms", LogFields.millisSince(start))
                     .log("Failed to download {} from SDC: {}", artifact.getArtifactName(), e.getMessage());

@@ -23,6 +23,8 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import io.micrometer.registry.otlp.OtlpMeterRegistry;
+import io.opentelemetry.sdk.trace.export.SpanExporter;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.onap.multicloud.artifactbroker.sdc.NotificationHandler;
@@ -36,6 +38,7 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.system.CapturedOutput;
 import org.springframework.boot.test.system.OutputCaptureExtension;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +53,8 @@ class ArtifactBrokerApplicationTest {
 
     @LocalServerPort
     private int port;
+    @Autowired
+    private ApplicationContext context;
 
     @Autowired
     private NotificationHandler notificationHandler;
@@ -87,6 +92,12 @@ class ArtifactBrokerApplicationTest {
     @Test
     void metricsAreExposedForPrometheus() {
         assertThat(get("/actuator/prometheus").getStatusCode().value()).isEqualTo(200);
+    }
+
+    @Test
+    void nothingIsExportedOverOtlpByDefault() {
+        assertThat(context.getBeansOfType(SpanExporter.class)).isEmpty();
+        assertThat(context.getBeansOfType(OtlpMeterRegistry.class)).isEmpty();
     }
 
     private ResponseEntity<String> get(String path) {
