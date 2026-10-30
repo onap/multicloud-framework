@@ -37,7 +37,7 @@
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>4.1.1</spring-boot.version>
+        <spring-boot.version>4.1.2</spring-boot.version>
         <sdc-distribution-client.version>2.3.0</sdc-distribution-client.version>
         <kafka-clients.version>3.9.1</kafka-clients.version>
         <docker.image>onap/multicloud/framework-artifactbroker</docker.image>
