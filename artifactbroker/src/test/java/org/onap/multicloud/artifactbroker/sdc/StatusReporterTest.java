@@ -19,6 +19,7 @@
 package org.onap.multicloud.artifactbroker.sdc;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -27,10 +28,14 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.onap.multicloud.artifactbroker.sdc.TestArtifacts.artifact;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.spi.ILoggingEvent;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.mockito.ArgumentCaptor;
+import org.onap.multicloud.artifactbroker.LogCapture;
 import org.onap.multicloud.artifactbroker.config.TestProperties;
 import org.onap.sdc.api.IDistributionClient;
 import org.onap.sdc.api.consumer.IComponentDoneStatusMessage;
@@ -41,6 +46,9 @@ import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientResult;
 
 class StatusReporterTest {
+
+    @RegisterExtension
+    final LogCapture logs = LogCapture.of(StatusReporter.class);
 
     private final IDistributionClient client = mock(IDistributionClient.class);
     private final IArtifactInfo metadata = artifact("meta", "VF_MODULES_METADATA", "vfModulesMetadata.json");
@@ -104,13 +112,50 @@ class StatusReporterTest {
     }
 
     @Test
+    void sentStatusIsLoggedWithTheArtifact() {
+        reporter.downloadOk("dist-1", metadata);
+
+        ILoggingEvent sending = logs.event("Sending DOWNLOAD_OK status to SDC");
+        assertThat(sending.getLevel()).isEqualTo(Level.INFO);
+        assertThat(LogCapture.fields(sending)).containsEntry("status", "DOWNLOAD_OK")
+                .containsEntry("artifact_name", "vfModulesMetadata.json")
+                .containsEntry("artifact_uuid", "meta")
+                .containsEntry("artifact_type", "VF_MODULES_METADATA");
+        ILoggingEvent sent = logs.event("Sent DOWNLOAD_OK status to SDC");
+        assertThat(sent.getLevel()).isEqualTo(Level.INFO);
+        assertThat(LogCapture.fields(sent)).containsEntry("artifact_uuid", "meta").containsKey("duration_ms");
+    }
+
+    @Test
+    void componentStatusIsLoggedWithoutArtifact() {
+        reporter.componentDone("dist-1");
+
+        assertThat(LogCapture.fields(logs.event("Sent COMPONENT_DONE_OK status to SDC")))
+                .containsEntry("status", "COMPONENT_DONE_OK").doesNotContainKey("artifact_name");
+    }
+
+    @Test
     void failedSendIsNotThrown() {
         IDistributionClientResult failure = mock(IDistributionClientResult.class);
         when(failure.getDistributionActionResult()).thenReturn(DistributionActionResultEnum.GENERAL_ERROR);
+        when(failure.getDistributionMessageResult()).thenReturn("Kafka unavailable");
         when(client.sendDeploymentStatus(any())).thenReturn(failure);
 
         reporter.deployOk("dist-1", metadata);
 
         verify(client).sendDeploymentStatus(any());
+        ILoggingEvent failed = logs.event("Failed to send DEPLOY_OK status to SDC: Kafka unavailable");
+        assertThat(failed.getLevel()).isEqualTo(Level.WARN);
+        assertThat(LogCapture.fields(failed)).containsEntry("artifact_uuid", "meta").containsKey("duration_ms");
+    }
+
+    @Test
+    void sendThatThrowsIsLoggedAndRethrown() {
+        when(client.sendComponentDoneStatus(any())).thenThrow(new IllegalStateException("producer closed"));
+
+        assertThatThrownBy(() -> reporter.componentDone("dist-1")).hasMessage("producer closed");
+
+        assertThat(logs.event("Failed to send COMPONENT_DONE_OK status to SDC: producer closed").getLevel())
+                .isEqualTo(Level.WARN);
     }
 }

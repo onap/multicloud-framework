@@ -18,6 +18,7 @@
 
 package org.onap.multicloud.artifactbroker.k8s;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
@@ -28,12 +29,16 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withStatus;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.spi.ILoggingEvent;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.onap.multicloud.artifactbroker.ArtifactProcessingException;
+import org.onap.multicloud.artifactbroker.LogCapture;
 import org.onap.multicloud.artifactbroker.config.TestProperties;
 import org.onap.multicloud.artifactbroker.sdc.VfModuleModel;
 import org.springframework.http.HttpMethod;
@@ -50,6 +55,9 @@ class K8sPluginClientTest {
     private static final byte[] CHART = {31, -117, 8, 0};
     private static final VfModuleModel MODULE = new VfModuleModel("vfw..base_template..module-0",
             "invariant-uuid", "model-uuid", "customization-uuid", "a module", List.of());
+
+    @RegisterExtension
+    final LogCapture logs = LogCapture.of(K8sPluginClient.class);
 
     private MockRestServiceServer server;
     private K8sPluginClient client;
@@ -81,6 +89,18 @@ class K8sPluginClientTest {
         client.registerChart(MODULE, "chart.tgz", CHART);
 
         server.verify();
+        for (String operation : List.of("look up", "create", "upload the content of")) {
+            String call = operation + " definition invariant-uuid/customization-uuid";
+            ILoggingEvent calling = logs.event("Calling the k8s plugin to " + call);
+            assertThat(calling.getLevel()).isEqualTo(Level.INFO);
+            assertThat(LogCapture.fields(calling)).containsEntry("rb_name", "invariant-uuid")
+                    .containsEntry("rb_version", "customization-uuid")
+                    .containsEntry("artifact_name", "chart.tgz");
+            ILoggingEvent succeeded = logs.event("k8s plugin call to " + call + " succeeded");
+            assertThat(succeeded.getLevel()).isEqualTo(Level.INFO);
+            assertThat(LogCapture.fields(succeeded)).containsEntry("rb_name", "invariant-uuid")
+                    .containsKey("duration_ms");
+        }
     }
 
     @Test
@@ -114,6 +134,12 @@ class K8sPluginClientTest {
         assertThatThrownBy(() -> client.registerChart(MODULE, "chart.tgz", CHART))
                 .isInstanceOf(ArtifactProcessingException.class)
                 .hasMessageContaining("uploading chart.tgz failed");
+        ILoggingEvent failed = logs.event(
+                "k8s plugin call to upload the content of definition invariant-uuid/customization-uuid failed");
+        assertThat(failed.getLevel()).isEqualTo(Level.ERROR);
+        assertThat(LogCapture.fields(failed)).containsEntry("status_code", 500)
+                .containsEntry("rb_version", "customization-uuid")
+                .containsKey("duration_ms");
     }
 
     @Test
@@ -123,5 +149,9 @@ class K8sPluginClientTest {
         assertThatThrownBy(() -> client.registerChart(MODULE, "chart.tgz", CHART))
                 .isInstanceOf(ArtifactProcessingException.class)
                 .hasMessageContaining("Connection refused");
+        ILoggingEvent failed = logs.event(
+                "k8s plugin call to look up definition invariant-uuid/customization-uuid failed");
+        assertThat(failed.getFormattedMessage()).contains("Connection refused");
+        assertThat(LogCapture.fields(failed)).doesNotContainKey("status_code");
     }
 }

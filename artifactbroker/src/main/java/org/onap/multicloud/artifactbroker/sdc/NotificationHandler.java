@@ -35,6 +35,7 @@ import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientDownloadResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import tools.jackson.core.JacksonException;
 import tools.jackson.core.type.TypeReference;
@@ -67,6 +68,12 @@ public class NotificationHandler implements INotificationCallback {
     @Override
     public void activateCallback(INotificationData notification) {
         String distributionId = notification.getDistributionID();
+        try (MDC.MDCCloseable ignored = MDC.putCloseable(LogFields.DISTRIBUTION_ID, distributionId)) {
+            process(distributionId, notification);
+        }
+    }
+
+    private void process(String distributionId, INotificationData notification) {
         LOG.info("Received distribution {}", distributionId);
         List<String> failedVfs = new ArrayList<>();
         for (IResourceInstance resource : notification.getResources()) {
@@ -176,15 +183,28 @@ public class NotificationHandler implements INotificationCallback {
     }
 
     private byte[] download(String distributionId, IArtifactInfo artifact) throws ArtifactProcessingException {
-        IDistributionClientDownloadResult result = client.download(artifact);
+        LogFields.artifact(LOG.atInfo(), artifact).log("Downloading {} from SDC", artifact.getArtifactName());
+        long start = System.nanoTime();
+        IDistributionClientDownloadResult result;
+        try {
+            result = client.download(artifact);
+        } catch (RuntimeException e) {
+            LogFields.artifact(LOG.atError(), artifact).addKeyValue("duration_ms", LogFields.millisSince(start))
+                    .log("Failed to download {} from SDC: {}", artifact.getArtifactName(), e.getMessage());
+            throw e;
+        }
+        long durationMs = LogFields.millisSince(start);
         if (result.getDistributionActionResult() != DistributionActionResultEnum.SUCCESS) {
             meterRegistry.counter("artifactbroker.downloads", "result", "failure").increment();
             String reason = "Failed to download " + artifact.getArtifactName() + ": "
                     + result.getDistributionMessageResult();
+            LogFields.artifact(LOG.atError(), artifact).addKeyValue("duration_ms", durationMs).log(reason);
             statusReporter.downloadError(distributionId, artifact, reason);
             throw new ArtifactProcessingException(reason);
         }
         meterRegistry.counter("artifactbroker.downloads", "result", "success").increment();
+        LogFields.artifact(LOG.atInfo(), artifact).addKeyValue("duration_ms", durationMs)
+                .log("Downloaded {} from SDC", artifact.getArtifactName());
         statusReporter.downloadOk(distributionId, artifact);
         return result.getArtifactPayload();
     }

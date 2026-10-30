@@ -11,6 +11,14 @@ distributions with the SDC distribution client and, for every VF module listed i
     mvn clean verify            # tests
     mvn clean install -P docker # also builds and pushes ${CONTAINER_PUSH_REGISTRY}/onap/multicloud/framework-artifactbroker
 
+## Logging
+
+The console log is one JSON object per line in Spring Boot's `logstash` structured format.
+`LOG_FORMAT` selects another built-in format (`ecs`, `gelf`); set it to an empty value for
+plain text. Every call to SDC and to the k8s plugin is logged when it starts, succeeds and
+fails, with `distribution_id`, `artifact_name`/`artifact_uuid`, `rb_name`/`rb_version`,
+`status` and `duration_ms` as separate fields.
+
 ## Configuration
 
 `artifactbroker.*` properties (see `ArtifactBrokerProperties`), typically from a mounted

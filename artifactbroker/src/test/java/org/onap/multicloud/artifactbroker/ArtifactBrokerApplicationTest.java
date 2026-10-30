@@ -24,23 +24,35 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.onap.multicloud.artifactbroker.sdc.NotificationHandler;
 import org.onap.sdc.api.IDistributionClient;
+import org.onap.sdc.api.notification.INotificationData;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.system.CapturedOutput;
+import org.springframework.boot.test.system.OutputCaptureExtension;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestClient;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = "artifactbroker.sdc.retry-delay=1h")
+@ExtendWith(OutputCaptureExtension.class)
 class ArtifactBrokerApplicationTest {
 
     @LocalServerPort
     private int port;
+
+    @Autowired
+    private NotificationHandler notificationHandler;
 
     @Test
     void podStaysReadyWhileSdcIsUnreachable() {
@@ -50,6 +62,26 @@ class ArtifactBrokerApplicationTest {
         ResponseEntity<String> health = get("/actuator/health");
         assertThat(health.getStatusCode().value()).isEqualTo(503);
         assertThat(health.getBody()).contains("sdcConnection");
+    }
+
+    @Test
+    void consoleLogIsJsonWithTheDistributionAndStatusAsFields(CapturedOutput output) {
+        INotificationData notification = mock(INotificationData.class);
+        when(notification.getDistributionID()).thenReturn("distribution-json");
+
+        notificationHandler.activateCallback(notification);
+
+        JsonNode sent = JsonMapper.builder().build().readTree(output.getOut().lines()
+                .filter(line -> line.contains("Sent COMPONENT_DONE_OK status to SDC"))
+                .reduce((first, second) -> second)
+                .orElseThrow());
+        assertThat(sent.get("message").asString()).isEqualTo("Sent COMPONENT_DONE_OK status to SDC");
+        assertThat(sent.get("level").asString()).isEqualTo("INFO");
+        assertThat(sent.get("logger_name").asString()).endsWith(".sdc.StatusReporter");
+        assertThat(sent.get("distribution_id").asString()).isEqualTo("distribution-json");
+        assertThat(sent.get("status").asString()).isEqualTo("COMPONENT_DONE_OK");
+        assertThat(sent.get("duration_ms").isNumber()).isTrue();
+        assertThat(sent.has("@timestamp")).isTrue();
     }
 
     @Test
@@ -74,6 +106,9 @@ class ArtifactBrokerApplicationTest {
             when(failure.getDistributionMessageResult()).thenReturn("SDC unreachable");
             IDistributionClient client = mock(IDistributionClient.class);
             when(client.init(any(), any())).thenReturn(failure);
+            IDistributionClientResult success = mock(IDistributionClientResult.class);
+            when(success.getDistributionActionResult()).thenReturn(DistributionActionResultEnum.SUCCESS);
+            when(client.sendComponentDoneStatus(any())).thenReturn(success);
             return client;
         }
     }

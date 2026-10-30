@@ -18,14 +18,17 @@
 
 package org.onap.multicloud.artifactbroker.sdc;
 
+import java.util.function.Supplier;
 import org.onap.multicloud.artifactbroker.config.ArtifactBrokerProperties;
 import org.onap.sdc.api.IDistributionClient;
+import org.onap.sdc.api.consumer.IDistributionStatusMessageBasic;
 import org.onap.sdc.api.notification.DistributionStatusEnum;
 import org.onap.sdc.api.notification.IArtifactInfo;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.spi.LoggingEventBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -44,32 +47,32 @@ public class StatusReporter {
 
     public void downloadOk(String distributionId, IArtifactInfo artifact) {
         ArtifactStatus status = artifactStatus(distributionId, artifact, DistributionStatusEnum.DOWNLOAD_OK);
-        log(status, client.sendDownloadStatus(status));
+        send(status, artifact, () -> client.sendDownloadStatus(status));
     }
 
     public void downloadError(String distributionId, IArtifactInfo artifact, String reason) {
         ArtifactStatus status = artifactStatus(distributionId, artifact, DistributionStatusEnum.DOWNLOAD_ERROR);
-        log(status, client.sendDownloadStatus(status, reason));
+        send(status, artifact, () -> client.sendDownloadStatus(status, reason));
     }
 
     public void deployOk(String distributionId, IArtifactInfo artifact) {
         ArtifactStatus status = artifactStatus(distributionId, artifact, DistributionStatusEnum.DEPLOY_OK);
-        log(status, client.sendDeploymentStatus(status));
+        send(status, artifact, () -> client.sendDeploymentStatus(status));
     }
 
     public void deployError(String distributionId, IArtifactInfo artifact, String reason) {
         ArtifactStatus status = artifactStatus(distributionId, artifact, DistributionStatusEnum.DEPLOY_ERROR);
-        log(status, client.sendDeploymentStatus(status, reason));
+        send(status, artifact, () -> client.sendDeploymentStatus(status, reason));
     }
 
     public void componentDone(String distributionId) {
         ComponentDoneStatus status = componentStatus(distributionId, DistributionStatusEnum.COMPONENT_DONE_OK);
-        log(status, client.sendComponentDoneStatus(status));
+        send(status, null, () -> client.sendComponentDoneStatus(status));
     }
 
     public void componentError(String distributionId, String reason) {
         ComponentDoneStatus status = componentStatus(distributionId, DistributionStatusEnum.COMPONENT_DONE_ERROR);
-        log(status, client.sendComponentDoneStatus(status, reason));
+        send(status, null, () -> client.sendComponentDoneStatus(status, reason));
     }
 
     private ArtifactStatus artifactStatus(String distributionId, IArtifactInfo artifact,
@@ -83,11 +86,31 @@ public class StatusReporter {
                 System.currentTimeMillis());
     }
 
-    private static void log(Object status, IDistributionClientResult result) {
-        if (result.getDistributionActionResult() == DistributionActionResultEnum.SUCCESS) {
-            LOG.debug("Sent {}", status);
-        } else {
-            LOG.warn("Failed to send {}: {}", status, result.getDistributionMessageResult());
+    private static void send(IDistributionStatusMessageBasic status, IArtifactInfo artifact,
+            Supplier<IDistributionClientResult> call) {
+        String value = status.getStatus().name();
+        event(LOG.atInfo(), value, artifact).log("Sending {} status to SDC", value);
+        long start = System.nanoTime();
+        IDistributionClientResult result;
+        try {
+            result = call.get();
+        } catch (RuntimeException e) {
+            event(LOG.atWarn(), value, artifact).addKeyValue("duration_ms", LogFields.millisSince(start))
+                    .log("Failed to send {} status to SDC: {}", value, e.getMessage());
+            throw e;
         }
+        long durationMs = LogFields.millisSince(start);
+        if (result.getDistributionActionResult() == DistributionActionResultEnum.SUCCESS) {
+            event(LOG.atInfo(), value, artifact).addKeyValue("duration_ms", durationMs)
+                    .log("Sent {} status to SDC", value);
+        } else {
+            event(LOG.atWarn(), value, artifact).addKeyValue("duration_ms", durationMs)
+                    .log("Failed to send {} status to SDC: {}", value, result.getDistributionMessageResult());
+        }
+    }
+
+    private static LoggingEventBuilder event(LoggingEventBuilder builder, String status, IArtifactInfo artifact) {
+        builder.addKeyValue("status", status);
+        return artifact == null ? builder : LogFields.artifact(builder, artifact);
     }
 }

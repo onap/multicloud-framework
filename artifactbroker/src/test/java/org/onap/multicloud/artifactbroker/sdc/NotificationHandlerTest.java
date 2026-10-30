@@ -20,6 +20,7 @@ package org.onap.multicloud.artifactbroker.sdc;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.ArgumentMatchers.contains;
@@ -35,17 +36,21 @@ import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.withSettings;
 import static org.onap.multicloud.artifactbroker.sdc.TestArtifacts.artifact;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.spi.ILoggingEvent;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.quality.Strictness;
 import org.onap.multicloud.artifactbroker.ArtifactProcessingException;
+import org.onap.multicloud.artifactbroker.LogCapture;
 import org.onap.multicloud.artifactbroker.k8s.K8sPluginClient;
 import org.onap.sdc.api.IDistributionClient;
 import org.onap.sdc.api.notification.IArtifactInfo;
@@ -53,6 +58,7 @@ import org.onap.sdc.api.notification.INotificationData;
 import org.onap.sdc.api.notification.IResourceInstance;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientDownloadResult;
+import org.slf4j.MDC;
 import tools.jackson.databind.json.JsonMapper;
 
 @ExtendWith(MockitoExtension.class)
@@ -61,6 +67,9 @@ class NotificationHandlerTest {
     private static final String DISTRIBUTION_ID = "distribution-1";
     private static final byte[] CHART = {31, -117, 8, 0};
     private static final byte[] HEAT = "heat_template_version: 2013-05-23\n".getBytes(UTF_8);
+
+    @RegisterExtension
+    final LogCapture logs = LogCapture.of(NotificationHandler.class);
 
     @Mock
     private IDistributionClient client;
@@ -262,9 +271,61 @@ class NotificationHandlerTest {
         handler.activateCallback(notification(
                 resource("vf1", "VF", metadata1, broken), resource("vf2", "VF", metadata2, helm)));
 
+        assertThat(logs.event("Failed to download vf1.tgz from SDC: Illegal character in path").getLevel())
+                .isEqualTo(Level.ERROR);
+
         verify(statusReporter).deployError(eq(DISTRIBUTION_ID), eq(broken), contains("Illegal character"));
         verify(statusReporter).deployOk(DISTRIBUTION_ID, metadata2);
         verify(statusReporter).componentError(eq(DISTRIBUTION_ID), contains("vf1"));
+    }
+
+    @Test
+    void downloadIsLoggedWithTheDistributionAndArtifact() {
+        IArtifactInfo helm = artifact("helm-1", "HELM", "helm_apache.tgz");
+        downloads(helm, CHART);
+        IArtifactInfo metadata = metadata("meta-1", modules(module("vf1..helm_apache..module-0", "helm-1")));
+
+        handler.activateCallback(notification(resource("vf1", "VF", metadata, helm)));
+
+        ILoggingEvent downloading = logs.event("Downloading helm_apache.tgz from SDC");
+        assertThat(downloading.getLevel()).isEqualTo(Level.INFO);
+        assertThat(LogCapture.fields(downloading)).containsEntry("distribution_id", DISTRIBUTION_ID)
+                .containsEntry("artifact_name", "helm_apache.tgz")
+                .containsEntry("artifact_uuid", "helm-1")
+                .containsEntry("artifact_type", "HELM");
+        ILoggingEvent downloaded = logs.event("Downloaded helm_apache.tgz from SDC");
+        assertThat(downloaded.getLevel()).isEqualTo(Level.INFO);
+        assertThat(LogCapture.fields(downloaded)).containsEntry("distribution_id", DISTRIBUTION_ID)
+                .containsEntry("artifact_uuid", "helm-1")
+                .containsKey("duration_ms");
+        assertThat(LogCapture.fields(logs.event("Processed distribution")))
+                .containsEntry("distribution_id", DISTRIBUTION_ID);
+        assertThat(MDC.get("distribution_id")).isNull();
+    }
+
+    @Test
+    void failedDownloadIsLoggedWithTheArtifact() {
+        IArtifactInfo metadata = artifact("meta-1", "VF_MODULES_METADATA", "vfModulesMetadata.json");
+        downloadFails(metadata);
+
+        handler.activateCallback(notification(resource("vf1", "VF", metadata)));
+
+        ILoggingEvent failed = logs.event("Failed to download vfModulesMetadata.json: SDC unavailable");
+        assertThat(failed.getLevel()).isEqualTo(Level.ERROR);
+        assertThat(LogCapture.fields(failed)).containsEntry("distribution_id", DISTRIBUTION_ID)
+                .containsEntry("artifact_uuid", "meta-1")
+                .containsKey("duration_ms");
+        assertThat(logs.messages()).noneMatch(message -> message.startsWith("Downloaded"));
+    }
+
+    @Test
+    void distributionIdIsRemovedFromTheMdcWhenProcessingThrows() {
+        doThrow(new IllegalStateException("Kafka closed")).when(statusReporter).componentDone(DISTRIBUTION_ID);
+
+        assertThatThrownBy(() -> handler.activateCallback(notification(resource("pnf", "PNF"))))
+                .hasMessage("Kafka closed");
+
+        assertThat(MDC.get("distribution_id")).isNull();
     }
 
     private IArtifactInfo metadata(String uuid, String json) {

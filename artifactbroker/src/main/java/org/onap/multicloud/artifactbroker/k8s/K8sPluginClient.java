@@ -20,15 +20,19 @@ package org.onap.multicloud.artifactbroker.k8s;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 import org.onap.multicloud.artifactbroker.ArtifactProcessingException;
 import org.onap.multicloud.artifactbroker.config.ArtifactBrokerProperties;
 import org.onap.multicloud.artifactbroker.sdc.VfModuleModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.spi.LoggingEventBuilder;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestClientResponseException;
 
 @Component
 public class K8sPluginClient {
@@ -47,57 +51,84 @@ public class K8sPluginClient {
             throws ArtifactProcessingException {
         String name = module.vfModuleModelInvariantUUID();
         String version = module.vfModuleModelCustomizationUUID();
-        if (definitionExists(name, version)) {
+        if (definitionExists(name, version, chartName)) {
             LOG.info("Definition {}/{} exists, uploading its content again", name, version);
         } else {
-            createDefinition(module);
+            createDefinition(module, chartName);
         }
         uploadContent(name, version, chartName, chart);
         LOG.info("Registered {} as definition {}/{}", chartName, name, version);
     }
 
-    private boolean definitionExists(String name, String version) throws ArtifactProcessingException {
-        try {
-            return restClient.get().uri(MODULE_PATH, name, version)
-                    .accept(MediaType.APPLICATION_JSON)
-                    .exchange((request, response) -> response.getStatusCode().is2xxSuccessful());
-        } catch (RestClientException e) {
-            throw new ArtifactProcessingException(
-                    "looking up definition " + name + "/" + version + " failed: " + e.getMessage(), e);
-        }
+    private boolean definitionExists(String name, String version, String chartName)
+            throws ArtifactProcessingException {
+        return call("look up", name, version, chartName,
+                () -> restClient.get().uri(MODULE_PATH, name, version)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .exchange((request, response) -> response.getStatusCode().is2xxSuccessful()),
+                "looking up definition " + name + "/" + version);
     }
 
-    private void createDefinition(VfModuleModel module) throws ArtifactProcessingException {
+    private void createDefinition(VfModuleModel module, String chartName) throws ArtifactProcessingException {
         Map<String, String> labels = new LinkedHashMap<>();
         labels.put("vf_module_model_uuid", module.vfModuleModelUUID());
         labels.put("vf_module_model_name", module.vfModuleModelName());
+        String name = module.vfModuleModelInvariantUUID();
+        String version = module.vfModuleModelCustomizationUUID();
         Map<String, Object> definition = new LinkedHashMap<>();
-        definition.put("rb-name", module.vfModuleModelInvariantUUID());
-        definition.put("rb-version", module.vfModuleModelCustomizationUUID());
+        definition.put("rb-name", name);
+        definition.put("rb-version", version);
         definition.put("description", module.vfModuleModelDescription());
         definition.put("labels", labels);
-        try {
-            restClient.post().uri(DEFINITION_PATH)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(definition)
-                    .retrieve()
-                    .toBodilessEntity();
-        } catch (RestClientException e) {
-            throw new ArtifactProcessingException("creating definition " + module.vfModuleModelInvariantUUID() + "/"
-                    + module.vfModuleModelCustomizationUUID() + " failed: " + e.getMessage(), e);
-        }
+        call("create", name, version, chartName,
+                () -> restClient.post().uri(DEFINITION_PATH)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(definition)
+                        .retrieve()
+                        .toBodilessEntity(),
+                "creating definition " + name + "/" + version);
     }
 
     private void uploadContent(String name, String version, String chartName, byte[] chart)
             throws ArtifactProcessingException {
+        call("upload the content of", name, version, chartName,
+                () -> restClient.post().uri(MODULE_PATH + "/content", name, version)
+                        .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                        .body(chart)
+                        .retrieve()
+                        .toBodilessEntity(),
+                "uploading " + chartName);
+    }
+
+    private <T> T call(String operation, String name, String version, String chartName, Supplier<T> request,
+            String failure) throws ArtifactProcessingException {
+        fields(LOG.atInfo(), name, version, chartName)
+                .log("Calling the k8s plugin to {} definition {}/{}", operation, name, version);
+        long start = System.nanoTime();
         try {
-            restClient.post().uri(MODULE_PATH + "/content", name, version)
-                    .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                    .body(chart)
-                    .retrieve()
-                    .toBodilessEntity();
+            T result = request.get();
+            fields(LOG.atInfo(), name, version, chartName).addKeyValue("duration_ms", millisSince(start))
+                    .log("k8s plugin call to {} definition {}/{} succeeded", operation, name, version);
+            return result;
         } catch (RestClientException e) {
-            throw new ArtifactProcessingException("uploading " + chartName + " failed: " + e.getMessage(), e);
+            LoggingEventBuilder event = fields(LOG.atError(), name, version, chartName)
+                    .addKeyValue("duration_ms", millisSince(start));
+            if (e instanceof RestClientResponseException response) {
+                event.addKeyValue("status_code", response.getStatusCode().value());
+            }
+            event.log("k8s plugin call to {} definition {}/{} failed: {}", operation, name, version, e.getMessage());
+            throw new ArtifactProcessingException(failure + " failed: " + e.getMessage(), e);
         }
+    }
+
+    private static LoggingEventBuilder fields(LoggingEventBuilder builder, String name, String version,
+            String chartName) {
+        return builder.addKeyValue("rb_name", name)
+                .addKeyValue("rb_version", version)
+                .addKeyValue("artifact_name", chartName);
+    }
+
+    private static long millisSince(long startNanos) {
+        return TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
     }
 }

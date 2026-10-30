@@ -16,7 +16,17 @@
 
 server:
   port: 9014
+logging:
+  structured:
+    format:
+      console: ${LOG_FORMAT:logstash}
+    json:
+      rename:
+        traceId: trace_id
+        spanId: span_id
 spring:
+  main:
+    banner-mode: "off"
   application:
     name: framework-artifactbroker
 management:

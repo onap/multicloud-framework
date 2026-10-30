@@ -23,6 +23,7 @@ import java.time.Duration;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 import org.onap.multicloud.artifactbroker.config.ArtifactBrokerProperties;
 import org.onap.sdc.api.IDistributionClient;
 import org.onap.sdc.api.consumer.IConfiguration;
@@ -74,29 +75,37 @@ public class SdcConnection implements HealthIndicator {
     synchronized void tryConnect() {
         try {
             if (!initialized) {
-                if (!succeeded("initialize", client.init(configuration, callback))) {
+                if (!succeeded("initialize", () -> client.init(configuration, callback))) {
                     return;
                 }
                 initialized = true;
             }
-            if (succeeded("start", client.start())) {
+            if (succeeded("start", client::start)) {
                 connected = true;
                 lastError = null;
-                LOG.info("Connected to SDC at {}", configuration.getSdcAddress());
+                LOG.atInfo().addKeyValue("sdc_address", configuration.getSdcAddress()).log("Connected to SDC");
                 executor.shutdown();
             }
         } catch (RuntimeException | LinkageError e) {
             lastError = "SDC distribution client failed: " + e.getMessage();
-            LOG.error("{}, retrying in {}", lastError, retryDelay, e);
+            LOG.atError().addKeyValue("retry_delay", retryDelay.toString()).setCause(e)
+                    .log("{}, retrying in {}", lastError, retryDelay);
         }
     }
 
-    private boolean succeeded(String action, IDistributionClientResult result) {
+    private boolean succeeded(String action, Supplier<IDistributionClientResult> call) {
+        LOG.atInfo().addKeyValue("sdc_address", configuration.getSdcAddress())
+                .log("Calling SDC distribution client {}", action);
+        long start = System.nanoTime();
+        IDistributionClientResult result = call.get();
+        long durationMs = LogFields.millisSince(start);
         if (result.getDistributionActionResult() == DistributionActionResultEnum.SUCCESS) {
+            LOG.atInfo().addKeyValue("duration_ms", durationMs).log("SDC distribution client {} succeeded", action);
             return true;
         }
         lastError = "Failed to " + action + " the SDC distribution client: " + result.getDistributionMessageResult();
-        LOG.error("{}, retrying in {}", lastError, retryDelay);
+        LOG.atError().addKeyValue("duration_ms", durationMs).addKeyValue("retry_delay", retryDelay.toString())
+                .log("{}, retrying in {}", lastError, retryDelay);
         return false;
     }
 
