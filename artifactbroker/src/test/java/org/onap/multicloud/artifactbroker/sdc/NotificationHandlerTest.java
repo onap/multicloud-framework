@@ -20,6 +20,7 @@ package org.onap.multicloud.artifactbroker.sdc;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.ArgumentMatchers.contains;
@@ -36,7 +37,11 @@ import static org.mockito.Mockito.withSettings;
 import static org.onap.multicloud.artifactbroker.sdc.TestArtifacts.artifact;
 
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
+import io.micrometer.observation.Observation;
+import io.micrometer.observation.tck.TestObservationRegistry;
+import io.micrometer.observation.tck.TestObservationRegistryAssert;
 import java.util.List;
+import java.util.function.Predicate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -60,6 +65,8 @@ class NotificationHandlerTest {
 
     private static final String DISTRIBUTION_ID = "distribution-1";
     private static final byte[] CHART = {31, -117, 8, 0};
+    private static final Predicate<Observation.ContextView> CHILD_OF_DISTRIBUTION =
+            parent -> "artifactbroker.distribution".equals(parent.getName());
     private static final byte[] HEAT = "heat_template_version: 2013-05-23\n".getBytes(UTF_8);
 
     @Mock
@@ -70,12 +77,13 @@ class NotificationHandlerTest {
     private K8sPluginClient k8sPluginClient;
 
     private final SimpleMeterRegistry meterRegistry = new SimpleMeterRegistry();
+    private final TestObservationRegistry observationRegistry = TestObservationRegistry.create();
     private NotificationHandler handler;
 
     @BeforeEach
     void setUp() {
         handler = new NotificationHandler(client, statusReporter, k8sPluginClient, JsonMapper.builder().build(),
-                meterRegistry);
+                meterRegistry, observationRegistry);
     }
 
     @Test
@@ -116,6 +124,42 @@ class NotificationHandlerTest {
         verify(statusReporter).deployOk(DISTRIBUTION_ID, metadata);
         verify(statusReporter).componentDone(DISTRIBUTION_ID);
         assertThat(meterRegistry.counter("artifactbroker.distributions", "result", "success").count()).isEqualTo(1);
+    }
+
+    @Test
+    void distributionIsObservedWithEveryDownloadAsChild() {
+        IArtifactInfo helm = artifact("helm-1", "HELM", "helm_apache.tgz");
+        downloads(helm, CHART);
+        IArtifactInfo metadata = metadata("meta-1", modules(module("vf1..helm_apache..module-0", "helm-1")));
+
+        handler.activateCallback(notification(resource("vf1", "VF", metadata, helm)));
+
+        TestObservationRegistryAssert.assertThat(observationRegistry)
+                .hasNumberOfObservationsWithNameEqualTo("artifactbroker.distribution", 1)
+                .hasObservationWithNameEqualTo("artifactbroker.distribution").that()
+                .hasHighCardinalityKeyValue("distribution.id", DISTRIBUTION_ID)
+                .doesNotHaveParentObservation()
+                .doesNotHaveError()
+                .hasBeenStopped();
+        TestObservationRegistryAssert.assertThat(observationRegistry)
+                .hasNumberOfObservationsWithNameEqualTo("artifactbroker.download", 2)
+                .forAllObservationsWithNameEqualTo("artifactbroker.download", download -> download
+                        .hasParentObservationContextMatching(CHILD_OF_DISTRIBUTION)
+                        .hasLowCardinalityKeyValueWithKey("artifact.type")
+                        .hasHighCardinalityKeyValueWithKey("artifact.name"));
+    }
+
+    @Test
+    void distributionObservationRecordsAnErrorThatEscapesTheHandler() {
+        IllegalStateException failure = new IllegalStateException("status topic unavailable");
+        doThrow(failure).when(statusReporter).componentDone(DISTRIBUTION_ID);
+
+        assertThatThrownBy(() -> handler.activateCallback(notification(resource("pnf", "PNF")))).isSameAs(failure);
+
+        TestObservationRegistryAssert.assertThat(observationRegistry)
+                .hasObservationWithNameEqualTo("artifactbroker.distribution").that()
+                .hasError(failure)
+                .hasBeenStopped();
     }
 
     @Test

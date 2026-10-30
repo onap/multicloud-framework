@@ -23,13 +23,17 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import io.micrometer.registry.otlp.OtlpMeterRegistry;
+import io.opentelemetry.sdk.trace.export.SpanExporter;
 import org.junit.jupiter.api.Test;
 import org.onap.sdc.api.IDistributionClient;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +45,8 @@ class ArtifactBrokerApplicationTest {
 
     @LocalServerPort
     private int port;
+    @Autowired
+    private ApplicationContext context;
 
     @Test
     void podStaysReadyWhileSdcIsUnreachable() {
@@ -55,6 +61,12 @@ class ArtifactBrokerApplicationTest {
     @Test
     void metricsAreExposedForPrometheus() {
         assertThat(get("/actuator/prometheus").getStatusCode().value()).isEqualTo(200);
+    }
+
+    @Test
+    void nothingIsExportedOverOtlpByDefault() {
+        assertThat(context.getBeansOfType(SpanExporter.class)).isEmpty();
+        assertThat(context.getBeansOfType(OtlpMeterRegistry.class)).isEmpty();
     }
 
     private ResponseEntity<String> get(String path) {
