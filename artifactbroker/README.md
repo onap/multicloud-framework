@@ -33,9 +33,18 @@ Tracing (OpenTelemetry, OTLP over gRPC) is off by default. The variables match O
 - `COLLECTOR_HOST`, `COLLECTOR_PORT` — OTLP gRPC collector the spans go to
   (default `http://jaeger-collector.istio-config`, `4317`)
 
-Each SDC distribution is one trace (`artifactbroker.distribution`), with a span per artifact download
+Each SDC notification has a Kafka `CONSUMER` span (`<topic> process`) that extracts W3C
+`traceparent`/`tracestate` from the message headers. The span identifies the topic, partition,
+offset and distribution ID. It contains the distribution span (`artifactbroker.distribution`),
+with a span per artifact download
 (`artifactbroker.download`) and per k8s plugin request. Requests to `/actuator/**` (probes, Prometheus scrapes) are not
 traced, and therefore have no `http_server_requests` metric either.
+
+This requires the SDC distribution client's metadata-preserving callback API (2.4.0).
+The current dependency is its development snapshot until that version is released.
+SDC's OpenTelemetry Java agent must be enabled (`OTEL_ENABLED=true`) with Kafka producer
+instrumentation and W3C propagation enabled to connect the consumer span to the publishing
+trace. Missing or invalid message trace headers start a new consumer trace instead.
 
 ## Endpoints (port 9014)
 

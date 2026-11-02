@@ -21,6 +21,10 @@ package org.onap.multicloud.artifactbroker.sdc;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
+import io.micrometer.observation.transport.Kind;
+import io.micrometer.observation.transport.ReceiverContext;
+import io.opentelemetry.context.Context;
+import io.opentelemetry.context.Scope;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,6 +37,7 @@ import org.onap.sdc.api.consumer.INotificationCallback;
 import org.onap.sdc.api.notification.IArtifactInfo;
 import org.onap.sdc.api.notification.INotificationData;
 import org.onap.sdc.api.notification.IResourceInstance;
+import org.onap.sdc.api.notification.NotificationMessageContext;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientDownloadResult;
 import org.slf4j.Logger;
@@ -72,6 +77,36 @@ public class NotificationHandler implements INotificationCallback {
 
     @Override
     public void activateCallback(INotificationData notification) {
+        NotificationMessageContext message = notification.getMessageContext();
+        if (message == null) {
+            message = NotificationMessageContext.EMPTY;
+        }
+        ReceiverContext<NotificationMessageContext> context = new ReceiverContext<>(
+                (carrier, key) -> carrier.getHeaders().get(key), Kind.CONSUMER);
+        context.setCarrier(message);
+        Observation reception = Observation.createNotStarted("artifactbroker.notification", () -> context,
+                observationRegistry)
+            .parentObservation(null)
+                .contextualName((message.getTopic() == null ? "SDC distribution" : message.getTopic()) + " process")
+                .lowCardinalityKeyValue("messaging.system", "kafka")
+                .lowCardinalityKeyValue("messaging.operation.type", "process")
+                .highCardinalityKeyValue("distribution.id", notification.getDistributionID());
+        if (message.getTopic() != null) {
+            reception.lowCardinalityKeyValue("messaging.destination.name", message.getTopic());
+        }
+        if (message.getPartition() >= 0) {
+            reception.highCardinalityKeyValue("messaging.destination.partition.id",
+                    Integer.toString(message.getPartition()));
+        }
+        if (message.getOffset() >= 0) {
+            reception.highCardinalityKeyValue("messaging.kafka.offset", Long.toString(message.getOffset()));
+        }
+        try (Scope ignored = Context.root().makeCurrent()) {
+            reception.observe(() -> observeDistribution(notification));
+        }
+    }
+
+    private void observeDistribution(INotificationData notification) {
         Observation.createNotStarted("artifactbroker.distribution", observationRegistry)
                 .highCardinalityKeyValue("distribution.id", notification.getDistributionID())
                 .observe(() -> processDistribution(notification));
