@@ -21,6 +21,8 @@ package org.onap.multicloud.artifactbroker.k8s;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.header;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.headerDoesNotExist;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.method;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
@@ -32,15 +34,33 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.onap.multicloud.artifactbroker.ArtifactProcessingException;
 import org.onap.multicloud.artifactbroker.LogCapture;
+import org.onap.multicloud.artifactbroker.config.ArtifactBrokerProperties;
 import org.onap.multicloud.artifactbroker.config.TestProperties;
+import org.onap.multicloud.artifactbroker.k8s.K8sPluginClient.CredentialConfiguration;
+import org.onap.multicloud.artifactbroker.k8s.K8sPluginClient.Credentials;
 import org.onap.multicloud.artifactbroker.sdc.VfModuleModel;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.context.properties.bind.Binder;
+import org.springframework.boot.context.properties.source.MapConfigurationPropertySource;
+import org.springframework.boot.http.client.HttpClientSettings;
+import org.springframework.boot.restclient.RestClientCustomizer;
+import org.springframework.boot.test.context.runner.ApplicationContextRunner;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -66,15 +86,18 @@ class K8sPluginClientTest {
     void setUp() {
         RestClient.Builder builder = RestClient.builder();
         server = MockRestServiceServer.bindTo(builder).build();
-        client = new K8sPluginClient(builder,
-                TestProperties.bind(Map.of("artifactbroker.k8s-plugin.base-url", BASE_URL)));
+        client = new K8sPluginClient(builder.build(),
+                TestProperties.bind(Map.of("artifactbroker.k8s-plugin.base-url", BASE_URL)),
+                new Credentials(null, null));
     }
 
     @Test
     void newDefinitionIsCreatedAndItsChartUploaded() throws Exception {
         server.expect(requestTo(MODULE_URL)).andExpect(method(HttpMethod.GET))
+                                .andExpect(headerDoesNotExist(HttpHeaders.AUTHORIZATION))
                 .andRespond(withStatus(HttpStatus.NOT_FOUND));
         server.expect(requestTo(DEFINITION_URL)).andExpect(method(HttpMethod.POST))
+                .andExpect(headerDoesNotExist(HttpHeaders.AUTHORIZATION))
                 .andExpect(jsonPath("$['rb-name']").value("invariant-uuid"))
                 .andExpect(jsonPath("$['rb-version']").value("customization-uuid"))
                 .andExpect(jsonPath("$.description").value("a module"))
@@ -82,6 +105,7 @@ class K8sPluginClientTest {
                 .andExpect(jsonPath("$.labels.vf_module_model_name").value("vfw..base_template..module-0"))
                 .andRespond(withStatus(HttpStatus.CREATED));
         server.expect(requestTo(MODULE_URL + "/content")).andExpect(method(HttpMethod.POST))
+                .andExpect(headerDoesNotExist(HttpHeaders.AUTHORIZATION))
                 .andExpect(content().contentType(MediaType.APPLICATION_OCTET_STREAM))
                 .andExpect(content().bytes(CHART))
                 .andRespond(withSuccess());
@@ -101,6 +125,108 @@ class K8sPluginClientTest {
             assertThat(LogCapture.fields(succeeded)).containsEntry("rb_name", "invariant-uuid")
                     .containsKey("duration_ms");
         }
+    }
+
+    @Test
+    void configuredCredentialsAuthenticateLookupJsonAndUploadWithoutChangingTheSharedBuilder() throws Exception {
+        RestClient.Builder builder = RestClient.builder();
+        server = MockRestServiceServer.bindTo(builder).build();
+        client = new K8sPluginClient(builder.build(),
+                TestProperties.bind(Map.of("artifactbroker.k8s-plugin.base-url", BASE_URL)),
+                new Credentials("operator", "p\u00e4ss:word"));
+        String basic = "Basic " + Base64.getEncoder().encodeToString(
+                "operator:p\u00e4ss:word".getBytes(StandardCharsets.UTF_8));
+        server.expect(requestTo(MODULE_URL)).andExpect(header(HttpHeaders.AUTHORIZATION, basic))
+                .andRespond(withStatus(HttpStatus.NOT_FOUND));
+        server.expect(requestTo(DEFINITION_URL)).andExpect(header(HttpHeaders.AUTHORIZATION, basic))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andRespond(withStatus(HttpStatus.CREATED));
+        server.expect(requestTo(MODULE_URL + "/content")).andExpect(header(HttpHeaders.AUTHORIZATION, basic))
+                .andExpect(content().bytes(CHART)).andRespond(withSuccess());
+        server.expect(requestTo("http://unrelated/service"))
+                .andExpect(headerDoesNotExist(HttpHeaders.AUTHORIZATION)).andRespond(withSuccess());
+
+        client.registerChart(MODULE, "chart.tgz", CHART);
+        builder.build().get().uri("http://unrelated/service").retrieve().toBodilessEntity();
+
+        server.verify();
+        assertThat(logs.messages()).allSatisfy(message -> assertThat(message)
+                .doesNotContain("p\u00e4ss:word", basic));
+    }
+
+    @ParameterizedTest
+    @CsvSource(delimiter = '|', value = {
+        "false|literal${spring.application.name}#{2*3}",
+        "false|${unresolved}",
+        "true|literal${spring.application.name}#{2*3}",
+        "true|${unresolved}"
+    })
+    void realEnvironmentCredentialsRemainLiteral(boolean environmentVariables, String password) {
+        AtomicReference<MockRestServiceServer> boundServer = new AtomicReference<>();
+        String username = "operator${spring.application.name}#{2*3}";
+        String expected = "Basic " + Base64.getEncoder().encodeToString(
+                (username + ":" + password).getBytes(StandardCharsets.UTF_8));
+        ApplicationContextRunner runner = new ApplicationContextRunner()
+                .withUserConfiguration(CredentialBindingConfiguration.class)
+                .withBean(HttpClientSettings.class, HttpClientSettings::defaults)
+                .withBean(RestClientCustomizer.class, () -> builder ->
+                        boundServer.set(MockRestServiceServer.bindTo(builder).build()))
+                .withPropertyValues("spring.application.name=expanded",
+                        "artifactbroker.k8s-plugin.base-url=" + BASE_URL);
+        if (environmentVariables) {
+            runner = runner.withInitializer(context -> context.getEnvironment().getPropertySources().addFirst(
+                    new SystemEnvironmentPropertySource("plugin-systemEnvironment", Map.of(
+                            "ARTIFACTBROKER_K8SPLUGIN_USERNAME", username,
+                            "ARTIFACTBROKER_K8SPLUGIN_PASSWORD", password))));
+        } else {
+            runner = runner.withPropertyValues("artifactbroker.k8s-plugin.username=" + username,
+                    "artifactbroker.k8s-plugin.password=" + password);
+        }
+        runner.run(context -> {
+            assertThat(context).hasNotFailed();
+            MockRestServiceServer mockServer = boundServer.get();
+            mockServer.expect(requestTo(MODULE_URL)).andExpect(request ->
+                    assertThat(expected.equals(request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION)))
+                            .as("outbound credentials remain literal").isTrue())
+                    .andRespond(withSuccess());
+            mockServer.expect(requestTo(MODULE_URL + "/content")).andExpect(request ->
+                    assertThat(expected.equals(request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION)))
+                            .as("outbound credentials remain literal").isTrue())
+                    .andRespond(withSuccess());
+            context.getBean(K8sPluginClient.class).registerChart(MODULE, "chart.tgz", CHART);
+            mockServer.verify();
+        });
+    }
+
+    @Configuration(proxyBeanMethods = false)
+    @EnableConfigurationProperties(ArtifactBrokerProperties.class)
+        @Import({K8sPluginClient.class, CredentialConfiguration.class})
+    static class CredentialBindingConfiguration {
+    }
+
+    @Test
+    void incompleteOrInvalidCredentialsFailBindingWithoutEchoingSecrets() {
+        for (Map<String, String> credentials : List.of(
+                Map.of("artifactbroker.k8s-plugin.username", "secret-username"),
+                Map.of("artifactbroker.k8s-plugin.password", "secret-password"),
+                Map.of("artifactbroker.k8s-plugin.username", " ",
+                        "artifactbroker.k8s-plugin.password", "secret-password"),
+                Map.of("artifactbroker.k8s-plugin.username", "secret-username",
+                        "artifactbroker.k8s-plugin.password", " "),
+                Map.of("artifactbroker.k8s-plugin.username", "secret:username",
+                        "artifactbroker.k8s-plugin.password", "secret-password"))) {
+            assertThatThrownBy(() -> new Binder(new MapConfigurationPropertySource(credentials))
+                    .bindOrCreate("artifactbroker.k8s-plugin", Credentials.class))
+                    .hasRootCauseInstanceOf(IllegalArgumentException.class)
+                    .rootCause().hasMessageNotContaining("secret-password")
+                    .hasMessageNotContaining("secret-username").hasMessageNotContaining("secret:username");
+        }
+    }
+
+    @Test
+    void pluginPropertiesDoNotExposeCredentialsInTheirStringRepresentation() {
+        Credentials credentials = new Credentials("operator", "secret-password");
+        assertThat(credentials.toString()).doesNotContain("operator", "secret-password");
     }
 
     @Test

@@ -18,6 +18,8 @@
 
 package org.onap.multicloud.artifactbroker.k8s;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +30,21 @@ import org.onap.multicloud.artifactbroker.sdc.VfModuleModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.spi.LoggingEventBuilder;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.bind.Binder;
+import org.springframework.boot.context.properties.bind.PlaceholdersResolver;
+import org.springframework.boot.context.properties.source.ConfigurationPropertySources;
+import org.springframework.boot.http.client.ClientHttpRequestFactoryBuilder;
+import org.springframework.boot.http.client.HttpClientSettings;
+import org.springframework.boot.http.client.HttpRedirects;
+import org.springframework.boot.restclient.RestClientCustomizer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.RestClientException;
@@ -43,8 +59,59 @@ public class K8sPluginClient {
 
     private final RestClient restClient;
 
-    public K8sPluginClient(RestClient.Builder restClientBuilder, ArtifactBrokerProperties properties) {
-        this.restClient = restClientBuilder.baseUrl(properties.k8sPlugin().baseUrl().toString()).build();
+    @Configuration(proxyBeanMethods = false)
+    static class ClientConfiguration {
+
+        @Bean
+        RestClient k8sPluginRestClient(ObjectProvider<ClientHttpRequestFactoryBuilder<?>> factoryBuilders,
+                HttpClientSettings settings, ObjectProvider<RestClientCustomizer> customizers) {
+            RestClient.Builder builder = RestClient.builder().requestFactory(
+                    factoryBuilders.getIfAvailable(ClientHttpRequestFactoryBuilder::detect)
+                            .build(settings.withRedirects(HttpRedirects.DONT_FOLLOW)));
+            customizers.orderedStream().forEach(customizer -> customizer.customize(builder));
+            return builder.build();
+        }
+    }
+
+    @Configuration(proxyBeanMethods = false)
+    static class CredentialConfiguration {
+
+        @Bean
+        Credentials k8sPluginCredentials(ConfigurableEnvironment environment) {
+            return new Binder(ConfigurationPropertySources.get(environment), PlaceholdersResolver.NONE)
+                    .bindOrCreate("artifactbroker.k8s-plugin", Credentials.class);
+        }
+    }
+
+    public record Credentials(String username, String password) {
+
+        public Credentials {
+            if ((username != null || password != null)
+                    && (username == null || username.isBlank() || username.contains(":")
+                    || password == null || password.isBlank())) {
+                throw new IllegalArgumentException(
+                        "k8s plugin authentication requires a nonblank username without colons "
+                                + "and a nonblank password");
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "Credentials[configured=" + (username != null) + "]";
+        }
+    }
+
+    public K8sPluginClient(@Qualifier("k8sPluginRestClient") RestClient restClient,
+            ArtifactBrokerProperties properties, Credentials credentials) {
+        ArtifactBrokerProperties.K8sPlugin plugin = properties.k8sPlugin();
+        RestClient.Builder builder = restClient.mutate().baseUrl(plugin.baseUrl().toString())
+                .defaultStatusHandler(HttpStatusCode::is3xxRedirection,
+                        (request, response) -> rejectRedirect(response));
+        if (credentials.username() != null) {
+            builder.defaultHeaders(headers -> headers.setBasicAuth(
+                    credentials.username(), credentials.password(), StandardCharsets.UTF_8));
+        }
+        this.restClient = builder.build();
     }
 
     public void registerChart(VfModuleModel module, String chartName, byte[] chart)
@@ -65,8 +132,19 @@ public class K8sPluginClient {
         return call("look up", name, version, chartName,
                 () -> restClient.get().uri(MODULE_PATH, name, version)
                         .accept(MediaType.APPLICATION_JSON)
-                        .exchange((request, response) -> response.getStatusCode().is2xxSuccessful()),
+                        .exchange((request, response) -> {
+                            rejectRedirect(response);
+                            return response.getStatusCode().is2xxSuccessful();
+                        }),
                 "looking up definition " + name + "/" + version);
+    }
+
+    private static void rejectRedirect(ClientHttpResponse response) throws IOException {
+        HttpStatusCode status = response.getStatusCode();
+        if (status.is3xxRedirection()) {
+            throw new RestClientResponseException("k8s plugin redirect refused: HTTP " + status.value(),
+                    status, response.getStatusText(), response.getHeaders(), null, null);
+        }
     }
 
     private void createDefinition(VfModuleModel module, String chartName) throws ArtifactProcessingException {

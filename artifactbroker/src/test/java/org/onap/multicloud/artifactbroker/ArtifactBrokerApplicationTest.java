@@ -19,20 +19,35 @@
 package org.onap.multicloud.artifactbroker;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.sun.net.httpserver.HttpServer;
 import io.micrometer.registry.otlp.OtlpMeterRegistry;
 import io.opentelemetry.sdk.trace.export.SpanExporter;
+import java.net.InetSocketAddress;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.onap.multicloud.artifactbroker.config.TestProperties;
+import org.onap.multicloud.artifactbroker.k8s.K8sPluginClient;
+import org.onap.multicloud.artifactbroker.k8s.K8sPluginClient.Credentials;
 import org.onap.multicloud.artifactbroker.sdc.NotificationHandler;
+import org.onap.multicloud.artifactbroker.sdc.VfModuleModel;
 import org.onap.sdc.api.IDistributionClient;
 import org.onap.sdc.api.notification.INotificationData;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.http.client.ClientHttpRequestFactoryBuilder;
+import org.springframework.boot.http.client.HttpClientSettings;
+import org.springframework.boot.http.client.HttpRedirects;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.system.CapturedOutput;
@@ -94,6 +109,80 @@ class ArtifactBrokerApplicationTest {
         assertThat(get("/actuator/prometheus").getStatusCode().value()).isEqualTo(200);
     }
 
+    @ParameterizedTest
+    @CsvSource({"GET,302,true", "GET,302,false", "CREATE,307,true", "CREATE,307,false",
+        "UPLOAD,307,true", "UPLOAD,307,false"})
+    void pluginCredentialsAreNotForwardedToRedirectDestinations(String operation, int status,
+            boolean authenticated, CapturedOutput output) throws Exception {
+        HttpServer source = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
+        HttpServer destination = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
+        List<String> leakedHeaders = new CopyOnWriteArrayList<>();
+        List<String> pluginHeaders = new CopyOnWriteArrayList<>();
+        destination.createContext("/redirected", exchange -> {
+            leakedHeaders.add(exchange.getRequestHeaders().getFirst("Authorization"));
+            exchange.sendResponseHeaders(200, -1);
+            exchange.close();
+        });
+        source.createContext("/v1/rb/definition", exchange -> {
+            pluginHeaders.add(exchange.getRequestHeaders().getFirst("Authorization"));
+            if (exchange.getRequestMethod().equals("GET") && !operation.equals("GET")) {
+                exchange.sendResponseHeaders(operation.equals("CREATE") ? 404 : 200, -1);
+            } else {
+                exchange.getResponseHeaders().add("Location",
+                        "http://127.0.0.1:" + destination.getAddress().getPort() + "/redirected");
+                exchange.sendResponseHeaders(status, -1);
+            }
+            exchange.close();
+        });
+        source.start();
+        destination.start();
+        try {
+            K8sPluginClient plugin = new K8sPluginClient(context.getBean("k8sPluginRestClient", RestClient.class),
+                    TestProperties.bind(Map.of(
+                            "artifactbroker.k8s-plugin.base-url", "http://127.0.0.1:" + source.getAddress().getPort())),
+                    authenticated ? new Credentials("operator", "secret") : new Credentials(null, null));
+            Throwable failure = catchThrowable(() -> plugin.registerChart(
+                    new VfModuleModel("module", "invariant", "model", "customization", "test", List.of()),
+                    "chart.tgz", new byte[] {31, -117, 8, 0}));
+
+            assertThat(leakedHeaders).isEmpty();
+            assertThat(failure).isInstanceOf(ArtifactProcessingException.class)
+                    .hasMessageContaining(String.valueOf(status));
+            assertThat(pluginHeaders).hasSize(operation.equals("GET") ? 1 : 2)
+                    .allSatisfy(header -> assertThat(header)
+                            .isEqualTo(authenticated ? "Basic b3BlcmF0b3I6c2VjcmV0" : null));
+            assertThat(output.getOut()).doesNotContain("Registered chart.tgz");
+        } finally {
+            source.stop(0);
+            destination.stop(0);
+        }
+    }
+
+    @Test
+    void sharedClientStillFollowsRedirectsWithoutPluginCredentials() throws Exception {
+        HttpServer server = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
+        List<String> headers = new CopyOnWriteArrayList<>();
+        server.createContext("/source", exchange -> {
+            exchange.getResponseHeaders().add("Location", "/destination");
+            exchange.sendResponseHeaders(302, -1);
+            exchange.close();
+        });
+        server.createContext("/destination", exchange -> {
+            headers.add(exchange.getRequestHeaders().getFirst("Authorization"));
+            exchange.sendResponseHeaders(200, -1);
+            exchange.close();
+        });
+        server.start();
+        try {
+            context.getBean(RestClient.Builder.class).build().get()
+                    .uri("http://127.0.0.1:" + server.getAddress().getPort() + "/source")
+                    .retrieve().toBodilessEntity();
+            assertThat(headers).containsExactly((String) null);
+        } finally {
+            server.stop(0);
+        }
+    }
+
     @Test
     void nothingIsExportedOverOtlpByDefault() {
         assertThat(context.getBeansOfType(SpanExporter.class)).isEmpty();
@@ -108,6 +197,16 @@ class ArtifactBrokerApplicationTest {
 
     @TestConfiguration
     static class UnreachableSdc {
+
+        @Bean
+        ClientHttpRequestFactoryBuilder<?> redirectFollowingFactoryBuilder() {
+            return ClientHttpRequestFactoryBuilder.jdk();
+        }
+
+        @Bean
+        HttpClientSettings redirectFollowingSettings() {
+            return HttpClientSettings.defaults().withRedirects(HttpRedirects.FOLLOW);
+        }
 
         @Bean
         @Primary
