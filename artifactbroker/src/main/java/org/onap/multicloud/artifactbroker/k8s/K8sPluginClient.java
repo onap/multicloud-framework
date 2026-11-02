@@ -18,6 +18,7 @@
 
 package org.onap.multicloud.artifactbroker.k8s;
 
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +29,12 @@ import org.onap.multicloud.artifactbroker.sdc.VfModuleModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.spi.LoggingEventBuilder;
+import org.springframework.boot.context.properties.bind.Binder;
+import org.springframework.boot.context.properties.bind.PlaceholdersResolver;
+import org.springframework.boot.context.properties.source.ConfigurationPropertySources;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
@@ -43,8 +50,43 @@ public class K8sPluginClient {
 
     private final RestClient restClient;
 
-    public K8sPluginClient(RestClient.Builder restClientBuilder, ArtifactBrokerProperties properties) {
-        this.restClient = restClientBuilder.baseUrl(properties.k8sPlugin().baseUrl().toString()).build();
+    @Configuration(proxyBeanMethods = false)
+    static class CredentialConfiguration {
+
+        @Bean
+        Credentials k8sPluginCredentials(ConfigurableEnvironment environment) {
+            return new Binder(ConfigurationPropertySources.get(environment), PlaceholdersResolver.NONE)
+                    .bindOrCreate("artifactbroker.k8s-plugin", Credentials.class);
+        }
+    }
+
+    public record Credentials(String username, String password) {
+
+        public Credentials {
+            if ((username != null || password != null)
+                    && (username == null || username.isBlank() || username.contains(":")
+                    || password == null || password.isBlank())) {
+                throw new IllegalArgumentException(
+                        "k8s plugin authentication requires a nonblank username without colons "
+                                + "and a nonblank password");
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "Credentials[configured=" + (username != null) + "]";
+        }
+    }
+
+    public K8sPluginClient(RestClient.Builder restClientBuilder, ArtifactBrokerProperties properties,
+            Credentials credentials) {
+        ArtifactBrokerProperties.K8sPlugin plugin = properties.k8sPlugin();
+        RestClient.Builder builder = restClientBuilder.clone().baseUrl(plugin.baseUrl().toString());
+        if (credentials.username() != null) {
+            builder.defaultHeaders(headers -> headers.setBasicAuth(
+                    credentials.username(), credentials.password(), StandardCharsets.UTF_8));
+        }
+        this.restClient = builder.build();
     }
 
     public void registerChart(VfModuleModel module, String chartName, byte[] chart)

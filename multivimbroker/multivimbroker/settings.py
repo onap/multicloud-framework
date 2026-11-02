@@ -16,6 +16,11 @@ import platform
 import yaml
 from logging import config as log_config
 
+from multivimbroker.auth import load_auth_config
+
+MULTICLOUD_AUTH_ENABLED, MULTICLOUD_AUTH_PASSWORDS = load_auth_config()
+MIDDLEWARE = ['multivimbroker.auth.BasicAuthMiddleware']
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -69,6 +74,9 @@ REST_FRAMEWORK = {
         # 'rest_framework.parsers.FileUploadParser',
     )
 }
+
+if MULTICLOUD_AUTH_ENABLED:
+    REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'] = []
 
 
 # CACHE_BACKEND = 'redis_cache.cache://%s@%s:%s' %
@@ -126,7 +134,8 @@ else:
 
 if 'test' in sys.argv:
     # from multivimbroker.pub.config import config
-    REST_FRAMEWORK = {}
+    if not MULTICLOUD_AUTH_ENABLED:
+        REST_FRAMEWORK = {}
     import platform
 
     if platform.system() == 'Linux':

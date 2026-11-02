@@ -23,11 +23,20 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.sun.net.httpserver.HttpServer;
 import io.micrometer.registry.otlp.OtlpMeterRegistry;
 import io.opentelemetry.sdk.trace.export.SpanExporter;
+import java.net.InetSocketAddress;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.onap.multicloud.artifactbroker.config.TestProperties;
+import org.onap.multicloud.artifactbroker.k8s.K8sPluginClient;
+import org.onap.multicloud.artifactbroker.k8s.K8sPluginClient.Credentials;
 import org.onap.multicloud.artifactbroker.sdc.NotificationHandler;
+import org.onap.multicloud.artifactbroker.sdc.VfModuleModel;
 import org.onap.sdc.api.IDistributionClient;
 import org.onap.sdc.api.notification.INotificationData;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
@@ -92,6 +101,46 @@ class ArtifactBrokerApplicationTest {
     @Test
     void metricsAreExposedForPrometheus() {
         assertThat(get("/actuator/prometheus").getStatusCode().value()).isEqualTo(200);
+    }
+
+    @Test
+    void pluginCredentialsAreNotForwardedToRedirectDestinations() throws Exception {
+        HttpServer source = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
+        HttpServer destination = HttpServer.create(new InetSocketAddress("127.0.0.1", 0), 0);
+        List<String> leakedHeaders = new CopyOnWriteArrayList<>();
+        List<String> pluginHeaders = new CopyOnWriteArrayList<>();
+        destination.createContext("/redirected", exchange -> {
+            leakedHeaders.add(exchange.getRequestHeaders().getFirst("Authorization"));
+            exchange.sendResponseHeaders(200, -1);
+            exchange.close();
+        });
+        source.createContext("/v1/rb/definition", exchange -> {
+            pluginHeaders.add(exchange.getRequestHeaders().getFirst("Authorization"));
+            if (exchange.getRequestMethod().equals("GET")) {
+                exchange.sendResponseHeaders(200, -1);
+            } else {
+                exchange.getResponseHeaders().add("Location",
+                        "http://127.0.0.1:" + destination.getAddress().getPort() + "/redirected");
+                exchange.sendResponseHeaders(307, -1);
+            }
+            exchange.close();
+        });
+        source.start();
+        destination.start();
+        try {
+            K8sPluginClient plugin = new K8sPluginClient(context.getBean(RestClient.Builder.class),
+                    TestProperties.bind(Map.of(
+                            "artifactbroker.k8s-plugin.base-url", "http://127.0.0.1:" + source.getAddress().getPort())),
+                        new Credentials("operator", "secret"));
+            plugin.registerChart(new VfModuleModel("module", "invariant", "model", "customization", "test",
+                    List.of()), "chart.tgz", new byte[] {31, -117, 8, 0});
+
+            assertThat(pluginHeaders).containsExactly("Basic b3BlcmF0b3I6c2VjcmV0", "Basic b3BlcmF0b3I6c2VjcmV0");
+            assertThat(leakedHeaders).containsExactly((String) null);
+        } finally {
+            source.stop(0);
+            destination.stop(0);
+        }
     }
 
     @Test
