@@ -143,10 +143,17 @@ class NotificationHandlerTest {
         handler.activateCallback(notification(resource("vf1", "VF", metadata, helm)));
 
         TestObservationRegistryAssert.assertThat(observationRegistry)
+            .hasNumberOfObservationsWithNameEqualTo("artifactbroker.notification", 1)
+            .hasObservationWithNameEqualTo("artifactbroker.notification").that()
+            .hasLowCardinalityKeyValue("messaging.system", "kafka")
+            .doesNotHaveParentObservation()
+            .doesNotHaveError()
+            .hasBeenStopped();
+        TestObservationRegistryAssert.assertThat(observationRegistry)
                 .hasNumberOfObservationsWithNameEqualTo("artifactbroker.distribution", 1)
                 .hasObservationWithNameEqualTo("artifactbroker.distribution").that()
                 .hasHighCardinalityKeyValue("distribution.id", DISTRIBUTION_ID)
-                .doesNotHaveParentObservation()
+            .hasParentObservationContextMatching(context -> "artifactbroker.notification".equals(context.getName()))
                 .doesNotHaveError()
                 .hasBeenStopped();
         TestObservationRegistryAssert.assertThat(observationRegistry)
