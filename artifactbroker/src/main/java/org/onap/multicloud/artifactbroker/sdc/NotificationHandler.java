@@ -21,6 +21,10 @@ package org.onap.multicloud.artifactbroker.sdc;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.observation.Observation;
 import io.micrometer.observation.ObservationRegistry;
+import io.micrometer.observation.transport.Kind;
+import io.micrometer.observation.transport.ReceiverContext;
+import io.opentelemetry.context.Context;
+import io.opentelemetry.context.Scope;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,6 +37,7 @@ import org.onap.sdc.api.consumer.INotificationCallback;
 import org.onap.sdc.api.notification.IArtifactInfo;
 import org.onap.sdc.api.notification.INotificationData;
 import org.onap.sdc.api.notification.IResourceInstance;
+import org.onap.sdc.api.notification.NotificationMessageContext;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientDownloadResult;
 import org.slf4j.Logger;
@@ -72,9 +77,18 @@ public class NotificationHandler implements INotificationCallback {
 
     @Override
     public void activateCallback(INotificationData notification) {
-        Observation.createNotStarted("artifactbroker.distribution", observationRegistry)
-                .highCardinalityKeyValue("distribution.id", notification.getDistributionID())
-                .observe(() -> processDistribution(notification));
+        Observation.Scope previous = observationRegistry.getCurrentObservationScope();
+        try (Scope ignored = Context.root().makeCurrent()) {
+            observationRegistry.setCurrentObservationScope(null);
+            ReceiverContext<NotificationMessageContext> context = new ReceiverContext<>(
+                    (carrier, key) -> carrier == null ? null : carrier.getHeaders().get(key), Kind.CONSUMER);
+            context.setCarrier(notification.getMessageContext());
+            Observation.createNotStarted("artifactbroker.distribution", () -> context, observationRegistry)
+                    .highCardinalityKeyValue("distribution.id", notification.getDistributionID())
+                    .observe(() -> processDistribution(notification));
+        } finally {
+            observationRegistry.setCurrentObservationScope(previous);
+        }
     }
 
     private void processDistribution(INotificationData notification) {

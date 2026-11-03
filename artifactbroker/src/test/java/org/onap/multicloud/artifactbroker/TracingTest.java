@@ -20,26 +20,45 @@ package org.onap.multicloud.artifactbroker;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.client.ExpectedCount.manyTimes;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.anything;
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
+import io.micrometer.observation.Observation;
+import io.micrometer.observation.ObservationRegistry;
+import io.micrometer.observation.transport.Kind;
+import io.micrometer.observation.transport.ReceiverContext;
 import io.micrometer.prometheusmetrics.PrometheusMeterRegistry;
+import io.micrometer.tracing.TraceContext;
+import io.micrometer.tracing.Tracer;
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.SpanContext;
+import io.opentelemetry.api.trace.TraceFlags;
+import io.opentelemetry.api.trace.TraceState;
+import io.opentelemetry.context.Context;
+import io.opentelemetry.context.Scope;
 import io.opentelemetry.exporter.otlp.trace.OtlpGrpcSpanExporter;
 import io.opentelemetry.sdk.trace.export.SpanExporter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.onap.multicloud.artifactbroker.sdc.NotificationHandler;
 import org.onap.multicloud.artifactbroker.sdc.StatusReporter;
 import org.onap.sdc.api.IDistributionClient;
 import org.onap.sdc.api.notification.IArtifactInfo;
 import org.onap.sdc.api.notification.INotificationData;
 import org.onap.sdc.api.notification.IResourceInstance;
+import org.onap.sdc.api.notification.NotificationMessageContext;
 import org.onap.sdc.api.results.DistributionActionResultEnum;
 import org.onap.sdc.api.results.IDistributionClientDownloadResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +79,9 @@ import org.springframework.web.client.RestClient;
 class TracingTest {
 
     private static final String TRACEPARENT = "00-[0-9a-f]{32}-[0-9a-f]{16}-[0-9a-f]{2}";
+    private static final String FIRST_TRACE_ID = "11111111111111111111111111111111";
+    private static final String SECOND_TRACE_ID = "22222222222222222222222222222222";
+    private static final String PARENT_SPAN_ID = "aaaaaaaaaaaaaaaa";
     private static final byte[] CHART = {31, -117, 8, 0};
     private static final String MODULES = """
             [{"vfModuleModelName":"vf1..helm_apache..module-0","vfModuleModelInvariantUUID":"invariant",
@@ -73,14 +95,29 @@ class TracingTest {
     private K8sPluginStub k8sPlugin;
     @Autowired
     private PrometheusMeterRegistry prometheus;
+    @Autowired
+    private Tracer tracer;
+    @Autowired
+    private ObservationRegistry observationRegistry;
     @MockitoBean
     private IDistributionClient client;
     @MockitoBean
     private StatusReporter statusReporter;
 
+    private final List<TraceContext> distributionSpans = new ArrayList<>();
+    private final List<Observation.Context> distributionContexts = new ArrayList<>();
+
     @BeforeEach
     void setUp() {
         k8sPlugin.traceparents.clear();
+        k8sPlugin.tracestates.clear();
+        distributionSpans.clear();
+        distributionContexts.clear();
+        doAnswer(invocation -> {
+            distributionSpans.add(tracer.currentSpan().context());
+            distributionContexts.add(observationRegistry.getCurrentObservation().getContext());
+            return null;
+        }).when(statusReporter).componentDone(anyString());
     }
 
     @Test
@@ -111,6 +148,122 @@ class TracingTest {
                 .contains("artifactbroker_download_seconds_count");
     }
 
+            @Test
+            void notificationsContinueTheirOwnKafkaTraceAndTracestate() {
+                Observation unrelated = Observation.start("unrelated", observationRegistry);
+                try (Observation.Scope ignored = unrelated.openScope()) {
+                    String unrelatedTraceId = tracer.currentSpan().context().traceId();
+                    handler.activateCallback(distributionWithHeaders(Map.of(
+                        "traceparent", "00-" + FIRST_TRACE_ID + "-" + PARENT_SPAN_ID + "-01",
+                        "tracestate", "vendor=first")));
+                    handler.activateCallback(distributionWithHeaders(Map.of(
+                        "traceparent", "00-" + SECOND_TRACE_ID + "-" + PARENT_SPAN_ID + "-01",
+                        "tracestate", "vendor=second")));
+
+                    assertThat(tracer.currentSpan().context().traceId()).isEqualTo(unrelatedTraceId);
+                    assertThat(observationRegistry.getCurrentObservation()).isSameAs(unrelated);
+                } finally {
+                    unrelated.stop();
+                }
+
+            assertThat(distributionSpans).extracting(TraceContext::traceId)
+                .containsExactly(FIRST_TRACE_ID, SECOND_TRACE_ID);
+            assertThat(distributionSpans).extracting(TraceContext::parentId).containsOnly(PARENT_SPAN_ID);
+            assertThat(distributionContexts).allSatisfy(context ->
+                assertThat(context).isInstanceOfSatisfying(ReceiverContext.class,
+                    receiver -> assertThat(receiver.getKind()).isEqualTo(Kind.CONSUMER)));
+            assertThat(k8sPlugin.traceparents).extracting(header -> header.split("-")[1])
+                .containsExactly(FIRST_TRACE_ID, FIRST_TRACE_ID, SECOND_TRACE_ID, SECOND_TRACE_ID);
+            assertThat(k8sPlugin.traceparents).allMatch(header -> header.endsWith("-01"));
+            assertThat(k8sPlugin.tracestates).containsExactly(
+                "vendor=first", "vendor=first", "vendor=second", "vendor=second");
+            assertThat(tracer.currentSpan()).isNull();
+            assertThat(observationRegistry.getCurrentObservation()).isNull();
+            }
+
+            @ParameterizedTest
+            @ValueSource(strings = {"", "invalid"})
+            void missingOrInvalidParentsDoNotInheritAnUnrelatedObservation(String traceparent) {
+            Observation unrelated = Observation.start("unrelated", observationRegistry);
+            try (Observation.Scope ignored = unrelated.openScope()) {
+                String unrelatedTraceId = tracer.currentSpan().context().traceId();
+                Map<String, String> headers = traceparent.isEmpty() ? Map.of() : Map.of("traceparent", traceparent);
+
+                handler.activateCallback(distributionWithHeaders(headers));
+                handler.activateCallback(distributionWithHeaders(headers));
+
+                assertThat(distributionSpans).extracting(TraceContext::traceId)
+                    .doesNotContain(unrelatedTraceId).doesNotHaveDuplicates();
+                assertThat(distributionSpans).extracting(TraceContext::parentId).containsOnlyNulls();
+                assertThat(tracer.currentSpan().context().traceId()).isEqualTo(unrelatedTraceId);
+                assertThat(observationRegistry.getCurrentObservation()).isSameAs(unrelated);
+            } finally {
+                unrelated.stop();
+            }
+            }
+
+            @Test
+            void anUnsampledRemoteParentRemainsUnsampled() {
+            handler.activateCallback(distributionWithHeaders(Map.of(
+                "traceparent", "00-" + FIRST_TRACE_ID + "-" + PARENT_SPAN_ID + "-00")));
+
+            assertThat(distributionSpans).extracting(TraceContext::traceId).containsExactly(FIRST_TRACE_ID);
+            assertThat(k8sPlugin.traceparents).hasSize(2).allMatch(header -> header.endsWith("-00"));
+            }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"", "invalid"})
+        void notificationsDoNotInheritAnUnrelatedOpenTelemetryContext(String traceparent) {
+            SpanContext unrelated = SpanContext.create(SECOND_TRACE_ID, PARENT_SPAN_ID,
+                    TraceFlags.getSampled(), TraceState.getDefault());
+            try (Scope ignored = Context.root().with(Span.wrap(unrelated)).makeCurrent()) {
+                assertThat(observationRegistry.getCurrentObservation()).isNull();
+                Map<String, String> headers = traceparent.isEmpty() ? Map.of() : Map.of("traceparent", traceparent);
+                handler.activateCallback(distributionWithHeaders(headers));
+                INotificationData failing = distributionWithHeaders(headers);
+                IllegalStateException failure = new IllegalStateException("cannot read notification");
+                when(failing.getResources()).thenThrow(failure);
+
+                assertThatThrownBy(() -> handler.activateCallback(failing)).isSameAs(failure);
+                assertThat(Span.current().getSpanContext()).isEqualTo(unrelated);
+                assertThat(observationRegistry.getCurrentObservation()).isNull();
+                handler.activateCallback(distributionWithHeaders(headers));
+
+                assertThat(distributionSpans).extracting(TraceContext::traceId)
+                        .doesNotContain(SECOND_TRACE_ID).doesNotHaveDuplicates();
+                assertThat(distributionSpans).extracting(TraceContext::parentId).containsOnlyNulls();
+                assertThat(Span.current().getSpanContext()).isEqualTo(unrelated);
+                assertThat(observationRegistry.getCurrentObservation()).isNull();
+            }
+            assertThat(Span.current().getSpanContext().isValid()).isFalse();
+        }
+
+            @Test
+            void callbackFailureRestoresTheCallerAndDoesNotContaminateTheNextNotification() {
+            INotificationData failing = distributionWithHeaders(Map.of(
+                "traceparent", "00-" + FIRST_TRACE_ID + "-" + PARENT_SPAN_ID + "-01"));
+            IllegalStateException failure = new IllegalStateException("cannot read notification");
+            when(failing.getResources()).thenThrow(failure);
+            Observation unrelated = Observation.start("unrelated", observationRegistry);
+            try (Observation.Scope ignored = unrelated.openScope()) {
+                String unrelatedTraceId = tracer.currentSpan().context().traceId();
+
+                assertThatThrownBy(() -> handler.activateCallback(failing)).isSameAs(failure);
+
+                assertThat(tracer.currentSpan().context().traceId()).isEqualTo(unrelatedTraceId);
+                assertThat(observationRegistry.getCurrentObservation()).isSameAs(unrelated);
+                handler.activateCallback(distributionWithHeaders(Map.of()));
+                assertThat(distributionSpans).extracting(TraceContext::traceId)
+                    .doesNotContain(FIRST_TRACE_ID, unrelatedTraceId);
+                assertThat(tracer.currentSpan().context().traceId()).isEqualTo(unrelatedTraceId);
+                assertThat(observationRegistry.getCurrentObservation()).isSameAs(unrelated);
+            } finally {
+                unrelated.stop();
+            }
+            assertThat(tracer.currentSpan()).isNull();
+            assertThat(observationRegistry.getCurrentObservation()).isNull();
+            }
+
     @Nested
     @TestPropertySource(properties = "management.tracing.export.otlp.enabled=true")
     class Export {
@@ -133,6 +286,12 @@ class TracingTest {
     private INotificationData distributionOfOneChart() {
         return notification(artifact("meta-1", "VF_MODULES_METADATA", MODULES.getBytes(UTF_8)),
                 artifact("helm-1", "HELM", CHART));
+    }
+
+    private INotificationData distributionWithHeaders(Map<String, String> headers) {
+        INotificationData notification = distributionOfOneChart();
+        when(notification.getMessageContext()).thenReturn(new NotificationMessageContext("distribution", 0, 1, headers));
+        return notification;
     }
 
     private IArtifactInfo artifact(String uuid, String type, byte[] payload) {
@@ -161,12 +320,14 @@ class TracingTest {
     static class K8sPluginStub implements RestClientCustomizer {
 
         private final List<String> traceparents = new ArrayList<>();
+        private final List<String> tracestates = new ArrayList<>();
 
         @Override
         public void customize(RestClient.Builder builder) {
             MockRestServiceServer.bindTo(builder).build()
                     .expect(manyTimes(), anything())
                     .andExpect(request -> traceparents.add(request.getHeaders().getFirst("traceparent")))
+                    .andExpect(request -> tracestates.add(request.getHeaders().getFirst("tracestate")))
                     .andRespond(withSuccess());
         }
     }
