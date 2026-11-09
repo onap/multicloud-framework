@@ -59,7 +59,7 @@ jobs:
           - module: multivimbroker
             sonar_project_key: onap_multicloud-framework-multivimbroker
     # yamllint disable-line rule:line-length
-    uses: lfreleng-actions/security-workflows/.github/workflows/sonarqube-cloud.yaml@378fcc19ebdf37f17fde4888d4b71c83b21d6cf3  # v0.9.7
+    uses: lfreleng-actions/security-workflows/.github/workflows/sonarqube-cloud.yaml@b9d7b83b5696ab8388bcc11c3fe931563861e258  # v0.10.0
     with:
       # Same SonarCloud projects the Jenkins jobs report to, so the
       # migration does not fork either analysis history.
